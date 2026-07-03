@@ -1190,6 +1190,17 @@ footer{
       </div>
 
       <div class="panel">
+        <h2 id="txt-h-armorsets">SETS DE ARMADURA GUARDADOS</h2>
+        <div class="save-row">
+          <input type="text" id="armorSetNameInput">
+          <button class="btn" id="saveArmorSetBtn"></button>
+        </div>
+        <div class="builds-list" id="armorSetsList"></div>
+        <p class="empty-note" id="armorSetsEmptyNote"></p>
+        <div id="armorSetsCompareBox"></div>
+      </div>
+
+      <div class="panel">
         <h2 id="txt-h-loadout">LOADOUT DE ARMAS (HASTA 5)</h2>
         <p class="summary-empty" id="txt-loadout-note"></p>
         <div id="weaponLoadoutBox"></div>
@@ -1348,6 +1359,13 @@ const STRINGS = {
     loadoutSearchPlaceholder: "Buscar arma para este slot...",
     loadoutEmptySlot: (n)=> `Slot ${n}: — vacío —`,
     loadoutAddWeapon: "+ Agregar arma",
+    hArmorSets: "SETS DE ARMADURA GUARDADOS",
+    armorSetNamePlaceholder: "Nombre del set...",
+    noArmorSets: "Aún no hay sets de armadura guardados.",
+    armorSetsCompareTitle: "COMPARAR DOS SETS",
+    armorSetsCompareA: "Set A", armorSetsCompareB: "Set B",
+    armorSetsCompareNone: "— Ninguno —",
+    armorSetsComparePick: "Elegí dos sets guardados para comparar sus resistencias.",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Buscar arma (ej. 10mm, Fatman...)",
     onlyCompat: "Mostrar solo cartas compatibles",
@@ -1383,7 +1401,7 @@ const STRINGS = {
       ["pending","Comparador de 2 builds"],
       ["done","Switchboard de estado (Humano/Ghoul conectado a 25 cartas reales; HP%/Fed/equipo/día-noche guardados, pendiente conectar a stats)"],
       ["done","Multi-arma (hasta 5) con mods + efecto legendario configurables — loadout independiente del filtro de arma de perks"],
-      ["pending","Sets de armadura múltiples, guardables y comparables"],
+      ["done","Sets de armadura múltiples, guardables y comparables (compara DR/ER/RR/Cryo de 2 sets guardados)"],
       ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
       ["done","Resistencias completas: DR/ER/RR/Cryo reales desde armadura equipada (compartido con pestaña STAT); Veneno/Fuego/Evasion marcados explícitamente 'no modelado' (sin dato verificado)"],
       ["done","Panel de efectos activos en vivo"],
@@ -1493,6 +1511,13 @@ const STRINGS = {
     loadoutSearchPlaceholder: "Search weapon for this slot...",
     loadoutEmptySlot: (n)=> `Slot ${n}: — empty —`,
     loadoutAddWeapon: "+ Add weapon",
+    hArmorSets: "SAVED ARMOR SETS",
+    armorSetNamePlaceholder: "Set name...",
+    noArmorSets: "No saved armor sets yet.",
+    armorSetsCompareTitle: "COMPARE TWO SETS",
+    armorSetsCompareA: "Set A", armorSetsCompareB: "Set B",
+    armorSetsCompareNone: "— None —",
+    armorSetsComparePick: "Pick two saved sets to compare their resistances.",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Search weapon (e.g. 10mm, Fatman...)",
     onlyCompat: "Show only compatible cards",
@@ -1528,7 +1553,7 @@ const STRINGS = {
       ["pending","2-build comparison"],
       ["done","Character state switchboard (Human/Ghoul wired to 25 real cards; HP%/Fed/team/day-night saved, pending stat wiring)"],
       ["done","Multi-weapon (up to 5) with configurable mods + legendary effect — loadout independent from the perk-card weapon filter"],
-      ["pending","Multiple saveable/comparable armor sets"],
+      ["done","Multiple saveable/comparable armor sets (compares DR/ER/RR/Cryo of 2 saved sets)"],
       ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
       ["done","Full resistances: real DR/ER/RR/Cryo from equipped armor (shared with STAT tab); Poison/Fire/Evasion explicitly marked 'not modeled' (no verified data)"],
       ["done","Live active-effects panel"],
@@ -1933,6 +1958,10 @@ function renderStaticText(){
   document.getElementById('buildNameInput').placeholder = t.buildPlaceholder;
   document.getElementById('saveBuildBtn').textContent = t.save;
   document.getElementById('buildsEmptyNote').textContent = t.noBuilds;
+  document.getElementById('txt-h-armorsets').textContent = t.hArmorSets;
+  document.getElementById('armorSetNameInput').placeholder = t.armorSetNamePlaceholder;
+  document.getElementById('saveArmorSetBtn').textContent = t.save;
+  document.getElementById('armorSetsEmptyNote').textContent = t.noArmorSets;
   document.getElementById('txt-h-roadmap').textContent = t.hRoadmap;
   document.getElementById('searchInput').placeholder = t.searchPlaceholder;
   document.getElementById('txt-footer').textContent = t.footer;
@@ -2460,12 +2489,19 @@ function armorOptionsList(){
 // Power Armor: returns the frame's flat DR/ER plus the %damage/%radiation
 // reduction from installed pieces — different units than regular armor's
 // flat DR/ER/RR, so callers branch on `usingPA` rather than mixing them.
-function computeArmorResistances(){
-  const paToggle = document.getElementById('usePowerArmorToggle');
-  const usingPA = paToggle ? paToggle.checked : false;
+// Optional params let this be reused for arbitrary saved armor sets (e.g.
+// the armor-set comparison view), not just the live equipped state — when
+// omitted, it reads the live state/DOM exactly like before.
+function computeArmorResistances(armorSlots, paPieces, usingPA){
+  if(armorSlots === undefined){
+    const paToggle = document.getElementById('usePowerArmorToggle');
+    usingPA = paToggle ? paToggle.checked : false;
+    armorSlots = state.armorSlots;
+    paPieces = state.paPieces;
+  }
 
   if(usingPA){
-    const pieces = state.paPieces || 0;
+    const pieces = paPieces || 0;
     return {
       usingPA: true,
       flatDrEr: ARMOR_DATA.power_armor_frame.base_flat_dr_er,
@@ -2476,7 +2512,7 @@ function computeArmorResistances(){
 
   let dr=0, er=0, rr=0, cryo=0, verifiedCount=0, totalCount=0;
   for(const slot of ARMOR_SLOTS){
-    const key = (state.armorSlots||{})[slot];
+    const key = (armorSlots||{})[slot];
     if(!key) continue;
     totalCount++;
     const set = ARMOR_DATA.verified_sets.find(s=>s.key===key);
@@ -3133,6 +3169,7 @@ function renderAll(){
   renderWeaponLoadout();
   renderGrid();
   renderBuildsList();
+  renderArmorSetsList();
   renderLevelProgressChart();
   renderStatSummary();
   renderEquippedSummary();
@@ -3244,6 +3281,140 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
   nameInput.value = "";
   renderBuildsList();
 });
+
+// Saved armor sets: same save/load/duplicate/delete pattern as builds above,
+// scoped to just armorSlots + paPieces + usingPA so a user can keep several
+// named armor configurations without overwriting their full character build.
+const ARMOR_SETS_STORAGE_KEY = "fo76_armor_sets_v1";
+function loadArmorSets(){
+  try{ return JSON.parse(localStorage.getItem(ARMOR_SETS_STORAGE_KEY)) || []; }catch(e){ return []; }
+}
+function saveArmorSets(sets){ localStorage.setItem(ARMOR_SETS_STORAGE_KEY, JSON.stringify(sets)); }
+
+function renderArmorSetsList(){
+  const t = T();
+  const sets = loadArmorSets();
+  const list = document.getElementById('armorSetsList');
+  const empty = document.getElementById('armorSetsEmptyNote');
+  list.innerHTML = "";
+  empty.style.display = sets.length ? "none" : "block";
+  sets.forEach((s, idx)=>{
+    const row = document.createElement('div');
+    row.className = "build-item";
+    row.innerHTML = `
+      <span class="bname">${s.name}</span>
+      <span class="bactions">
+        <button data-i="${idx}" data-act="load">${t.load}</button>
+        <button data-i="${idx}" data-act="dup">${t.dup}</button>
+        <button data-i="${idx}" data-act="del" class="del">${t.del}</button>
+      </span>
+    `;
+    list.appendChild(row);
+  });
+  list.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const idx = parseInt(btn.dataset.i);
+      const act = btn.dataset.act;
+      const sets = loadArmorSets();
+      if(act === "load"){
+        const s = sets[idx];
+        state.armorSlots = {...s.armorSlots};
+        state.paPieces = s.paPieces || 0;
+        document.getElementById('usePowerArmorToggle').checked = !!s.usingPA;
+        renderAll();
+      } else if(act === "dup"){
+        const s = JSON.parse(JSON.stringify(sets[idx]));
+        s.name = s.name + " (copy)";
+        sets.push(s);
+        saveArmorSets(sets);
+        renderArmorSetsList();
+      } else if(act === "del"){
+        sets.splice(idx,1);
+        saveArmorSets(sets);
+        renderArmorSetsList();
+      }
+    });
+  });
+  renderArmorSetsCompare();
+}
+document.getElementById('saveArmorSetBtn').addEventListener('click', ()=>{
+  const nameInput = document.getElementById('armorSetNameInput');
+  const name = nameInput.value.trim() || ("Armor " + new Date().toLocaleString());
+  const sets = loadArmorSets();
+  sets.push({
+    name,
+    armorSlots: {...state.armorSlots},
+    paPieces: state.paPieces,
+    usingPA: document.getElementById('usePowerArmorToggle').checked
+  });
+  saveArmorSets(sets);
+  nameInput.value = "";
+  renderArmorSetsList();
+});
+
+// Side-by-side resistance comparison of two saved armor sets, reusing
+// computeArmorResistances() with explicit params instead of live state.
+function renderArmorSetsCompare(){
+  const t = T();
+  const box = document.getElementById('armorSetsCompareBox');
+  const sets = loadArmorSets();
+  if(sets.length < 2){ box.innerHTML = ""; return; }
+
+  const optsHtml = sets.map((s,i)=>`<option value="${i}">${s.name}</option>`).join('');
+  const prevA = box.dataset.a || "0";
+  const prevB = box.dataset.b || "1";
+
+  const renderStatBlock = (label, idxVal) => {
+    if(idxVal === ""){
+      return `<div class="pb-def-stat"><div class="ss-lbl">${label}</div><div class="ss-val">—</div></div>`;
+    }
+    const s = sets[parseInt(idxVal)];
+    if(!s) return '';
+    const res = computeArmorResistances(s.armorSlots, s.paPieces, s.usingPA);
+    if(res.usingPA){
+      return `
+        <div class="armor-totals">
+          <div class="pb-def-stat"><div class="ss-lbl">${label}: ${s.name}</div><div class="ss-val">DR/ER ${res.flatDrEr}</div></div>
+          <div class="pb-def-stat"><div class="ss-lbl">DMG</div><div class="ss-val">${res.dmgPct}%</div></div>
+          <div class="pb-def-stat"><div class="ss-lbl">RAD</div><div class="ss-val">${res.radPct}%</div></div>
+        </div>`;
+    }
+    return `
+      <div class="armor-totals">
+        <div class="pb-def-stat"><div class="ss-lbl">${label}: ${s.name}</div><div class="ss-val">${t.defDR} ${res.dr}</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">${t.defER}</div><div class="ss-val">${res.er}</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">${t.defRR}</div><div class="ss-val">${res.rr}</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">${t.defCryo||'CRYO'}</div><div class="ss-val">${res.cryo}</div></div>
+      </div>`;
+  };
+
+  box.innerHTML = `
+    <div class="summary-sub">${t.armorSetsCompareTitle}</div>
+    <div class="summary-empty">${t.armorSetsComparePick}</div>
+    <div class="mods-box">
+      <label>${t.armorSetsCompareA}
+        <select id="armorSetCompareA">${optsHtml}</select>
+      </label>
+      <label style="margin-left:12px;">${t.armorSetsCompareB}
+        <select id="armorSetCompareB">${optsHtml}</select>
+      </label>
+    </div>
+    <div id="armorSetCompareResult"></div>
+  `;
+  const selA = document.getElementById('armorSetCompareA');
+  const selB = document.getElementById('armorSetCompareB');
+  selA.value = Math.min(parseInt(prevA), sets.length-1);
+  selB.value = Math.min(parseInt(prevB), sets.length-1);
+  const renderResult = ()=>{
+    box.dataset.a = selA.value;
+    box.dataset.b = selB.value;
+    document.getElementById('armorSetCompareResult').innerHTML =
+      renderStatBlock(t.armorSetsCompareA, selA.value) + renderStatBlock(t.armorSetsCompareB, selB.value);
+  };
+  selA.addEventListener('change', renderResult);
+  selB.addEventListener('change', renderResult);
+  renderResult();
+}
 
 renderWeaponSearch();
 renderAll();
