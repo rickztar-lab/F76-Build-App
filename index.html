@@ -805,6 +805,8 @@ header.top .sub{
 }
 .armor-tag-verified{color:var(--green);font-size:8px;border:1px solid var(--green-dim);padding:0 4px;border-radius:2px;margin-left:4px;}
 .armor-tag-qual{color:var(--text-dim);font-size:8px;border:1px solid var(--line);padding:0 4px;border-radius:2px;margin-left:4px;}
+.build-compare-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+.build-compare-grid .mods-box{flex:1 1 260px;}
 .pa-frame-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:6px;}
 .raid-card{
   background:var(--bg-card);
@@ -1219,6 +1221,12 @@ footer{
       </div>
 
       <div class="panel">
+        <h2 id="txt-h-buildcompare">COMPARADOR DE 2 BUILDS</h2>
+        <p class="summary-empty" id="txt-buildcompare-note"></p>
+        <div id="buildCompareBox"></div>
+      </div>
+
+      <div class="panel">
         <h2 id="txt-h-levelprogress">PROGRESO DE NIVEL (HITOS)</h2>
         <p class="levelprogress-note" id="txt-levelprogress-note"></p>
         <div id="levelProgressBox"></div>
@@ -1365,6 +1373,16 @@ const STRINGS = {
     armorSetsCompareA: "Set A", armorSetsCompareB: "Set B",
     armorSetsCompareNone: "— Ninguno —",
     armorSetsComparePick: "Elegí dos sets guardados para comparar sus resistencias.",
+    hBuildCompare: "COMPARADOR DE 2 BUILDS",
+    buildCompareNote: "Comparación de solo lectura — no carga ninguna build, solo muestra sus números lado a lado.",
+    buildCompareNeedTwo: "Necesitás al menos 2 builds guardadas para comparar.",
+    buildCompareA: "Build A", buildCompareB: "Build B",
+    bcSpecial: "S.P.E.C.I.A.L. (efectivo)",
+    bcDerived: "STATS DERIVADOS",
+    bcDef: "RESISTENCIAS (DEF)",
+    bcLevel: "Nivel",
+    bcLegendaries: "Legendarias equipadas",
+    bcMutations: "Mutaciones activas",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Buscar arma (ej. 10mm, Fatman...)",
     onlyCompat: "Mostrar solo cartas compatibles",
@@ -1397,7 +1415,7 @@ const STRINGS = {
       ["done","Armadura (3 sets verificados + 14 cualitativos) + marco de Power Armor"],
       ["done","Recomendador de build: plantillas curadas — Gleaming Depths (5 encuentros)"],
       ["pending","Recomendador: motor de reglas dinámico (elige arma/armadura → build automática)"],
-      ["pending","Comparador de 2 builds"],
+      ["done","Comparador de 2 builds (SPECIAL efectivo, derivados, DEF, legendarias, mutaciones — solo lectura)"],
       ["done","Switchboard de estado (Humano/Ghoul conectado a 25 cartas reales; HP%/Fed/equipo/día-noche guardados, pendiente conectar a stats)"],
       ["done","Multi-arma (hasta 5) con mods + efecto legendario configurables — loadout independiente del filtro de arma de perks"],
       ["done","Sets de armadura múltiples, guardables y comparables (compara DR/ER/RR/Cryo de 2 sets guardados)"],
@@ -1516,6 +1534,16 @@ const STRINGS = {
     armorSetsCompareA: "Set A", armorSetsCompareB: "Set B",
     armorSetsCompareNone: "— None —",
     armorSetsComparePick: "Pick two saved sets to compare their resistances.",
+    hBuildCompare: "COMPARE 2 BUILDS",
+    buildCompareNote: "Read-only comparison — doesn't load either build, just shows their numbers side by side.",
+    buildCompareNeedTwo: "You need at least 2 saved builds to compare.",
+    buildCompareA: "Build A", buildCompareB: "Build B",
+    bcSpecial: "S.P.E.C.I.A.L. (effective)",
+    bcDerived: "DERIVED STATS",
+    bcDef: "RESISTANCES (DEF)",
+    bcLevel: "Level",
+    bcLegendaries: "Equipped legendaries",
+    bcMutations: "Active mutations",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Search weapon (e.g. 10mm, Fatman...)",
     onlyCompat: "Show only compatible cards",
@@ -1548,7 +1576,7 @@ const STRINGS = {
       ["done","Armor (3 verified sets + 14 qualitative) + Power Armor frame"],
       ["done","Build recommender: curated templates — Gleaming Depths (5 encounters)"],
       ["pending","Recommender: dynamic rules engine (pick weapon/armor → auto build)"],
-      ["pending","2-build comparison"],
+      ["done","2-build comparison (effective SPECIAL, derived stats, DEF, legendaries, mutations — read-only)"],
       ["done","Character state switchboard (Human/Ghoul wired to 25 real cards; HP%/Fed/team/day-night saved, pending stat wiring)"],
       ["done","Multi-weapon (up to 5) with configurable mods + legendary effect — loadout independent from the perk-card weapon filter"],
       ["done","Multiple saveable/comparable armor sets (compares DR/ER/RR/Cryo of 2 saved sets)"],
@@ -1857,8 +1885,16 @@ const LEGENDARY_RANKUP_COSTS = [50,100,150];
 // game caps usable perk slots at 15 even if the real attribute is higher.
 // Class Freak (Luck perk, ranks 1-3) reduces mutation NEGATIVE effects by
 // 25/50/75% per its equipped rank — verified in perks.json description text.
-function getEffectiveSpecial(){
-  const classFreakRank = state.perkRanks['Class Freak'] || 0;
+// Optional `src` param lets this compute the effective SPECIAL for an
+// arbitrary saved build (e.g. the build comparator) instead of only the
+// live state — when omitted, it reads state.special/perkRanks/
+// legendaryPerks/activeMutations exactly like before. Same defensive
+// pattern already used for computeArmorResistances().
+function getEffectiveSpecial(src){
+  if(src === undefined){
+    src = { special: state.special, perkRanks: state.perkRanks, legendaryPerks: state.legendaryPerks, activeMutations: state.activeMutations };
+  }
+  const classFreakRank = src.perkRanks['Class Freak'] || 0;
   const reduction = classFreakRank * 0.25;
 
   const result = {};
@@ -1867,11 +1903,11 @@ function getEffectiveSpecial(){
   for(const s of SPECIAL_LIST){
     const key = s.key;
     let legendaryBonus = 0;
-    const lp = state.legendaryPerks.find(x => x && x.name === ('Legendary ' + key));
+    const lp = src.legendaryPerks.find(x => x && x.name === ('Legendary ' + key));
     if(lp) legendaryBonus = LEGENDARY_SPECIAL_BONUS_BY_RANK[lp.rank] || 0;
 
     let mutationDelta = 0;
-    for(const mKey of state.activeMutations){
+    for(const mKey of src.activeMutations){
       const mut = MUTATIONS.find(m => m.key === mKey);
       if(!mut) continue;
       mutationDelta += (mut.positive.special[key] || 0);
@@ -1880,9 +1916,9 @@ function getEffectiveSpecial(){
       mutationDelta += neg;
     }
 
-    const raw = state.special[key] + legendaryBonus + mutationDelta;
+    const raw = src.special[key] + legendaryBonus + mutationDelta;
     result[key] = {
-      base: state.special[key],
+      base: src.special[key],
       legendaryBonus,
       mutationDelta,
       raw,
@@ -1890,7 +1926,7 @@ function getEffectiveSpecial(){
     };
   }
 
-  for(const mKey of state.activeMutations){
+  for(const mKey of src.activeMutations){
     const mut = MUTATIONS.find(m => m.key === mKey);
     if(!mut) continue;
     hpDelta += (mut.positive.maxHP || 0);
@@ -2003,6 +2039,8 @@ function renderStaticText(){
   document.getElementById('buildNameInput').placeholder = t.buildPlaceholder;
   document.getElementById('saveBuildBtn').textContent = t.save;
   document.getElementById('buildsEmptyNote').textContent = t.noBuilds;
+  document.getElementById('txt-h-buildcompare').textContent = t.hBuildCompare;
+  document.getElementById('txt-buildcompare-note').textContent = t.buildCompareNote;
   document.getElementById('txt-h-armorsets').textContent = t.hArmorSets;
   document.getElementById('armorSetNameInput').placeholder = t.armorSetNamePlaceholder;
   document.getElementById('saveArmorSetBtn').textContent = t.save;
@@ -2127,12 +2165,20 @@ function renderSpecialPanel(){
   renderDerived();
 }
 
+// Pure formula, shared by the live STAT tab (renderDerived) and the build
+// comparator (which needs these numbers for saved builds without touching
+// the DOM). Takes an already-computed getEffectiveSpecial() result.
+function computeDerivedStats(eff){
+  return {
+    hp: Math.round(250 + 5*eff.Endurance.raw + eff._extra.hpDelta),
+    ap: Math.round(60 + 10*eff.Agility.raw),
+    cw: Math.round(155 + 5*eff.Strength.raw + eff._extra.carryWeightDelta),
+    xp: Math.round(3*eff.Intelligence.raw)
+  };
+}
 function renderDerived(){
   const eff = getEffectiveSpecial();
-  const hp = Math.round(250 + 5*eff.Endurance.raw + eff._extra.hpDelta);
-  const ap = Math.round(60 + 10*eff.Agility.raw);
-  const cw = Math.round(155 + 5*eff.Strength.raw + eff._extra.carryWeightDelta);
-  const xp = Math.round(3*eff.Intelligence.raw);
+  const {hp, ap, cw, xp} = computeDerivedStats(eff);
   document.getElementById('statHP').textContent = hp;
   document.getElementById('statAP').textContent = ap;
   document.getElementById('statCW').textContent = cw + " lb";
@@ -3325,6 +3371,7 @@ function renderBuildsList(){
       }
     });
   });
+  renderBuildCompare();
 }
 document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
   const nameInput = document.getElementById('buildNameInput');
@@ -3351,6 +3398,92 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
   nameInput.value = "";
   renderBuildsList();
 });
+
+// Side-by-side, read-only comparison of two saved builds. Reuses
+// getEffectiveSpecial(src) and computeArmorResistances(...) with explicit
+// params (both already support that) instead of touching live state, so
+// comparing builds never loads/overwrites the character you're editing.
+function renderBuildCompare(){
+  const t = T();
+  const box = document.getElementById('buildCompareBox');
+  const builds = loadBuilds();
+  if(builds.length < 2){ box.innerHTML = `<div class="summary-empty">${t.buildCompareNeedTwo}</div>`; return; }
+
+  const optsHtml = builds.map((b,i)=>`<option value="${i}">${b.name}</option>`).join('');
+  const prevA = box.dataset.a || "0";
+  const prevB = box.dataset.b || "1";
+
+  const statsFor = (b) => {
+    const src = {
+      special: b.special,
+      perkRanks: b.perkRanks || {},
+      legendaryPerks: b.legendaryPerks || [null,null,null,null,null,null],
+      activeMutations: b.activeMutations || []
+    };
+    const eff = getEffectiveSpecial(src);
+    const derived = computeDerivedStats(eff);
+    const armorRes = computeArmorResistances(b.armorSlots || {}, migratePAPieceSlots(b), !!b.usingPA);
+    return {eff, derived, armorRes};
+  };
+
+  const renderBuildBlock = (label, idxVal) => {
+    if(idxVal === "" || !builds[parseInt(idxVal)]) return '';
+    const b = builds[parseInt(idxVal)];
+    const {eff, derived, armorRes} = statsFor(b);
+    const specialHtml = SPECIAL_LIST.map(s=>{
+      const key = s.key;
+      const base = eff[key].base, capped = eff[key].capped;
+      const diff = capped !== base;
+      return `<div class="sl-item">${t.special[key]}: ${base}${diff?` → ${capped}`:''}</div>`;
+    }).join('');
+    const defHtml = armorRes.usingPA
+      ? `<div class="sl-item">DR/ER ${armorRes.flatDrEr} · DMG ${armorRes.dmgPct}% · RAD ${armorRes.radPct}%</div>`
+      : `<div class="sl-item">${t.defDR} ${armorRes.dr} · ${t.defER} ${armorRes.er} · ${t.defRR} ${armorRes.rr} · ${t.defCryo} ${armorRes.cryo}</div>`;
+    const legNames = (b.legendaryPerks||[]).filter(Boolean).map(lp=>`${lp.name} (${lp.rank}/4)`);
+    const mutNames = (b.activeMutations||[]).map(mKey => { const m = MUTATIONS.find(x=>x.key===mKey); return m ? m.name : mKey; });
+    return `
+      <div class="mods-box">
+        <div class="mb-title">${label}: ${b.name}</div>
+        <div class="summary-sub">${t.bcLevel}</div>
+        <div class="sl-item">${b.charLevel || 50}</div>
+        <div class="summary-sub">${t.bcSpecial}</div>
+        <div class="summary-list">${specialHtml}</div>
+        <div class="summary-sub">${t.bcDerived}</div>
+        <div class="sl-item">HP ${derived.hp} · AP ${derived.ap} · CW ${derived.cw} lb · XP +${derived.xp}%</div>
+        <div class="summary-sub">${t.bcDef}</div>
+        ${defHtml}
+        <div class="summary-sub">${t.bcLegendaries}</div>
+        <div class="summary-list">${legNames.length ? legNames.map(n=>`<div class="sl-item">${n}</div>`).join('') : `<div class="summary-empty">${t.summaryNoneEquipped}</div>`}</div>
+        <div class="summary-sub">${t.bcMutations}</div>
+        <div class="summary-list">${mutNames.length ? mutNames.map(n=>`<div class="sl-item">${n}</div>`).join('') : `<div class="summary-empty">${t.summaryNoneActive}</div>`}</div>
+      </div>`;
+  };
+
+  box.innerHTML = `
+    <div class="mods-box">
+      <label>${t.buildCompareA}
+        <select id="buildCompareASelect">${optsHtml}</select>
+      </label>
+      <label style="margin-left:12px;">${t.buildCompareB}
+        <select id="buildCompareBSelect">${optsHtml}</select>
+      </label>
+    </div>
+    <div class="build-compare-grid" id="buildCompareResult"></div>
+  `;
+  const selA = document.getElementById('buildCompareASelect');
+  const selB = document.getElementById('buildCompareBSelect');
+  selA.value = Math.min(parseInt(prevA), builds.length-1);
+  selB.value = Math.min(parseInt(prevB), builds.length-1);
+  const renderResult = ()=>{
+    box.dataset.a = selA.value;
+    box.dataset.b = selB.value;
+    document.getElementById('buildCompareResult').innerHTML =
+      renderBuildBlock(t.buildCompareA, selA.value) + renderBuildBlock(t.buildCompareB, selB.value);
+  };
+  selA.addEventListener('change', renderResult);
+  selB.addEventListener('change', renderResult);
+  renderResult();
+}
 
 // Saved armor sets: same save/load/duplicate/delete pattern as builds above,
 // scoped to just armorSlots + paPieceSlots + usingPA so a user can keep

@@ -73,6 +73,15 @@ que se haya modificado intencionalmente la fórmula (ej. el % de Class Freak,
 el bono por rango de legendarias, o el efecto de Marsupial en
 `data_mutations.js`), es una regresión.
 
+**Desde el comparador de builds**: `getEffectiveSpecial(src)` acepta un
+parámetro opcional `src` (`{special, perkRanks, legendaryPerks,
+activeMutations}`) para calcular el SPECIAL efectivo de una build guardada
+sin tocar `state`. Al validar el Caso A/B, probar TAMBIÉN la llamada sin
+argumentos (`getEffectiveSpecial()`, lee `state` como siempre) y la llamada
+con `src` explícito con los mismos valores — ambas deben dar el mismo
+resultado. Si alguna vez difieren, es una regresión del refactor, no de la
+fórmula en sí.
+
 ## 4. Guardado/carga de builds
 
 1. Crear un build nuevo, nombrarlo, guardar.
