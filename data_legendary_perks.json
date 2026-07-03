@@ -1,0 +1,132 @@
+[
+  {"name":"Ammo Factory","special":null,"ranks":[
+    {"rank":1,"desc":"Craft 50% more rounds of ammunition."},
+    {"rank":2,"desc":"Craft 75% more rounds of ammunition."},
+    {"rank":3,"desc":"Craft 100% more rounds of ammunition."},
+    {"rank":4,"desc":"Craft 150% more rounds of ammunition."}]},
+  {"name":"Blood Sacrifice!","special":null,"ranks":[
+    {"rank":1,"desc":"On your death, teammates get +25 DR and heal 40 HP over 8s."},
+    {"rank":2,"desc":"On your death, teammates get +30 DR and heal 50 HP over 10s."},
+    {"rank":3,"desc":"On your death, teammates get +35 DR and heal 60 HP over 12s."},
+    {"rank":4,"desc":"On your death, teammates get +40 DR and heal 70 HP over 14s."}]},
+  {"name":"Brawling Chemist","special":null,"ranks":[
+    {"rank":1,"desc":"Generates 1 combat chem/hour, up to 3 stored."},
+    {"rank":2,"desc":"Generates 1 combat chem every 50 min, up to 4 stored."},
+    {"rank":3,"desc":"Generates 1 combat chem every 40 min, up to 5 stored."},
+    {"rank":4,"desc":"Generates 2 combat chems every 40 min, up to 5 stored."}]},
+  {"name":"Hack and Slash","special":null,"ranks":[
+    {"rank":1,"desc":"20% chance for melee VATS hits to deal area damage."},
+    {"rank":2,"desc":"30% chance for melee VATS hits to deal area damage."},
+    {"rank":3,"desc":"40% chance for melee VATS hits to deal area damage."},
+    {"rank":4,"desc":"50% chance for melee VATS hits to deal area damage."}]},
+  {"name":"Collateral Damage","special":null,"ranks":[
+    {"rank":1,"desc":"Melee kills have a 10% chance to make the enemy explode."},
+    {"rank":2,"desc":"Melee kills have a 13% chance to make the enemy explode."},
+    {"rank":3,"desc":"Melee kills have a 16% chance to make the enemy explode."},
+    {"rank":4,"desc":"Melee kills have a 20% chance to make the enemy explode."}]},
+  {"name":"Detonation Contagion","special":null,"ranks":[
+    {"rank":1,"desc":"Kills with thrown explosives have a 20% chance to chain-explode."},
+    {"rank":2,"desc":"Kills with thrown explosives have a 23% chance to chain-explode."},
+    {"rank":3,"desc":"Kills with thrown explosives have a 26% chance to chain-explode."},
+    {"rank":4,"desc":"Kills with thrown explosives have a 30% chance to chain-explode."}]},
+  {"name":"Electric Absorption","special":null,"ranks":[
+    {"rank":1,"desc":"10% chance enemy energy attacks recharge your Power Armor fusion core."},
+    {"rank":2,"desc":"13% chance enemy energy attacks recharge your Power Armor fusion core."},
+    {"rank":3,"desc":"16% chance enemy energy attacks recharge your Power Armor fusion core."},
+    {"rank":4,"desc":"20% chance enemy energy attacks recharge your Power Armor fusion core."}]},
+  {"name":"Exploding Palm","special":null,"ranks":[
+    {"rank":1,"desc":"Unarmed hits have a 5% chance to trigger an explosion."},
+    {"rank":2,"desc":"Unarmed hits have a 10% chance to trigger an explosion."},
+    {"rank":3,"desc":"Unarmed hits have a 15% chance to trigger an explosion."},
+    {"rank":4,"desc":"Unarmed hits have a 20% chance to trigger an explosion."}]},
+  {"name":"Far-Flung Fireworks","special":null,"ranks":[
+    {"rank":1,"desc":"Ranged weapon kills have a 10% chance to make the enemy explode."},
+    {"rank":2,"desc":"Ranged weapon kills have a 13% chance to make the enemy explode."},
+    {"rank":3,"desc":"Ranged weapon kills have a 16% chance to make the enemy explode."},
+    {"rank":4,"desc":"Ranged weapon kills have a 20% chance to make the enemy explode."}]},
+  {"name":"Funky Duds","special":null,"ranks":[
+    {"rank":1,"desc":"+50 Poison Resist while wearing a full matching armor set."},
+    {"rank":2,"desc":"+100 Poison Resist while wearing a full matching armor set."},
+    {"rank":3,"desc":"+150 Poison Resist while wearing a full matching armor set."},
+    {"rank":4,"desc":"+200 Poison Resist while wearing a full matching armor set."}]},
+  {"name":"Follow Through","special":null,"ranks":[
+    {"rank":1,"desc":"Ranged sneak attacks increase damage to that target by 10% for 10s."},
+    {"rank":2,"desc":"Ranged sneak attacks increase damage to that target by 20% for 10s."},
+    {"rank":3,"desc":"Ranged sneak attacks increase damage to that target by 30% for 10s."},
+    {"rank":4,"desc":"Ranged sneak attacks increase damage to that target by 40% for 10s."}]},
+  {"name":"Legendary Agility","special":"Agility","ranks":[
+    {"rank":1,"desc":"+1 Agility and +1 usable Agility perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Agility and +2 usable Agility perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Agility and +3 usable Agility perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Agility and +5 usable Agility perk points (cap 15)."}]},
+  {"name":"Legendary Charisma","special":"Charisma","ranks":[
+    {"rank":1,"desc":"+1 Charisma and +1 usable Charisma perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Charisma and +2 usable Charisma perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Charisma and +3 usable Charisma perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Charisma and +5 usable Charisma perk points (cap 15)."}]},
+  {"name":"Legendary Endurance","special":"Endurance","ranks":[
+    {"rank":1,"desc":"+1 Endurance and +1 usable Endurance perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Endurance and +2 usable Endurance perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Endurance and +3 usable Endurance perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Endurance and +5 usable Endurance perk points (cap 15)."}]},
+  {"name":"Legendary Luck","special":"Luck","ranks":[
+    {"rank":1,"desc":"+1 Luck and +1 usable Luck perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Luck and +2 usable Luck perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Luck and +3 usable Luck perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Luck and +5 usable Luck perk points (cap 15)."}]},
+  {"name":"Legendary Intelligence","special":"Intelligence","ranks":[
+    {"rank":1,"desc":"+1 Intelligence and +1 usable Intelligence perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Intelligence and +2 usable Intelligence perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Intelligence and +3 usable Intelligence perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Intelligence and +5 usable Intelligence perk points (cap 15)."}]},
+  {"name":"Legendary Perception","special":"Perception","ranks":[
+    {"rank":1,"desc":"+1 Perception and +1 usable Perception perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Perception and +2 usable Perception perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Perception and +3 usable Perception perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Perception and +5 usable Perception perk points (cap 15)."}]},
+  {"name":"Legendary Strength","special":"Strength","ranks":[
+    {"rank":1,"desc":"+1 Strength and +1 usable Strength perk points (cap 15)."},
+    {"rank":2,"desc":"+2 Strength and +2 usable Strength perk points (cap 15)."},
+    {"rank":3,"desc":"+3 Strength and +3 usable Strength perk points (cap 15)."},
+    {"rank":4,"desc":"+5 Strength and +5 usable Strength perk points (cap 15)."}]},
+  {"name":"Master Infiltrator","special":null,"ranks":[
+    {"rank":1,"desc":"Auto-unlocks difficulty-0 terminals/locks. +3 Lockpick and Hacking."},
+    {"rank":2,"desc":"Auto-unlocks difficulty-1 terminals/locks. +3 Lockpick and Hacking."},
+    {"rank":3,"desc":"Auto-unlocks difficulty-2 terminals/locks. +3 Lockpick and Hacking."},
+    {"rank":4,"desc":"Auto-unlocks difficulty-3 terminals/locks. +3 Lockpick and Hacking."}]},
+  {"name":"Power Armor Reboot","special":null,"ranks":[
+    {"rank":1,"desc":"15% chance to auto-revive at full health if downed in Power Armor."},
+    {"rank":2,"desc":"20% chance to auto-revive at full health if downed in Power Armor."},
+    {"rank":3,"desc":"25% chance to auto-revive at full health if downed in Power Armor."},
+    {"rank":4,"desc":"40% chance to auto-revive at full health if downed in Power Armor."}]},
+  {"name":"Power Sprinter","special":null,"ranks":[
+    {"rank":1,"desc":"Sprinting in Power Armor costs 20% less AP."},
+    {"rank":2,"desc":"Sprinting in Power Armor costs 30% less AP."},
+    {"rank":3,"desc":"Sprinting in Power Armor costs 40% less AP."},
+    {"rank":4,"desc":"Sprinting in Power Armor costs 50% less AP."}]},
+  {"name":"Retribution","special":null,"ranks":[
+    {"rank":1,"desc":"After blocking, regen 1 HP and 1 AP/sec for 15s."},
+    {"rank":2,"desc":"After blocking, regen 2 HP and 2 AP/sec for 15s."},
+    {"rank":3,"desc":"After blocking, regen 3 HP and 3 AP/sec for 15s."},
+    {"rank":4,"desc":"After blocking, regen 4 HP and 4 AP/sec for 15s."}]},
+  {"name":"Sizzling Style","special":null,"ranks":[
+    {"rank":1,"desc":"+50 Fire Resist while wearing a full matching armor set."},
+    {"rank":2,"desc":"+100 Fire Resist while wearing a full matching armor set."},
+    {"rank":3,"desc":"+150 Fire Resist while wearing a full matching armor set."},
+    {"rank":4,"desc":"+200 Fire Resist while wearing a full matching armor set."}]},
+  {"name":"Survival Shortcut","special":null,"ranks":[
+    {"rank":1,"desc":"Generates 1 survival chem every 30 min, up to 5 stored."},
+    {"rank":2,"desc":"Generates 1 survival chem every 25 min, up to 6 stored."},
+    {"rank":3,"desc":"Generates 1 survival chem every 20 min, up to 7 stored."},
+    {"rank":4,"desc":"Generates 2 survival chems every 20 min, up to 10 stored."}]},
+  {"name":"Taking One for the Team","special":null,"ranks":[
+    {"rank":1,"desc":"While teamed, enemies that attack you take 10% more damage."},
+    {"rank":2,"desc":"While teamed, enemies that attack you take 20% more damage."},
+    {"rank":3,"desc":"While teamed, enemies that attack you take 30% more damage."},
+    {"rank":4,"desc":"While teamed, enemies that attack you take 40% more damage."}]},
+  {"name":"What Rads?","special":null,"ranks":[
+    {"rank":1,"desc":"+50 Rad Resist, heals 1 rad/sec."},
+    {"rank":2,"desc":"+75 Rad Resist, heals 2 rads/sec."},
+    {"rank":3,"desc":"+100 Rad Resist, heals 3 rads/sec."},
+    {"rank":4,"desc":"+300 Rad Resist, heals 6 rads/sec."}]}
+]

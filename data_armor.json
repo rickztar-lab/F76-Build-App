@@ -1,0 +1,49 @@
+{
+  "verified_sets": [
+    {
+      "key": "arctic_marine",
+      "name": "Arctic Marine",
+      "level": 50,
+      "chest": {"dr": 67, "er": 40, "rr": 35},
+      "limb": {"dr": 27, "er": 16, "rr": 0},
+      "note": "Única con Resistencia a Cryo (+20 pecho, +8 extremidad)"
+    },
+    {
+      "key": "botsmith",
+      "name": "Botsmith",
+      "level": 50,
+      "chest": {"dr": 75, "er": 30, "rr": 30},
+      "limb": {"dr": 40, "er": 20, "rr": 20}
+    },
+    {
+      "key": "brotherhood_recon",
+      "name": "Brotherhood Recon",
+      "level": 50,
+      "chest": {"dr": 100, "er": 40, "rr": 40},
+      "limb": {"dr": 50, "er": 30, "rr": 30}
+    }
+  ],
+  "qualitative_sets": [
+    {"key":"combat","name":"Combat","note":"DR/ER balanceados, sin RR, requiere nivel 20+"},
+    {"key":"leather","name":"Leather","note":"La ER más alta de todas las armaduras, DR baja"},
+    {"key":"metal","name":"Metal","note":"La DR más alta de todas las armaduras, ER muy baja"},
+    {"key":"marine","name":"Marine","note":"Balanceado DR/ER con énfasis en DR, más RR que Trapper"},
+    {"key":"trapper","name":"Trapper","note":"La RR más alta de todas, DR media, ER baja"},
+    {"key":"raider","name":"Raider","note":"Buena DR, ER relativamente débil"},
+    {"key":"robot","name":"Robot","note":"Balanceado DR/ER con RR incluida, nivel medio"},
+    {"key":"secret_service","name":"Secret Service","note":"Considerada de las mejores del juego, solo con Gold Bullion"},
+    {"key":"forest_scout","name":"Forest Scout","note":"Balance DR/ER, ligero énfasis en DR"},
+    {"key":"urban_scout","name":"Urban Scout","note":"Mismos stats que Forest Scout"},
+    {"key":"covert_scout","name":"Covert Scout","note":"Cada pieza da bono de sigilo"},
+    {"key":"solar","name":"Solar","note":"Igual a scout, siempre con 3 efectos legendarios + regen de vida en set completo"},
+    {"key":"thorn","name":"Thorn","note":"Igual a scout, siempre con 3 efectos legendarios + bono de sangrado en set completo"},
+    {"key":"wood","name":"Wood","note":"Muy ligera, algo de DR, casi nada de ER, no craftable"}
+  ],
+  "power_armor_frame": {
+    "base_flat_dr_er": 60,
+    "per_piece_damage_reduction_pct": 7,
+    "per_piece_radiation_reduction_pct": 15,
+    "max_pieces": 5,
+    "note": "Verificado: marco vacío da 60 DR/ER planos. Cada pieza instalada suma 7% de reducción de daño y 15% de reducción de radiación (multiplicativo), hasta 5 piezas = 42% daño / 90% radiación. Esto es aparte de la resistencia propia de cada modelo de PA, que aún no está desglosada por pieza."
+  }
+}
