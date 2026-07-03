@@ -1188,6 +1188,12 @@ footer{
         <div id="armorSlotsBox"></div>
         <div id="armorTotalsBox"></div>
       </div>
+
+      <div class="panel">
+        <h2 id="txt-h-loadout">LOADOUT DE ARMAS (HASTA 5)</h2>
+        <p class="summary-empty" id="txt-loadout-note"></p>
+        <div id="weaponLoadoutBox"></div>
+      </div>
       </div>
 
       <div class="tab-panel-group" data-tabgroup="data">
@@ -1337,6 +1343,11 @@ const STRINGS = {
     hWeaponLegendary: "EFECTO LEGENDARIO (1ra estrella)",
     weaponLegendaryNone: "— Ninguno —",
     weaponLegendaryNote: "Solo el efecto principal (prefijo). Escrito desde el conocimiento de Claude, NO verificado en vivo contra la wiki esta sesión (fallout.fandom.com/fextralife/fallout.wiki bloquearon el acceso) — tratar como orientativo, no como dato verificado. Efectos secundarios/terciarios (2da/3ra estrella) no están modelados.",
+    hWeaponLoadout: "LOADOUT DE ARMAS (HASTA 5)",
+    loadoutNote: "Planeá hasta 5 armas con sus mods y efecto legendario — independiente del filtro de arma de arriba (ese sigue sirviendo solo para filtrar cartas de perks compatibles).",
+    loadoutSearchPlaceholder: "Buscar arma para este slot...",
+    loadoutEmptySlot: (n)=> `Slot ${n}: — vacío —`,
+    loadoutAddWeapon: "+ Agregar arma",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Buscar arma (ej. 10mm, Fatman...)",
     onlyCompat: "Mostrar solo cartas compatibles",
@@ -1371,7 +1382,7 @@ const STRINGS = {
       ["pending","Recomendador: motor de reglas dinámico (elige arma/armadura → build automática)"],
       ["pending","Comparador de 2 builds"],
       ["done","Switchboard de estado (Humano/Ghoul conectado a 25 cartas reales; HP%/Fed/equipo/día-noche guardados, pendiente conectar a stats)"],
-      ["pending","Multi-arma (hasta 5) con mods + efecto legendario configurables"],
+      ["done","Multi-arma (hasta 5) con mods + efecto legendario configurables — loadout independiente del filtro de arma de perks"],
       ["pending","Sets de armadura múltiples, guardables y comparables"],
       ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
       ["done","Resistencias completas: DR/ER/RR/Cryo reales desde armadura equipada (compartido con pestaña STAT); Veneno/Fuego/Evasion marcados explícitamente 'no modelado' (sin dato verificado)"],
@@ -1477,6 +1488,11 @@ const STRINGS = {
     hWeaponLegendary: "LEGENDARY EFFECT (1st star)",
     weaponLegendaryNone: "— None —",
     weaponLegendaryNote: "Main effect (prefix) only. Written from Claude's trained knowledge, NOT verified live against the wiki this session (fallout.fandom.com/fextralife/fallout.wiki blocked access) — treat as indicative, not verified data. Secondary/tertiary effects (2nd/3rd star) aren't modeled.",
+    hWeaponLoadout: "WEAPON LOADOUT (UP TO 5)",
+    loadoutNote: "Plan up to 5 weapons with their own mods and legendary effect — independent from the weapon filter above (that one still only filters compatible perk cards).",
+    loadoutSearchPlaceholder: "Search weapon for this slot...",
+    loadoutEmptySlot: (n)=> `Slot ${n}: — empty —`,
+    loadoutAddWeapon: "+ Add weapon",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Search weapon (e.g. 10mm, Fatman...)",
     onlyCompat: "Show only compatible cards",
@@ -1511,7 +1527,7 @@ const STRINGS = {
       ["pending","Recommender: dynamic rules engine (pick weapon/armor → auto build)"],
       ["pending","2-build comparison"],
       ["done","Character state switchboard (Human/Ghoul wired to 25 real cards; HP%/Fed/team/day-night saved, pending stat wiring)"],
-      ["pending","Multi-weapon (up to 5) with configurable mods + legendary effect"],
+      ["done","Multi-weapon (up to 5) with configurable mods + legendary effect — loadout independent from the perk-card weapon filter"],
       ["pending","Multiple saveable/comparable armor sets"],
       ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
       ["done","Full resistances: real DR/ER/RR/Cryo from equipped armor (shared with STAT tab); Poison/Fire/Evasion explicitly marked 'not modeled' (no verified data)"],
@@ -1734,6 +1750,7 @@ let state = {
   selectedWeapon: null,
   weaponMods: {},
   weaponLegendaryEffect: null,
+  weaponLoadout: [null,null,null,null,null],
   onlyCompatible: true,
   charLevel: 50,
   legendaryPerks: [null,null,null,null,null,null],
@@ -2230,6 +2247,104 @@ function renderWeaponLegendaryBox(){
   document.getElementById('weaponLegendarySelect').addEventListener('change', (e)=>{
     state.weaponLegendaryEffect = e.target.value || null;
     renderWeaponLegendaryBox();
+  });
+}
+
+// Weapon loadout: up to 5 independently-configurable weapons (own mods +
+// legendary effect each), separate from the single `state.selectedWeapon`
+// used above for the perk-card compatibility filter — that filter behavior
+// (perkMatchesWeapon/onlyCompatible) is untouched by this panel on purpose.
+function renderWeaponLoadout(){
+  const t = T();
+  document.getElementById('txt-h-loadout').textContent = t.hWeaponLoadout;
+  document.getElementById('txt-loadout-note').textContent = t.loadoutNote;
+  const box = document.getElementById('weaponLoadoutBox');
+  if(!state.weaponLoadout) state.weaponLoadout = [null,null,null,null,null];
+  const pool = allWeapons();
+
+  box.innerHTML = state.weaponLoadout.map((slot, idx) => {
+    if(!slot){
+      return `
+        <div class="mods-box">
+          <div class="mb-title">${t.loadoutEmptySlot(idx+1)}</div>
+          <div class="weapon-search-wrap">
+            <input type="text" class="loadout-search-input" data-slot="${idx}" placeholder="${t.loadoutSearchPlaceholder}">
+            <div class="weapon-results" data-slot-results="${idx}"></div>
+          </div>
+        </div>`;
+    }
+    const w = slot.weapon;
+    let typeLabel;
+    if(w.custom){
+      typeLabel = (CUSTOM_TYPE_OPTIONS.find(o=>o.key===w.catKey)||{})[state.lang];
+    } else if(w.wiki){
+      typeLabel = w.catKeys.map(c=>t.categories[c]||c).join(" + ");
+    } else {
+      typeLabel = t.weaponCats[w.category]||w.category;
+    }
+    if(!slot.mods) slot.mods = {};
+    const modsHtml = MOD_SLOTS.map(m=>{
+      const checked = slot.mods[m.key] ? "checked" : "";
+      const label = state.lang==='es' ? m.es : m.en;
+      return `<label><input type="checkbox" data-slot="${idx}" data-mod="${m.key}" ${checked}> ${label}</label>`;
+    }).join("");
+    const legOptsHtml = LEGENDARY_WEAPON_EFFECTS.map(e =>
+      `<option value="${e.key}" ${slot.legendaryEffect===e.key?'selected':''}>${e.name}</option>`
+    ).join('');
+    return `
+      <div class="selected-weapon" style="margin-top:10px;">
+        <span class="wname">${w.name} <span style="color:var(--text-dim);font-weight:400;">(${typeLabel})</span></span>
+        <button data-remove-slot="${idx}">${t.remove}</button>
+      </div>
+      <div class="mods-box">
+        <div class="mb-grid">${modsHtml}</div>
+        <select data-slot-leg="${idx}" style="margin-top:8px;">
+          <option value="">${t.weaponLegendaryNone}</option>
+          ${legOptsHtml}
+        </select>
+      </div>`;
+  }).join("");
+
+  box.querySelectorAll('.loadout-search-input').forEach(input=>{
+    const idx = parseInt(input.dataset.slot);
+    const resultsBox = box.querySelector(`[data-slot-results="${idx}"]`);
+    input.addEventListener('input', ()=>{
+      const q = input.value.trim().toLowerCase();
+      if(q.length < 1){ resultsBox.classList.remove('show'); resultsBox.innerHTML=""; return; }
+      const matches = pool.filter(w => w.name.toLowerCase().includes(q)).slice(0,20);
+      resultsBox.innerHTML = matches.map(w => `<div class="weapon-result-item" data-name="${w.name.replace(/"/g,'&quot;')}">${w.name}</div>`).join("");
+      resultsBox.classList.toggle('show', matches.length>0);
+      resultsBox.querySelectorAll('.weapon-result-item').forEach(el=>{
+        el.addEventListener('click', ()=>{
+          const w = pool.find(x=>x.name===el.dataset.name);
+          state.weaponLoadout[idx] = { weapon: w, mods: {}, legendaryEffect: null };
+          renderWeaponLoadout();
+        });
+      });
+    });
+  });
+
+  box.querySelectorAll('[data-remove-slot]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const idx = parseInt(btn.dataset.removeSlot);
+      state.weaponLoadout[idx] = null;
+      renderWeaponLoadout();
+    });
+  });
+
+  box.querySelectorAll('input[data-mod][data-slot]').forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      const idx = parseInt(cb.dataset.slot);
+      state.weaponLoadout[idx].mods[cb.dataset.mod] = cb.checked;
+    });
+  });
+
+  box.querySelectorAll('select[data-slot-leg]').forEach(sel=>{
+    sel.addEventListener('change', ()=>{
+      const idx = parseInt(sel.dataset.slotLeg);
+      state.weaponLoadout[idx].legendaryEffect = sel.value || null;
+      renderWeaponLoadout();
+    });
   });
 }
 
@@ -3015,6 +3130,7 @@ function renderAll(){
   renderMutationsPanel();
   renderLegendaryPanel();
   renderArmorPanel();
+  renderWeaponLoadout();
   renderGrid();
   renderBuildsList();
   renderLevelProgressChart();
@@ -3080,6 +3196,7 @@ function renderBuildsList(){
         state.selectedWeapon = b.selectedWeapon || null;
         state.weaponMods = b.weaponMods || {};
         state.weaponLegendaryEffect = b.weaponLegendaryEffect || null;
+        state.weaponLoadout = b.weaponLoadout ? JSON.parse(JSON.stringify(b.weaponLoadout)) : [null,null,null,null,null];
         state.charLevel = b.charLevel || 50;
         state.legendaryPerks = b.legendaryPerks || [null,null,null,null,null,null];
         state.activeMutations = b.activeMutations || [];
@@ -3114,6 +3231,7 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
     selectedWeapon: state.selectedWeapon,
     weaponMods: {...state.weaponMods},
     weaponLegendaryEffect: state.weaponLegendaryEffect,
+    weaponLoadout: JSON.parse(JSON.stringify(state.weaponLoadout || [null,null,null,null,null])),
     charLevel: state.charLevel,
     legendaryPerks: JSON.parse(JSON.stringify(state.legendaryPerks)),
     activeMutations: [...state.activeMutations],
