@@ -651,6 +651,7 @@ header.top .sub{
 .summary-list{font-size:11px;line-height:1.7;}
 .summary-list .sl-item{color:var(--text);}
 .summary-list .sl-tag{font-size:9px;color:var(--amber);margin-left:4px;}
+.summary-list .sl-desc{display:block;font-size:10px;color:var(--text-dim);line-height:1.4;margin:2px 0 6px;}
 .summary-empty{color:var(--text-dim);font-size:10px;font-style:italic;}
 .pb-special-list{
   display:flex;
@@ -1085,6 +1086,11 @@ footer{
         <h2 id="txt-h-mutations">MUTACIONES</h2>
         <div id="mutationsBox"></div>
       </div>
+
+      <div class="panel">
+        <h2 id="txt-h-liveeffects">EFECTOS ACTIVOS</h2>
+        <div id="liveEffectsBox"></div>
+      </div>
       </div>
 
       <div class="tab-panel-group" data-tabgroup="inv">
@@ -1245,6 +1251,8 @@ const STRINGS = {
     hBuilds: "BUILDS GUARDADAS",
     hLegendary: "PERKS LEGENDARIAS",
     hMutations: "MUTACIONES",
+    hLiveEffects: "EFECTOS ACTIVOS",
+    leNormalTitle: "Perk cards equipadas",
     positiveEffects: "Efectos Positivos",
     negativeEffects: "Efectos Negativos",
     classFreakActive: (pct)=> `Class Freak activo: penalizaciones reducidas ${pct}%`,
@@ -1274,7 +1282,7 @@ const STRINGS = {
       ["pending","Sets de armadura múltiples, guardables y comparables"],
       ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
       ["pending","Resistencias completas: +Veneno/Fuego/Cryo, Evasion Chance"],
-      ["pending","Panel de efectos activos en vivo"],
+      ["done","Panel de efectos activos en vivo"],
       ["pending","Calculadora de costo en Perk Coins / niveles necesarios"],
       ["pending","Gráfica de progreso de nivel"],
       ["pending","Daño de salida (DPS) calculado — solo componentes verificados, con marcado de confianza en la UI"],
@@ -1363,6 +1371,8 @@ const STRINGS = {
     hBuilds: "SAVED BUILDS",
     hLegendary: "LEGENDARY PERKS",
     hMutations: "MUTATIONS",
+    hLiveEffects: "ACTIVE EFFECTS",
+    leNormalTitle: "Equipped perk cards",
     positiveEffects: "Positive Effects",
     negativeEffects: "Negative Effects",
     classFreakActive: (pct)=> `Class Freak active: penalties reduced ${pct}%`,
@@ -1392,7 +1402,7 @@ const STRINGS = {
       ["pending","Multiple saveable/comparable armor sets"],
       ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
       ["pending","Full resistances: +Poison/Fire/Cryo, Evasion Chance"],
-      ["pending","Live active-effects panel"],
+      ["done","Live active-effects panel"],
       ["pending","Perk Coins cost / levels-needed calculator"],
       ["pending","Level progress chart"],
       ["pending","Calculated damage output (DPS) — verified components only, with a confidence marker in the UI"],
@@ -2469,6 +2479,74 @@ function renderEquippedSummary(){
   });
 }
 
+// Live active-effects panel: pure read/aggregation of existing state, no new
+// state fields. Pulls together active mutations (same source + Class Freak
+// reduction tag as the mutations block in renderStatSummary), equipped
+// normal perk cards (state.perkRanks cross-referenced against PERKS for
+// name/rank/description), and equipped legendary perks (state.legendaryPerks)
+// into one glanceable list. Card names/descriptions stay in English
+// (official game text) regardless of UI language, same as everywhere else.
+function renderLiveEffectsPanel(){
+  const t = T();
+  document.getElementById('txt-h-liveeffects').textContent = t.hLiveEffects;
+  const box = document.getElementById('liveEffectsBox');
+  const eff = getEffectiveSpecial();
+
+  // Active mutations
+  let html = `<div class="summary-sub">${t.summaryMutationsActive}</div>`;
+  if(state.activeMutations.length === 0){
+    html += `<div class="summary-empty">${t.summaryNoneActive}</div>`;
+  } else {
+    html += '<div class="summary-list">';
+    for(const key of state.activeMutations){
+      const mut = MUTATIONS.find(m=>m.key===key);
+      if(!mut) continue;
+      const posText = state.lang==='es' ? mut.positive.textEs : mut.positive.textEn;
+      const negText = state.lang==='es' ? mut.negative.textEs : mut.negative.textEn;
+      const reducedTag = eff._extra.classFreakRank > 0 ? `<span class="sl-tag">(${t.summaryReducedTag} ${Math.round(eff._extra.reduction*100)}%)</span>` : '';
+      html += `<div class="sl-item">${mut.name}${reducedTag}<span class="sl-desc">▲ ${posText} / ▼ ${negText}</span></div>`;
+    }
+    html += '</div>';
+  }
+
+  // Equipped normal perk cards, cross-referenced against PERKS for
+  // name/rank/description (same source of truth as the perk grid and
+  // renderEquippedSummary — no separate state).
+  html += `<div class="summary-sub">${t.leNormalTitle}</div>`;
+  const equippedNormal = PERKS.reduce((acc, p) => {
+    const rank = state.perkRanks[p.name] || 0;
+    if(rank > 0){
+      const rankData = p.ranks.find(r => r.rank === rank) || p.ranks[p.ranks.length - 1];
+      acc.push({ name: p.name, rank, maxRank: p.ranks.length, desc: rankData ? rankData.desc : '' });
+    }
+    return acc;
+  }, []);
+  if(equippedNormal.length === 0){
+    html += `<div class="summary-empty">${t.eqNoneNormal}</div>`;
+  } else {
+    html += '<div class="summary-list">';
+    for(const c of equippedNormal){
+      html += `<div class="sl-item">${c.name} <span class="sl-tag">${t.rank} ${c.rank}/${c.maxRank}</span><span class="sl-desc">${c.desc}</span></div>`;
+    }
+    html += '</div>';
+  }
+
+  // Equipped legendary perks
+  html += `<div class="summary-sub">${t.summaryLegendaryEquipped}</div>`;
+  const equippedLegendary = state.legendaryPerks.filter(Boolean);
+  if(equippedLegendary.length === 0){
+    html += `<div class="summary-empty">${t.summaryNoneEquipped}</div>`;
+  } else {
+    html += '<div class="summary-list">';
+    for(const lp of equippedLegendary){
+      html += `<div class="sl-item">${lp.name} — ${t.rank} ${lp.rank}/4</div>`;
+    }
+    html += '</div>';
+  }
+
+  box.innerHTML = html;
+}
+
 function renderRaidPanel(){
   const t = T();
   document.getElementById('txt-h-raid').textContent = t.hRaid;
@@ -2612,6 +2690,7 @@ function renderAll(){
   renderBuildsList();
   renderStatSummary();
   renderEquippedSummary();
+  renderLiveEffectsPanel();
   renderRaidPanel();
 }
 
