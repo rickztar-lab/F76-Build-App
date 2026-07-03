@@ -86,8 +86,8 @@ y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
    legendario configurables), sets de armadura múltiples guardables, Power
    Armor con mods+legendario por pieza (hoy solo el % del marco), fila
    completa de resistencias (+Veneno/Fuego/Cryo, Evasion Chance), panel de
-   efectos activos en vivo, calculadora de costo en Perk Coins, gráfica de
-   progreso de nivel, daño de salida (DPS) calculado (solo componentes con
+   efectos activos en vivo, calculadora de costo en Perk Coins, daño de
+   salida (DPS) calculado (solo componentes con
    curva verificada, marcado de confianza en la UI, sin inventar números —
    mismo criterio que `armorQualNote`), build compartible vía URL (estado
    codificado en query params, sin backend).

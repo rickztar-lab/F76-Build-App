@@ -987,6 +987,75 @@ header.top .sub{
   line-height:1.6;
 }
 .roadmap span{color:var(--green-dim);}
+.levelprogress-note{
+  font-size:10px;
+  color:var(--text-dim);
+  font-style:italic;
+  margin-bottom:12px;
+  line-height:1.5;
+}
+.lp-current{
+  font-size:12px;
+  color:var(--amber);
+  margin-bottom:14px;
+  letter-spacing:0.5px;
+}
+.lp-track-label{
+  font-size:10px;
+  color:var(--text-dim);
+  letter-spacing:0.5px;
+  margin:0 0 16px;
+}
+.lp-track-wrap{margin-bottom:18px;}
+.lp-track{
+  position:relative;
+  height:6px;
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:3px;
+  margin:0 6px;
+}
+.lp-fill{
+  position:absolute;
+  top:-1px; left:-1px; bottom:-1px;
+  background:var(--green-dim);
+  border-radius:3px 0 0 3px;
+}
+.lp-cursor{
+  position:absolute;
+  top:-5px;
+  width:2px;
+  height:16px;
+  background:var(--green);
+  box-shadow:0 0 6px var(--green-glow);
+  transform:translateX(-1px);
+}
+.lp-mark{
+  position:absolute;
+  top:-3px;
+  width:2px;
+  height:12px;
+  background:var(--amber-dim);
+  transform:translateX(-1px);
+}
+.lp-mark.reached{background:var(--amber);}
+.lp-mark-label{
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:8px;
+  color:var(--text-dim);
+  white-space:nowrap;
+}
+.lp-mark.reached .lp-mark-label{color:var(--amber);}
+.lp-mark-ghoul{
+  top:-2px;
+  width:1px;
+  height:10px;
+  background:var(--green-dim);
+}
+.lp-mark-ghoul.reached{background:var(--green);}
 footer{
   text-align:center;
   color:var(--text-dim);
@@ -1123,6 +1192,12 @@ footer{
         </div>
         <div class="builds-list" id="buildsList"></div>
         <p class="empty-note" id="buildsEmptyNote">Aún no hay builds guardadas.</p>
+      </div>
+
+      <div class="panel">
+        <h2 id="txt-h-levelprogress">PROGRESO DE NIVEL (HITOS)</h2>
+        <p class="levelprogress-note" id="txt-levelprogress-note"></p>
+        <div id="levelProgressBox"></div>
       </div>
 
       <div class="panel">
@@ -1287,10 +1362,17 @@ const STRINGS = {
       ["pending","Panel de efectos activos en vivo"],
       ["done","Calculadora de costo en Perk Coins (perks legendarias equipadas → monedas para llegar a rango 4)"],
       ["pending","Calculadora de niveles necesarios (sin curva de XP por nivel verificada en los datos de la app todavía)"],
-      ["pending","Gráfica de progreso de nivel"],
+      ["done","Gráfica de progreso de nivel"],
       ["pending","Daño de salida (DPS) calculado — solo componentes verificados, con marcado de confianza en la UI"],
       ["pending","Build compartible vía URL (estado codificado en la URL, sin backend)"]
     ],
+    hLevelProgress: "PROGRESO DE NIVEL (HITOS)",
+    levelProgressNote: "Vista de hitos verificados — no es una curva de XP. No existe una tabla de XP por nivel verificada en los datos de esta app, así que solo mostramos hitos conocidos: desbloqueo de slots de perks legendarias y de cartas exclusivas de Ghoul.",
+    levelProgressCurrent: (lvl)=> `Nivel actual: ${lvl}`,
+    levelProgressLegendaryLabel: "Slots de Perks Legendarias",
+    levelProgressGhoulLabel: "Desbloqueos exclusivos de Ghoul",
+    levelProgressReached: (lvl)=> `Alcanzado (nivel ${lvl})`,
+    levelProgressGhoulTooltip: (lvl,n)=> `Nivel ${lvl}: ${n} carta${n===1?'':'s'} exclusiva${n===1?'':'s'} de Ghoul`,
     hPerks: "PERK CARDS",
     searchPlaceholder: "Buscar carta o efecto...",
     tabAll: "TODAS",
@@ -1411,10 +1493,17 @@ const STRINGS = {
       ["pending","Live active-effects panel"],
       ["done","Perk Coins cost calculator (equipped legendary perks → coins needed to reach rank 4)"],
       ["pending","Levels-needed calculator (no verified XP-per-level curve in this app's data yet)"],
-      ["pending","Level progress chart"],
+      ["done","Level progress chart"],
       ["pending","Calculated damage output (DPS) — verified components only, with a confidence marker in the UI"],
       ["pending","Shareable build via URL (state encoded in the URL, no backend)"]
     ],
+    hLevelProgress: "LEVEL PROGRESS (MILESTONES)",
+    levelProgressNote: "Verified-milestone view — not an XP curve. There is no verified per-level XP table in this app's data, so this only shows known milestones: legendary perk slot unlocks and Ghoul-only card unlocks.",
+    levelProgressCurrent: (lvl)=> `Current level: ${lvl}`,
+    levelProgressLegendaryLabel: "Legendary Perk Slots",
+    levelProgressGhoulLabel: "Ghoul-only unlocks",
+    levelProgressReached: (lvl)=> `Reached (level ${lvl})`,
+    levelProgressGhoulTooltip: (lvl,n)=> `Level ${lvl}: ${n} Ghoul-only card${n===1?'':'s'}`,
     hPerks: "PERK CARDS",
     searchPlaceholder: "Search card or effect...",
     tabAll: "ALL",
@@ -1791,6 +1880,62 @@ function renderStaticText(){
   roadmapBox.innerHTML = t.roadmap.map(([status,label])=>
     `<span>[${status==='done'?'X':' '}]</span> ${label}<br>`
   ).join("");
+}
+
+// Milestone progress view for state.charLevel. NOT an XP/leveling curve —
+// there is no verified per-level XP table anywhere in this app's data (see
+// CLAUDE.md). Instead this plots state.charLevel against two sets of
+// already-verified level milestones:
+//   1. LEGENDARY_SLOT_LEVELS (legendary perk slot unlocks: 50/75/100/150/200/300)
+//   2. Distinct min_level values > 50 in PERKS (Ghoul-only card unlocks,
+//      same verified min_level>50 rule used to build GHOUL_ONLY_PERKS)
+function renderLevelProgressChart(){
+  const t = T();
+  document.getElementById('txt-h-levelprogress').textContent = t.hLevelProgress;
+  document.getElementById('txt-levelprogress-note').textContent = t.levelProgressNote;
+
+  const level = state.charLevel;
+  const scaleMax = Math.max(300, level);
+  const pct = (lvl)=> Math.min(lvl / scaleMax, 1) * 100;
+  const curPct = pct(level);
+
+  const legMarks = LEGENDARY_SLOT_LEVELS.map(lvl=>{
+    const reached = level >= lvl;
+    const tip = reached ? t.levelProgressReached(lvl) : t.legSlotLocked(lvl);
+    return `<div class="lp-mark ${reached?'reached':''}" style="left:${pct(lvl)}%" title="${tip}"><span class="lp-mark-label">${lvl}</span></div>`;
+  }).join("");
+
+  const ghoulLevelCounts = {};
+  PERKS.filter(p=>p.min_level>50).forEach(p=>{
+    ghoulLevelCounts[p.min_level] = (ghoulLevelCounts[p.min_level]||0) + 1;
+  });
+  const ghoulLevels = Object.keys(ghoulLevelCounts).map(Number).sort((a,b)=>a-b);
+  const ghoulMarks = ghoulLevels.map(lvl=>{
+    const reached = level >= lvl;
+    const tip = t.levelProgressGhoulTooltip(lvl, ghoulLevelCounts[lvl]);
+    return `<div class="lp-mark lp-mark-ghoul ${reached?'reached':''}" style="left:${pct(lvl)}%" title="${tip}"></div>`;
+  }).join("");
+
+  const box = document.getElementById('levelProgressBox');
+  box.innerHTML = `
+    <div class="lp-current">${t.levelProgressCurrent(level)}</div>
+    <div class="lp-track-wrap">
+      <div class="lp-track-label">${t.levelProgressLegendaryLabel}</div>
+      <div class="lp-track">
+        <div class="lp-fill" style="width:${curPct}%"></div>
+        <div class="lp-cursor" style="left:${curPct}%" title="${t.levelProgressCurrent(level)}"></div>
+        ${legMarks}
+      </div>
+    </div>
+    <div class="lp-track-wrap">
+      <div class="lp-track-label">${t.levelProgressGhoulLabel}</div>
+      <div class="lp-track">
+        <div class="lp-fill" style="width:${curPct}%"></div>
+        <div class="lp-cursor" style="left:${curPct}%" title="${t.levelProgressCurrent(level)}"></div>
+        ${ghoulMarks}
+      </div>
+    </div>
+  `;
 }
 
 function renderSpecialPanel(){
@@ -2322,6 +2467,7 @@ function renderLegendaryPanel(){
 document.getElementById('charLevelInput').addEventListener('change', (e)=>{
   state.charLevel = parseInt(e.target.value) || 1;
   renderLegendaryPanel();
+  renderLevelProgressChart();
 });
 
 function renderStatSummary(){
@@ -2674,6 +2820,7 @@ function renderAll(){
   renderArmorPanel();
   renderGrid();
   renderBuildsList();
+  renderLevelProgressChart();
   renderStatSummary();
   renderEquippedSummary();
   renderPerkCoinsCalculator();
