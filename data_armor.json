@@ -4,8 +4,8 @@
       "key": "arctic_marine",
       "name": "Arctic Marine",
       "level": 50,
-      "chest": {"dr": 67, "er": 40, "rr": 35},
-      "limb": {"dr": 27, "er": 16, "rr": 0},
+      "chest": {"dr": 67, "er": 40, "rr": 35, "cryo": 20},
+      "limb": {"dr": 27, "er": 16, "rr": 0, "cryo": 8},
       "note": "Única con Resistencia a Cryo (+20 pecho, +8 extremidad)"
     },
     {

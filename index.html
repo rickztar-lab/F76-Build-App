@@ -713,7 +713,7 @@ header.top .sub{
 }
 .pb-def-row{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(64px,1fr));
   gap:8px;
   margin-bottom:4px;
 }
@@ -799,7 +799,7 @@ header.top .sub{
   padding-top:8px;
   border-top:1px solid var(--green-dim);
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(64px,1fr));
   gap:8px;
 }
 .armor-tag-verified{color:var(--green);font-size:8px;border:1px solid var(--green-dim);padding:0 4px;border-radius:2px;margin-left:4px;}
@@ -1179,7 +1179,7 @@ const PERK_CATEGORIES = {"Easy Target":["general_damage","rifle"],"Center Masoch
 const LEGENDARY_PERKS = [{"name":"Ammo Factory","special":null,"ranks":[{"rank":1,"desc":"Craft 50% more rounds of ammunition."},{"rank":2,"desc":"Craft 75% more rounds of ammunition."},{"rank":3,"desc":"Craft 100% more rounds of ammunition."},{"rank":4,"desc":"Craft 150% more rounds of ammunition."}]},{"name":"Blood Sacrifice!","special":null,"ranks":[{"rank":1,"desc":"On your death, teammates get +25 DR and heal 40 HP over 8s."},{"rank":2,"desc":"On your death, teammates get +30 DR and heal 50 HP over 10s."},{"rank":3,"desc":"On your death, teammates get +35 DR and heal 60 HP over 12s."},{"rank":4,"desc":"On your death, teammates get +40 DR and heal 70 HP over 14s."}]},{"name":"Brawling Chemist","special":null,"ranks":[{"rank":1,"desc":"Generates 1 combat chem/hour, up to 3 stored."},{"rank":2,"desc":"Generates 1 combat chem every 50 min, up to 4 stored."},{"rank":3,"desc":"Generates 1 combat chem every 40 min, up to 5 stored."},{"rank":4,"desc":"Generates 2 combat chems every 40 min, up to 5 stored."}]},{"name":"Hack and Slash","special":null,"ranks":[{"rank":1,"desc":"20% chance for melee VATS hits to deal area damage."},{"rank":2,"desc":"30% chance for melee VATS hits to deal area damage."},{"rank":3,"desc":"40% chance for melee VATS hits to deal area damage."},{"rank":4,"desc":"50% chance for melee VATS hits to deal area damage."}]},{"name":"Collateral Damage","special":null,"ranks":[{"rank":1,"desc":"Melee kills have a 10% chance to make the enemy explode."},{"rank":2,"desc":"Melee kills have a 13% chance to make the enemy explode."},{"rank":3,"desc":"Melee kills have a 16% chance to make the enemy explode."},{"rank":4,"desc":"Melee kills have a 20% chance to make the enemy explode."}]},{"name":"Detonation Contagion","special":null,"ranks":[{"rank":1,"desc":"Kills with thrown explosives have a 20% chance to chain-explode."},{"rank":2,"desc":"Kills with thrown explosives have a 23% chance to chain-explode."},{"rank":3,"desc":"Kills with thrown explosives have a 26% chance to chain-explode."},{"rank":4,"desc":"Kills with thrown explosives have a 30% chance to chain-explode."}]},{"name":"Electric Absorption","special":null,"ranks":[{"rank":1,"desc":"10% chance enemy energy attacks recharge your Power Armor fusion core."},{"rank":2,"desc":"13% chance enemy energy attacks recharge your Power Armor fusion core."},{"rank":3,"desc":"16% chance enemy energy attacks recharge your Power Armor fusion core."},{"rank":4,"desc":"20% chance enemy energy attacks recharge your Power Armor fusion core."}]},{"name":"Exploding Palm","special":null,"ranks":[{"rank":1,"desc":"Unarmed hits have a 5% chance to trigger an explosion."},{"rank":2,"desc":"Unarmed hits have a 10% chance to trigger an explosion."},{"rank":3,"desc":"Unarmed hits have a 15% chance to trigger an explosion."},{"rank":4,"desc":"Unarmed hits have a 20% chance to trigger an explosion."}]},{"name":"Far-Flung Fireworks","special":null,"ranks":[{"rank":1,"desc":"Ranged weapon kills have a 10% chance to make the enemy explode."},{"rank":2,"desc":"Ranged weapon kills have a 13% chance to make the enemy explode."},{"rank":3,"desc":"Ranged weapon kills have a 16% chance to make the enemy explode."},{"rank":4,"desc":"Ranged weapon kills have a 20% chance to make the enemy explode."}]},{"name":"Funky Duds","special":null,"ranks":[{"rank":1,"desc":"+50 Poison Resist while wearing a full matching armor set."},{"rank":2,"desc":"+100 Poison Resist while wearing a full matching armor set."},{"rank":3,"desc":"+150 Poison Resist while wearing a full matching armor set."},{"rank":4,"desc":"+200 Poison Resist while wearing a full matching armor set."}]},{"name":"Follow Through","special":null,"ranks":[{"rank":1,"desc":"Ranged sneak attacks increase damage to that target by 10% for 10s."},{"rank":2,"desc":"Ranged sneak attacks increase damage to that target by 20% for 10s."},{"rank":3,"desc":"Ranged sneak attacks increase damage to that target by 30% for 10s."},{"rank":4,"desc":"Ranged sneak attacks increase damage to that target by 40% for 10s."}]},{"name":"Legendary Agility","special":"Agility","ranks":[{"rank":1,"desc":"+1 Agility and +1 usable Agility perk points (cap 15)."},{"rank":2,"desc":"+2 Agility and +2 usable Agility perk points (cap 15)."},{"rank":3,"desc":"+3 Agility and +3 usable Agility perk points (cap 15)."},{"rank":4,"desc":"+5 Agility and +5 usable Agility perk points (cap 15)."}]},{"name":"Legendary Charisma","special":"Charisma","ranks":[{"rank":1,"desc":"+1 Charisma and +1 usable Charisma perk points (cap 15)."},{"rank":2,"desc":"+2 Charisma and +2 usable Charisma perk points (cap 15)."},{"rank":3,"desc":"+3 Charisma and +3 usable Charisma perk points (cap 15)."},{"rank":4,"desc":"+5 Charisma and +5 usable Charisma perk points (cap 15)."}]},{"name":"Legendary Endurance","special":"Endurance","ranks":[{"rank":1,"desc":"+1 Endurance and +1 usable Endurance perk points (cap 15)."},{"rank":2,"desc":"+2 Endurance and +2 usable Endurance perk points (cap 15)."},{"rank":3,"desc":"+3 Endurance and +3 usable Endurance perk points (cap 15)."},{"rank":4,"desc":"+5 Endurance and +5 usable Endurance perk points (cap 15)."}]},{"name":"Legendary Luck","special":"Luck","ranks":[{"rank":1,"desc":"+1 Luck and +1 usable Luck perk points (cap 15)."},{"rank":2,"desc":"+2 Luck and +2 usable Luck perk points (cap 15)."},{"rank":3,"desc":"+3 Luck and +3 usable Luck perk points (cap 15)."},{"rank":4,"desc":"+5 Luck and +5 usable Luck perk points (cap 15)."}]},{"name":"Legendary Intelligence","special":"Intelligence","ranks":[{"rank":1,"desc":"+1 Intelligence and +1 usable Intelligence perk points (cap 15)."},{"rank":2,"desc":"+2 Intelligence and +2 usable Intelligence perk points (cap 15)."},{"rank":3,"desc":"+3 Intelligence and +3 usable Intelligence perk points (cap 15)."},{"rank":4,"desc":"+5 Intelligence and +5 usable Intelligence perk points (cap 15)."}]},{"name":"Legendary Perception","special":"Perception","ranks":[{"rank":1,"desc":"+1 Perception and +1 usable Perception perk points (cap 15)."},{"rank":2,"desc":"+2 Perception and +2 usable Perception perk points (cap 15)."},{"rank":3,"desc":"+3 Perception and +3 usable Perception perk points (cap 15)."},{"rank":4,"desc":"+5 Perception and +5 usable Perception perk points (cap 15)."}]},{"name":"Legendary Strength","special":"Strength","ranks":[{"rank":1,"desc":"+1 Strength and +1 usable Strength perk points (cap 15)."},{"rank":2,"desc":"+2 Strength and +2 usable Strength perk points (cap 15)."},{"rank":3,"desc":"+3 Strength and +3 usable Strength perk points (cap 15)."},{"rank":4,"desc":"+5 Strength and +5 usable Strength perk points (cap 15)."}]},{"name":"Master Infiltrator","special":null,"ranks":[{"rank":1,"desc":"Auto-unlocks difficulty-0 terminals/locks. +3 Lockpick and Hacking."},{"rank":2,"desc":"Auto-unlocks difficulty-1 terminals/locks. +3 Lockpick and Hacking."},{"rank":3,"desc":"Auto-unlocks difficulty-2 terminals/locks. +3 Lockpick and Hacking."},{"rank":4,"desc":"Auto-unlocks difficulty-3 terminals/locks. +3 Lockpick and Hacking."}]},{"name":"Power Armor Reboot","special":null,"ranks":[{"rank":1,"desc":"15% chance to auto-revive at full health if downed in Power Armor."},{"rank":2,"desc":"20% chance to auto-revive at full health if downed in Power Armor."},{"rank":3,"desc":"25% chance to auto-revive at full health if downed in Power Armor."},{"rank":4,"desc":"40% chance to auto-revive at full health if downed in Power Armor."}]},{"name":"Power Sprinter","special":null,"ranks":[{"rank":1,"desc":"Sprinting in Power Armor costs 20% less AP."},{"rank":2,"desc":"Sprinting in Power Armor costs 30% less AP."},{"rank":3,"desc":"Sprinting in Power Armor costs 40% less AP."},{"rank":4,"desc":"Sprinting in Power Armor costs 50% less AP."}]},{"name":"Retribution","special":null,"ranks":[{"rank":1,"desc":"After blocking, regen 1 HP and 1 AP/sec for 15s."},{"rank":2,"desc":"After blocking, regen 2 HP and 2 AP/sec for 15s."},{"rank":3,"desc":"After blocking, regen 3 HP and 3 AP/sec for 15s."},{"rank":4,"desc":"After blocking, regen 4 HP and 4 AP/sec for 15s."}]},{"name":"Sizzling Style","special":null,"ranks":[{"rank":1,"desc":"+50 Fire Resist while wearing a full matching armor set."},{"rank":2,"desc":"+100 Fire Resist while wearing a full matching armor set."},{"rank":3,"desc":"+150 Fire Resist while wearing a full matching armor set."},{"rank":4,"desc":"+200 Fire Resist while wearing a full matching armor set."}]},{"name":"Survival Shortcut","special":null,"ranks":[{"rank":1,"desc":"Generates 1 survival chem every 30 min, up to 5 stored."},{"rank":2,"desc":"Generates 1 survival chem every 25 min, up to 6 stored."},{"rank":3,"desc":"Generates 1 survival chem every 20 min, up to 7 stored."},{"rank":4,"desc":"Generates 2 survival chems every 20 min, up to 10 stored."}]},{"name":"Taking One for the Team","special":null,"ranks":[{"rank":1,"desc":"While teamed, enemies that attack you take 10% more damage."},{"rank":2,"desc":"While teamed, enemies that attack you take 20% more damage."},{"rank":3,"desc":"While teamed, enemies that attack you take 30% more damage."},{"rank":4,"desc":"While teamed, enemies that attack you take 40% more damage."}]},{"name":"What Rads?","special":null,"ranks":[{"rank":1,"desc":"+50 Rad Resist, heals 1 rad/sec."},{"rank":2,"desc":"+75 Rad Resist, heals 2 rads/sec."},{"rank":3,"desc":"+100 Rad Resist, heals 3 rads/sec."},{"rank":4,"desc":"+300 Rad Resist, heals 6 rads/sec."}]}];
 const LEGENDARY_SLOT_LEVELS = [50,75,100,150,200,300];
 const WIKI_WEAPONS = [{"name":"Minigun","catKeys":["heavy_gun"]},{"name":"Gatling Gun","catKeys":["heavy_gun"]},{"name":"Gatling Laser","catKeys":["heavy_gun","energy"]},{"name":"Gatling Plasma","catKeys":["heavy_gun","energy"]},{"name":"Fat Man","catKeys":["heavy_gun","explosive"]},{"name":"Broadsider","catKeys":["heavy_gun"]},{"name":"Cryolator","catKeys":["heavy_gun"]},{"name":"Flamer","catKeys":["heavy_gun"]},{"name":"Pepper Shaker","catKeys":["heavy_gun","shotgun"],"note":"Cuenta como ambas categor\u00edas a la vez"},{"name":"Auto Grenade Launcher","catKeys":["heavy_gun","explosive"]},{"name":"M79 Grenade Launcher","catKeys":["heavy_gun","explosive"]},{"name":".50 Cal Machine Gun","catKeys":["heavy_gun"]},{"name":"Missile Launcher","catKeys":["heavy_gun","explosive"]},{"name":"Harpoon Gun","catKeys":["heavy_gun"]},{"name":"Combat Shotgun","catKeys":["shotgun"]},{"name":"Double-Barrel Shotgun","catKeys":["shotgun"]},{"name":"Pump Action Shotgun","catKeys":["shotgun"]},{"name":".44 Pistol","catKeys":["pistol"]},{"name":"All Rise","catKeys":["melee"],"note":"\u00danica, quest 'Mayor for a Day'"},{"name":"Anti-Scorched Training Pistol","catKeys":["pistol"],"note":"\u00danica, main quest"},{"name":"Black Diamond","catKeys":["melee"],"note":"\u00danica, quest 'Flavors of Mayhem'"},{"name":"Blade of Bastet","catKeys":["melee"],"note":"\u00danica, quest 'Forging a Legend'"},{"name":"Bunker Buster","catKeys":["heavy_gun","explosive"],"note":"\u00danica, quest 'One of Us'"},{"name":"Camden Whacker","catKeys":["melee"],"note":"\u00danica, prize shop Camden Park"},{"name":"Civil Unrest","catKeys":["shotgun"],"note":"\u00danica, quest 'Falsely Accused'"},{"name":"Daisycutter","catKeys":["heavy_gun","explosive"],"note":"\u00danica, quest 'An Organic Solution'"},{"name":"Dross","catKeys":["explosive"],"note":"\u00danica, quest 'Mistaken Identity'"},{"name":"Grant's Saber","catKeys":["melee"],"note":"\u00danica, quest 'Forging a Legend'"},{"name":"Meteoritic Sword","catKeys":["melee"],"note":"\u00danica, evento 'Lode Baring'"},{"name":"Nailer","catKeys":["melee"],"note":"\u00danica, evento 'One Violent Night'"},{"name":"Old Guard's 10mm SMG","catKeys":["pistol"],"note":"\u00danica, quest 'Duty Calls'"},{"name":"Paddle Ball","catKeys":["melee"],"note":"\u00danica, prize shop Camden Park"},{"name":"Perfect Storm","catKeys":["pistol"],"note":"\u00danica, quest 'Cold Case', SMG 10mm"},{"name":"Pyrolyzer","catKeys":["heavy_gun","energy"],"note":"\u00danica, quest 'Tracking Unknowns'"},{"name":"Rose's Syringer","catKeys":["pistol"],"note":"\u00danica, quest (arma de evento)"},{"name":"Somerset Special","catKeys":["pistol"],"note":"\u00danica, quest 'Final Departure'"},{"name":"The Gutter","catKeys":["melee"],"note":"\u00danica, quest 'Waste Management', hoja Assaultron"},{"name":"The Tenderizer","catKeys":["melee"],"note":"\u00danica, evento 'Grahm's Meat Cook'"},{"name":"Voice of Set","catKeys":["pistol"],"note":"\u00danica, quest 'Prototypical Problems'"},{"name":"Vox Syringer","catKeys":["pistol"],"note":"\u00danica, quest diario 'Someone to Talk To'"},{"name":"Cursed Pickaxe","catKeys":["melee"],"note":"\u00danica, evento 'A Colossal Problem', prefijo Cursed"},{"name":"Cursed Harpoon Gun","catKeys":["heavy_gun"],"note":"\u00danica, evento 'A Colossal Problem', prefijo Cursed"},{"name":"Cursed Shovel","catKeys":["melee"],"note":"\u00danica, evento 'A Colossal Problem', prefijo Cursed"},{"name":"Cursed Rolling Pin","catKeys":["melee"],"note":"\u00danica, prefijo Cursed"},{"name":"Holy Fire","catKeys":["heavy_gun"],"note":"\u00danica, update 'Once in a Blue Moon', prefijo Cursed"}];
-const ARMOR_DATA = {"verified_sets":[{"key":"arctic_marine","name":"Arctic Marine","level":50,"chest":{"dr":67,"er":40,"rr":35},"limb":{"dr":27,"er":16,"rr":0},"note":"\u00danica con Resistencia a Cryo (+20 pecho, +8 extremidad)"},{"key":"botsmith","name":"Botsmith","level":50,"chest":{"dr":75,"er":30,"rr":30},"limb":{"dr":40,"er":20,"rr":20}},{"key":"brotherhood_recon","name":"Brotherhood Recon","level":50,"chest":{"dr":100,"er":40,"rr":40},"limb":{"dr":50,"er":30,"rr":30}}],"qualitative_sets":[{"key":"combat","name":"Combat","note":"DR/ER balanceados, sin RR, requiere nivel 20+"},{"key":"leather","name":"Leather","note":"La ER m\u00e1s alta de todas las armaduras, DR baja"},{"key":"metal","name":"Metal","note":"La DR m\u00e1s alta de todas las armaduras, ER muy baja"},{"key":"marine","name":"Marine","note":"Balanceado DR/ER con \u00e9nfasis en DR, m\u00e1s RR que Trapper"},{"key":"trapper","name":"Trapper","note":"La RR m\u00e1s alta de todas, DR media, ER baja"},{"key":"raider","name":"Raider","note":"Buena DR, ER relativamente d\u00e9bil"},{"key":"robot","name":"Robot","note":"Balanceado DR/ER con RR incluida, nivel medio"},{"key":"secret_service","name":"Secret Service","note":"Considerada de las mejores del juego, solo con Gold Bullion"},{"key":"forest_scout","name":"Forest Scout","note":"Balance DR/ER, ligero \u00e9nfasis en DR"},{"key":"urban_scout","name":"Urban Scout","note":"Mismos stats que Forest Scout"},{"key":"covert_scout","name":"Covert Scout","note":"Cada pieza da bono de sigilo"},{"key":"solar","name":"Solar","note":"Igual a scout, siempre con 3 efectos legendarios + regen de vida en set completo"},{"key":"thorn","name":"Thorn","note":"Igual a scout, siempre con 3 efectos legendarios + bono de sangrado en set completo"},{"key":"wood","name":"Wood","note":"Muy ligera, algo de DR, casi nada de ER, no craftable"}],"power_armor_frame":{"base_flat_dr_er":60,"per_piece_damage_reduction_pct":7,"per_piece_radiation_reduction_pct":15,"max_pieces":5,"note":"Verificado: marco vac\u00edo da 60 DR/ER planos. Cada pieza instalada suma 7% de reducci\u00f3n de da\u00f1o y 15% de reducci\u00f3n de radiaci\u00f3n (multiplicativo), hasta 5 piezas = 42% da\u00f1o / 90% radiaci\u00f3n. Esto es aparte de la resistencia propia de cada modelo de PA, que a\u00fan no est\u00e1 desglosada por pieza."}};
+const ARMOR_DATA = {"verified_sets":[{"key":"arctic_marine","name":"Arctic Marine","level":50,"chest":{"dr":67,"er":40,"rr":35,"cryo":20},"limb":{"dr":27,"er":16,"rr":0,"cryo":8},"note":"\u00danica con Resistencia a Cryo (+20 pecho, +8 extremidad)"},{"key":"botsmith","name":"Botsmith","level":50,"chest":{"dr":75,"er":30,"rr":30},"limb":{"dr":40,"er":20,"rr":20}},{"key":"brotherhood_recon","name":"Brotherhood Recon","level":50,"chest":{"dr":100,"er":40,"rr":40},"limb":{"dr":50,"er":30,"rr":30}}],"qualitative_sets":[{"key":"combat","name":"Combat","note":"DR/ER balanceados, sin RR, requiere nivel 20+"},{"key":"leather","name":"Leather","note":"La ER m\u00e1s alta de todas las armaduras, DR baja"},{"key":"metal","name":"Metal","note":"La DR m\u00e1s alta de todas las armaduras, ER muy baja"},{"key":"marine","name":"Marine","note":"Balanceado DR/ER con \u00e9nfasis en DR, m\u00e1s RR que Trapper"},{"key":"trapper","name":"Trapper","note":"La RR m\u00e1s alta de todas, DR media, ER baja"},{"key":"raider","name":"Raider","note":"Buena DR, ER relativamente d\u00e9bil"},{"key":"robot","name":"Robot","note":"Balanceado DR/ER con RR incluida, nivel medio"},{"key":"secret_service","name":"Secret Service","note":"Considerada de las mejores del juego, solo con Gold Bullion"},{"key":"forest_scout","name":"Forest Scout","note":"Balance DR/ER, ligero \u00e9nfasis en DR"},{"key":"urban_scout","name":"Urban Scout","note":"Mismos stats que Forest Scout"},{"key":"covert_scout","name":"Covert Scout","note":"Cada pieza da bono de sigilo"},{"key":"solar","name":"Solar","note":"Igual a scout, siempre con 3 efectos legendarios + regen de vida en set completo"},{"key":"thorn","name":"Thorn","note":"Igual a scout, siempre con 3 efectos legendarios + bono de sangrado en set completo"},{"key":"wood","name":"Wood","note":"Muy ligera, algo de DR, casi nada de ER, no craftable"}],"power_armor_frame":{"base_flat_dr_er":60,"per_piece_damage_reduction_pct":7,"per_piece_radiation_reduction_pct":15,"max_pieces":5,"note":"Verificado: marco vac\u00edo da 60 DR/ER planos. Cada pieza instalada suma 7% de reducci\u00f3n de da\u00f1o y 15% de reducci\u00f3n de radiaci\u00f3n (multiplicativo), hasta 5 piezas = 42% da\u00f1o / 90% radiaci\u00f3n. Esto es aparte de la resistencia propia de cada modelo de PA, que a\u00fan no est\u00e1 desglosada por pieza."}};
 const RAID_CONTENT = [{"key":"en06_guardian","name":"EN06 Guardian","order":1,"enemyType":"robot","mechanicEs":"Sin melee posible (muerte instant\u00e1nea de cerca). Rompe el escudo a distancia, golpea cuando est\u00e9 vulnerable, ref\u00fagiate en las puertas cuando la sala se incendie.","mechanicEn":"No melee possible (instant death up close). Break the shield at range, hit it while vulnerable, take shelter at the doors when the room catches fire.","weaponTip":"ranged","legendaryPerks":["Electric Absorption","Legendary Luck","Legendary Strength"],"legendaryPerksSourceEs":"Verificado (wiki): Electric Absorption y Squad Maneuvers mencionados expl\u00edcitamente para este jefe.","legendaryPerksSourceEn":"Verified (wiki): Electric Absorption and Squad Maneuvers explicitly mentioned for this boss.","communityTipEs":"Gu\u00edas comunitarias sugieren mod Troubleshooter's en armadura (-15% da\u00f1o de robots por pieza) y priorizar Fuerza/Suerte, luego Resistencia/Inteligencia en perks normales.","communityTipEn":"Community guides suggest the Troubleshooter's armor mod (-15% robot damage per piece) and prioritizing Strength/Luck, then Endurance/Intelligence in normal perks."},{"key":"drill_defense","name":"Fuel the Drill (Mole Miners)","order":2,"enemyType":"creature","mechanicEs":"Defiende el taladro de oleadas de Mole Miners mientras otros recolectan combustible. Cuidado con los Stalkers (invencibles, persiguen).","mechanicEn":"Defend the drill from waves of Mole Miners while others collect fuel. Watch out for Stalkers (invincible, chase you).","weaponTip":"heavy_gun","legendaryPerks":[],"legendaryPerksSourceEs":"Sin recomendaci\u00f3n espec\u00edfica verificada \u2014 encuentro de control de oleadas, no de da\u00f1o a un jefe \u00fanico.","legendaryPerksSourceEn":"No specific verified recommendation \u2014 this is a crowd-control encounter, not a single-boss damage check.","communityTipEs":"Perks de \u00e1rea (explosivos, armas pesadas) ayudan m\u00e1s que da\u00f1o enfocado en un blanco. Un jugador dedicado a defender, el resto recolectando.","communityTipEn":"Area-damage perks (explosives, heavy guns) help more than single-target focus. One player dedicated to defense, the rest collecting fuel."},{"key":"epsilon_squad","name":"Enclave Squad Epsilon","order":3,"enemyType":"human","mechanicEs":"3 enemigos humanos hostiles protegidos por generadores de escudo que reparan los eyebots \u2014 elimina eyebots primero.","mechanicEn":"3 hostile human enemies protected by shield generators that eyebots repair \u2014 kill the eyebots first.","weaponTip":"rifle","legendaryPerks":[],"legendaryPerksSourceEs":"Sin recomendaci\u00f3n espec\u00edfica verificada.","legendaryPerksSourceEn":"No specific verified recommendation.","communityTipEs":"Enemigos humanos est\u00e1ndar \u2014 tus perks anti-humano/VATS normales aplican bien aqu\u00ed.","communityTipEn":"Standard human enemies \u2014 your normal anti-human/VATS perks apply well here."},{"key":"ultragenetic_horde","name":"Ultragenetic Horde","order":4,"enemyType":"creature","mechanicEs":"Atrae a la horda de criaturas hacia los cristales de Ultracite, que las da\u00f1an al destruirse.","mechanicEn":"Lure the creature horde toward the Ultracite crystals, which damage them when destroyed.","weaponTip":"explosive","legendaryPerks":[],"legendaryPerksSourceEs":"Sin recomendaci\u00f3n espec\u00edfica verificada.","legendaryPerksSourceEn":"No specific verified recommendation.","communityTipEs":"Da\u00f1o de \u00e1rea otra vez es clave \u2014 es una oleada de criaturas, no un jefe \u00fanico.","communityTipEn":"Area damage is key again \u2014 it's a creature wave, not a single boss."},{"key":"ultracite_terror","name":"Ultracite Terror","order":5,"enemyType":"creature-boss","mechanicEs":"Jefe final. Alto DPS sostenido necesario para evitar su ataque de aliento letal en la \u00faltima fase.","mechanicEn":"Final boss. High sustained DPS needed to avoid its lethal breath attack in the last phase.","weaponTip":"rifle","legendaryPerks":["Funky Duds"],"legendaryPerksSourceEs":"Verificado (wiki): Funky Duds descrito como 'incre\u00edblemente \u00fatil' para este jefe.","legendaryPerksSourceEn":"Verified (wiki): Funky Duds described as 'incredibly useful' for this boss.","communityTipEs":"Gu\u00edas comunitarias sugieren armas Gauss de alto DPS sostenido (ej. con efecto Vampire's para sustain de vida).","communityTipEn":"Community guides suggest high-sustained-DPS Gauss weapons (e.g. with Vampire's effect for lifesteal sustain)."}];
 
 const STRINGS = {
@@ -1205,8 +1205,12 @@ const STRINGS = {
     summaryNoneEquipped: "Ninguna equipada",
     summaryReducedTag: "atenuada",
     summaryDef: "RESISTENCIAS (DEF)",
-    defDR: "FÍSICA", defER: "ENERGÍA", defRR: "RADIACIÓN",
-    defNote: "0 porque aún no hay datos de armadura/Power Armor cargados (Fase 4 pendiente) ni las curvas exactas de perks como Barbarian/Ironclad/Iron Stomach — mostrar un número aquí sería inventado.",
+    defDR: "FÍSICA", defER: "ENERGÍA", defRR: "RADIACIÓN", defCryo: "CRYO",
+    defNote: "DR/ER/RR calculados desde las piezas de armadura equipadas (o el marco de Power Armor) — pero no incluyen curvas de perks como Barbarian/Ironclad/Iron Stomach ni bonos de sets legendarios de armadura, que todavía no están verificados/modelados.",
+    defCryoNote: "Único set verificado con Resistencia a Cryo es Arctic Marine (+20 pecho, +8 extremidad) — otros sets no suman a este número aunque tengan una pieza equipada.",
+    defUnmodeledTitle: "VENENO / FUEGO / EVASION",
+    defUnmodeledNote: "Sin fuente de datos verificada para Resistencia a Veneno, Resistencia a Fuego o Evasion Chance en ningún set — no modelado aún, mostrar un número aquí sería inventado.",
+    defPaCryoNote: "El marco de Power Armor no tiene Cryo/Veneno/Fuego/Evasion desglosados por pieza todavía — no modelado.",
     tabPerks: "PERKS",
     hEquipped: "CARTAS EQUIPADAS",
     eqNoneNormal: "Sin perk cards normales equipadas.",
@@ -1273,7 +1277,7 @@ const STRINGS = {
       ["pending","Multi-arma (hasta 5) con mods + efecto legendario configurables"],
       ["pending","Sets de armadura múltiples, guardables y comparables"],
       ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
-      ["pending","Resistencias completas: +Veneno/Fuego/Cryo, Evasion Chance"],
+      ["done","Resistencias completas: DR/ER/RR/Cryo reales desde armadura equipada (compartido con pestaña STAT); Veneno/Fuego/Evasion marcados explícitamente 'no modelado' (sin dato verificado)"],
       ["pending","Panel de efectos activos en vivo"],
       ["pending","Calculadora de costo en Perk Coins / niveles necesarios"],
       ["pending","Gráfica de progreso de nivel"],
@@ -1322,8 +1326,12 @@ const STRINGS = {
     summaryNoneEquipped: "None equipped",
     summaryReducedTag: "reduced",
     summaryDef: "RESISTANCES (DEF)",
-    defDR: "PHYSICAL", defER: "ENERGY", defRR: "RADIATION",
-    defNote: "0 because armor/Power Armor data isn't loaded yet (Phase 4 pending), and neither are exact curves for perks like Barbarian/Ironclad/Iron Stomach — showing a number here would just be made up.",
+    defDR: "PHYSICAL", defER: "ENERGY", defRR: "RADIATION", defCryo: "CRYO",
+    defNote: "DR/ER/RR are calculated from the equipped armor pieces (or the Power Armor frame) — but don't include perk curves like Barbarian/Ironclad/Iron Stomach or legendary armor set bonuses, which aren't verified/modeled yet.",
+    defCryoNote: "Only Arctic Marine has verified Cryo Resistance (+20 chest, +8 limb) — other sets don't add to this number even if a piece is equipped.",
+    defUnmodeledTitle: "POISON / FIRE / EVASION",
+    defUnmodeledNote: "No verified data source for Poison Resistance, Fire Resistance, or Evasion Chance on any set — not modeled yet, showing a number here would just be made up.",
+    defPaCryoNote: "The Power Armor frame doesn't have Cryo/Poison/Fire/Evasion broken down per piece yet — not modeled.",
     tabPerks: "PERKS",
     hEquipped: "EQUIPPED CARDS",
     eqNoneNormal: "No normal perk cards equipped.",
@@ -1391,7 +1399,7 @@ const STRINGS = {
       ["pending","Multi-weapon (up to 5) with configurable mods + legendary effect"],
       ["pending","Multiple saveable/comparable armor sets"],
       ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
-      ["pending","Full resistances: +Poison/Fire/Cryo, Evasion Chance"],
+      ["done","Full resistances: real DR/ER/RR/Cryo from equipped armor (shared with STAT tab); Poison/Fire/Evasion explicitly marked 'not modeled' (no verified data)"],
       ["pending","Live active-effects panel"],
       ["pending","Perk Coins cost / levels-needed calculator"],
       ["pending","Level progress chart"],
@@ -2085,6 +2093,50 @@ function armorOptionsList(){
   ];
 }
 
+// Shared resistance calculation, used by both the ARMOR tab (renderArmorPanel)
+// and the STAT tab's DEF summary (renderStatSummary) so the two can never
+// drift apart. Mirrors the PA toggle read straight from the DOM, same as the
+// rest of the armor code (there's no separate state.usingPA field).
+//
+// Regular armor: sums DR/ER/RR/Cryo from state.armorSlots against
+// ARMOR_DATA.verified_sets only — unverified/qualitative sets don't count
+// toward totals, and headwear gives no resistance in FO76 (both preserved
+// exactly as renderArmorPanel already did it). Cryo is 0 for any piece that
+// doesn't carry a verified "cryo" field (today, only Arctic Marine does).
+//
+// Power Armor: returns the frame's flat DR/ER plus the %damage/%radiation
+// reduction from installed pieces — different units than regular armor's
+// flat DR/ER/RR, so callers branch on `usingPA` rather than mixing them.
+function computeArmorResistances(){
+  const paToggle = document.getElementById('usePowerArmorToggle');
+  const usingPA = paToggle ? paToggle.checked : false;
+
+  if(usingPA){
+    const pieces = state.paPieces || 0;
+    return {
+      usingPA: true,
+      flatDrEr: ARMOR_DATA.power_armor_frame.base_flat_dr_er,
+      dmgPct: pieces * ARMOR_DATA.power_armor_frame.per_piece_damage_reduction_pct,
+      radPct: pieces * ARMOR_DATA.power_armor_frame.per_piece_radiation_reduction_pct
+    };
+  }
+
+  let dr=0, er=0, rr=0, cryo=0, verifiedCount=0, totalCount=0;
+  for(const slot of ARMOR_SLOTS){
+    const key = (state.armorSlots||{})[slot];
+    if(!key) continue;
+    totalCount++;
+    const set = ARMOR_DATA.verified_sets.find(s=>s.key===key);
+    if(!set) continue;
+    verifiedCount++;
+    if(slot === 'head') continue; // headwear gives no resistance in FO76
+    const piece = slot === 'chest' ? set.chest : set.limb;
+    dr += piece.dr; er += piece.er; rr += piece.rr;
+    cryo += piece.cryo || 0; // only Arctic Marine has a verified cryo value
+  }
+  return {usingPA:false, dr, er, rr, cryo, verifiedCount, totalCount};
+}
+
 function renderArmorPanel(){
   const t = T();
   document.getElementById('txt-h-armor').textContent = t.hArmor;
@@ -2110,15 +2162,14 @@ function renderArmorPanel(){
       renderArmorPanel();
     });
 
-    const pieces = state.paPieces || 0;
-    const dmgPct = pieces * ARMOR_DATA.power_armor_frame.per_piece_damage_reduction_pct;
-    const radPct = pieces * ARMOR_DATA.power_armor_frame.per_piece_radiation_reduction_pct;
+    const res = computeArmorResistances();
     totalsBox.innerHTML = `
       <div class="armor-totals">
-        <div class="pb-def-stat"><div class="ss-lbl">DR/ER ${t.defRR==='RADIACIÓN'?'BASE':'BASE'}</div><div class="ss-val">${ARMOR_DATA.power_armor_frame.base_flat_dr_er}</div></div>
-        <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. DAÑO':'DMG REDUCTION'}</div><div class="ss-val">${dmgPct}%</div></div>
-        <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. RAD.':'RAD REDUCTION'}</div><div class="ss-val">${radPct}%</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">DR/ER ${t.defRR==='RADIACIÓN'?'BASE':'BASE'}</div><div class="ss-val">${res.flatDrEr}</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. DAÑO':'DMG REDUCTION'}</div><div class="ss-val">${res.dmgPct}%</div></div>
+        <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. RAD.':'RAD REDUCTION'}</div><div class="ss-val">${res.radPct}%</div></div>
       </div>
+      <div class="pa-frame-note">${t.defPaCryoNote}</div>
     `;
     return;
   }
@@ -2155,28 +2206,18 @@ function renderArmorPanel(){
     });
   });
 
-  // Totals: only sum pieces from verified sets (chest counts as chest stats,
-  // head/arms/legs count as "limb" stats per the wiki table pattern — head
-  // has no resistance in-game, so it's excluded from the sum on purpose).
-  let dr=0, er=0, rr=0, verifiedCount=0, totalCount=0;
-  for(const slot of ARMOR_SLOTS){
-    const key = (state.armorSlots||{})[slot];
-    if(!key) continue;
-    totalCount++;
-    const set = ARMOR_DATA.verified_sets.find(s=>s.key===key);
-    if(!set) continue;
-    verifiedCount++;
-    if(slot === 'head') continue; // headwear gives no resistance in FO76
-    const piece = slot === 'chest' ? set.chest : set.limb;
-    dr += piece.dr; er += piece.er; rr += piece.rr;
-  }
-  totalsBox.innerHTML = totalCount === 0 ? '' : `
-    <div class="summary-sub">${t.armorTotalsTitle} (${verifiedCount}/${totalCount})</div>
+  // Totals now come from the shared computeArmorResistances() (same rules:
+  // only verified sets count, head gives no resistance).
+  const res = computeArmorResistances();
+  totalsBox.innerHTML = res.totalCount === 0 ? '' : `
+    <div class="summary-sub">${t.armorTotalsTitle} (${res.verifiedCount}/${res.totalCount})</div>
     <div class="armor-totals">
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defDR}</div><div class="ss-val">${dr}</div></div>
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defER}</div><div class="ss-val">${er}</div></div>
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defRR}</div><div class="ss-val">${rr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defDR}</div><div class="ss-val">${res.dr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defER}</div><div class="ss-val">${res.er}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defRR}</div><div class="ss-val">${res.rr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defCryo}</div><div class="ss-val">${res.cryo}</div></div>
     </div>
+    <div class="armor-piece-note">${t.defCryoNote}</div>
   `;
 }
 
@@ -2339,15 +2380,32 @@ function renderStatSummary(){
     </div>
   `;
 
-  // Resistances (DEF): honestly 0 until armor data exists — see chat note.
+  // Resistances (DEF): real numbers from the shared computeArmorResistances()
+  // (same source of truth the ARMOR tab uses — see renderArmorPanel), instead
+  // of the hardcoded zeros this used to show before armor was wired up here.
+  const armorRes = computeArmorResistances();
+  const defStatsHtml = armorRes.usingPA ? `
+    <div class="pb-def-row">
+      <div class="pb-def-stat"><div class="ss-lbl">DR/ER</div><div class="ss-val">${armorRes.flatDrEr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. DAÑO':'DMG REDUCTION'}</div><div class="ss-val">${armorRes.dmgPct}%</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${state.lang==='es'?'REDUCC. RAD.':'RAD REDUCTION'}</div><div class="ss-val">${armorRes.radPct}%</div></div>
+    </div>
+    <div class="summary-empty">${t.defPaCryoNote}</div>
+  ` : `
+    <div class="pb-def-row">
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defDR}</div><div class="ss-val">${armorRes.dr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defER}</div><div class="ss-val">${armorRes.er}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defRR}</div><div class="ss-val">${armorRes.rr}</div></div>
+      <div class="pb-def-stat"><div class="ss-lbl">${t.defCryo}</div><div class="ss-val">${armorRes.cryo}</div></div>
+    </div>
+    <div class="summary-empty">${t.defCryoNote}</div>
+  `;
   const defHtml = `
     <div class="summary-sub">${t.summaryDef}</div>
-    <div class="pb-def-row">
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defDR}</div><div class="ss-val">0</div></div>
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defER}</div><div class="ss-val">0</div></div>
-      <div class="pb-def-stat"><div class="ss-lbl">${t.defRR}</div><div class="ss-val">0</div></div>
-    </div>
+    ${defStatsHtml}
     <div class="summary-empty">${t.defNote}</div>
+    <div class="summary-sub">${t.defUnmodeledTitle}</div>
+    <div class="summary-empty">${t.defUnmodeledNote}</div>
   `;
 
   // Carry Weight / Bonus XP (kept, not part of the Pip-Boy SPECIAL screen
