@@ -1136,6 +1136,11 @@ footer{
         <h2 id="txt-h-equipped">CARTAS EQUIPADAS</h2>
         <div id="equippedSummaryBox"></div>
       </div>
+      <div class="panel">
+        <h2 id="txt-h-perkcoins">PERK COINS</h2>
+        <p class="summary-empty" id="txt-perkcoins-note"></p>
+        <div id="perkCoinsBox"></div>
+      </div>
       </div>
 
       <div class="tab-panel-group" data-tabgroup="raid">
@@ -1214,6 +1219,11 @@ const STRINGS = {
     eqLegendaryTitle: "LEGENDARIAS",
     eqCardsCount: (n)=> `${n} carta${n===1?'':'s'}`,
     eqUnequip: "×",
+    hPerkCoins: "PERK COINS",
+    perkCoinsNote: "Monedas de Perk Coins que faltan para llevar cada perk legendaria equipada a rango 4 (costos verificados: 50/100/150 por rango).",
+    pcToMax: (n)=> `${n} monedas a rango 4`,
+    pcMaxed: "Rango máximo (4/4)",
+    pcTotal: "Total para maximizar todas:",
     tabRaid: "RAID",
     hRaid: "GLEAMING DEPTHS",
     raidNote: "5 encuentros, en orden. Datos verificados de wiki marcados en verde; sugerencias de guías comunitarias marcadas como tal (no verificadas contra archivos del juego).",
@@ -1275,7 +1285,8 @@ const STRINGS = {
       ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
       ["pending","Resistencias completas: +Veneno/Fuego/Cryo, Evasion Chance"],
       ["pending","Panel de efectos activos en vivo"],
-      ["pending","Calculadora de costo en Perk Coins / niveles necesarios"],
+      ["done","Calculadora de costo en Perk Coins (perks legendarias equipadas → monedas para llegar a rango 4)"],
+      ["pending","Calculadora de niveles necesarios (sin curva de XP por nivel verificada en los datos de la app todavía)"],
       ["pending","Gráfica de progreso de nivel"],
       ["pending","Daño de salida (DPS) calculado — solo componentes verificados, con marcado de confianza en la UI"],
       ["pending","Build compartible vía URL (estado codificado en la URL, sin backend)"]
@@ -1332,6 +1343,11 @@ const STRINGS = {
     eqCardsCount: (n)=> `${n} card${n===1?'':'s'}`,
     eqUnequip: "×",
     eqUnequip: "×",
+    hPerkCoins: "PERK COINS",
+    perkCoinsNote: "Perk Coins still needed to bring each equipped legendary perk to rank 4 (verified costs: 50/100/150 per rank).",
+    pcToMax: (n)=> `${n} coins to rank 4`,
+    pcMaxed: "Max rank (4/4)",
+    pcTotal: "Total to max all:",
     tabRaid: "RAID",
     hRaid: "GLEAMING DEPTHS",
     raidNote: "5 encounters, in order. Wiki-verified data marked in green; community guide suggestions marked as such (not verified against game files).",
@@ -1393,7 +1409,8 @@ const STRINGS = {
       ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
       ["pending","Full resistances: +Poison/Fire/Cryo, Evasion Chance"],
       ["pending","Live active-effects panel"],
-      ["pending","Perk Coins cost / levels-needed calculator"],
+      ["done","Perk Coins cost calculator (equipped legendary perks → coins needed to reach rank 4)"],
+      ["pending","Levels-needed calculator (no verified XP-per-level curve in this app's data yet)"],
       ["pending","Level progress chart"],
       ["pending","Calculated damage output (DPS) — verified components only, with a confidence marker in the UI"],
       ["pending","Shareable build via URL (state encoded in the URL, no backend)"]
@@ -1606,6 +1623,11 @@ function T(){ return STRINGS[state.lang]; }
 // Legendary S.P.E.C.I.A.L. cards add +1/+2/+3/+5 to their attribute by rank
 // (verified: fallout.fandom.com/wiki/Fallout_76_legendary_perks).
 const LEGENDARY_SPECIAL_BONUS_BY_RANK = [0,1,2,3,5];
+
+// Perk Coins cost to rank up a legendary perk card. Index 0 = cost to go
+// from rank 1->2, index 1 = rank 2->3, index 2 = rank 3->4. Verified figure,
+// already referenced in STRINGS.legCoinsNote ("50/100/150 coins").
+const LEGENDARY_RANKUP_COSTS = [50,100,150];
 
 // Computes the effective S.P.E.C.I.A.L. after legendary SPECIAL cards and
 // active mutations. "raw" (uncapped) feeds derived stats like HP/AP/Carry
@@ -2469,6 +2491,48 @@ function renderEquippedSummary(){
   });
 }
 
+// Perk Coins cost calculator: for each equipped legendary perk, sums the
+// remaining LEGENDARY_RANKUP_COSTS tiers between its current rank and rank 4
+// (e.g. rank 2 needs costs[1]+costs[2] = 100+150 = 250 to max out). Only
+// covers the coins-cost half of the roadmap item — no XP/levels-needed
+// calculator here, since there's no verified XP-per-level curve in this
+// app's data to compute that from.
+function renderPerkCoinsCalculator(){
+  const t = T();
+  document.getElementById('txt-h-perkcoins').textContent = t.hPerkCoins;
+  document.getElementById('txt-perkcoins-note').textContent = t.perkCoinsNote;
+  const box = document.getElementById('perkCoinsBox');
+
+  const equippedLegendary = state.legendaryPerks
+    .map((lp, idx) => lp ? {...lp, slotIdx: idx} : null)
+    .filter(Boolean);
+
+  if(equippedLegendary.length === 0){
+    box.innerHTML = `<div class="summary-empty">${t.eqNoneLegendary}</div>`;
+    return;
+  }
+
+  let total = 0;
+  const rows = equippedLegendary.map(lp => {
+    const remaining = LEGENDARY_RANKUP_COSTS.slice(lp.rank - 1).reduce((a,b)=>a+b, 0);
+    total += remaining;
+    const costLabel = remaining > 0 ? t.pcToMax(remaining) : t.pcMaxed;
+    return `
+      <div class="eq-card-item">
+        <span class="eq-name">${lp.name}</span>
+        <span class="eq-rank">${t.rank} ${lp.rank}/4</span>
+        <span class="eq-rank" style="color:var(--green);">${costLabel}</span>
+      </div>`;
+  }).join('');
+
+  box.innerHTML = `
+    <div class="eq-card-list">${rows}</div>
+    <div class="eq-card-item" style="margin-top:8px;border-top:1px solid var(--line);padding-top:8px;">
+      <span class="eq-name" style="font-weight:bold;color:var(--amber);">${t.pcTotal}</span>
+      <span class="eq-rank" style="color:var(--amber);font-weight:bold;">${total}</span>
+    </div>`;
+}
+
 function renderRaidPanel(){
   const t = T();
   document.getElementById('txt-h-raid').textContent = t.hRaid;
@@ -2612,6 +2676,7 @@ function renderAll(){
   renderBuildsList();
   renderStatSummary();
   renderEquippedSummary();
+  renderPerkCoinsCalculator();
   renderRaidPanel();
 }
 
