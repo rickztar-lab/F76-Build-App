@@ -78,12 +78,9 @@ siempre sin importar la pestaña activa.
 
 ## Roadmap pendiente (ver también el array `roadmap` dentro de `STRINGS.es`
 y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
-1. Daily Ops (~20 operaciones) y jefes de eventos públicos (15+) — cada uno
-   necesita investigación individual como se hizo con Gleaming Depths, NO
-   improvisar sin verificar.
-2. Motor de reglas dinámico (elegir arma/armadura → build automática).
-3. Comparador de 2 builds lado a lado.
-4. Inspirado en nukesdragons.com (competencia): switchboard de estado más
+1. Motor de reglas dinámico (elegir arma/armadura → build automática).
+2. Comparador de 2 builds lado a lado.
+3. Inspirado en nukesdragons.com (competencia): switchboard de estado más
    completo (ya empezado — falta conectar HP%/Fed/Hidratado/Equipo/Día-Noche
    a stats reales, hoy solo se guardan), multi-arma (hasta 5, con mods +
    legendario configurables), sets de armadura múltiples guardables, Power
@@ -91,7 +88,7 @@ y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
    completa de resistencias (+Veneno/Fuego/Cryo, Evasion Chance), panel de
    efectos activos en vivo, calculadora de costo en Perk Coins, gráfica de
    progreso de nivel.
-5. **Fuera de alcance por diseño**: compartir/explorar builds en comunidad —
+4. **Fuera de alcance por diseño**: compartir/explorar builds en comunidad —
    requeriría backend con base de datos, la app es 100% local/offline.
 
 ## Convenciones de código a seguir
