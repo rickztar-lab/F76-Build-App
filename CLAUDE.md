@@ -22,7 +22,8 @@ siempre sin importar la pestaña activa.
 - `index.html` — la app completa. Los datos están embebidos como constantes
   JS dentro del `<script>` (`PERKS`, `WEAPONS`, `WIKI_WEAPONS`,
   `PERK_CATEGORIES`, `LEGENDARY_PERKS`, `MUTATIONS`, `ARMOR_DATA`,
-  `RAID_CONTENT`, `GHOUL_ONLY_PERKS`, `LEGENDARY_WEAPON_EFFECTS`).
+  `RAID_CONTENT`, `GHOUL_ONLY_PERKS`, `LEGENDARY_WEAPON_EFFECTS`,
+  `LEGENDARY_ARMOR_EFFECTS`).
 - `data_*.json` / `data_mutations.js` — fuentes originales de esos datos, por
   si hay que auditar o regenerar. **Si edito estos archivos, hay que volver a
   inyectarlos manualmente en el `<script>` de `index.html`** (no hay build
@@ -60,6 +61,14 @@ siempre sin importar la pestaña activa.
   estrella (lista mucho más larga, mayor riesgo de error). Marcado como tal
   en la UI (`weaponLegendaryNote`). Si en el futuro se logra acceso a la
   wiki, re-verificar y subir de nivel de confianza.
+- `data_legendary_armor_effects.json` (10): mismo nivel de confianza y mismo
+  bloqueo de wiki que el archivo de arriba. Se usa para el efecto legendario
+  opcional de cada una de las 5 piezas nombradas de Power Armor (Casco,
+  Torso, Brazo izq., Brazo der., Piernas) — es puramente informativo, NO
+  alimenta `computeArmorResistances()` porque no hay datos verificados de
+  resistencia por pieza/modelo de PA. Los mods por pieza de PA no se
+  modelaron (ni siquiera como referencia liviana) por no tener ninguna
+  fuente para una lista razonable.
 
 ## Decisiones de diseño ya tomadas (no revertir sin preguntar)
 1. **Sin imágenes de cartas del juego** (copyright) — 7 iconos SVG originales

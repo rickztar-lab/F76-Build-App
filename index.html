@@ -1348,7 +1348,6 @@ const STRINGS = {
     armorVerified: "VERIFICADO", armorQual: "CUALITATIVO",
     armorTotalsTitle: "TOTALES (piezas verificadas)",
     paFrameTitle: "MARCO DE POWER ARMOR",
-    paPiecesLabel: "Piezas instaladas (0-5):",
     paFrameNote: "Verificado: marco vacío = 60 DR/ER planos. Cada pieza suma 7% reducción de daño y 15% reducción de radiación (no incluye la resistencia propia de cada modelo, aún sin desglosar por pieza).",
     armorQualNote: "Este set no tiene números verificados todavía — solo comparación cualitativa contra otros sets.",
     hWeaponLegendary: "EFECTO LEGENDARIO (1ra estrella)",
@@ -1402,7 +1401,7 @@ const STRINGS = {
       ["done","Switchboard de estado (Humano/Ghoul conectado a 25 cartas reales; HP%/Fed/equipo/día-noche guardados, pendiente conectar a stats)"],
       ["done","Multi-arma (hasta 5) con mods + efecto legendario configurables — loadout independiente del filtro de arma de perks"],
       ["done","Sets de armadura múltiples, guardables y comparables (compara DR/ER/RR/Cryo de 2 sets guardados)"],
-      ["pending","Power Armor con mods + legendario por pieza (no solo el marco)"],
+      ["done","Power Armor: 5 piezas nombradas con efecto legendario cada una (dato IA no verificado, ver nota); mods por pieza no incluidos — sin fuente de datos, misma limitación que efectos legendarios"],
       ["done","Resistencias completas: DR/ER/RR/Cryo reales desde armadura equipada (compartido con pestaña STAT); Veneno/Fuego/Evasion marcados explícitamente 'no modelado' (sin dato verificado)"],
       ["done","Panel de efectos activos en vivo"],
       ["done","Calculadora de costo en Perk Coins (perks legendarias equipadas → monedas para llegar a rango 4)"],
@@ -1500,7 +1499,6 @@ const STRINGS = {
     armorVerified: "VERIFIED", armorQual: "QUALITATIVE",
     armorTotalsTitle: "TOTALS (verified pieces)",
     paFrameTitle: "POWER ARMOR FRAME",
-    paPiecesLabel: "Installed pieces (0-5):",
     paFrameNote: "Verified: empty frame = 60 flat DR/ER. Each piece adds 7% damage reduction and 15% radiation reduction (doesn't include each model's own resistance, not broken down per piece yet).",
     armorQualNote: "This set doesn't have verified numbers yet — only a qualitative comparison against other sets.",
     hWeaponLegendary: "LEGENDARY EFFECT (1st star)",
@@ -1554,7 +1552,7 @@ const STRINGS = {
       ["done","Character state switchboard (Human/Ghoul wired to 25 real cards; HP%/Fed/team/day-night saved, pending stat wiring)"],
       ["done","Multi-weapon (up to 5) with configurable mods + legendary effect — loadout independent from the perk-card weapon filter"],
       ["done","Multiple saveable/comparable armor sets (compares DR/ER/RR/Cryo of 2 saved sets)"],
-      ["pending","Power Armor with mods + legendary per piece (not just the frame)"],
+      ["done","Power Armor: 5 named pieces each with their own legendary effect (AI-recalled data, see note); per-piece mods not included — no data source, same limitation as legendary effects"],
       ["done","Full resistances: real DR/ER/RR/Cryo from equipped armor (shared with STAT tab); Poison/Fire/Evasion explicitly marked 'not modeled' (no verified data)"],
       ["done","Live active-effects panel"],
       ["done","Perk Coins cost calculator (equipped legendary perks → coins needed to reach rank 4)"],
@@ -1621,6 +1619,53 @@ const LEGENDARY_WEAPON_EFFECTS = [
   {key:"mutants",name:"Mutant's",textEs:"Daño extra mientras el portador tenga al menos una mutación activa.",textEn:"Bonus damage while the wielder has at least one active mutation."},
   {key:"stalkers",name:"Stalker's",textEs:"Daño extra contra enemigos que no han detectado al portador (sigilo).",textEn:"Bonus damage against enemies that haven't detected the wielder (stealth)."}
 ];
+
+// Armor/Power Armor legendary effects. Same trust tier and caveats as
+// LEGENDARY_WEAPON_EFFECTS above — see data_legendary_armor_effects.json's
+// trust_note. Informational only: doesn't feed computeArmorResistances(),
+// since there's no verified per-piece resistance data to combine it with.
+const LEGENDARY_ARMOR_EFFECTS = [
+  {key:"sentinels",name:"Sentinel's",textEs:"Reduce el daño recibido mientras el portador está apuntando (ADS).",textEn:"Reduces damage taken while the wearer is aiming (ADS)."},
+  {key:"bolstering",name:"Bolstering",textEs:"Probabilidad de reducir el daño de un golpe entrante.",textEn:"Chance to reduce the damage of an incoming hit."},
+  {key:"cavaliers",name:"Cavalier's",textEs:"Aumenta la resistencia mientras el portador está bloqueando.",textEn:"Increases resistance while the wearer is blocking."},
+  {key:"weightless",name:"Weightless",textEs:"La pieza no pesa nada.",textEn:"The piece weighs nothing."},
+  {key:"overeaters",name:"Overeater's",textEs:"Resistencia extra mientras el portador no está con la vida al máximo.",textEn:"Bonus resistance while the wearer isn't at full health."},
+  {key:"assassins",name:"Assassin's",textEs:"Resistencia extra contra enemigos humanos.",textEn:"Bonus resistance against human enemies."},
+  {key:"chameleon",name:"Chameleon",textEs:"Invisibilidad temporal al quedarse quieto.",textEn:"Temporary invisibility while standing still."},
+  {key:"troubleshooters",name:"Troubleshooter's",textEs:"Resistencia extra contra robots.",textEn:"Bonus resistance against robots."},
+  {key:"zealots_armor",name:"Zealot's",textEs:"Resistencia extra contra enemigos Calcinados (Scorched).",textEn:"Bonus resistance against Scorched enemies."},
+  {key:"vanguards",name:"Vanguard's",textEs:"La resistencia aumenta cuanto más baja está la vida del portador.",textEn:"Resistance increases the lower the wearer's current HP is."}
+];
+
+// Named Power Armor piece slots for the per-piece legendary picker. The
+// verified frame math (60 flat DR/ER + 7%/piece damage + 15%/piece
+// radiation) only cares about *how many* pieces are installed, not which —
+// so this is purely a more granular UI over the exact same math, plus an
+// optional (unverified, see above) legendary tag per piece.
+const PA_PIECE_SLOTS = [
+  {key:"helmet", es:"Casco", en:"Helmet"},
+  {key:"torso", es:"Torso", en:"Torso"},
+  {key:"leftArm", es:"Brazo izquierdo", en:"Left Arm"},
+  {key:"rightArm", es:"Brazo derecho", en:"Right Arm"},
+  {key:"legs", es:"Piernas", en:"Legs"}
+];
+function paPiecesInstalledCount(paPieceSlots){
+  return Object.values(paPieceSlots||{}).filter(Boolean).length;
+}
+// Migrates a saved build/armor-set object to the named-slots format: if it
+// already has paPieceSlots (current format), deep-clones it; if it only has
+// the old flat paPieces count, synthesizes that many installed slots (no
+// legendary effect, since that concept didn't exist in the old format).
+function migratePAPieceSlots(saved){
+  if(saved && saved.paPieceSlots) return JSON.parse(JSON.stringify(saved.paPieceSlots));
+  const legacyCount = saved && typeof saved.paPieces === 'number' ? saved.paPieces : 0;
+  const slots = {helmet:null, torso:null, leftArm:null, rightArm:null, legs:null};
+  const keys = PA_PIECE_SLOTS.map(p=>p.key);
+  for(let i=0; i<legacyCount && i<keys.length; i++){
+    slots[keys[i]] = {legendaryEffect:null};
+  }
+  return slots;
+}
 
 const MOD_DEPENDENT_PERKS = {
   "Scoped-up": "scope",
@@ -1782,7 +1827,7 @@ let state = {
   activeMutations: [],
   activeMainTab: "stat",
   armorSlots: {},
-  paPieces: 0,
+  paPieceSlots: {helmet:null, torso:null, leftArm:null, rightArm:null, legs:null},
   charState: {
     isGhoul: false,
     hpPercent: 100,
@@ -2492,16 +2537,18 @@ function armorOptionsList(){
 // Optional params let this be reused for arbitrary saved armor sets (e.g.
 // the armor-set comparison view), not just the live equipped state — when
 // omitted, it reads the live state/DOM exactly like before.
-function computeArmorResistances(armorSlots, paPieces, usingPA){
+function computeArmorResistances(armorSlots, paPieceSlots, usingPA){
   if(armorSlots === undefined){
     const paToggle = document.getElementById('usePowerArmorToggle');
     usingPA = paToggle ? paToggle.checked : false;
     armorSlots = state.armorSlots;
-    paPieces = state.paPieces;
+    paPieceSlots = state.paPieceSlots;
   }
 
   if(usingPA){
-    const pieces = paPieces || 0;
+    // Accepts either the named-slots object (current format) or a plain
+    // piece count (older saved builds/armor sets, pre-per-piece slots).
+    const pieces = typeof paPieceSlots === 'number' ? paPieceSlots : paPiecesInstalledCount(paPieceSlots);
     return {
       usingPA: true,
       flatDrEr: ARMOR_DATA.power_armor_frame.base_flat_dr_er,
@@ -2536,19 +2583,42 @@ function renderArmorPanel(){
   const usingPA = document.getElementById('usePowerArmorToggle').checked;
 
   if(usingPA){
+    if(!state.paPieceSlots) state.paPieceSlots = {helmet:null, torso:null, leftArm:null, rightArm:null, legs:null};
+    const legOptsHtml = (current) => LEGENDARY_ARMOR_EFFECTS.map(e =>
+      `<option value="${e.key}" ${current===e.key?'selected':''}>${e.name}</option>`
+    ).join('');
+    const piecesHtml = PA_PIECE_SLOTS.map(p=>{
+      const slot = state.paPieceSlots[p.key];
+      const label = state.lang==='es' ? p.es : p.en;
+      const installed = !!slot;
+      return `
+        <div class="armor-slot-row">
+          <label><input type="checkbox" data-pa-piece="${p.key}" ${installed?'checked':''}> ${label}</label>
+          ${installed ? `<select data-pa-leg="${p.key}">
+            <option value="">${t.weaponLegendaryNone}</option>
+            ${legOptsHtml(slot.legendaryEffect)}
+          </select>` : ''}
+        </div>`;
+    }).join('');
     slotsBox.innerHTML = `
       <div class="summary-sub">${t.paFrameTitle}</div>
-      <div class="armor-slot-row">
-        <span class="as-label">${t.paPiecesLabel}</span>
-        <input type="number" id="paPiecesInput" min="0" max="5" value="${state.paPieces||0}" style="width:60px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:3px;font-family:var(--font-mono);">
-      </div>
+      ${piecesHtml}
       <div class="pa-frame-note">${t.paFrameNote}</div>
+      <div class="pa-frame-note">${t.weaponLegendaryNote}</div>
     `;
-    document.getElementById('paPiecesInput').addEventListener('change', (e)=>{
-      let v = parseInt(e.target.value) || 0;
-      v = Math.max(0, Math.min(5, v));
-      state.paPieces = v;
-      renderArmorPanel();
+    slotsBox.querySelectorAll('input[data-pa-piece]').forEach(cb=>{
+      cb.addEventListener('change', ()=>{
+        const key = cb.dataset.paPiece;
+        state.paPieceSlots[key] = cb.checked ? {legendaryEffect:null} : null;
+        renderAll();
+      });
+    });
+    slotsBox.querySelectorAll('select[data-pa-leg]').forEach(sel=>{
+      sel.addEventListener('change', ()=>{
+        const key = sel.dataset.paLeg;
+        if(state.paPieceSlots[key]) state.paPieceSlots[key].legendaryEffect = sel.value || null;
+        renderAll();
+      });
     });
 
     const res = computeArmorResistances();
@@ -2591,7 +2661,7 @@ function renderArmorPanel(){
     sel.addEventListener('change', ()=>{
       if(!state.armorSlots) state.armorSlots = {};
       state.armorSlots[sel.dataset.armorSlot] = sel.value;
-      renderArmorPanel();
+      renderAll();
     });
   });
 
@@ -2610,7 +2680,7 @@ function renderArmorPanel(){
   `;
 }
 
-document.getElementById('usePowerArmorToggle').addEventListener('change', renderArmorPanel);
+document.getElementById('usePowerArmorToggle').addEventListener('change', renderAll);
 
 function renderMutationsPanel(){
   const t = T();
@@ -3238,7 +3308,7 @@ function renderBuildsList(){
         state.legendaryPerks = b.legendaryPerks || [null,null,null,null,null,null];
         state.activeMutations = b.activeMutations || [];
         state.armorSlots = b.armorSlots || {};
-        state.paPieces = b.paPieces || 0;
+        state.paPieceSlots = migratePAPieceSlots(b);
         state.charState = b.charState || {isGhoul:false,hpPercent:100,wellFed:false,wellHydrated:false,inTeam:false,isNight:false,addictions:0,caps:0};
         document.getElementById('usePowerArmorToggle').checked = !!b.usingPA;
         renderAll();
@@ -3273,7 +3343,7 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
     legendaryPerks: JSON.parse(JSON.stringify(state.legendaryPerks)),
     activeMutations: [...state.activeMutations],
     armorSlots: {...state.armorSlots},
-    paPieces: state.paPieces,
+    paPieceSlots: JSON.parse(JSON.stringify(state.paPieceSlots || {helmet:null,torso:null,leftArm:null,rightArm:null,legs:null})),
     usingPA: document.getElementById('usePowerArmorToggle').checked,
     charState: {...state.charState}
   });
@@ -3283,8 +3353,8 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
 });
 
 // Saved armor sets: same save/load/duplicate/delete pattern as builds above,
-// scoped to just armorSlots + paPieces + usingPA so a user can keep several
-// named armor configurations without overwriting their full character build.
+// scoped to just armorSlots + paPieceSlots + usingPA so a user can keep
+// several named armor configurations without overwriting their full build.
 const ARMOR_SETS_STORAGE_KEY = "fo76_armor_sets_v1";
 function loadArmorSets(){
   try{ return JSON.parse(localStorage.getItem(ARMOR_SETS_STORAGE_KEY)) || []; }catch(e){ return []; }
@@ -3319,7 +3389,7 @@ function renderArmorSetsList(){
       if(act === "load"){
         const s = sets[idx];
         state.armorSlots = {...s.armorSlots};
-        state.paPieces = s.paPieces || 0;
+        state.paPieceSlots = migratePAPieceSlots(s);
         document.getElementById('usePowerArmorToggle').checked = !!s.usingPA;
         renderAll();
       } else if(act === "dup"){
@@ -3344,7 +3414,7 @@ document.getElementById('saveArmorSetBtn').addEventListener('click', ()=>{
   sets.push({
     name,
     armorSlots: {...state.armorSlots},
-    paPieces: state.paPieces,
+    paPieceSlots: JSON.parse(JSON.stringify(state.paPieceSlots || {helmet:null,torso:null,leftArm:null,rightArm:null,legs:null})),
     usingPA: document.getElementById('usePowerArmorToggle').checked
   });
   saveArmorSets(sets);
@@ -3370,7 +3440,7 @@ function renderArmorSetsCompare(){
     }
     const s = sets[parseInt(idxVal)];
     if(!s) return '';
-    const res = computeArmorResistances(s.armorSlots, s.paPieces, s.usingPA);
+    const res = computeArmorResistances(s.armorSlots, migratePAPieceSlots(s), s.usingPA);
     if(res.usingPA){
       return `
         <div class="armor-totals">
