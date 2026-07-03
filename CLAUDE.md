@@ -87,9 +87,15 @@ y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
    Armor con mods+legendario por pieza (hoy solo el % del marco), fila
    completa de resistencias (+Veneno/Fuego/Cryo, Evasion Chance), panel de
    efectos activos en vivo, calculadora de costo en Perk Coins, gráfica de
-   progreso de nivel.
-4. **Fuera de alcance por diseño**: compartir/explorar builds en comunidad —
-   requeriría backend con base de datos, la app es 100% local/offline.
+   progreso de nivel, daño de salida (DPS) calculado (solo componentes con
+   curva verificada, marcado de confianza en la UI, sin inventar números —
+   mismo criterio que `armorQualNote`), build compartible vía URL (estado
+   codificado en query params, sin backend).
+4. **Fuera de alcance por diseño**: explorar/descubrir builds de otros
+   usuarios (un feed o buscador de builds comunitarios) — eso sí requeriría
+   backend con base de datos. Compartir un build propio vía link (arriba)
+   no cuenta: es solo serializar el estado en la URL, la app sigue siendo
+   100% local/offline.
 
 ## Convenciones de código a seguir
 - Todo texto de interfaz pasa por `STRINGS` (es/en) + función `T()` — nunca
