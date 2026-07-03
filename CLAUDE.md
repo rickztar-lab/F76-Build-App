@@ -22,7 +22,7 @@ siempre sin importar la pestaña activa.
 - `index.html` — la app completa. Los datos están embebidos como constantes
   JS dentro del `<script>` (`PERKS`, `WEAPONS`, `WIKI_WEAPONS`,
   `PERK_CATEGORIES`, `LEGENDARY_PERKS`, `MUTATIONS`, `ARMOR_DATA`,
-  `RAID_CONTENT`, `GHOUL_ONLY_PERKS`).
+  `RAID_CONTENT`, `GHOUL_ONLY_PERKS`, `LEGENDARY_WEAPON_EFFECTS`).
 - `data_*.json` / `data_mutations.js` — fuentes originales de esos datos, por
   si hay que auditar o regenerar. **Si edito estos archivos, hay que volver a
   inyectarlos manualmente en el `<script>` de `index.html`** (no hay build
@@ -51,6 +51,15 @@ siempre sin importar la pestaña activa.
   recomendación de perk legendaria **verificada textualmente en la wiki**
   (EN06 Guardian, Ultracite Terror); el resto son tips comunitarios marcados
   como tal, no verificados.
+- `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
+  **nivel de confianza más bajo que "WIKI"** — escrito desde el conocimiento
+  entrenado de Claude, no se pudo verificar en vivo porque
+  fallout.fandom.com, fextralife.com y fallout.wiki devolvieron 403 (bloqueo
+  anti-bot) en la sesión donde se creó. Nombres/mecánica general confiables,
+  sin números/porcentajes inventados a propósito, y sin efectos de 2da/3ra
+  estrella (lista mucho más larga, mayor riesgo de error). Marcado como tal
+  en la UI (`weaponLegendaryNote`). Si en el futuro se logra acceso a la
+  wiki, re-verificar y subir de nivel de confianza.
 
 ## Decisiones de diseño ya tomadas (no revertir sin preguntar)
 1. **Sin imágenes de cartas del juego** (copyright) — 7 iconos SVG originales
@@ -84,9 +93,7 @@ y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
    completo (ya empezado — falta conectar HP%/Fed/Hidratado/Equipo/Día-Noche
    a stats reales, hoy solo se guardan), multi-arma (hasta 5, con mods +
    legendario configurables), sets de armadura múltiples guardables, Power
-   Armor con mods+legendario por pieza (hoy solo el % del marco), fila
-   completa de resistencias (+Veneno/Fuego/Cryo, Evasion Chance), panel de
-   efectos activos en vivo, calculadora de costo en Perk Coins, daño de
+   Armor con mods+legendario por pieza (hoy solo el % del marco), daño de
    salida (DPS) calculado (solo componentes con
    curva verificada, marcado de confianza en la UI, sin inventar números —
    mismo criterio que `armorQualNote`), build compartible vía URL (estado

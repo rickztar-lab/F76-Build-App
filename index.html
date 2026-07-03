@@ -1172,6 +1172,7 @@ footer{
         <div id="noMatchBox"></div>
         <div id="selectedWeaponBox"></div>
         <div id="modsBox"></div>
+        <div id="weaponLegendaryBox"></div>
         <label class="toggle-row">
           <input type="checkbox" id="onlyCompatibleToggle" checked>
           <span id="txt-onlycompat">Mostrar solo cartas compatibles</span>
@@ -1333,6 +1334,9 @@ const STRINGS = {
     paPiecesLabel: "Piezas instaladas (0-5):",
     paFrameNote: "Verificado: marco vacío = 60 DR/ER planos. Cada pieza suma 7% reducción de daño y 15% reducción de radiación (no incluye la resistencia propia de cada modelo, aún sin desglosar por pieza).",
     armorQualNote: "Este set no tiene números verificados todavía — solo comparación cualitativa contra otros sets.",
+    hWeaponLegendary: "EFECTO LEGENDARIO (1ra estrella)",
+    weaponLegendaryNone: "— Ninguno —",
+    weaponLegendaryNote: "Solo el efecto principal (prefijo). Escrito desde el conocimiento de Claude, NO verificado en vivo contra la wiki esta sesión (fallout.fandom.com/fextralife/fallout.wiki bloquearon el acceso) — tratar como orientativo, no como dato verificado. Efectos secundarios/terciarios (2da/3ra estrella) no están modelados.",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Buscar arma (ej. 10mm, Fatman...)",
     onlyCompat: "Mostrar solo cartas compatibles",
@@ -1361,7 +1365,7 @@ const STRINGS = {
       ["done","Armas personalizadas (cualquier arma única) + mods de referencia"],
       ["done","Perks legendarias (26 cartas, rango 1-4, 6 slots)"],
       ["done","Mutaciones + S.P.E.C.I.A.L. efectivo reactivo"],
-      ["pending","Armas + mods + efectos legendarios"],
+      ["done","Efecto legendario de arma (1ra estrella, 12 efectos — dato IA no verificado en vivo, ver nota en la UI); mods siguen como referencia liviana (no hay data de mods por arma verificada)"],
       ["done","Armadura (3 sets verificados + 14 cualitativos) + marco de Power Armor"],
       ["done","Recomendador de build: plantillas curadas — Gleaming Depths (5 encuentros)"],
       ["pending","Recomendador: motor de reglas dinámico (elige arma/armadura → build automática)"],
@@ -1470,6 +1474,9 @@ const STRINGS = {
     paPiecesLabel: "Installed pieces (0-5):",
     paFrameNote: "Verified: empty frame = 60 flat DR/ER. Each piece adds 7% damage reduction and 15% radiation reduction (doesn't include each model's own resistance, not broken down per piece yet).",
     armorQualNote: "This set doesn't have verified numbers yet — only a qualitative comparison against other sets.",
+    hWeaponLegendary: "LEGENDARY EFFECT (1st star)",
+    weaponLegendaryNone: "— None —",
+    weaponLegendaryNote: "Main effect (prefix) only. Written from Claude's trained knowledge, NOT verified live against the wiki this session (fallout.fandom.com/fextralife/fallout.wiki blocked access) — treat as indicative, not verified data. Secondary/tertiary effects (2nd/3rd star) aren't modeled.",
     tabStat: "STAT", tabInv: "INV", tabData: "DATA",
     weaponPlaceholder: "Search weapon (e.g. 10mm, Fatman...)",
     onlyCompat: "Show only compatible cards",
@@ -1498,7 +1505,7 @@ const STRINGS = {
       ["done","Custom weapons (any unique weapon) + reference mods"],
       ["done","Legendary perks (26 cards, rank 1-4, 6 slots)"],
       ["done","Mutations + reactive effective S.P.E.C.I.A.L."],
-      ["pending","Weapons + mods + legendary effects"],
+      ["done","Weapon legendary effect (1st star, 12 effects — AI-recalled data, not live-verified, see UI note); mods remain a lightweight reference (no verified per-weapon mod data exists)"],
       ["done","Armor (3 verified sets + 14 qualitative) + Power Armor frame"],
       ["done","Build recommender: curated templates — Gleaming Depths (5 encounters)"],
       ["pending","Recommender: dynamic rules engine (pick weapon/armor → auto build)"],
@@ -1553,6 +1560,26 @@ const WEAPON_CATEGORY_KEYS = ["rifle","pistol","shotgun","heavy_gun","melee","un
 // Bethesda used when adding the playable Ghoul perk system. Verified against
 // perks.json directly (25 cards), not guessed.
 const GHOUL_ONLY_PERKS = PERKS.filter(p => p.min_level > 50).map(p => p.name);
+
+// Weapon legendary effects (1st star / prefix only). Trust tier: lower than
+// "WIKI" — written from Claude's trained knowledge, NOT fetched/verified
+// live this session (fallout.fandom.com/fextralife/fallout.wiki all 403'd).
+// See data_legendary_weapon_effects.json's trust_note for the full caveat.
+// 2nd/3rd star (secondary/tertiary) effects are intentionally left out.
+const LEGENDARY_WEAPON_EFFECTS = [
+  {key:"anti_armor",name:"Anti-Armor",textEs:"Ignora una parte significativa de la armadura (Resistencia) del objetivo.",textEn:"Ignores a significant portion of the target's armor (Resistance)."},
+  {key:"bloodied",name:"Bloodied",textEs:"El daño aumenta cuanto más baja está la vida del portador.",textEn:"Damage increases the lower the wielder's current HP is."},
+  {key:"executioners",name:"Executioner's",textEs:"Daño extra contra objetivos con la vida baja.",textEn:"Bonus damage against enemies at low health."},
+  {key:"furious",name:"Furious",textEs:"Cada golpe consecutivo sobre el mismo objetivo aumenta el daño del siguiente golpe.",textEn:"Each consecutive hit on the same target increases the damage of the next hit."},
+  {key:"instigating",name:"Instigating",textEs:"Daño doble contra objetivos con la vida al máximo.",textEn:"Double damage against targets at full health."},
+  {key:"junkies",name:"Junkie's",textEs:"Daño extra que escala según la cantidad de adicciones activas del portador.",textEn:"Bonus damage that scales with the wielder's number of active addictions."},
+  {key:"two_shot",name:"Two Shot",textEs:"Dispara un proyectil adicional por cada disparo (consume munición extra).",textEn:"Fires an additional projectile per shot (consumes extra ammo)."},
+  {key:"vampires",name:"Vampire's",textEs:"Cura al portador según el daño infligido con el arma.",textEn:"Heals the wielder based on damage dealt with the weapon."},
+  {key:"zealots",name:"Zealot's",textEs:"Daño extra contra enemigos Calcinados (Scorched).",textEn:"Bonus damage against Scorched enemies."},
+  {key:"aristocrats",name:"Aristocrat's",textEs:"Daño extra que escala según la cantidad de tapas que lleva el portador.",textEn:"Bonus damage that scales with how many caps the wielder is carrying."},
+  {key:"mutants",name:"Mutant's",textEs:"Daño extra mientras el portador tenga al menos una mutación activa.",textEn:"Bonus damage while the wielder has at least one active mutation."},
+  {key:"stalkers",name:"Stalker's",textEs:"Daño extra contra enemigos que no han detectado al portador (sigilo).",textEn:"Bonus damage against enemies that haven't detected the wielder (stealth)."}
+];
 
 const MOD_DEPENDENT_PERKS = {
   "Scoped-up": "scope",
@@ -1706,6 +1733,7 @@ let state = {
   search: "",
   selectedWeapon: null,
   weaponMods: {},
+  weaponLegendaryEffect: null,
   onlyCompatible: true,
   charLevel: 50,
   legendaryPerks: [null,null,null,null,null,null],
@@ -2066,6 +2094,7 @@ function renderWeaponSearch(){
         const w = pool.find(x=>x.name===el.dataset.name);
         state.selectedWeapon = w;
         state.weaponMods = {};
+        state.weaponLegendaryEffect = null;
         input.value = "";
         results.classList.remove('show');
         document.getElementById('noMatchBox').innerHTML = "";
@@ -2104,6 +2133,7 @@ function renderNoMatchForm(typedName){
     addCustomWeapon(typedName, catKey, energy);
     state.selectedWeapon = {name:typedName, catKey, energy, custom:true};
     state.weaponMods = {};
+    state.weaponLegendaryEffect = null;
     document.getElementById('weaponSearchInput').value = "";
     document.getElementById('weaponResults').classList.remove('show');
     box.innerHTML = "";
@@ -2133,9 +2163,11 @@ function renderSelectedWeaponBox(){
   `;
   document.getElementById('clearWeaponBtn').addEventListener('click', ()=>{
     state.selectedWeapon = null;
+    state.weaponLegendaryEffect = null;
     renderAll();
   });
   renderModsBox();
+  renderWeaponLegendaryBox();
 }
 
 const MOD_SLOTS = [
@@ -2169,6 +2201,35 @@ function renderModsBox(){
       state.weaponMods[cb.dataset.mod] = cb.checked;
       renderGrid();
     });
+  });
+}
+
+// Legendary weapon effect picker (1st star / prefix only — see
+// LEGENDARY_WEAPON_EFFECTS' trust note above). Pure display + state, doesn't
+// feed any damage calculation yet since that needs Phase "DPS calculado".
+function renderWeaponLegendaryBox(){
+  const t = T();
+  const box = document.getElementById('weaponLegendaryBox');
+  if(!state.selectedWeapon){ box.innerHTML = ""; return; }
+  const optsHtml = LEGENDARY_WEAPON_EFFECTS.map(e =>
+    `<option value="${e.key}" ${state.weaponLegendaryEffect===e.key?'selected':''}>${e.name}</option>`
+  ).join('');
+  const current = LEGENDARY_WEAPON_EFFECTS.find(e => e.key === state.weaponLegendaryEffect);
+  const descText = current ? (state.lang==='es' ? current.textEs : current.textEn) : '';
+  box.innerHTML = `
+    <div class="mods-box">
+      <div class="mb-title">${t.hWeaponLegendary}</div>
+      <select id="weaponLegendarySelect">
+        <option value="">${t.weaponLegendaryNone}</option>
+        ${optsHtml}
+      </select>
+      ${current ? `<div class="mb-note">${descText}</div>` : ''}
+      <div class="mb-note">${t.weaponLegendaryNote}</div>
+    </div>
+  `;
+  document.getElementById('weaponLegendarySelect').addEventListener('change', (e)=>{
+    state.weaponLegendaryEffect = e.target.value || null;
+    renderWeaponLegendaryBox();
   });
 }
 
@@ -3018,6 +3079,7 @@ function renderBuildsList(){
         state.perkRanks = {...b.perkRanks};
         state.selectedWeapon = b.selectedWeapon || null;
         state.weaponMods = b.weaponMods || {};
+        state.weaponLegendaryEffect = b.weaponLegendaryEffect || null;
         state.charLevel = b.charLevel || 50;
         state.legendaryPerks = b.legendaryPerks || [null,null,null,null,null,null];
         state.activeMutations = b.activeMutations || [];
@@ -3051,6 +3113,7 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
     perkRanks: {...state.perkRanks},
     selectedWeapon: state.selectedWeapon,
     weaponMods: {...state.weaponMods},
+    weaponLegendaryEffect: state.weaponLegendaryEffect,
     charLevel: state.charLevel,
     legendaryPerks: JSON.parse(JSON.stringify(state.legendaryPerks)),
     activeMutations: [...state.activeMutations],
