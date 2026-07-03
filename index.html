@@ -1207,6 +1207,12 @@ footer{
         <p class="summary-empty" id="txt-loadout-note"></p>
         <div id="weaponLoadoutBox"></div>
       </div>
+
+      <div class="panel">
+        <h2 id="txt-h-rulesengine">MOTOR DE REGLAS: BUILD AUTOMÁTICA</h2>
+        <p class="summary-empty" id="txt-rulesengine-note"></p>
+        <div id="rulesEngineBox"></div>
+      </div>
       </div>
 
       <div class="tab-panel-group" data-tabgroup="data">
@@ -1366,6 +1372,15 @@ const STRINGS = {
     loadoutSearchPlaceholder: "Buscar arma para este slot...",
     loadoutEmptySlot: (n)=> `Slot ${n}: — vacío —`,
     loadoutAddWeapon: "+ Agregar arma",
+    hRulesEngine: "MOTOR DE REGLAS: BUILD AUTOMÁTICA",
+    rulesEngineNote: "Regla simple, no un optimizador: toma el arma elegida arriba, equipa las cartas normales compatibles (mismo filtro verificado que ya usa esta app) que entren en tu presupuesto de puntos SPECIAL actual, y aplica el set de armadura verificado con mejor número en la prioridad elegida. No toca tu SPECIAL ni tus legendarias.",
+    rulesEngineNeedWeapon: "Elegí un arma en el filtro de arriba primero.",
+    rulesEngineArmorPriority: "Prioridad de armadura (solo sets verificados):",
+    rulesEngineArmorPhysical: "Física (DR)", rulesEngineArmorEnergy: "Energía (ER)",
+    rulesEngineArmorRadiation: "Radiación (RR)", rulesEngineArmorCryo: "Cryo",
+    rulesEngineGenerate: "GENERAR BUILD AUTOMÁTICA",
+    rulesEngineOverwriteWarning: "Esto reemplaza tus cartas normales equipadas y tu armadura actual (no toca SPECIAL ni legendarias).",
+    rulesEngineResult: (weaponName, cardCount, armorName)=> `Aplicado: ${cardCount} cartas compatibles con "${weaponName}" + armadura "${armorName}" en las 4 piezas.`,
     hArmorSets: "SETS DE ARMADURA GUARDADOS",
     armorSetNamePlaceholder: "Nombre del set...",
     noArmorSets: "Aún no hay sets de armadura guardados.",
@@ -1414,7 +1429,7 @@ const STRINGS = {
       ["done","Efecto legendario de arma (1ra estrella, 12 efectos — dato IA no verificado en vivo, ver nota en la UI); mods siguen como referencia liviana (no hay data de mods por arma verificada)"],
       ["done","Armadura (3 sets verificados + 14 cualitativos) + marco de Power Armor"],
       ["done","Recomendador de build: plantillas curadas — Gleaming Depths (5 encuentros)"],
-      ["pending","Recomendador: motor de reglas dinámico (elige arma/armadura → build automática)"],
+      ["done","Motor de reglas dinámico: arma elegida → equipa cartas compatibles dentro del presupuesto SPECIAL + arma verificada según prioridad de resistencia. Regla simple, no optimizador de daño (no hay datos verificados para eso)."],
       ["done","Comparador de 2 builds (SPECIAL efectivo, derivados, DEF, legendarias, mutaciones — solo lectura)"],
       ["done","Switchboard de estado (Humano/Ghoul conectado a 25 cartas reales; HP%/Fed/equipo/día-noche guardados, pendiente conectar a stats)"],
       ["done","Multi-arma (hasta 5) con mods + efecto legendario configurables — loadout independiente del filtro de arma de perks"],
@@ -1527,6 +1542,15 @@ const STRINGS = {
     loadoutSearchPlaceholder: "Search weapon for this slot...",
     loadoutEmptySlot: (n)=> `Slot ${n}: — empty —`,
     loadoutAddWeapon: "+ Add weapon",
+    hRulesEngine: "RULES ENGINE: AUTO-BUILD",
+    rulesEngineNote: "A simple rule, not an optimizer: takes the weapon picked above, equips compatible normal cards (same verified filter this app already uses) that fit your current SPECIAL point budget, and applies the verified armor set with the best number for the chosen priority. Doesn't touch your SPECIAL or legendaries.",
+    rulesEngineNeedWeapon: "Pick a weapon in the filter above first.",
+    rulesEngineArmorPriority: "Armor priority (verified sets only):",
+    rulesEngineArmorPhysical: "Physical (DR)", rulesEngineArmorEnergy: "Energy (ER)",
+    rulesEngineArmorRadiation: "Radiation (RR)", rulesEngineArmorCryo: "Cryo",
+    rulesEngineGenerate: "GENERATE AUTO-BUILD",
+    rulesEngineOverwriteWarning: "This replaces your equipped normal cards and current armor (doesn't touch SPECIAL or legendaries).",
+    rulesEngineResult: (weaponName, cardCount, armorName)=> `Applied: ${cardCount} cards compatible with "${weaponName}" + "${armorName}" armor on all 4 pieces.`,
     hArmorSets: "SAVED ARMOR SETS",
     armorSetNamePlaceholder: "Set name...",
     noArmorSets: "No saved armor sets yet.",
@@ -1575,7 +1599,7 @@ const STRINGS = {
       ["done","Weapon legendary effect (1st star, 12 effects — AI-recalled data, not live-verified, see UI note); mods remain a lightweight reference (no verified per-weapon mod data exists)"],
       ["done","Armor (3 verified sets + 14 qualitative) + Power Armor frame"],
       ["done","Build recommender: curated templates — Gleaming Depths (5 encounters)"],
-      ["pending","Recommender: dynamic rules engine (pick weapon/armor → auto build)"],
+      ["done","Dynamic rules engine: picked weapon → equips compatible cards within SPECIAL budget + verified armor by resistance priority. Simple rule, not a damage optimizer (no verified data for that)."],
       ["done","2-build comparison (effective SPECIAL, derived stats, DEF, legendaries, mutations — read-only)"],
       ["done","Character state switchboard (Human/Ghoul wired to 25 real cards; HP%/Fed/team/day-night saved, pending stat wiring)"],
       ["done","Multi-weapon (up to 5) with configurable mods + legendary effect — loadout independent from the perk-card weapon filter"],
@@ -2039,6 +2063,8 @@ function renderStaticText(){
   document.getElementById('buildNameInput').placeholder = t.buildPlaceholder;
   document.getElementById('saveBuildBtn').textContent = t.save;
   document.getElementById('buildsEmptyNote').textContent = t.noBuilds;
+  document.getElementById('txt-h-rulesengine').textContent = t.hRulesEngine;
+  document.getElementById('txt-rulesengine-note').textContent = t.rulesEngineNote;
   document.getElementById('txt-h-buildcompare').textContent = t.hBuildCompare;
   document.getElementById('txt-buildcompare-note').textContent = t.buildCompareNote;
   document.getElementById('txt-h-armorsets').textContent = t.hArmorSets;
@@ -2466,6 +2492,90 @@ function renderWeaponLoadout(){
       renderWeaponLoadout();
     });
   });
+}
+
+// Dynamic rules engine: given the weapon already picked in the filter above,
+// greedily equips the highest affordable rank of every compatible normal
+// card (reusing perkMatchesWeapon — the same verified category matching the
+// manual filter uses) within the current effective SPECIAL budget per
+// attribute (same rule specialSpent()/the manual UI already enforces), then
+// applies the verified armor set with the best number for the chosen
+// priority to all 4 slots. This is a simple greedy rule, not a damage
+// optimizer — there's no verified damage data to optimize against (see the
+// DPS roadmap entry). Doesn't touch SPECIAL point allocation or legendaries.
+function generateAutoBuild(){
+  const weapon = state.selectedWeapon;
+  if(!weapon) return;
+  const priority = state.rulesEngineArmorPriority || 'physical';
+
+  state.perkRanks = {};
+  const eff = getEffectiveSpecial();
+  const budgetUsed = {};
+  SPECIAL_LIST.forEach(s => budgetUsed[s.key] = 0);
+  const compatible = PERKS
+    .filter(p => perkMatchesWeapon(p.name, weapon))
+    .slice()
+    .sort((a,b) => a.ranks[0].cost - b.ranks[0].cost);
+  let equippedCount = 0;
+  for(const p of compatible){
+    const capped = eff[p.special] ? eff[p.special].capped : 0;
+    for(let i = p.ranks.length - 1; i >= 0; i--){
+      const rankObj = p.ranks[i];
+      if(budgetUsed[p.special] + rankObj.cost <= capped){
+        state.perkRanks[p.name] = rankObj.rank;
+        budgetUsed[p.special] += rankObj.cost;
+        equippedCount++;
+        break;
+      }
+    }
+  }
+
+  const statKey = {physical:'dr', energy:'er', radiation:'rr', cryo:'cryo'}[priority] || 'dr';
+  let bestSet = null, bestVal = -1;
+  for(const set of ARMOR_DATA.verified_sets){
+    const val = (set.chest[statKey] || 0) + (set.limb[statKey] || 0);
+    if(val > bestVal){ bestVal = val; bestSet = set; }
+  }
+  if(bestSet){
+    state.armorSlots = {head: bestSet.key, chest: bestSet.key, arms: bestSet.key, legs: bestSet.key};
+    document.getElementById('usePowerArmorToggle').checked = false;
+  }
+
+  state._lastAutoBuildResult = { weaponName: weapon.name, cardCount: equippedCount, armorName: bestSet ? bestSet.name : '' };
+  renderAll();
+}
+
+function renderRulesEngine(){
+  const t = T();
+  const box = document.getElementById('rulesEngineBox');
+  if(!state.selectedWeapon){
+    box.innerHTML = `<div class="summary-empty">${t.rulesEngineNeedWeapon}</div>`;
+    return;
+  }
+  const priority = state.rulesEngineArmorPriority || 'physical';
+  const priorityOptions = [
+    {key:'physical', label:t.rulesEngineArmorPhysical},
+    {key:'energy', label:t.rulesEngineArmorEnergy},
+    {key:'radiation', label:t.rulesEngineArmorRadiation},
+    {key:'cryo', label:t.rulesEngineArmorCryo}
+  ];
+  const optsHtml = priorityOptions.map(o => `<option value="${o.key}" ${priority===o.key?'selected':''}>${o.label}</option>`).join('');
+  const result = state._lastAutoBuildResult;
+  const resultHtml = result ? `<div class="summary-empty">${t.rulesEngineResult(result.weaponName, result.cardCount, result.armorName)}</div>` : '';
+  box.innerHTML = `
+    <div class="mods-box">
+      <label>${t.rulesEngineArmorPriority}
+        <select id="rulesEngineArmorPrioritySelect">${optsHtml}</select>
+      </label>
+      <div class="mb-note">${t.rulesEngineOverwriteWarning}</div>
+      <button class="btn" id="rulesEngineGenerateBtn" style="margin-top:8px;">${t.rulesEngineGenerate}</button>
+    </div>
+    ${resultHtml}
+  `;
+  document.getElementById('rulesEngineArmorPrioritySelect').addEventListener('change', (e)=>{
+    state.rulesEngineArmorPriority = e.target.value;
+  });
+  document.getElementById('rulesEngineGenerateBtn').addEventListener('click', generateAutoBuild);
 }
 
 function renderGrid(){
@@ -3283,6 +3393,7 @@ function renderAll(){
   renderLegendaryPanel();
   renderArmorPanel();
   renderWeaponLoadout();
+  renderRulesEngine();
   renderGrid();
   renderBuildsList();
   renderArmorSetsList();
