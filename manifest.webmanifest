@@ -1,0 +1,19 @@
+{
+  "name": "Fallout 76 Build Planner",
+  "short_name": "F76 Builds",
+  "description": "Planificador de builds de Fallout 76: S.P.E.C.I.A.L., perks, mutaciones, armas y armadura. 100% local y offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#04120a",
+  "theme_color": "#04120a",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

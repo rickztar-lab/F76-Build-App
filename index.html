@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OVERSEER'S TERMINAL — Fallout 76 Build Planner</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#04120a">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -3759,6 +3763,16 @@ function renderArmorSetsCompare(){
 
 renderWeaponSearch();
 renderAll();
+
+// Registro del service worker (PWA): permite instalar la app y usarla
+// offline. Solo corre servido por http(s); al abrir el archivo con file://
+// se ignora silenciosamente, así que no afecta el modo offline-first de
+// abrir el index.html directo.
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
