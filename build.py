@@ -40,6 +40,7 @@ DATA_MANIFEST = [
     ('RAID_CONTENT', 'data_raid_gleaming_depths.json', None),
     ('LEGENDARY_WEAPON_EFFECTS', 'data_legendary_weapon_effects.json', 'tier1_effects'),
     ('LEGENDARY_ARMOR_EFFECTS', 'data_legendary_armor_effects.json', 'effects'),
+    ('WEAPON_DAMAGE_DATA', 'data_weapon_damage.json', None),
 ]
 
 
