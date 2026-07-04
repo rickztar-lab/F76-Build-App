@@ -1,21 +1,52 @@
 {
-  "trust_note_es": "Daño base y stats de arma extraídos DIRECTAMENTE de SeventySix.esm con FO76Edit (nivel de confianza más alto del proyecto: GAME FILES, por encima de 'WIKI'). Cruzado contra la lista de armas de la app por editor_id (independiente del idioma). Solo se incluyen armas con daño 100% consistente entre todas sus copias en el ESM; las ambiguas o no encontradas se omiten a propósito. La cadencia (fire_rate_per_sec) se deriva de Attack Delay Seconds (1/valor); ausente en armas cuerpo a cuerpo. Ver tools/fo76edit/EXTRACCION.md.",
-  "trust_note_en": "Weapon base damage and stats extracted DIRECTLY from SeventySix.esm with FO76Edit (highest trust tier in the project: GAME FILES, above 'WIKI'). Cross-referenced against the app's weapon list by editor_id (language-independent). Only weapons with 100% consistent damage across all their ESM copies are included; ambiguous or unmatched ones are intentionally omitted. Fire rate is derived from Attack Delay Seconds (1/value); absent for melee weapons. See tools/fo76edit/EXTRACCION.md.",
+  "trust_note_es": "Daño base y stats de arma extraídos DIRECTAMENTE de SeventySix.esm con FO76Edit (nivel de confianza más alto del proyecto: GAME FILES, por encima de 'WIKI'). Cruzado contra la lista de armas de la app por editor_id (independiente del idioma): coincidencia exacta o por sufijo para armas únicas (BaseWeapon_NombreUnico). Solo armas con daño 100% consistente entre todas sus copias en el ESM. La cadencia (fire_rate_per_sec) se deriva de Attack Delay Seconds (1/valor); ausente en cuerpo a cuerpo. Ver tools/fo76edit/EXTRACCION.md.",
+  "trust_note_en": "Weapon base damage and stats extracted DIRECTLY from SeventySix.esm with FO76Edit (highest trust tier: GAME FILES, above 'WIKI'). Cross-referenced against the app's weapon list by editor_id (language-independent): exact match or suffix match for unique weapons (BaseWeapon_UniqueName). Only weapons with 100%-consistent damage across all ESM copies. Fire rate derived from Attack Delay Seconds (1/value); absent for melee. See tools/fo76edit/EXTRACCION.md.",
+  "base_not_representative_note_es": "Estas armas SÍ están en el ESM pero su daño NO vive en el campo 'Base Damage' (es 0): armas de energía (daño por tipo de daño), explosivos/granadas/minas (daño de explosión) y algunas cuerpo a cuerpo automáticas (daño por tick). Modelar su daño real requiere datos que aún no extrajimos, así que se marcan honestamente como 'daño base no representa esta arma' en vez de mostrar 0.",
+  "base_not_representative_note_en": "These weapons ARE in the ESM but their damage does NOT live in the 'Base Damage' field (it's 0): energy weapons (damage-type based), explosives/grenades/mines (explosion damage) and some automatic melee (per-tick damage). Modeling their real damage needs data we haven't extracted yet, so they're honestly flagged as 'base damage not representative' instead of showing 0.",
   "receiver_damage_tiers": {
-    "note_es": "DamageBonusMult verificado de las plantillas genéricas de receptor (_PARENT_mod_WEAPON_GENERIC_Damage_TierN). Multiplicador aditivo sobre el daño base: daño_final = base × (1 + Σ mult).",
-    "note_en": "Verified DamageBonusMult from the generic receiver templates. Additive multiplier over base damage: final = base × (1 + Σ mult).",
+    "note_es": "DamageBonusMult verificado de las plantillas genéricas de receptor. Multiplicador aditivo: daño_final = base × (1 + Σ mult).",
+    "note_en": "Verified DamageBonusMult from generic receiver templates. Additive: final = base × (1 + Σ mult).",
     "tier1": 0.25,
     "tier2": 0.35
   },
+  "base_not_representative": [
+    "Alien Blaster",
+    "Autoaxe",
+    "Baseballgrenade",
+    "Blastmine",
+    "Bottlecapmine",
+    "Cattleprod",
+    "Circuit Breaker",
+    "Cryogrenade",
+    "Cryolator",
+    "Cryomine",
+    "Drill",
+    "Explosivebaitmine",
+    "Flamer",
+    "Floaterflamergrenade",
+    "Floaterfreezergrenade",
+    "Floatergnashergrenade",
+    "Fraggrenade",
+    "Fraggrenademirv",
+    "Fragmine",
+    "Gamma Gun",
+    "Gatling Laser",
+    "Gatling Plasma",
+    "Gauntlet",
+    "Laser Gun",
+    "Molotovcocktail",
+    "Mrhandybuzzblade",
+    "Nukagrenade",
+    "Nukaquantumgrenade",
+    "Pickaxe",
+    "Plasmagrenade",
+    "Pulsegrenade",
+    "Ripper",
+    "Submachine Gun",
+    "Ultracite Laser Gun",
+    "Warglaive"
+  ],
   "weapons": {
-    "Alien Blaster": {
-      "base_damage": 0,
-      "editor_id": "AlienBlaster",
-      "secondary_damage": 14.0,
-      "attack_delay_seconds": 0.2,
-      "fire_rate_per_sec": 5.0,
-      "capacity": 42
-    },
     "Black Powder Pistol": {
       "base_damage": 7,
       "editor_id": "Blackpowder_Pistol",
@@ -23,14 +54,6 @@
       "attack_delay_seconds": 1.0,
       "fire_rate_per_sec": 1.0,
       "capacity": 1
-    },
-    "Gamma Gun": {
-      "base_damage": 0,
-      "editor_id": "GammaGun",
-      "secondary_damage": 16.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667,
-      "capacity": 8
     },
     "Gauss Pistol": {
       "base_damage": 48,
@@ -40,14 +63,6 @@
       "fire_rate_per_sec": 6.667,
       "capacity": 18,
       "ammo_per_shot": 2
-    },
-    "Laser Gun": {
-      "base_damage": 0,
-      "editor_id": "LaserGun",
-      "secondary_damage": 16.0,
-      "attack_delay_seconds": 0.25,
-      "fire_rate_per_sec": 4.0,
-      "capacity": 20
     },
     "Pipe Gun": {
       "base_damage": 13,
@@ -130,6 +145,14 @@
       "capacity": 15,
       "ammo_per_shot": 3
     },
+    "Handmade Rifle (Alt)": {
+      "base_damage": 32,
+      "editor_id": "crShowmenHandMadeRifle",
+      "secondary_damage": 15.0,
+      "attack_delay_seconds": 0.25,
+      "fire_rate_per_sec": 4.0,
+      "capacity": 20
+    },
     "Hunting Rifle": {
       "base_damage": 20,
       "editor_id": "HuntingRifle",
@@ -154,34 +177,32 @@
       "fire_rate_per_sec": 1.0,
       "capacity": 10
     },
-    "Submachine Gun": {
-      "base_damage": 0,
-      "editor_id": "SubmachineGun",
-      "secondary_damage": 21.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667,
-      "capacity": 50
-    },
-    "Ultracite Laser Gun": {
-      "base_damage": 0,
-      "editor_id": "UltraciteLaserGun",
-      "secondary_damage": 15.0,
-      "attack_delay_seconds": 0.25,
-      "fire_rate_per_sec": 4.0,
-      "capacity": 20
-    },
     "Flare Gun": {
       "base_damage": 5,
       "editor_id": "FlareGun",
       "secondary_damage": 17.0,
       "capacity": 1
     },
-    "Autoaxe": {
-      "base_damage": 0,
-      "editor_id": "AutoAxe",
-      "secondary_damage": 1.0,
-      "attack_delay_seconds": 1.0,
-      "fire_rate_per_sec": 1.0
+    "Syringer": {
+      "base_damage": 1,
+      "editor_id": "PipeSyringer",
+      "secondary_damage": 19.0,
+      "attack_delay_seconds": 0.15,
+      "fire_rate_per_sec": 6.667,
+      "capacity": 1
+    },
+    "Cold Shoulder": {
+      "base_damage": 67,
+      "editor_id": "DoubleBarrelShotgun_ColdShoulder",
+      "secondary_damage": 21.0,
+      "attack_delay_seconds": 0.4,
+      "fire_rate_per_sec": 2.5,
+      "capacity": 2
+    },
+    "Assaultronblade": {
+      "base_damage": 17,
+      "editor_id": "DLC01_AssaultronBlade",
+      "secondary_damage": 10.0
     },
     "Baseballbat": {
       "base_damage": 16,
@@ -215,14 +236,14 @@
       "editor_id": "BoxingGlove",
       "secondary_damage": 10.0
     },
-    "Cattleprod": {
-      "base_damage": 0,
-      "editor_id": "Cattleprod"
-    },
     "Chineseofficersword": {
       "base_damage": 16,
       "editor_id": "ChineseOfficerSword",
       "secondary_damage": 10.0
+    },
+    "Commiewhacker": {
+      "base_damage": 10,
+      "editor_id": "DLC04_CommieWhacker"
     },
     "Cultistblade": {
       "base_damage": 11,
@@ -243,13 +264,6 @@
       "editor_id": "DeathTambo",
       "secondary_damage": 10.0
     },
-    "Drill": {
-      "base_damage": 0,
-      "editor_id": "Drill",
-      "secondary_damage": 6.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667
-    },
     "Electroenforcer": {
       "base_damage": 23,
       "editor_id": "ElectroEnforcer"
@@ -259,18 +273,24 @@
       "editor_id": "FireAxe",
       "secondary_damage": 10.0
     },
-    "Gauntlet": {
-      "base_damage": 0,
-      "editor_id": "Gauntlet"
-    },
     "Golfclub": {
       "base_damage": 23,
       "editor_id": "GolfClub",
       "secondary_damage": 10.0
     },
+    "Grognakaxe": {
+      "base_damage": 25,
+      "editor_id": "DN160_GrognakAxe",
+      "secondary_damage": 15.0
+    },
     "Guitarsword": {
       "base_damage": 16,
       "editor_id": "GuitarSword",
+      "secondary_damage": 10.0
+    },
+    "Gulpersmacker": {
+      "base_damage": 23,
+      "editor_id": "E08A_GulperSmacker",
       "secondary_damage": 10.0
     },
     "Hatchet": {
@@ -297,6 +317,11 @@
       "editor_id": "Machete",
       "secondary_damage": 10.0
     },
+    "Meathook": {
+      "base_damage": 20,
+      "editor_id": "DLC03_MeatHook",
+      "secondary_damage": 10.0
+    },
     "Meattenderizer": {
       "base_damage": 40,
       "editor_id": "MeatTenderizer",
@@ -311,11 +336,6 @@
       "base_damage": 1,
       "editor_id": "MoM_BladeOfBastet",
       "secondary_damage": 30.0
-    },
-    "Pickaxe": {
-      "base_damage": 0,
-      "editor_id": "Pickaxe",
-      "secondary_damage": 10.0
     },
     "Pipewrench": {
       "base_damage": 13,
@@ -332,6 +352,11 @@
       "editor_id": "PlasmaSword",
       "secondary_damage": 10.0
     },
+    "Polehook": {
+      "base_damage": 30,
+      "editor_id": "DLC03_PoleHook",
+      "secondary_damage": 10.0
+    },
     "Poolcue": {
       "base_damage": 13,
       "editor_id": "PoolCue",
@@ -342,14 +367,15 @@
       "editor_id": "PowerFist",
       "secondary_damage": 10.0
     },
+    "Ratbat": {
+      "base_damage": 16,
+      "editor_id": "E09A_BaseballBat_RatBat",
+      "secondary_damage": 15.0
+    },
     "Revolutionarysword": {
       "base_damage": 16,
       "editor_id": "RevolutionarySword",
       "secondary_damage": 10.0
-    },
-    "Ripper": {
-      "base_damage": 0,
-      "editor_id": "Ripper"
     },
     "Rollingpin": {
       "base_damage": 11,
@@ -425,79 +451,14 @@
       "editor_id": "WarDrum",
       "secondary_damage": 15.0
     },
-    "Warglaive": {
-      "base_damage": 0,
-      "editor_id": "WarGlaive",
-      "secondary_damage": 10.0
-    },
     "Woodcuttingaxe": {
       "base_damage": 23,
       "editor_id": "WoodCuttingAxe",
       "secondary_damage": 10.0
     },
-    "Baseballgrenade": {
-      "base_damage": 0,
-      "editor_id": "BaseballGrenade",
-      "secondary_damage": 3.0
-    },
-    "Cryogrenade": {
-      "base_damage": 0,
-      "editor_id": "CryoGrenade",
-      "secondary_damage": 3.0
-    },
-    "Cryomine": {
-      "base_damage": 0,
-      "editor_id": "CryoMine",
-      "secondary_damage": 3.0
-    },
-    "Floaterflamergrenade": {
-      "base_damage": 0,
-      "editor_id": "FloaterFlamerGrenade",
-      "secondary_damage": 3.0
-    },
-    "Floaterfreezergrenade": {
-      "base_damage": 0,
-      "editor_id": "FloaterFreezerGrenade",
-      "secondary_damage": 3.0
-    },
-    "Floatergnashergrenade": {
-      "base_damage": 0,
-      "editor_id": "FloaterGnasherGrenade",
-      "secondary_damage": 3.0
-    },
-    "Fraggrenade": {
-      "base_damage": 0,
-      "editor_id": "fragGrenade",
-      "secondary_damage": 3.0
-    },
-    "Fragmine": {
-      "base_damage": 0,
-      "editor_id": "fragMine",
-      "secondary_damage": 3.0
-    },
     "Meatcleaver": {
       "base_damage": 75,
       "editor_id": "MeatCleaver",
-      "secondary_damage": 3.0
-    },
-    "Molotovcocktail": {
-      "base_damage": 0,
-      "editor_id": "MolotovCocktail",
-      "secondary_damage": 3.0
-    },
-    "Nukagrenade": {
-      "base_damage": 0,
-      "editor_id": "nukaGrenade",
-      "secondary_damage": 3.0
-    },
-    "Plasmagrenade": {
-      "base_damage": 0,
-      "editor_id": "PlasmaGrenade",
-      "secondary_damage": 3.0
-    },
-    "Pulsegrenade": {
-      "base_damage": 0,
-      "editor_id": "PulseGrenade",
       "secondary_damage": 3.0
     },
     "Sheepsquatchshard": {
@@ -524,22 +485,6 @@
       "fire_rate_per_sec": 0.87,
       "capacity": 250
     },
-    "Gatling Laser": {
-      "base_damage": 0,
-      "editor_id": "GatlingLaser",
-      "secondary_damage": 35.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667,
-      "capacity": 500
-    },
-    "Gatling Plasma": {
-      "base_damage": 0,
-      "editor_id": "GatlingPlasma",
-      "secondary_damage": 36.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667,
-      "capacity": 500
-    },
     "Fat Man": {
       "base_damage": 5,
       "editor_id": "Fatman",
@@ -555,22 +500,6 @@
       "attack_delay_seconds": 0.5,
       "fire_rate_per_sec": 2.0,
       "capacity": 1
-    },
-    "Cryolator": {
-      "base_damage": 0,
-      "editor_id": "Cryolator",
-      "secondary_damage": 25.0,
-      "attack_delay_seconds": 0.1,
-      "fire_rate_per_sec": 10.0,
-      "capacity": 50
-    },
-    "Flamer": {
-      "base_damage": 0,
-      "editor_id": "Flamer",
-      "secondary_damage": 31.0,
-      "attack_delay_seconds": 0.15,
-      "fire_rate_per_sec": 6.667,
-      "capacity": 100
     },
     "Pepper Shaker": {
       "base_damage": 90,
@@ -623,6 +552,24 @@
       "attack_delay_seconds": 0.5,
       "fire_rate_per_sec": 2.0,
       "capacity": 8
+    },
+    "Blade of Bastet": {
+      "base_damage": 1,
+      "editor_id": "MoM_BladeOfBastet",
+      "secondary_damage": 30.0
+    },
+    "Paddle Ball": {
+      "base_damage": 1,
+      "editor_id": "DLC04_PaddleBall",
+      "secondary_damage": 6.0,
+      "attack_delay_seconds": 0.4,
+      "fire_rate_per_sec": 2.5,
+      "capacity": 20
+    },
+    "The Gutter": {
+      "base_damage": 17,
+      "editor_id": "DLC01_AssaultronBlade_TheGutter",
+      "secondary_damage": 10.0
     }
   }
 }

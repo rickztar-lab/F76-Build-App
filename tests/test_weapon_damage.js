@@ -60,6 +60,31 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     const noneBox = await page.$eval('#weaponDamageBox', el => el.textContent);
     assert(noneBox.toLowerCase().includes('sin daño') || noneBox.toLowerCase().includes('no game'),
       'arma sin dato muestra el mensaje de fallback honesto');
+
+    // --- Arma de energía: no debe mostrar "0", sino el mensaje honesto ---
+    const energy = await page.evaluate(() => {
+      const r = computeWeaponDamage('Laser Gun', null);
+      return { notRep: r && r.notRepresentative === true };
+    });
+    assert(energy.notRep, 'un arma de energía (Laser Gun) devuelve notRepresentative, no daño 0');
+
+    await page.click('#clearWeaponBtn');
+    await page.waitForTimeout(150);
+    await page.fill('#weaponSearchInput', 'Laser Gun');
+    await page.waitForTimeout(200);
+    await (await page.$$('.weapon-result-item'))[0].click();
+    await page.waitForTimeout(200);
+    const energyBox = await page.$eval('#weaponDamageBox', el => el.textContent);
+    // No debe haber una lectura de daño "Por disparo"/"DPS": solo el mensaje.
+    assert(!energyBox.includes('DPS') && !/por disparo|per shot/i.test(energyBox),
+      'el arma de energía NO muestra una lectura de daño/DPS');
+    assert(energyBox.toLowerCase().includes('energía') || energyBox.toLowerCase().includes('energy'),
+      'el arma de energía muestra el mensaje explicativo honesto');
+
+    // --- Ninguna arma con daño en el dataset tiene base 0 ---
+    const noZeros = await page.evaluate(() =>
+      Object.values(WEAPON_DAMAGE_DATA.weapons).every(w => w.base_damage > 0));
+    assert(noZeros, 'ninguna arma del dataset de daño tiene base_damage 0');
   });
   finish('test_weapon_damage');
 })();

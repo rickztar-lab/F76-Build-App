@@ -1389,6 +1389,7 @@ const STRINGS = {
     weaponDamageDps: "DPS",
     weaponDamageMelee: "Arma cuerpo a cuerpo (sin cadencia)",
     weaponDamageNone: "Sin daño verificado del juego para esta arma todavía (no cruzó contra el ESM). No se muestra un número para no inventarlo.",
+    weaponDamageNotRepresentative: "Arma de energía, explosivo o cuerpo a cuerpo automática: su daño real NO está en el campo de daño base del juego (que es 0), sino en el tipo de daño / explosión / daño por tick. Modelarlo requiere datos que aún no extrajimos, así que no se muestra un número para no inventarlo.",
     weaponDamageNote: "Daño base extraído de los archivos del juego (SeventySix.esm). El DPS es base × cadencia; NO incluye todavía perks, mutaciones ni efectos legendarios (esos suman aparte). Receptores = solo el bono de daño verificado, sin los otros stats del mod.",
     weaponReceiverLabel: "Receptor de daño:",
     weaponReceiverNone: "— Estándar (sin bono) —",
@@ -1569,6 +1570,7 @@ const STRINGS = {
     weaponDamageDps: "DPS",
     weaponDamageMelee: "Melee weapon (no fire rate)",
     weaponDamageNone: "No game-verified damage for this weapon yet (didn't cross-match against the ESM). No number is shown so as not to invent one.",
+    weaponDamageNotRepresentative: "Energy, explosive or automatic-melee weapon: its real damage is NOT in the game's base-damage field (which is 0) — it lives in the damage type / explosion / per-tick damage. Modeling it needs data we haven't extracted yet, so no number is shown rather than inventing one.",
     weaponDamageNote: "Base damage extracted from the game files (SeventySix.esm). DPS is base × fire rate; it does NOT yet include perks, mutations or legendary effects (those stack separately). Receivers = verified damage bonus only, not the mod's other stats.",
     weaponReceiverLabel: "Damage receiver:",
     weaponReceiverNone: "— Standard (no bonus) —",
@@ -1716,7 +1718,14 @@ const GHOUL_ONLY_PERKS = PERKS.filter(p => p.min_level > 50).map(p => p.name);
 // tiene daño verificado en el ESM (para marcarla como "sin dato" en la UI).
 function computeWeaponDamage(weaponName, receiverTier){
   const w = WEAPON_DAMAGE_DATA.weapons[weaponName];
-  if(!w) return null;
+  if(!w){
+    // Arma que SÍ está en el ESM pero cuyo daño no vive en Base Damage
+    // (energía/explosivo/melee automática): estado distinto a "no cruzada".
+    if(WEAPON_DAMAGE_DATA.base_not_representative.indexOf(weaponName) !== -1){
+      return {notRepresentative: true};
+    }
+    return null;
+  }
   const tiers = WEAPON_DAMAGE_DATA.receiver_damage_tiers;
   const mult = receiverTier && tiers[receiverTier] ? tiers[receiverTier] : 0;
   const base = w.base_damage;
@@ -2328,6 +2337,10 @@ function renderWeaponDamageBox(){
   const dmg = computeWeaponDamage(w.name, state.weaponReceiverTier || null);
   if(!dmg){
     box.innerHTML = `<div class="weapon-dmg-box"><div class="wdmg-none">${t.weaponDamageNone}</div></div>`;
+    return;
+  }
+  if(dmg.notRepresentative){
+    box.innerHTML = `<div class="weapon-dmg-box"><div class="wdmg-none">${t.weaponDamageNotRepresentative}</div></div>`;
     return;
   }
 
