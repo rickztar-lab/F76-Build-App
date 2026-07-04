@@ -1,0 +1,1535 @@
+editor_id,full_name,base_damage,secondary_damage,capacity,ammo_per_shot,attack_delay_seconds,weight,value,has_object_template
+"DummyHandmadeDontUse","",0,0.000000,0,1,0.000000,0.000000,0,False
+"FusionCoreWeapon","Eyector de núcleo de fusión",15,3.000000,1,1,0.000000,40.000000,0,False
+"Baton","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"BaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"Knife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"DoubleBarrelShotgun","Escopeta de doble cañón",67,21.000000,2,1,0.400000,6.000000,100,False
+"crHandyPincherMiddle","Pinza",20,0.000000,0,1,0.000000,0.000000,0,False
+"crHandySawLeft","Sierra",10,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyFlamethrowerRight","Lanzallamas",0,0.000000,0,1,0.000000,0.000000,0,False
+"Knuckles","Puño americano",10,10.000000,0,1,0.000000,0.500000,10,False
+"Board","Tablón",14,0.000000,0,1,0.000000,3.000000,10,False
+"LaserGun","Láser",0,16.000000,20,1,0.250000,3.000000,60,False
+"crMirelurkHunterSpitWeapon","Ataque escupitajo",1,0.000000,0,1,2.000000,3.000000,0,False
+"crWeapEyebot","Ojobot láser",5,0.000000,0,1,3.000000,3.000000,0,False
+"zzz_TutorialDummy10mm","",0,0.000000,0,1,0.000000,0.000000,0,False
+"crSentryBotLeftMinigun","Ametralladora izquierda de Robot centinela",1,0.000000,0,1,1.000000,3.000000,0,False
+"crSentryBotRightMiniRocketLauncher","SentryBotRightRocketLauncher",1,0.000000,0,1,5.000000,3.000000,0,False
+"crTurretTripodMachineGunMkI","Ametralladora de torreta",1,8.000000,0,1,0.000000,25.000000,0,False
+"crTurretMountedLaserGun01","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"Fatman","Fat Man",5,41.000000,1,1,1.000000,20.000000,300,False
+"UnarmedHuman","Humano desarmado",8,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedBloodbug","Chupasangre desarmado",1,0.000000,0,1,1.000000,0.000000,0,False
+"crUnarmedBrahmin","Brahmán desarmado",15,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedDeathclaw","Sanguinario desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedDogmeat","Albóndiga desarmado",10,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedFeralGhoul","Necrófago salvaje desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMutantHound","Sabueso mutante desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMirelurkHunter","Mirelurk cazador desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMirelurkKing","Mirelurk rey desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMirelurk","Mirelurk desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMolerat","Rata topo desarmada",1,0.000000,0,1,10.000000,3.000000,0,False
+"UnarmedPowerArmor","Servoarmadura desarmada",10,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedRadStag","Mutaciervo desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedRadRoach","Mutaracha desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedRadScorpion","Mutascorpius desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedStingwing","Aguijoneador desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedBehemoth","Behemoth desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedYaoGuai","Yao guai desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedViciousDog","Perro violento desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"44",".44",48,17.000000,6,1,0.150000,4.000000,40,False
+"crSentryBotRightMinigun","Ametralladora derecha de Robot centinela",1,0.000000,0,1,1.000000,3.000000,0,False
+"crSentryBotLeftMiniRocketLauncher","SentryBotLeftRocketLauncher",1,0.000000,0,1,5.000000,3.000000,0,False
+"GaussRifle","Rifle Gauss",5,24.000000,15,3,0.150000,8.000000,200,False
+"OxygenTankTrap","",2,0.000000,10000,1,0.000000,25.000000,0,False
+"crAssaultronLaser","Láser de Asaltrón",0,8.000000,0,1,1.000000,8.000000,0,False
+"GammaGun","Arma gamma",0,16.000000,8,1,0.150000,3.000000,90,False
+"crAssaultronRightClaw","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crAssaultronLeftClaw","",1,10.000000,0,1,0.000000,2.000000,0,False
+"CombatRifle","Rifle de combate",33,21.000000,20,1,0.280000,7.000000,130,False
+"crFireHydrantBat","Boca de incendios",125,15.000000,0,1,0.000000,3.000000,0,False
+"fragMine","Mina de fragmentación",0,3.000000,0,1,0.000000,0.550000,20,False
+"nukaGrenade","Nuka granada",0,3.000000,0,1,0.000000,0.850000,35,False
+"Flamer","Lanzallamas",0,31.000000,100,1,0.150000,15.000000,150,False
+"HalluciGenGrenade","Granada de gas HalluciGen",1,3.000000,0,1,0.000000,0.800000,25,False
+"crUnarmedSuperMutant","Supermutante desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedGorilla","Gorila desarmado",50,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyFlamethrowerLeft","Lanzallamas",0,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyFlamethrowerMiddle","Lanzallamas",1,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyPincherLeft","Pinza",20,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyPincherRight","Pinza",20,0.000000,0,1,0.000000,0.000000,0,False
+"crHandySawRight","Sierra",10,0.000000,0,1,0.000000,0.000000,0,False
+"crHandySawMiddle","Sierra",10,0.000000,0,1,0.000000,0.000000,0,False
+"fragGrenade","Granada de fragmentación",0,3.000000,0,1,0.000000,0.600000,15,False
+"Ripper","Destripador",0,0.000000,0,1,0.000000,6.000000,130,False
+"Shishkebab","Pincho moruno",13,0.000000,0,1,0.000000,3.000000,120,False
+"PoolCue","Taco de billar",13,10.000000,0,1,0.000000,1.000000,10,False
+"crWeapMirelurkKing","Ataque sónico",0,0.000000,0,1,2.000000,3.000000,0,False
+"LeadPipe","Tubo de plomo",11,10.000000,0,1,0.000000,3.000000,15,False
+"crProtectron01RightArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"WalkingCane","Bastón",10,0.000000,0,1,0.000000,2.000000,10,False
+"Switchblade","Navaja automática",8,0.000000,0,1,0.000000,1.000000,20,False
+"PipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"DeathclawGauntlet","Garra de sanguinario",25,0.000000,0,1,0.000000,10.000000,85,False
+"crVertibirdGunLeft","Cañón frontal izquierdo de vertibot",1,0.000000,0,1,1.000000,0.000000,0,False
+"crVertibirdGunRight","Cañón frontal derecho de vertibot",1,0.000000,0,1,1.000000,0.000000,0,False
+"GatlingLaser","Ametralladora láser",0,35.000000,500,1,0.150000,18.000000,200,False
+"Sledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"zzz_JunkJet","Junk Jet",40,15.000000,100,1,0.150000,19.000000,200,False
+"Broadsider","Cañonero",5,33.000000,1,1,0.500000,16.000000,140,False
+"RailwayRifle","Ferrocarril",100,24.000000,10,1,1.000000,9.000000,90,False
+"CryoGrenade","Granada criogénica",0,3.000000,0,1,0.000000,0.750000,25,False
+"PulseGrenade","Granada electromagnética",0,3.000000,0,1,0.000000,0.700000,20,False
+"TrapGrenadeBouquetWeaponFrag3","",80,6.000000,0,1,0.000000,0.000000,0,False
+"SuperSledge","Supermaza",40,15.000000,0,1,0.000000,20.000000,70,False
+"AlienBlaster","Bláster alienígena",0,14.000000,42,1,0.200000,2.000000,90,False
+"PlasmaGun","[Plasma]",24,16.000000,18,1,0.300000,3.000000,85,False
+"FlareGun","Pistola de bengalas",5,17.000000,1,1,0.000000,2.000000,50,False
+"crUnarmedMirelurkQueen","Mirelurk reina desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_BottlecapMine","Mina de chapas",0,3.000000,0,1,0.000000,0.500000,40,False
+"BaseballGrenade","Granada de béisbol",0,3.000000,0,1,0.000000,0.600000,20,False
+"TrapGrenadeBouquetWeaponFrag1","",80,6.000000,0,1,0.000000,0.000000,0,False
+"PlasmaGrenade","Granada de plasma",0,3.000000,0,1,0.000000,0.700000,30,False
+"NukeMine","Mina nuclear",0,0.000000,0,1,0.000000,0.800000,40,False
+"PlasmaMine","Mina de plasma",0,3.000000,0,1,0.000000,0.650000,35,False
+"PulseMine","Mina electromagnética",0,3.000000,0,1,0.000000,0.350000,25,False
+"MolotovCocktail","Cóctel molotov",0,3.000000,0,1,0.000000,0.450000,20,False
+"CryoMine","Mina criogénica",0,3.000000,0,1,0.000000,0.700000,30,False
+"crUnarmedSentryBot","Robot centinela desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crWeapMirelurkQueenLeft","Rociada de ácido",1,0.000000,0,1,5.000000,3.000000,0,False
+"crWeapMirelurkQueenRight","Rociada de ácido",1,0.000000,0,1,5.000000,3.000000,0,False
+"crDeathclawDirtThrow","",1,0.000000,0,1,0.000000,3.000000,0,False
+"PowerFist","Servopuño",20,10.000000,0,1,0.000000,4.000000,100,False
+"crTurretMountedLaserGunLtBlue","Arma láser de torreta",0,8.000000,0,1,2.000000,25.000000,0,False
+"Minigun_Vertibird","Ametralladora",5,6.000000,500,1,0.000000,0.000000,0,False
+"WorkshopArtillerySmokeFlare","Granada de humo de artillería",1,3.000000,0,1,0.000000,0.100000,0,False
+"crSentryBotLeftShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crSentryBotRightShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crSuperMutantSuiciderBomb","Bomba",50,10.000000,0,1,0.000000,0.000000,0,False
+"RollingPin","Rodillo de amasar",11,0.000000,0,1,0.000000,1.000000,10,False
+"RevolutionarySword","Espada revolucionaria",16,10.000000,0,1,0.000000,3.000000,50,False
+"crProtectron02HeadLaser","Láser de cabeza de Protectrón",0,8.000000,0,1,1.000000,0.000000,0,False
+"crProtectron02LeftArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crProtectron03HeadLaser","Láser de cabeza de Protectrón",0,8.000000,0,1,1.000000,0.000000,0,False
+"crProtectron03LeftArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crProtectron03RightArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crSelfDestructBot","Robot desarmado",25,0.000000,0,1,0.000000,0.000000,0,False
+"ChineseOfficerSword","Espada de oficial chino",16,10.000000,0,1,0.000000,3.000000,50,False
+"PipeBoltAction","Tubo de cerrojo",34,16.000000,6,1,0.150000,3.000000,35,False
+"PipeRevolver","Revólver de tubo",24,16.000000,6,1,0.150000,3.000000,30,False
+"CombatShotgun","Escopeta de combate",50,21.000000,8,1,0.500000,7.000000,125,False
+"crMrGutsy_44_Left","44",1,8.000000,0,1,1.500000,5.000000,0,False
+"crMrGutsy_44_Right",".44",1,8.000000,0,1,1.500000,5.000000,0,False
+"crGutsy02LeftArmCombatRifle","Rifle de combate",0,8.000000,0,1,0.000000,10.000000,0,False
+"Gutsy02LeftArmLaserGunAuto","Arma láser",0,8.000000,0,1,0.100000,10.000000,50,False
+"crBehemothBoulder","Behemoth audaz",1,3.000000,0,1,10.000000,1.000000,0,False
+"PipeSyringer","Inyector",1,19.000000,1,1,0.150000,4.000000,75,False
+"SubmachineGun","Subfusil",0,21.000000,50,1,0.150000,7.000000,100,False
+"crProtectron02LeftArmFlamer","Lanzallamas",0,6.000000,0,1,0.000000,30.000000,0,False
+"crProtectron02RightArmFlamer","Lanzallamas",0,6.000000,0,1,0.000000,30.000000,0,False
+"BoxingGlove","Guante de boxeo",9,10.000000,0,1,0.000000,1.000000,15,False
+"Cryolator","Cryolator",0,25.000000,50,1,0.100000,10.000000,145,False
+"DN160_GrognakAxe","Hacha de Grognak",25,15.000000,0,1,0.000000,10.000000,100,False
+"TireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crTurretMountedLaserGun02","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crTurretMountedLaserGun03","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crTurretBubbleLaserGun04","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"WorkshopArtilleryWeapon","Mortero",33,15.000000,1,1,0.000000,25.000000,400,False
+"WorkshopArtilleryWeaponClose","Mortero",33,15.000000,1,1,0.000000,25.000000,400,False
+"WorkshopArtilleryWeaponFar","Mortero",33,15.000000,1,1,0.000000,25.000000,400,False
+"Minigun_Vertibird_Player","Ametralladora",25,6.000000,500,1,0.000000,0.000000,0,False
+"zzz_FusionCoreKnightWeapon","Eyector de núcleo de fusión",15,3.000000,1,1,0.000000,40.000000,0,False
+"crUnarmedStingwingNoPoison","Aguijoneador desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crProtectron01LeftArmNailGun","",1,6.000000,0,1,0.500000,3.000000,0,False
+"crProtectron01RightArmNailGun","",1,6.000000,0,1,0.500000,3.000000,0,False
+"crProtectron01LeftArmLaserGunBlue","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crTurretTripodMachineGunMkIII","Ametralladora de torreta de alta potencia",1,8.000000,0,1,0.000000,25.000000,0,False
+"crTurretTripodMachineGunMkV","Ametralladora de torreta incendiaria",1,8.000000,0,1,0.000000,25.000000,0,False
+"crTurretTripodMachineGunMkVII","Ametralladora de torreta explosiva",1,8.000000,0,1,0.000000,25.000000,0,False
+"crProtectron01LeftArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crProtectron02RightArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crTurretMountedBallistic","Arma para torreta",1,8.000000,0,1,0.000000,25.000000,0,False
+"crTurretBubbleBallistic3shot","Arma para torreta",15,8.000000,0,1,0.000000,25.000000,0,False
+"crTurretMountedLaserGun6shot","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crUnarmedAssaultron","Asaltrón desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedProtectron","Protectrón desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedGlowingOne","Resplandeciente desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crProtectron02LeftArmCryo01","Cryolator",0,6.000000,0,1,0.000000,30.000000,0,False
+"crProtectron02RightArmCryo01","Cryolator",0,6.000000,0,1,0.000000,30.000000,0,False
+"crMrGutsy_CombatRifle_Right","Rifle de combate",1,8.000000,0,1,0.000000,10.000000,0,False
+"crMrGutsy_LaserGun_Middle","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crMrHandy_Hand_Left_Saw","Sierra",0,0.000000,0,1,0.000000,0.000000,0,False
+"crMrHandy_Hand_Right_Saw","Sierra",20,0.000000,0,1,0.000000,0.000000,0,False
+"crMrHandy_Hand_Middle_Saw","Sierra",0,0.000000,0,1,0.000000,0.000000,0,False
+"crMrGutsy_LaserGun_Left","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crMrGutsy_CombatRifle_Middle","Rifle de combate",20,8.000000,0,1,0.000000,10.000000,0,False
+"crMrGutsy_LaserGun_Right","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crMrGutsy_CombatRifle_Left","Rifle de combate",1,8.000000,0,1,0.000000,10.000000,0,False
+"WorkshopTrapFlamethrowerWeap01","Lanzallamas",0,15.000000,500,1,0.150000,15.000000,125,False
+"WorkshopTrapFlamethrowerWeap02","Lanzallamas",0,15.000000,500,1,0.150000,15.000000,125,False
+"crAssaultronLeftBlade","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crAssaultronRightBlade","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crSentryBotLeftShoulderClusterLauncherIndoors","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crSentryBotRightShoulderClusterLauncherIndoors","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crMrGutsy_Saw_Middle","Sierra",1,0.000000,0,1,0.000000,0.000000,0,False
+"crMrGutsy_Saw_Right","Sierra",1,0.000000,0,1,0.000000,0.000000,0,False
+"crMrGutsy_Saw_Left","Sierra",1,0.000000,0,1,0.000000,0.000000,0,False
+"crWorkshopTurretMountedShotgun01","Escopeta de la torreta",0,4.000000,0,1,0.400000,25.000000,0,False
+"crTurretMissileLauncher01","Lanzamisiles de la torreta",15,3.000000,4,1,0.750000,20.000000,0,False
+"crTurretMountedSpotlight01","Foco de la torreta",1,8.000000,0,1,999.000000,25.000000,0,False
+"DeathTambo","Pandereta de la muerte",10,10.000000,0,1,0.000000,0.500000,60,False
+"GuitarSword","Espada guitarra",16,10.000000,0,1,0.000000,3.000000,55,False
+"WarDrum","Tambor de guerra",40,15.000000,0,1,0.000000,20.000000,115,False
+"crUnarmedMothman","Hombre polilla desarmado",0,0.000000,0,1,10.000000,0.000000,0,False
+"zzz_TestAssaultRifle","Rifle de asalto",30,6.000000,20,1,0.250000,10.000000,100,False
+"crMothmanAttack1","Ataque del hombre polilla",50,0.000000,0,1,0.000000,2.000000,0,False
+"crMothmanStalk","Acecho del hombre polilla",14,10.000000,0,1,0.000000,2.000000,0,False
+"crMothmanRangedAttackSingleShotVer1","Disparo único versión 1",0,0.000000,0,1,8.000000,3.000000,0,False
+"crUnarmedHoneyBeast","Bestia de la miel desarmada",1,0.000000,0,1,10.000000,0.000000,0,False
+"MoleMinerGauntlet","Guantelete de minero topo",25,10.000000,0,1,0.000000,10.000000,75,False
+"CompoundBow","Un arco compuesto",7,16.000000,1,1,0.500000,3.000000,45,False
+"zzz_CompoundBowRight","Arco de poleas para mano derecha",7,10.000000,0,1,0.233300,3.000000,45,False
+"zzz_CompoundBowLeft","Arco de poleas para mano izquierda",7,10.000000,0,1,0.233300,3.000000,45,False
+"zzz_TestAssaultRifleChinese","Rifle de asalto",30,6.000000,20,1,0.250000,8.000000,100,False
+"crUnarmedGrafton","Grafton desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crMothmanAttack2","Ataque del hombre polilla",50,0.000000,0,1,0.000000,2.000000,0,False
+"crUnarmedRadtoad","Sapo radiactivo desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedMoleMiner","Minero topo desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01EyebotSelfDestructBot","Robot desarmado",25,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotWeapMrHandy_LaserGun_Left","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC01BotWeapMrHandy_LaserGun_Middle","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC01BotWeapMrHandy_LaserGun_Right","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC01BotMeleeAssaultronClawLeft","",32,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeAssaultronClawRight","",32,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeStunLeft","",0,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeStunRight","",0,10.000000,0,1,0.000000,2.000000,0,False
+"crMrHandy_Pincher_Left","Pinza",0,0.000000,0,1,0.000000,0.000000,0,False
+"crMrHandy_Pincher_Middle","Pinza",0,0.000000,0,1,0.000000,0.000000,0,False
+"crMrHandy_Pincher_Right","Pinza",0,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotWeapMrHandy_Flamethrower_Left","Lanzallamas",0,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotWeapMrHandy_Flamethrower_Middle","Lanzallamas",0,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotWeapMrHandy_Flamethrower_Right","Lanzallamas",0,0.000000,0,1,0.000000,0.000000,0,False
+"crMrHandy_LaserGun_Left","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crMrHandy_LaserGun_Middle","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crMrHandy_LaserGun_Right","",0,8.000000,0,1,0.500000,0.000000,0,False
+"DLC01MrHandyBuzzBlade","Hoja cortante de Sr. Mañoso",0,0.000000,0,1,0.000000,10.000000,50,False
+"crDLC01BotMeleeAssaultronBladeLeft","",50,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeAssaultronBladeRight","",50,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01UnarmedRoboBrain","Cerebrobot desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Hand_Left_Saw","Sierra",20,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Pincer_Middle","Pinza",15,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Hand_Middle_Saw","Sierra",20,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Hand_Right_Saw","Sierra",20,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Pincer_Left","Pinza",15,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeMrHandy_Pincer_Right","Pinza",15,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotWeapRobobrainSmokeBombLeftNoVats","DLC01BotWeapRobobrainSmokeBombLeft",1,6.000000,0,1,1.000000,3.000000,0,False
+"crDLC01BotWeapRobobrainSmokeBombRightNoVats","DLC01BotWeapRobobrainSmokeBombRight",1,6.000000,0,1,1.000000,3.000000,0,False
+"crDLC01UnarmedMrHandyLMOptional","Sr. Mañoso desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01UnarmedMrHandyRMOptional","Sr. Mañoso desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC01BotMeleeViceLeft","",15,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeViceRight","",15,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotWeapLaserGunAutoLeft","",0,8.000000,0,1,0.150000,0.000000,0,False
+"crDLC01BotWeapLaserGunAutoRight","",0,8.000000,0,1,0.150000,0.000000,0,False
+"crDLC01BotWeapLaserGunLeft","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC01BotWeapLaserGunRight","",0,8.000000,0,1,0.500000,0.000000,0,False
+"DLC01LightningGun","Tesla",0,23.000000,15,1,0.500000,8.000000,180,False
+"crDLC01Sparks_WeapLightningGun","Rayo de ojobot",0,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01_SentryBotRightMiniFatMan","SentryBotRightRocketLauncher",10,0.000000,0,1,8.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryGatlingLaserRight","Ametralladora láser derecha de Robot centinela",0,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryExplosiveMinigunLeft","Ametralladora explosiva izquierda de Robot centinela",24,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryExplosiveMinigunRight","Ametralladora explosiva derecha de Robot centinela",24,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryShoulderLauncherClusterFrenzyGasLeft","",1,0.000000,0,1,5.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryShoulderLauncherClusterFrenzyGasRight","",1,0.000000,0,1,5.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryGatlingLaserLeft","Ametralladora láser izquierda de Robot centinela",0,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryShoulderLauncherFatManLeft","Lanzador Fat Man de hombro izquierdo de Robot centinela",1,0.000000,0,1,12.000000,3.000000,0,False
+"crDLC01_Unstable_Weap_SentryShoulderLauncherFatManRight","Lanzador Fat Man de hombro derecho de Robot centinela",1,0.000000,0,1,12.000000,3.000000,0,False
+"crDLC01BotWeapLightningGunLeft","Arma de rayos",0,6.000000,0,1,1.000000,8.000000,0,False
+"crDLC01BotWeapLightningGunRight","Arma de rayos",0,6.000000,0,1,1.000000,8.000000,0,False
+"crDLC01BotWeapLightningGunMrHandyMiddle","Arma de rayos",0,6.000000,0,1,1.000000,8.000000,0,False
+"crDLC01BotWeapLightningGunMrHandyLeft","Arma de rayos",0,6.000000,0,1,1.000000,8.000000,0,False
+"crDLC01BotWeapLightningGunMrHandyRight","Arma de rayos",0,6.000000,0,1,1.000000,8.000000,0,False
+"crDLC01BotWeapRobobrainSmokeBombLeft","DLC01BotWeapRobobrainSmokeBombLeft",1,6.000000,0,1,1.000000,3.000000,0,False
+"crDLC01BotWeapRobobrainSmokeBombRight","DLC01BotWeapRobobrainSmokeBombRight",1,6.000000,0,1,1.000000,3.000000,0,False
+"crDLC01BotWeapRobobrainMezmatronHead","Hipnotrón",24,6.000000,0,1,5.000000,3.000000,0,False
+"crDLC01_TurretMountedLightningGun","Arma de rayos de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"DLC01_AssaultronBlade","Hoja de Asaltrón",17,10.000000,0,1,0.000000,1.000000,70,False
+"crDLC01BotWeapSentryBotLeftFlamer","Lanzallamas izquierdo de Robot centinela",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC01BotWeapSentryBotRightFlamer","Lanzallamas derecho de Robot centinela",0,0.000000,0,1,1.000000,3.000000,0,False
+"DLC01AssaultronHeadCharging","Cabeza de Asaltrón recuperada",0,24.000000,5,1,0.150000,8.000000,115,False
+"crDLC01BotMeleeShishkebabLeft","Pincho moruno",35,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01BotMeleeShishkebabRight","Pincho moruno",35,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01BotWeapProtectron01ArmNailGunLeft","",1,6.000000,0,1,0.500000,3.000000,0,False
+"crDLC01BotWeapProtectron01ArmNailGunRight","",1,6.000000,0,1,0.500000,3.000000,0,False
+"crDLC01BotMeleeHammerSawLeft","Sierra martillo",52,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01BotMeleeHammerSawRight","Sierra martillo",52,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01BotWeapGammaGunLeft","",0,8.000000,0,1,0.250000,3.000000,0,False
+"crDLC01BotWeapGammaGunRight","",0,8.000000,0,1,0.250000,3.000000,0,False
+"crDLC01BotWeapGatlingLaserRight","Ametralladora láser",0,6.000000,0,1,0.000000,18.000000,0,False
+"crDLC01BotWeapGatlingLaserLeft","Ametralladora láser",0,6.000000,0,1,0.000000,18.000000,0,False
+"crDLC01BotMeleeAxeLeft","",31,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeAxeRight","",31,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeBatonLeft","",13,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeBatonRight","",13,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeDrillLeft","",38,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeDrillRight","",38,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeHammerLeft","",34,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeHammerRight","",34,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeHookLeft","",22,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeHookRight","",22,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeSawLeft","",30,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeSawRight","",30,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeSkullLeft","",25,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeSkullRight","",25,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeProtectronClawLeft","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeProtectronClawRight","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeConstructionRight","",36,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotMeleeConstructionLeft","",36,10.000000,0,1,0.000000,2.000000,0,False
+"crDLC01BotWeapProtectron03LaserGunAutoLeft","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC01BotWeapProtectron03LaserGunAutoRight","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC01BotWeapProtectron02ArmCryo01Left","",0,6.000000,0,1,0.000000,30.000000,0,False
+"crDLC01BotWeapProtectron02ArmCryo01Right","",0,6.000000,0,1,0.000000,30.000000,0,False
+"crDLC01BotWeapProtectron02ArmFlamerLeft","",0,6.000000,0,1,0.000000,30.000000,0,False
+"crDLC01BotWeapProtectron02ArmFlamerRight","",0,6.000000,0,1,0.000000,30.000000,0,False
+"crDLC01BotWeapProtectron01LaserGunLeft","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC01BotWeapProtectron01LaserGunRight","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC01BotWeapLaserScatteredLeft","",0,8.000000,0,1,0.250000,0.000000,0,False
+"crDLC01BotWeapLaserScatteredRight","",0,8.000000,0,1,0.250000,0.000000,0,False
+"crDLC01BotWeapLaserSuperLeft","",0,8.000000,0,1,2.000000,0.000000,0,False
+"crDLC01BotWeapLaserSuperRight","",0,8.000000,0,1,2.000000,0.000000,0,False
+"crDLC01BotWeapSentryCanonLeft","SentryBotLeftRocketLauncher",10,0.000000,0,1,5.000000,3.000000,0,False
+"crDLC01BotWeapSentryCanonRight","SentryBotRightRocketLauncher",10,0.000000,0,1,5.000000,3.000000,0,False
+"crDLC01BotWeapSentryBotLeftMinigun","Ametralladora izquierda de Robot centinela",1,0.000000,0,1,0.000000,3.000000,0,False
+"crDLC01BotWeapSentryBotRightMinigun","Ametralladora derecha de Robot centinela",1,0.000000,0,1,0.000000,3.000000,0,False
+"DLC03_PoleHook","Gancho de pértiga",30,10.000000,0,1,0.000000,7.000000,45,False
+"DLC03_HarpoonGun","Arma arpón",254,31.000000,3,1,1.250000,12.000000,120,False
+"crDLC03_UnarmedFogCrawler","Mirelurk reina desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC03_UnarmedHermitCrab","Cangrejo ermitaño desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"RadiumRifle","Radio",27,21.000000,20,1,0.250000,7.000000,160,False
+"crDLC03_UnarmedAngler","Pejesapo desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"DLC03_LeverGun","Rifle de palanca",35,21.000000,5,1,0.500000,6.000000,135,False
+"crDLC03_UnarmedWolf","Lobo desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC03_UnarmedGulper","Tragador desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC03AnglerVomit","",0,0.000000,0,1,0.000000,3.000000,0,False
+"DLC03_MeatHook","Gancho de carne",20,10.000000,0,1,0.000000,2.000000,20,False
+"zzz_ThrowingCaltropWeapon","Abrojos",3,3.000000,0,1,0.000000,0.500000,25,False
+"zzz_ThrowingBearTrapWeapon","Trampa para osos",30,3.000000,0,1,0.000000,8.000000,75,False
+"zzz_ThrowingCaltropWeaponPoisoned","Abrojos envenenados",5,3.000000,0,1,0.000000,0.500000,40,False
+"zzz_ThrowingBearTrapWeaponBleeding","Trampa para osos ensangrentada",30,3.000000,0,1,0.000000,8.000000,100,False
+"DLC05WorkshopFireworkWeaponPeonyGreen","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPeonyRed","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponWeatherClear","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponWeatherRadstorm","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponWeatherRain","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPeonyPink","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPeonyYellow","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPeonyCrackle","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPeonyBlue","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPalmSilver","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DLC05WorkshopFireworkWeaponPalmGold","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"DEPRECATED_DLC05PaintballGunBlue","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunGreen","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunRed","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunOrange","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunGlow","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunWhite","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"DEPRECATED_DLC05PaintballGunYellow","CHATARRA",0,0.000000,0,1,0.180000,100.000000,0,False
+"zzz_DLC04_AcidSoaker","Pistola de ácido",0,6.000000,20,1,0.150000,3.000000,125,False
+"ThirstZapper","Matased",0,15.000000,1,1,0.100000,2.000000,10,False
+"DLC04_PaddleBall","Pádelbol ",1,6.000000,20,1,0.400000,2.000000,50,False
+"crDLC04BotHandyMisterMiddle","Señor",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04BotHandyMisterLeft","Señor",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04BotHandyMisterRight","Señor",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04_UnarmedCaveCricket","Mutaracha desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04_UnarmedSwarm","Enjambre desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04_UnarmedRadAnt","Hormiga desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"crDLC04_UnarmedRadRat","Rata radiactiva desarmada",1,0.000000,0,1,10.000000,0.000000,0,False
+"crDLC04SentryBotLeftAutoLaser","Láser automático izquierdo de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04SentryBotRightAutoLaser","Láser automático derecho de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04AnimatronicAlienBlaster","Bláster alienígena animatrónico",0,6.000000,42,1,0.100000,2.000000,0,False
+"crDLC04MrGutsy_LaserGun_Right","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC04AnimatronicAlienGun","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,0,False
+"crDLC04Protectron01LeftArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC04MrGutsy_LaserGun_Left","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC04MrGutsy_LaserGun_Middle","",0,8.000000,0,1,0.500000,0.000000,0,False
+"crDLC04Protectron01RightArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC04AnimatronicAlienWeapon","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,0,False
+"zzz_crDLC04BotThirstZapperCherryRight","Matased Cherry",10,6.000000,0,1,2.250000,2.000000,0,False
+"zzz_crDLC04BotThirstZapperCherryLeft","Matased Cherry",1,6.000000,0,1,2.000000,2.000000,0,False
+"zzz_crDLC04BotThirstZapperQuantumRight","Matased Quantum",1,6.000000,0,1,2.750000,2.000000,0,False
+"zzz_crDLC04BotThirstZapperQuantumLeft","Matased Quantum",10,6.000000,0,1,2.500000,2.000000,0,False
+"crDLC04SentryBotRightShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crDLC04SentryBotLeftShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crDLC04_UnarmedBrahmiluff","Brahmiluff desarmado",75,0.000000,0,1,0.000000,0.000000,0,False
+"DLC04_FragGrenadeMIRV","MIRV de granadas de fragmentación",0,3.000000,0,1,0.000000,1.000000,50,False
+"DLC04_HandMadeGun","Rifle artesanal",32,22.000000,20,1,0.250000,8.000000,90,False
+"zzz_DLC04_FragGrenadeSmart","Granada de fragmentación inteligente",0,3.000000,0,1,0.000000,0.600000,60,False
+"zzz_POST-DLC04_LuckyRabbitsFoot","Pata de conejo de la suerte",1,3.000000,0,1,0.000000,0.100000,50,False
+"crDLC04AnimatronicLaserGunMkI","Arma láser de torreta",0,8.000000,0,1,0.000000,25.000000,0,False
+"crDLC04AnimatronicLaserGunMkIII","Ametralladora de torreta de alta potencia",0,8.000000,0,1,0.000000,25.000000,0,False
+"crDLC04AnimatronicLaserGunMkV","Ametralladora de torreta incendiaria",0,8.000000,0,1,0.000000,25.000000,0,False
+"crDLC04AnimatronicLaserGunMkVII","DLC04AnimatronicLaserGunMkVII",0,8.000000,0,1,0.000000,25.000000,0,False
+"zzz_DLC04_NukaCherryGrenade","Granada Nuka-Cherry",1,3.000000,0,1,0.000000,0.500000,50,False
+"DLC04_NukaQuantumGrenade","Granada Nuka-Quantum",0,3.000000,0,1,0.000000,1.000000,50,False
+"DLC04_Revolver","Revólver del Oeste",60,18.000000,6,1,0.150000,4.000000,120,False
+"crDLC04Bot_Weap_Protectron01LeftArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC04Bot_Weap_Protectron01RightArmLaserGun","",0,8.000000,0,1,1.500000,0.000000,0,False
+"zzz_crDLC04Bot_Weap_ThirstZapperCherryLeft","Matased Cherry",10,6.000000,0,1,2.000000,2.000000,0,False
+"zzz_crDLC04Bot_Weap_ThirstZapperCherryRight","Matased Cherry",10,6.000000,0,1,2.250000,2.000000,0,False
+"zzz_crDLC04Bot_Weap_ThirstZapperQuantumLeft","Matased Quantum",10,6.000000,0,1,2.500000,2.000000,0,False
+"zzz_crDLC04Bot_Weap_ThirstZapperQuantumRight","Matased Quantum",10,6.000000,0,1,2.750000,2.000000,0,False
+"crDLC04Bot_Weap_SentryBotLeftAutoLaser","Láser automático izquierdo de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04Bot_Weap_SentryBotRightAutoLaser","Láser automático derecho de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04Bot_Weap_Protectron01LeftArmLaserGun_Blue","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC04Bot_Weap_Protectron01RightArmLaserGun_Blue","",0,8.000000,0,1,1.500000,0.000000,0,False
+"crDLC04Bot_Weap_SentryBotLeftAutoLaser_Blue","Láser automático izquierdo de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04Bot_Weap_SentryBotRightAutoLaser_Blue","Láser automático derecho de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crDLC04Bot_Weap_SentryBotLeftShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"crDLC04Bot_Weap_SentryBotRightShoulderClusterLauncher","",1,0.000000,0,1,3.000000,3.000000,0,False
+"DLC04_TurretMountedLaserGunSpaceBlue","Arma láser de torreta",0,8.000000,0,1,2.000000,25.000000,0,False
+"DLC04_CommieWhacker","Vapuleador de comunistas",10,0.000000,0,1,0.000000,2.000000,25,False
+"zzz_TESTKnuckles","Puño americano",10,10.000000,0,1,0.000000,0.500000,10,False
+"zzz_TESTBaton","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"GatlingGun","Ametralladora Gatling",8,36.000000,250,1,1.150000,18.000000,175,False
+"zzz_TESTMissileLauncher","Lanzamisiles TEST",15,6.000000,1,1,0.100000,20.000000,300,False
+"zzz_TestAudioCombatShotgunPump","PRUEBA DE BOMBEO de escopeta de combate",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_SF08_SuicideRun_BottlecapMine","",0,3.000000,0,1,0.000000,500.000000,40,False
+"crUnarmedSnallygaster","Snallygaster desarmado",0,0.000000,0,1,10.000000,0.000000,0,False
+"PumpActionShotgun","Escopeta de corredera",50,21.000000,8,1,0.500000,7.000000,50,False
+"SingleActionRevolver","Revólver de acción simple",48,18.000000,6,1,0.150000,4.000000,85,False
+"Chainsaw_76","Motosierra",0,1.000000,0,1,1.000000,12.000000,125,False
+"crSnallygasterSpitAttack","Ataque escupitajo de snallygaster",0,0.000000,0,1,3.500000,3.000000,0,False
+"crUnarmedFlatwoodsMonster","Monstruo de Flatwoods desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"binoculars","Prismáticos",0,6.000000,30,1,10.000000,2.000000,5,False
+"Pickaxe","Pico",0,10.000000,0,1,0.000000,2.500000,40,False
+"GatlingPlasma","Ametralladora de plasma",0,36.000000,500,1,0.150000,18.000000,250,False
+"zzz_TestAudioGrenadeLauncher","Lanzamisiles",15,6.000000,1,1,0.050000,20.000000,0,False
+"zzz_AudioTestGrenade","Granada acústica",1,3.000000,0,1,0.000000,0.500000,125,False
+"EN02_ScanGrenade","Baliza de análisis orbital",1,3.000000,0,1,0.000000,1.000000,50,False
+"zzz_TESTMG42","Rifle artesanal",32,6.000000,75,1,0.250000,8.000000,100,False
+"zzz_TestM79","Lanzagranadas M79",67,6.000000,2,1,0.275000,6.000000,30,False
+"crUnarmedLiberator","Liberador desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TestGolfClub","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"Hatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"crLiberatorLaserGun","Láser liberador",0,8.000000,3,1,1.000000,25.000000,0,False
+"10mmSMG","Subfusil de 10 mm",7,15.000000,30,1,0.233300,3.000000,70,False
+"FireAxe","Hacha de incendios",11,10.000000,0,1,0.000000,3.000000,15,False
+"GolfClub","Palo de golf",23,10.000000,0,1,0.000000,3.000000,25,False
+"Pitchfork","Tridente",23,10.000000,0,1,0.000000,2.000000,15,False
+"crTickSpit","Rociada de sangre de garrapata",1,0.000000,0,1,1.000000,25.000000,0,False
+"crUnarmedTick","Garrapata desarmada",1,0.000000,0,1,1.000000,0.000000,0,False
+"Blackpowder_Pistol","Pistola de pólvora negra",7,17.000000,1,1,1.000000,3.000000,60,False
+"Blackpowder_Pistol_Blunderbuss","Trabuco de pólvora negra",7,17.000000,1,1,1.000000,3.000000,90,False
+"crUnarmedMegaSloth","Megaperezoso desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"WorkshopVertibirdGrenade","Granada de señales de vertibot",1,3.000000,0,1,0.000000,0.100000,0,False
+"Drill","Taladro",0,6.000000,0,1,0.150000,2.000000,80,False
+"Tomahawk","Tomahawk",100,3.000000,0,1,0.000000,0.250000,1,False
+"Sickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"AutoGrenadeLauncher","Lanzagranadas automático",3,36.000000,12,1,0.500000,18.000000,225,False
+"CultistDagger","Daga sectaria",9,10.000000,0,1,0.000000,1.000000,40,False
+"crGraftonOilBombWeapon","Bomba petrolera de Grafton",1,0.000000,0,1,15.000000,2.000000,0,False
+"CultistBlade","Cuchilla de sectario",11,10.000000,0,1,0.000000,3.000000,35,False
+"zzz_TEST_DoubleBarrelShotgun","Escopeta de doble cañón",67,6.000000,2,1,0.275000,6.000000,30,False
+"BlackPowder_Rifle_Dragon","El dragón",200,21.000000,1,1,1.500000,6.000000,200,False
+"BlackPowder_Rifle","Rifle de pólvora negra",200,21.000000,1,1,1.000000,6.000000,110,False
+"SkiSword","Espada de esquí",11,10.000000,0,1,0.000000,3.000000,40,False
+"PulseGrenadeOrbital","Baliza de ataque orbital",0,3.000000,0,1,0.000000,0.350000,50,False
+"50CalMachineGun","Ametralladora del calibre .50",8,36.000000,250,1,0.000000,18.000000,175,False
+"MG42","Ametralladora ligera",0,22.000000,100,1,0.250000,8.000000,150,False
+"M79","Lanzagranadas M79",3,20.000000,1,1,1.000000,6.000000,30,False
+"crUnarmedScorched","Calcinado desarmado",20,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_MTNM01_BaitMine","Cebo explosivo",0,3.000000,0,1,0.000000,0.500000,40,False
+"zzz_ExplosiveBaitMine","Cebo explosivo",0,3.000000,0,1,0.000000,0.500000,40,False
+"MTR05_ChineseOfficerSword","Cuchilla antigua",16,10.000000,0,1,0.000000,3.000000,75,False
+"crTurretASAMMissileLauncherRight","Lanzamisiles de la torreta",0,3.000000,0,1,1.500000,20.000000,300,False
+"BowieKnife","Cuchillo Bowie",9,10.000000,0,1,0.000000,1.000000,35,False
+"WoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crScorchbeastSonicAttackWeapon","Ataque sónico de bestia calcinada",0,0.000000,0,1,11.000000,0.000000,0,False
+"crRadtoadTongue","Lengua de sapo radiactivo",15,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TEST_MTNS05VoxGrenade","Granada de Vox",1,3.000000,0,1,0.000000,1.000000,35,False
+"crMegaslothDirtThrow","",15,0.000000,0,1,5.000000,3.000000,0,False
+"zzz_PresidentialGaussRifle","Rifle Gauss presidencial",8,15.000000,30,1,0.100000,0.000000,0,False
+"crFlatwoodsMonsterLaser","Láser del monstruo de Flatwoods",0,6.000000,0,1,2.000000,8.000000,0,False
+"UltraciteLaserGun","Láser de ultracita",0,15.000000,20,1,0.250000,3.000000,150,False
+"crUnarmedScorchBeast","Bestia calcinada desarmada",0,0.000000,0,1,10.000000,0.000000,0,False
+"EN02_OrbitalStrikeGrenade","Baliza de ataque orbital",1,3.000000,0,1,0.000000,1.000000,50,False
+"PharmaBot_Left_Spray","PharmaBot_Left_Spray",0,0.000000,0,1,0.000000,0.000000,0,False
+"PharmaBot_Middle_Spray","PharmaBot_Middle_Spray",0,0.000000,0,1,0.000000,0.000000,0,False
+"PharmaBot_Right_Spray","PharmaBot_Right_Spray",0,0.000000,0,1,0.000000,0.000000,0,False
+"Ultracite_GatlingLaser","Ametralladora láser de ultracita",0,36.000000,500,1,0.150000,18.000000,300,False
+"crUnarmedAlien","Alienígena desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TestWeapon_CrippleAndLimbDMG","TestWeapon_CrippleAndLimbDMG",10,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_ShockAndBleed","TestWeapon_ShockAndBleed",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_Shock","TestWeapon_Shock",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_ShockStun","TestWeapon_ShockStun",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_Stagger","TestWeapon_Stagger",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_ExplosionQuantum","TestWeapon_ExplosionQuantum",5,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_ExplosionCherry","TestWeapon_ExplosionCherry",5,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_ExplosionNuka","TestWeapon_ExplosionNuka",5,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_Fire","TestWeapon_Fire",5,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_Bleed","TestWeapon_Bleed",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_Poison","TestWeapon_Poison",0,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_RESPSoundGrenade","Granada de sonido",0,3.000000,0,1,0.000000,0.500000,20,False
+"Enclave_PlasmaGun","Plasma del Enclave",1,16.000000,18,1,0.300000,3.000000,115,False
+"Spear","Lanza",23,10.000000,0,1,0.000000,2.000000,40,False
+"ProtestSign01","Cartel de protesta: papá necesita un trabajo",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign02","Cartel de protesta: trabajos",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign03","Cartel de protesta: en contra de la automatización",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign04","Cartel de protesta: quiero trabajar",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign05","Cartel de protesta: la gente primero",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign06","Cartel de protesta: trabajos o sangre",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign07","Cartel de protesta: devolvednos los trabajos",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign08","Cartel de protesta: rompe al robot",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign09","Cartel de protesta: los hombres no son máquinas",10,0.000000,0,1,0.000000,3.000000,1,False
+"ProtestSign10","Cartel de protesta: nada de comunistas",10,0.000000,0,1,0.000000,3.000000,1,False
+"crScorchbeastStrafeAttackWeapon","Bombardeo de bestia calcinada",0,0.000000,0,1,10.000000,0.000000,0,False
+"zzz_TestVorpalGun","Vorpal",10000,6.000000,12,1,0.233300,3.000000,45,False
+"Grenade_Pumpkin","Granada de calabaza",0,3.000000,0,1,0.000000,0.500000,20,False
+"zzz_GaussRifle_Presidential","Rifle Gauss presidencial",110,15.000000,5,1,0.150000,8.000000,350,False
+"zzz_TestTurretAntiAirGun","Ametralladora de torreta",10,8.000000,0,1,0.500000,25.000000,0,False
+"MTR05_MeteoriteSword","Espada meteórica",16,10.000000,0,1,0.000000,3.000000,50,False
+"Crossbow","Ballesta",200,21.000000,1,1,0.150000,6.000000,50,False
+"MTR04_DrossThrownItem","Residuos",5,3.000000,0,1,0.000000,0.250000,50,False
+"MTNS04_NailerSword","Tizona",11,10.000000,0,1,0.000000,3.000000,15,False
+"zzz_TestWeapon_Base","TestWeapon_Base",1,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestGun_MultAdd2","Curva de daño",18,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TestGun_MultAdd","No hay curvas",10,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TestWeapon_MultiDamage","Tipos de daño múltiple de arma de prueba",10,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_DMG_Standard","Daño estándar de arma de prueba",10,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TestWeapon_DMG_RadiationExposure","Daño por exposición a la radiación de arma de prueba",0,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TestWeapon_DMG_Energy","Daño por energía de arma de prueba",0,0.000000,0,1,0.000000,0.000000,0,False
+"MoM02B_HistoricSword","Sable de Grant",1,0.000000,0,1,0.000000,3.000000,60,False
+"zzz_TestConfetti","10 mm",18,6.000000,12,1,0.233300,3.000000,45,False
+"crProtectron02RightArmConfetti","",0,8.000000,0,1,0.000000,0.000000,0,False
+"crProtectron01LeftArmConfetti","",0,8.000000,0,1,0.000000,0.000000,0,False
+"BoneClub","Palo de hueso",11,0.000000,0,1,0.000000,3.000000,15,False
+"Bonehammer","Martillo de hueso",23,15.000000,0,1,0.000000,12.000000,45,False
+"Throwing_Knife","Cuchillo arrojadizo",75,3.000000,0,1,0.000000,0.100000,1,False
+"MoM_BladeOfBastet","Hoja de Bastet",1,30.000000,0,1,0.000000,3.000000,0,False
+"MoM_VoiceOfSet_44","Voz de Set",1,17.000000,6,1,0.150000,4.000000,0,False
+"crGraftonOilBombSalvoWeapon","Salva de bombas petroleras de Grafton",2,0.000000,0,1,0.000000,2.000000,0,False
+"MTR06_10mmSMG_ScorchedKiller","Subfusil anticalcinados de 10 mm",7,17.000000,30,1,0.233300,3.000000,100,False
+"SFZ14_Bomb_BlastMine","Mina explosiva",0,3.000000,0,1,0.000000,0.550000,40,False
+"zzz_TestWeapon_Ranged_Scorched","10 mm",10,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TestWeapon_ScorchedKiller","TestWeapon SC",50,0.000000,0,1,0.000000,0.000000,25,False
+"CharGen_Binoculars_NoName","",0,8.000000,30,1,0.100000,2.000000,5,False
+"CharGen_GolfClub_NoName","",23,10.000000,0,1,0.000000,12.000000,40,False
+"crUnarmedWendigo","Wendigo desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"MTNM01_PipeSyringer_Karma","Inyector de Rose",1,15.000000,1,1,0.150000,1.000000,100,False
+"crUnarmedHoneyBeastBeeSwarm","Enjambre de bestias de la miel (sin armas)",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TestWeapon_MultAdd1","TestWeapon  MultAdd 50% MOD",10,0.000000,0,1,0.000000,0.000000,25,False
+"zzz_TestWeapon_MultAdd_Template","TestWeapon MultAdd 50% TEMPLATE",10,0.000000,0,1,0.000000,0.000000,25,False
+"Shovel","Pala",1,10.000000,0,1,0.000000,6.000000,40,False
+"EN02_OrbitalStrikeWeapon","Ataque orbital",33,15.000000,1,1,0.000000,25.000000,400,False
+"crMothmanRangedAttackRapidFire","Fuego rápido",0,0.000000,0,1,20.000000,3.000000,0,False
+"crMothmanAreaAttack","Ataque AdE",0,0.000000,0,1,0.000000,3.000000,0,False
+"crMothmanRangedAttackSingleShotVer2","Disparo único versión 2",0,0.000000,0,1,2.000000,3.000000,0,False
+"zzz_10mm_Legendary1","Corte de 10 mm",18,6.000000,12,1,0.233300,3.000000,45,False
+"LC060_WhitespringSign_BlackPowderRifleNoName","",0,15.000000,1,1,0.150000,6.000000,100,False
+"crHoneyBeastBeeSwarmSpawn","Generador de enjambres de bestias de la miel",0,0.000000,0,1,25.000000,0.000000,0,False
+"zzz_10mm_Legendary_Jason","",18,6.000000,12,1,0.230000,200.000000,45,False
+"crUnarmedMirelurkSpawn","Cría de mirelurk desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_Debug_Legendary1_10mm_Junkies","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary1_10mm_Executioners","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary1_10mm_DmgConsecutiveHits","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_TEST_Balance10mm_LVL50","Test10mm Nivel 50",128,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_Balance10mm_LVL30","Test10mm Nivel 30",84,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_Balance10mm_LVL20","Test10mm Nivel 20",62,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_Balance10mm_LVL10","Test10mm Nivel 10",40,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_Balance10mm_LVL40","Test10mm Nivel 40",106,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_BalancecrUnarmedScorched_LVL20","Unarmed Scorched_LVL20",45,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TEST_BalancecrUnarmedScorched_LVL10","Unarmed Scorched_LVL10",35,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TEST_Balance10mm","Test10mm",20,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TEST_BalancecrUnarmedScorched_LVL30","Unarmed Scorched_LVL30",50,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TEST_BalancecrUnarmedScorched_LVL40","Unarmed Scorched_LVL40",60,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_TEST_BalancecrUnarmedScorched_LVL50","Unarmed Scorched_LVL50",70,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedFrog","Rana desarmada",1,0.000000,0,1,10.000000,0.000000,0,False
+"crMegaslothAreaAttack","",25,0.000000,0,1,25.000000,3.000000,0,False
+"zzz_TEST_Sword_Legendary_Debug","Espada de oficial chino",16,10.000000,0,1,0.000000,3.000000,50,False
+"zzz_Sword_Legendary_Jason","",16,10.000000,0,1,0.000000,200.000000,50,False
+"zzz_Debug_Legendary1_10mm_DmgVsGhouls","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary3_10mm_Medic","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz10mm_Legendary_Knockback","",18,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_Test_BalanceLaserGun_Dmg20","Láser",0,6.000000,30,1,0.200000,4.000000,60,False
+"zzz_Test_BalanceLaserGun_Dmg20Noscaledrop","Láser",0,6.000000,30,1,0.200000,3.000000,60,False
+"zzz_Test_BalanceLaserGun_Dmg20Nofactor","Láser",0,6.000000,30,1,0.200000,4.000000,60,False
+"crTurretASAMMissileLauncherLeft","Lanzamisiles de la torreta",0,3.000000,0,1,1.500000,20.000000,300,False
+"crScorchbeastQueenSonicAttack","Ataque sónico de bestia calcinada",0,0.000000,0,1,11.000000,0.000000,0,False
+"crScorchbeastQueenStrafeAttack","Bombardeo de bestia calcinada",0,0.000000,0,1,10.000000,0.000000,0,False
+"zzz_Debug_Legendary2_ChineseOfficerSword_ReflectMelee","Chatarra",0,0.000000,0,1,0.000000,200.000000,0,False
+"zzz_MTNL01_PumpActionShotgun_Fancy","Escopeta de corredera sofisticada",50,15.000000,8,1,0.500000,7.000000,100,False
+"MTNL01_SingleActionRevolver_Fancy","Revólver de acción simple elegante",48,18.000000,6,1,0.150000,4.000000,95,False
+"MTR05_10mm_ScorchedTrainer","Pistola de entrenamiento anticalcinados",18,16.000000,12,1,0.230000,3.000000,45,False
+"PulseGrenadeStrike","Baliza de ataque orbital de misiles",0,3.000000,0,1,0.000000,0.500000,50,False
+"zzz_TestAudio_MG42_FastAuto","Ametralladora ligera rápida",32,6.000000,75,1,0.250000,8.000000,0,False
+"zzz_TestAudio_10mm_FastAuto","Ametralladora rápida de 10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_PipeGun","Arma de tubo",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_10mm_SlowAuto","10 mm lenta",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_AssaultRifle_FastAuto_Supp","Rifle de asalto rápido",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_CombatRifle_Auto","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_AssaultRifle_Auto_Supp","Rifle de asalto",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_CombatRifle_FastAuto_38_Supp","Rifle de combate rápido",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_SubmachineGun_SlowAuto_Supp","Subfusil lento",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_10mm_Auto_Supp","10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_CombatRifle_Auto_38_Supp","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_10mm_Auto","10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_AssaultRifle_Auto","Rifle de asalto",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_PipeBoltAction_38","Tubo de cerrojo",34,6.000000,6,1,0.150000,3.000000,0,False
+"zzz_TestAudio_CombatRifle_SlowAuto_38","Rifle de combate lento",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_AssaultRifle","Rifle de asalto",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_10mm_SlowAuto_Supp","10 mm lenta",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_MG42","Ametralladora ligera",32,6.000000,75,1,0.250000,8.000000,0,False
+"zzz_TestAudio_50CalMachineGun","Ametralladora del calibre 50",8,6.000000,250,1,0.000000,18.000000,0,False
+"zzz_TestAudio_CombatShotgun_Supp","Escopeta de combate",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_SubmachineGun_FastAuto_Supp","Subfusil rápido",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_PipeGun_SlowAuto_Supp","Arma de tubo lenta",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_10mmSMG_SlowAuto","Subfusil lento de 10 mm",7,6.000000,30,1,0.233300,3.000000,0,False
+"zzz_TestAudio_PipeGun_Supp","Arma de tubo",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_CombatRifle_SlowAuto_Supp","Rifle de combate lento",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_CombatShotgun_Auto_Supp","Escopeta de combate",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_AssaultRifle_SlowAuto_Supp","Rifle de asalto lento",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_CombatRifle_Auto_38","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_PumpActionShotgun","Escopeta de corredera",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_CombatShotgun_SlowAuto_Supp","Escopeta de combate lenta",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_CombatRifle_38","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_AssaultRifle_FastAuto","Rifle de asalto rápido",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_CombatRifle_38_Supp","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_SubmachineGun","Subfusil",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_CombatRifle_Auto_Supp","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_SubmachineGun_SlowAuto","Subfusil lento",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_SubmachineGun_Supp","Subfusil",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_CombatRifle","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_CombatShotgun_Auto","Escopeta de combate",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_CombatShotgun_SlowAuto","Escopeta de combate lenta",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_PipeBoltAction_Supp","Tubo de cerrojo",34,6.000000,6,1,0.150000,3.000000,0,False
+"zzz_TestAudio_DoubleBarrelShotgun","Escopeta de doble cañón",67,6.000000,2,1,0.275000,6.000000,0,False
+"zzz_TestAudio_CombatRifle_FastAuto_Supp","Rifle de combate rápido",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_PipeGun_SlowAuto","Arma de tubo lenta",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_10mm_FastAuto_Supp","Ametralladora rápida de 10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_CombatShotgun","Escopeta de combate",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_PipeGun_FastAuto","Arma de tubo rápida",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_50CalMachineGun_FastAuto","Ametralladora del calibre .50 rápida",8,6.000000,250,1,0.000000,18.000000,0,False
+"zzz_TestAudio_CombatShotgun_FastAuto_Supp","Escopeta de combate rápida",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_AssaultRifle_SlowAuto","Rifle de asalto lento",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_AssaultRifle_Supp","Rifle de asalto",30,6.000000,20,1,0.250000,8.000000,0,False
+"zzz_TestAudio_10mmSMG","Subfusil de 10 mm",7,6.000000,30,1,0.233300,3.000000,0,False
+"zzz_TestAudio_10mm_Supp","10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_SubmachineGun_FastAuto","Subfusil rápido",13,6.000000,50,1,0.150000,7.000000,0,False
+"zzz_TestAudio_CombatRifle_FastAuto","Rifle de combate rápido",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_CombatRifle_Supp","Rifle de combate",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_10mm","10 mm",18,6.000000,12,1,0.233300,3.000000,0,False
+"zzz_TestAudio_PipeGun_Auto_Supp","Arma de tubo",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_DoubleBarrelShotgun_Faster","Escopeta de doble cañón más rápida",67,6.000000,2,1,0.275000,6.000000,0,False
+"zzz_TestAudio_CombatShotgun_fastAuto","Escopeta de combate rápida",50,4.000000,8,1,0.500000,7.000000,0,False
+"zzz_TestAudio_PipeGun_Auto","Arma de tubo",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_PipeBoltAction","Tubo de cerrojo",34,6.000000,6,1,0.150000,3.000000,0,False
+"zzz_TestAudio_MG42_SlowAuto","Ametralladora ligera lenta",32,6.000000,75,1,0.250000,8.000000,0,False
+"zzz_TestAudio_CombatRifle_FastAuto_38","Rifle de combate rápido",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_CombatRifle_SlowAuto","Rifle de combate lento",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_PipeGun_FastAuto_Supp","Arma de tubo rápida",13,6.000000,12,1,0.166700,2.000000,0,False
+"zzz_TestAudio_PipeBoltAction_38_Supp","Tubo de cerrojo",34,6.000000,6,1,0.150000,3.000000,0,False
+"zzz_TestAudio_DoubleBarrelShotgun_Fastest","Escopeta de doble cañón aún más rápida",67,6.000000,2,1,0.275000,6.000000,0,False
+"zzz_TestAudio_CombatRifle_SlowAuto_38_Supp","Rifle de combate lento",33,4.000000,20,1,0.300000,7.000000,0,False
+"zzz_TestAudio_10mmSMG_FastAuto","Subfusil rápido de 10 mm",7,6.000000,30,1,0.233300,3.000000,0,False
+"zzz_TestAudio_50CalMachineGun_SlowAuto","Ametralladora del calibre .50 lenta",8,6.000000,250,1,0.000000,18.000000,0,False
+"zzz_TestAudio_PumpActionShotgun_Supp","Escopeta de corredera",50,4.000000,8,1,0.500000,7.000000,0,False
+"crWendigoScreamAttack","Ataque de grito de wendigo",0,0.000000,0,1,15.000000,3.000000,0,False
+"HuntingRifle","Rifle de caza",20,21.000000,5,1,0.150000,6.000000,40,False
+"crWeapBloatfly","Escupitajo de larva",1,0.000000,0,1,2.000000,3.000000,0,False
+"MissileLauncher","Lanzamisiles",5,40.000000,1,1,1.200000,20.000000,100,False
+"zzz_LaserMusket","Mosquete láser",0,15.000000,2,1,0.000000,8.000000,50,False
+"crUnarmedDefault","",0,10.000000,0,1,0.000000,0.000000,0,False
+"10mm","10 mm",18,16.000000,12,1,0.230000,3.000000,40,False
+"AssaultRifle","Rifle de asalto",30,23.000000,20,1,0.300000,8.000000,105,False
+"Minigun","Ametralladora",8,35.000000,500,1,0.000000,18.000000,150,False
+"crBloodbugSpitWeapon","Rociada de sangre de chupasangre",1,0.000000,0,1,0.000000,25.000000,0,False
+"PipeGun","Tubo",13,17.000000,12,1,0.170000,4.000000,25,False
+"Machete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"GasTrapDummy","Trampa de gas falsa",0,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_10mm_Legendary5","",18,6.000000,12,1,0.230000,200.000000,45,False
+"crWorkshopTurretLaserGun01","Arma láser de torreta",0,8.000000,8,1,1.000000,25.000000,0,False
+"crWorkshopTurretMachineGun01","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,0,False
+"crWorkshopTurretMachineGun02","Ametralladora de torreta",1,8.000000,0,1,0.000000,25.000000,0,False
+"crWorkshopTurretLaserGun02","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crWorkshopTurretMountedMilitary","Arma para torreta",0,8.000000,0,1,0.000000,25.000000,0,False
+"crWorkshopTurretLaserGun_Heavy","Torreta con arma láser pesada",0,8.000000,12,1,1.000000,25.000000,0,False
+"crWorkshopTurretMachineGun_Heavy","Torreta ametralladora pesada",20,8.000000,0,1,0.000000,25.000000,0,False
+"zzz_Debug_Legendary1_44_Medic","Chatarra",0,0.000000,6,1,0.150000,200.000000,0,False
+"CamdenWhackerWeapon","Podadora de Camden",10,0.000000,0,1,0.000000,2.000000,25,False
+"zzz_Debug_Legendary2_10mm_Explosive","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"WeaponDecalScorched","Calcinado (pegatina para arma)",0,0.000000,0,1,0.000000,0.000000,0,False
+"MTNS05_PipeSyringer_Vox","Inyector de Vox",1,19.000000,1,1,0.150000,4.000000,75,False
+"zzz_Debug_Legendary4_10mm_CritFrenzy","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_TestThrowingCaltropWeaponMulti","Abrojos múltiples",3,3.000000,0,1,0.000000,0.500000,25,False
+"zzz_10mm_Epic","QA_10mm_Epic",18,10.000000,12,1,0.233300,3.000000,40,False
+"ATX_Sten","El caballero negro",20,15.000000,5,1,0.150000,6.000000,40,False
+"zzz_Debug_Legendary1_ChineseOfficerSword_Bloodied","Chatarra",0,0.000000,0,1,0.000000,200.000000,0,False
+"zzz_Debug_Legendary1_Minigun_AmmoCapacity2x","Chatarra",0,0.000000,500,1,0.000000,200.000000,0,False
+"zzz_Debug_Legendary1_10mm_AmmoCapacity4x","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary1_CombatShotgun_DmgVsScorched","Chatarra",0,0.000000,8,1,0.500000,200.000000,0,False
+"zzz_Debug_Legendary1_10mmSMG_DebuffDmg","Chatarra",0,0.000000,30,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary1_Cryolator_DmgConsecutiveHits","Chatarra",0,0.000000,25,1,0.100000,200.000000,0,False
+"zzz_Debug_Legendary1_HuntingRifle_DebuffDmg","Chatarra",0,0.000000,5,1,0.150000,200.000000,0,False
+"zzz_Debug_Legendary1_GatlingPlasma_AntiArmor","Chatarra",0,0.000000,500,1,0.150000,200.000000,0,False
+"zzz_Debug_Legendary1_AssaultRifle_AntiArmor","Chatarra",0,0.000000,20,1,0.250000,200.000000,0,False
+"zzz_Debug_Legendary2_10mmAuto_Bloodied","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary1_10mm_Medic","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary3_10mmSMG_DmgConsecutiveHits","Chatarra",0,0.000000,30,1,0.233300,200.000000,0,False
+"Debug_balance_10mm","10 mm equilibrada",18,6.000000,12,1,0.230000,3.000000,45,False
+"debug_balance_HandMadeGun","Rifle artesanal equilibrado",32,15.000000,20,1,0.250000,8.000000,90,False
+"zzz_Legendary1_10mm_AmmoCapacity4xCOPY0000","10 mm legendaria",18,6.000000,12,1,0.233300,3.000000,45,False
+"debug_balance_AssaultRifle","Rifle de asalto equilibrado",30,15.000000,20,1,0.300000,8.000000,150,False
+"MTNM01_BaitMine_Grenade","Cebo explosivo",1,3.000000,0,1,0.000000,1.000000,10,False
+"zzz_Debug_Legendary1_GatlingPlasma_AntiScorched","Chatarra",0,0.000000,500,1,0.150000,200.000000,0,False
+"zzz_Debug_Legendary1_CombatRifle_Sniper_AntiArmor","Chatarra",0,0.000000,20,1,0.300000,200.000000,0,False
+"zzz_Debug_Legendary4_10mm_Bleed","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"zzz_Debug_Legendary4_CombatShotgun_Executioners","Chatarra",0,0.000000,8,1,0.500000,200.000000,0,False
+"zzzATX_Fatman_VaultTec","Fat Man de Vault-Tec",5,15.000000,1,1,0.000000,20.000000,300,False
+"zzzATX_Flamer_VaultTec","Lanzallamas de Vault-Tec",0,15.000000,100,1,0.150000,15.000000,150,False
+"zzz_ATX_WalkingCane_CandyCane","Bastón de caramelo",10,0.000000,0,1,0.000000,2.000000,10,False
+"ATX_CroquetMallet","Mazo de cróquet",10,0.000000,0,1,0.000000,2.000000,10,False
+"zzz_Debug_Legendary3_10mm_DmgConsecutiveHits","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"ATX_CroquetMallet_Red","Mazo de cróquet",10,0.000000,0,1,0.000000,2.000000,10,False
+"zzz_Debug_Legendary3_10mm_DmgConsecutiveHitsDUPLICATE000","Chatarra",0,0.000000,12,1,0.233300,200.000000,0,False
+"ZZZ_ATX_Pickaxe_Modern","Pico moderno",23,10.000000,0,1,0.000000,2.500000,40,False
+"crUnarmedSheepsquatch","Sheepsquatch desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crSheepsquatchRangedQuill","",50,0.000000,0,1,7.000000,3.000000,0,False
+"zzz_Camera_P01C_Bucket","Cámara del turista",0,6.000000,30,1,10.000000,2.000000,5,False
+"SheepSquatchClub","Vara de Sheepsquatch",11,15.000000,0,1,0.000000,3.000000,15,False
+"SheepsquatchStaff","Bastón de Sheepsquatch",23,15.000000,0,1,0.000000,12.000000,40,False
+"ShepherdsCrook","Cayado de pastor",10,10.000000,0,1,0.000000,2.000000,45,False
+"CUT_P01E_Heart_PerfumeGrenade_NONPLAYABLE","Perfume caro",0,3.000000,0,1,0.000000,0.500000,15,False
+"CUT_P01E_Heart_Bouquet_NONPLAYABLE","Bonito ramo floral",14,10.000000,0,1,0.000000,2.000000,25,False
+"zzz_RE_SceneCMB01_SmokeGrenade","Granada de humo",0,3.000000,0,1,0.000000,0.500000,15,False
+"SheepsquatchShard","Fragmento de Sheepsquatch",75,3.000000,0,1,0.000000,0.150000,15,False
+"DEPRECATED_ATX_DeathTambo_JingleBell","Cascabel de pandereta de la muerte",10,10.000000,0,1,0.000000,0.500000,60,False
+"SmokeGrenade","Granada de humo",0,3.000000,0,1,0.000000,0.500000,15,False
+"CombatRifle_Fixer","El arreglador",33,18.000000,20,1,0.280000,5.000000,130,False
+"Camera_SnapMatic","Cámara ProSnap Deluxe",1,6.000000,6,1,0.600000,0.100000,5,False
+"BearArm","Brazo de oso",25,0.000000,0,1,0.000000,10.000000,75,False
+"crHandyPincherLeftFlute","Pinza",20,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyPincherRightViolin","PinzaViolín",20,0.000000,0,1,0.000000,0.000000,0,False
+"crHandyPincherMiddleTrumpet","PinzaTrompeta",20,0.000000,0,1,0.000000,0.000000,0,False
+"DEPRECATED_P01B_Burrows_AssaultronBlade","La destripadora",17,10.000000,0,1,0.000000,1.000000,70,False
+"zzzSheepsquatch_2h_Base","",0,0.000000,0,1,0.000000,0.000000,0,False
+"zzzSheepsquatch_1h_Base","",0,0.000000,0,1,0.000000,0.000000,0,False
+"P01B_Mini_Robot01_Binoculars","Pearly Peepers",0,6.000000,30,1,10.000000,1.000000,100,False
+"D01C_BugGrenade","Granada de bichos",0,3.000000,0,1,0.000000,0.500000,25,False
+"zzz_COMP_10mm_NonPlayable","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"zzz_ATX_WhiffleBat","",0,0.000000,0,1,0.000000,0.000000,0,False
+"Survival_M79_CrushingBlow","Golpe aplastante",3,20.000000,1,1,1.000000,6.000000,30,False
+"Survival_50CalMachineGun_TheActionHero","El héroe de acción",8,36.000000,250,1,0.000000,18.000000,175,False
+"Survival_Switchblade_TheQuickFix","El arreglo rápido",8,0.000000,0,1,0.000000,1.000000,20,False
+"Survival_LeverGun_SoleSurvivor","Superviviente solitario",35,21.000000,5,1,0.500000,6.000000,135,False
+"Survival_44_MedicalMalpractice","Negligencia médica",48,17.000000,6,1,0.150000,4.000000,40,False
+"Survival_Fatman_TheGuarantee","La garantía",5,41.000000,1,1,1.000000,20.000000,300,False
+"zzz_Minigun","Ametralladora",1,15.000000,0,1,0.000000,18.000000,150,False
+"zzz_GatlingPlasma","Ametralladora de plasma",1,15.000000,0,1,0.150000,18.000000,250,False
+"zzz_AutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,0,1,0.150000,18.000000,225,False
+"zzz_Flamer","Lanzallamas",1,15.000000,0,1,0.150000,15.000000,150,False
+"zzz_HarpoonGun","Arma arpón",1,15.000000,1,1,1.000000,16.000000,120,False
+"zzzVault79ClimbingKnife","",9,10.000000,0,1,0.000000,1.000000,25,False
+"W05_MQ_003P_Muscle_PollyAssaultronHead","Cabeza de Asaltrón de Polly",0,24.000000,5,1,0.150000,8.000000,115,False
+"ATX_AssaultronHeadCharging_Imposter","Cabeza de Asaltrón impostor",0,24.000000,5,1,0.150000,8.000000,115,False
+"zzzLaserGun_Babylon","Objeto no válido",0,15.000000,30,1,0.250000,3.000000,60,False
+"zzzCombatShotgun_Babylon","Objeto no válido",0,15.000000,8,1,0.500000,7.000000,125,False
+"zzzPipeGun_Babylon","Objeto no válido",0,10.000000,12,1,0.166700,4.000000,25,False
+"zzzBonehammer_Babylon","Objeto no válido",0,10.000000,0,1,0.000000,12.000000,45,False
+"zzzSickle_Babylon","Objeto no válido",0,0.000000,0,1,0.000000,3.000000,15,False
+"zzzDLC01_AssaultronBlade_Babylon","Objeto no válido",0,10.000000,0,1,0.000000,3.000000,70,False
+"LC096_LvlScorchedGrenadeLauncher_M79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"Survival_LightningGun_NightLight","Luz nocturna",0,23.000000,15,1,0.500000,8.000000,180,False
+"Survival_PipeWrench_MechanicsBestFriend","El mejor amigo de un mecánico",13,10.000000,0,1,0.000000,2.000000,30,False
+"Survival_LaserGun_AcceptableOverkill","Exceso de destrucción aceptable",0,17.000000,20,1,0.250000,3.000000,60,False
+"Survival_DeathclawGauntlet_UnstoppableMonster","Monstruo imparable",25,0.000000,0,1,0.000000,10.000000,85,False
+"Survival_Baton_DisorderlyConduct","Alteración del orden público",11,0.000000,0,1,0.000000,2.000000,15,False
+"Survival_AssaultRifle_WhistleInTheDark","Silbido en la oscuridad",30,23.000000,20,1,0.300000,8.000000,105,False
+"Survival_DoubleBarrelShotgun_SaltOfTheEarth","La sal de la tierra",67,21.000000,2,1,0.400000,6.000000,100,False
+"Survival_RevolutionarySword_CommandersCharge","Carga del comandante",16,10.000000,0,1,0.000000,3.000000,50,False
+"Survival_GatlingGun_ResoluteVeteran","Veterano decidido",8,36.000000,250,1,1.150000,18.000000,175,False
+"Survival_HarpoonGun_Kingfisher","Rey Pescador",150,33.000000,1,1,1.000000,12.000000,120,False
+"crUnarmedWendigoColossus","Coloso wendigo desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"Camera_Disposable","Cámara de reconocimiento",1,6.000000,6,1,0.600000,0.100000,0,False
+"GaussPistol","Pistola Gauss",48,17.000000,18,2,0.150000,4.000000,85,False
+"DoubleBarrelShotgun_WL005","",67,15.000000,2,1,0.275000,6.000000,100,False
+"IncendiaryGrenade","Granada incendiaria",0,3.000000,0,1,0.000000,0.500000,15,False
+"RemoteGrenade","Granada con detonación remota",0,3.000000,0,1,0.000000,0.500000,15,False
+"PlasmaBundleGrenade","Lote de granadas de plasma",0,3.000000,0,1,0.000000,0.500000,30,False
+"V96_1_WeapSuppressionGrenade_I","Granada supresora I del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_WeapSuppressionMine_II","Mina supresora II del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_WeapSuppressionMine_III","Mina supresora III del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_WeapSuppressionGrenade_II","Granada supresora II del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_WeapSuppressionMine_I","Mina supresora I del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_WeapSuppressionGrenade_III","Granada supresora III del Refugio 96",0,3.000000,0,1,0.000000,0.500000,0,False
+"V96_1_SuppressionPipeSyringer","Inyector",1,19.000000,1,1,0.150000,4.000000,0,False
+"ZZZ_Grahams_MeatTenderizer_Cayanne","Cayena ablandadora de carne de Grahm",40,15.000000,0,1,0.000000,20.000000,70,False
+"ZZZ_Grahams_MeatTenderizer","Ablandador de carne de Grahm",40,15.000000,0,1,0.000000,20.000000,70,False
+"ZZZ_Grahams_MeatTenderizer_Pepper","Pimienta ablandadora de carne de Grahm",40,15.000000,0,1,0.000000,20.000000,70,False
+"MeatTenderizer","Ablandador",40,15.000000,0,1,0.000000,20.000000,70,False
+"MeatCleaver","Cuchillo de carnicero",75,3.000000,0,1,0.000000,0.200000,1,False
+"ATX_Firework_Mine_Blue","Mina de fuegos artificiales azules",0,0.000000,0,1,0.000000,0.100000,0,False
+"ATX_Firework_Mine_Red","Mina de fuegos artificiales rojos",0,0.000000,0,1,0.000000,0.100000,0,False
+"crWeaponWendigoColossusPoisonVomit","",0,0.000000,0,1,12.000000,3.000000,0,False
+"crWeaponWendigoColossusRanged","",0,0.000000,0,1,3.000000,3.000000,0,False
+"crWeaponWendigoColossusRadVomit","",25,0.000000,0,1,10.000000,3.000000,0,False
+"zzzDynamiteSpear","",0,10.000000,0,1,0.000000,2.000000,40,False
+"zzz_SoundmakerGrenade","Señuelo sonoro",0,3.000000,0,1,0.000000,0.500000,15,False
+"GaussMinigun","Ametralladora Gauss",50,36.000000,500,1,0.000000,18.000000,150,False
+"Gauntlet","Guantelete",0,0.000000,0,1,0.000000,6.000000,130,False
+"FlareGrenade","Bengala",0,3.000000,0,1,0.000000,0.100000,15,False
+"PlasmaCaster","Lanzaplasma",0,36.000000,20,1,0.500000,18.000000,225,False
+"gaussshotgun","Escopeta Gauss",50,22.000000,40,5,0.150000,7.000000,125,False
+"DynamiteBundleGrenade","Cartuchos de dinamita",0,3.000000,0,1,0.000000,0.750000,15,False
+"zzz_FlashbangGrenade","Granada aturdidora",0,3.000000,0,1,0.000000,0.500000,15,False
+"Cattleprod","Pica para ganado",0,0.000000,0,1,0.000000,2.000000,15,False
+"RegularBow","Arco",7,17.000000,1,1,0.233300,3.000000,45,False
+"DynamiteGrenade","Dinamita",0,3.000000,0,1,0.000000,0.600000,15,False
+"crFloaterFlamerFireball","Bola de fuego de flotador lanzallamas",1,0.000000,0,1,1.000000,25.000000,0,False
+"crFloaterFreezerBreath","Aliento de flotador congelador",1,0.000000,0,1,8.000000,10.000000,0,False
+"crFloaterFlamerBreath","Flotador lanzallamas",1,0.000000,0,1,8.000000,25.000000,0,False
+"crFloaterGnasherBite","Mordisco de masticador",1,0.000000,0,1,1.000000,0.000000,0,False
+"crUnarmedFloater","Flotador desarmado",1,0.000000,0,1,1.000000,0.000000,0,False
+"crFloaterFreezerStare","Mirada de flotador congelador",1,0.000000,0,1,8.000000,10.000000,0,False
+"ATX_Firework_Mine_Trails","Fuegos artificiales con rastro",0,0.000000,0,1,0.000000,0.100000,0,False
+"Firework_Mine_Green","Mina de fuegos artificiales verdes",0,0.000000,0,1,0.000000,0.100000,0,False
+"Firework_Mine_Blue","Mina de fuegos artificiales azules",0,0.000000,0,1,0.000000,0.100000,0,False
+"ATX_Firework_Mine_Green","Mina de fuegos artificiales verdes",0,0.000000,0,1,0.000000,0.100000,0,False
+"Firework_Mine_Red","Mina de fuegos artificiales rojos",0,0.000000,0,1,0.000000,0.100000,0,False
+"zzz_ATX_Weapon_Melee_GardenTrowel","Desplantador de jardín",14,10.000000,0,1,0.000000,2.000000,25,False
+"atx_alienprobe","El Invasor",9,10.000000,0,1,0.000000,1.000000,25,False
+"zzzATX_BrandingIronRaider","Hierro de marcar de saqueador",23,10.000000,0,1,0.000000,2.000000,40,False
+"ATX_Firework_Mine_Crackle","Fuegos artificiales con petardo",0,0.000000,0,1,0.000000,0.100000,0,False
+"zzzz_AutoAxeDELETEWHENDONE","",0,8.000000,0,1,1.000000,12.000000,125,False
+"zzz_TestGaussShotgunNoCharge","Escopeta Gauss",50,15.000000,8,1,0.500000,7.000000,125,False
+"BoneTambo","Tambo huesudo",10,10.000000,0,1,0.000000,0.500000,60,False
+"zzz_W05_MQ_003P_Muscle_PollyAssaultronHead02","Cabeza de Asaltrón de Polly",0,10.000000,5,1,0.150000,8.000000,115,False
+"zzz_AutoAxe","Hacha automática",8,15.000000,100,1,0.000000,18.000000,150,False
+"zzz_crossbowFlaming","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_CompoundBowPlasma","Arco compuesto lanzador de plasma",7,10.000000,999,1,0.500000,3.000000,45,False
+"zzz_crossbowFirework","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_crossbowPoison","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_CompoundBowFlaming","Arco compuesto llameante",7,10.000000,999,1,0.500000,3.000000,45,False
+"zzz_CompoundBowPoison","Arco compuesto venenoso",7,10.000000,999,1,0.500000,3.000000,45,False
+"zzz_crossbowCryo","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_CompoundBowFirework","Arco compuesto pirotécnico",7,10.000000,999,1,0.500000,3.000000,45,False
+"zzz_crossbowPlasma","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_crossbowExplosive","Objeto no válido",1,15.000000,1,1,0.150000,55.000000,50,False
+"zzz_CompoundBowExplosive","Arco compuesto explosivo",7,10.000000,999,1,0.500000,3.000000,45,False
+"zzz_CompoundBowCryo","Arco compuesto criogénico",7,10.000000,999,1,0.500000,3.000000,45,False
+"FloaterFreezerGrenade","Granada de flotador congelador",0,3.000000,0,1,0.000000,0.700000,35,False
+"FloaterFlamerGrenade","Granada de flotador lanzallamas",0,3.000000,0,1,0.000000,0.700000,35,False
+"FloaterGnasherGrenade","Granada de flotador masticador",0,3.000000,0,1,0.000000,0.700000,35,False
+"W05_TurboFertFertilizer","Fertilizador Turbo-Fert",0,3.000000,0,1,0.000000,1.000000,20,False
+"ATX_TurkeyRipper","Destripapavos",0,0.000000,0,1,0.000000,6.000000,130,False
+"zzz_W05_MQ_004P_PumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"zzz_W05_MQ_004P_Sledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"zzz_W05_MQ_004P_LaserGun","Láser",0,15.000000,30,1,0.250000,3.000000,60,False
+"zzz_W05_MQ_004P_Sickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"zzz_W05_MQ_004P_GaussPistol_DONOTUSE","Pistola Gauss",48,15.000000,6,1,0.150000,4.000000,85,False
+"zzz_W05_MQ_004P_Knuckles","Puño americano",10,10.000000,0,1,0.000000,0.500000,10,False
+"zzz_W05_MQ_004P_HuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"zzz_W05_MQ_004P_44","Calibre .44",48,10.000000,6,1,0.150000,4.000000,40,False
+"W05_MQS_203P_10mmSMG","Subfusil de 10 mm de la vieja guardia",7,17.000000,30,1,0.233300,3.000000,70,False
+"Creature_Holiday_Weapon_CandyCane","Bastón",10,0.000000,0,1,0.000000,2.000000,10,False
+"Creature_Holiday_Weapon_SlayBells","Campanas asesinas",10,10.000000,0,1,0.000000,0.500000,60,False
+"ZZZATX_TurkeyRipper","Destripapavos",0,0.000000,0,1,0.000000,6.000000,130,False
+"zzz_Pilgrim_Musket","Mosquete de peregrino",0,15.000000,1,1,0.000000,6.000000,110,False
+"crBearArm","Brazo de oso",25,0.000000,0,1,0.000000,10.000000,75,False
+"W05_COMP_Astronaut_AlienBlaster_QuestReward","El V.A.T.S. ignoto",0,14.000000,42,1,0.200000,2.000000,90,False
+"W05_COMP_Beckett_50CalMachineGun_QuestReward","Últimas palabras",8,36.000000,250,1,0.000000,18.000000,175,False
+"zzz_HotRodBow","ArcoVaraCandente",7,10.000000,6,1,0.233300,3.000000,45,False
+"W05_Minigun_Raider_Gail","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"W05_MQR_205P_PlasmaGun","Revientabichos",24,16.000000,18,1,0.300000,3.000000,85,False
+"MTNL01_PumpActionShotgun_Fancy","Escopeta de corredera sofisticada",50,21.000000,8,1,0.500000,7.000000,100,False
+"crFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"ATX_Grognak_HockeyStick","Palo de hockey de Grognak",25,10.000000,0,1,0.000000,10.000000,100,False
+"POST_crSuperMutantBossMinigun_DailyOps","Ametralladora",8,15.000000,100,1,0.000000,18.000000,150,False
+"crBloodEagleBoss_AutoGL_DailyOps","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"POST_crSuperMutantBossMissileLauncher_DailyOps","Lanzamisiles",5,15.000000,4,1,1.200000,20.000000,100,False
+"zzz_TESTDMG_400","400 de daño",400,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_300","300 de daño",300,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_60","60 de daño",60,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_150","150 de daño",150,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_200","200 de daño",200,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_10","10 de daño",10,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_30","30 de daño",30,6.000000,12,1,0.233300,3.000000,45,False
+"zzz_TESTDMG_100","100 de daño",100,6.000000,12,1,0.233300,3.000000,45,False
+"POST_crSuperMutantBossHuntingRifle_DailyOps","Rifle de caza",80,15.000000,5,1,0.150000,6.000000,40,False
+"crSuperMutantBoss_AssaultRifle_DailyOps_Boss","Rifle de asalto",0,15.000000,8,1,0.150000,8.000000,105,False
+"zzz_LGN_NuclearProliferator_Weapon","Miniminibomba atómica ligera",0,3.000000,0,1,0.000000,0.250000,15,False
+"zzz_AggDamageTestWeapon","",0,15.000000,5,1,0.150000,6.000000,40,False
+"POST_crBloodEagleBossCultistBlade_DailyOps","Cuchilla de sectario",11,10.000000,0,1,0.000000,3.000000,35,False
+"POST_crBloodEagleBossCombatShotgun_DailyOps","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"POST_crBloodEagleBossRevolver_DailyOps","Revólver del Oeste",60,10.000000,6,1,0.150000,4.000000,120,False
+"POST_crBotWeapProtectronArmFlamerLeft_DailyOps","",0,6.000000,0,1,0.000000,30.000000,0,False
+"POST_crBotWeapSentryCanonRight_DailyOps","SentryBotRightRocketLauncher",10,0.000000,0,1,3.000000,3.000000,0,False
+"POST_crBotWeapSentryCanonLeft_DailyOps","SentryBotLeftRocketLauncher",10,0.000000,0,1,3.000000,3.000000,0,False
+"WarGlaive","Guja de guerra",0,10.000000,0,1,0.000000,9.000000,40,False
+"crAssaultronBoss_Right_Minigun_DailyOps","",1,0.000000,0,1,1.000000,3.000000,0,False
+"crAssaultronBoss_Left_Minigun_DailyOps","",1,0.000000,0,1,1.000000,3.000000,0,False
+"zzzQuadLauncher","Lanzador cuádruple",5,15.000000,1,1,1.200000,20.000000,100,False
+"DailyOps_crAssaultronLaser","Láser de Asaltrón",0,8.000000,0,1,1.000000,8.000000,0,False
+"BOSRocketLauncher","Lanzamisiles Tormenta infernal",0,30.000000,4,1,0.700000,13.000000,100,False
+"AssaultRifle_WhistleInTheDark","Silbido en la oscuridad",30,23.000000,20,1,0.300000,8.000000,105,False
+"bospistol","Pistola Cruzado",18,16.000000,12,1,0.230000,3.000000,40,False
+"DLC01_AssaultronBlade_TheGutter","La destripadora",17,10.000000,0,1,0.000000,1.000000,70,False
+"PlasmaSword","Cortador de plasma",16,10.000000,0,1,0.000000,3.000000,25,False
+"WarGlaive_Oathbreaker","Perjuro",0,10.000000,0,1,0.000000,9.000000,40,False
+"zzz_Test_fragGrenade","Granada de fragmentación",0,3.000000,0,1,0.000000,0.500000,15,False
+"SuperSledge_TheFarmhand","El peón de granja",40,15.000000,0,1,0.000000,20.000000,70,False
+"PlasmaGun_MindOverMatter","El poder de la mente",24,16.000000,18,1,0.300000,3.000000,85,False
+"crWarGlaive","Guja de guerra",20,10.000000,0,1,0.000000,9.000000,40,False
+"GatlingLaser_NONPLAYABLE","Ametralladora láser",0,15.000000,500,1,0.150000,18.000000,200,False
+"44_NONPLAYABLE","Calibre .44",15,10.000000,6,1,0.150000,4.000000,40,False
+"LaserGun_NONPLAYABLE","Láser",0,15.000000,30,1,0.250000,3.000000,60,False
+"ATX_KDInkwell_Quill","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"crBOSRocketLauncher","Lanzamisiles Tormenta infernal",5,15.000000,4,1,0.700000,13.000000,100,False
+"crScorchedBoss_PlasmaLauncher_DailyOps","Lanzador de plasma calcinado",1,15.000000,18,1,0.150000,4.000000,85,False
+"DEL_crMoleMinerBoss_NukeLauncher_DailyOps","Lanzador de bombas atómicas",5,15.000000,1,1,2.000000,20.000000,100,False
+"crCultistBoss_MothmanGun_DailyOps","Arma del hombre polilla",0,10.000000,16,1,0.150000,3.000000,90,False
+"crMoleMinerBoss_Launcher_DailyOps","Minero topo lanzador",30,15.000000,1,1,1.200000,20.000000,100,False
+"crBehemothBossFireHydrantBat","Boca de incendios",0,15.000000,0,1,0.000000,3.000000,0,False
+"DeathclawGauntlet_UnstoppableMonster","Monstruo imparable",25,0.000000,0,1,0.000000,10.000000,85,False
+"crScorchedSuiciderBomb","Bomba",50,10.000000,0,1,0.000000,0.000000,0,False
+"44_MedicalMalpractice","Negligencia médica",48,17.000000,6,1,0.150000,4.000000,40,False
+"FaceBreaker","Partecaras",20,10.000000,0,1,0.000000,4.000000,100,False
+"crUnarmedBehemothBoss","Behemoth desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crImposterlingLaser","Láser de Asaltrón",0,8.000000,0,1,1.000000,8.000000,0,False
+"PepperShaker","Pimentero",90,36.000000,50,1,0.000000,18.000000,150,False
+"crMissing_Kit_Minigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crBehemothBossGlassClub","Garrote de cristal de behemoth jefe",0,15.000000,0,1,0.000000,3.000000,0,False
+"PipeWrench_MechanicsBestFriend","El mejor amigo de un mecánico",13,10.000000,0,1,0.000000,2.000000,30,False
+"LeverGun_SoleSurvivor","Superviviente solitario",35,21.000000,5,1,0.500000,6.000000,135,False
+"DEL_crPRCBoss_RiotShotgun_DailyOps","Escopeta antidisturbios",6,15.000000,8,1,0.500000,7.000000,50,False
+"crPRCBoss_AutoShotgun_DailyOps","Escopeta antidisturbios",90,15.000000,50,1,0.000000,18.000000,150,False
+"GaussPistol_NONPLAYABLE","Pistola Gauss",48,15.000000,18,1,0.150000,4.000000,85,False
+"zzzTEMPLATE_Legendary_Weapon_Melee","Arma cuerpo a cuerpo de prueba",1,0.000000,0,1,0.000000,44.000000,10,False
+"zzzTEMPLATE_Legendary_Weapon_Ranged","Arma a distancia de prueba",1,10.000000,12,1,0.233300,44.000000,40,False
+"SCORE_S8_AlienBlaster_ZetasRevenge","La venganza de Zeta",0,10.000000,42,1,0.200000,2.000000,90,False
+"crPRCGhoulMissile_MissileLauncher_DailyOps","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crPRCGhoulRanged_HandMadeGun_DailyOps","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"crWorkshopTurretEnclaveMiniGunRight","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,0,False
+"crWorkshopTurretEnclaveMinigunLeft","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,0,False
+"E07B_Invaders_MissileStrikeWeapon","Ataque orbital",33,15.000000,1,1,0.000000,25.000000,400,False
+"AlienRifle","Desintegrador alienígena",0,21.000000,25,1,0.300000,7.000000,250,False
+"ElectroEnforcer","Ejecutor eléctrico",23,0.000000,0,1,0.000000,8.000000,100,False
+"crAlienDrone","Ojobot láser",5,0.000000,0,1,3.000000,3.000000,0,False
+"crWorkshopTurretEnclaveShotgunRight","Escopeta de la torreta",0,4.000000,0,1,0.400000,25.000000,0,False
+"crWorkshopTurretEnclaveMissileLauncherRight","Lanzamisiles de la torreta",15,3.000000,4,1,0.750000,20.000000,0,False
+"crWorkshopTurretEnclaveShotgunLeft","Escopeta de la torreta",0,4.000000,0,1,0.400000,25.000000,0,False
+"crWorkshopTurretEnclaveLaserLeft","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crWorkshopTurretEnclaveMissileLauncherLeft","Lanzamisiles de la torreta",15,3.000000,4,1,0.750000,20.000000,0,False
+"crWorkshopTurretEnclaveLaserRight","Arma láser de torreta",0,8.000000,0,1,1.000000,25.000000,0,False
+"crWeapZetanDrone","Láser de dron alienígena",0,0.000000,0,1,1.000000,3.000000,0,False
+"crWeapZetanDroneHeadBeam","Rayo de cabeza de dron alienígena",0,8.000000,5,1,0.100000,8.000000,0,False
+"SCORE_S7_GammaGun_Xerxos","Arma de rayos gamma de Xerxo",0,16.000000,8,1,0.150000,3.000000,0,False
+"crAlienRifle","Desintegrador alienígena",0,15.000000,0,1,0.300000,7.000000,250,False
+"crAlienBlaster","Bláster alienígena",0,10.000000,0,1,0.100000,2.000000,90,False
+"crUnarmedPowerArmor","Servoarmadura desarmada",10,0.000000,0,1,0.000000,0.000000,0,False
+"crElectroEnforcer","Ejecutor eléctrico",23,0.000000,0,1,0.000000,12.000000,40,False
+"crAlienBlaster_Cryo","Bláster alienígena criogénico",0,10.000000,0,1,0.100000,2.000000,90,False
+"crAlienBlaster_Poison","Bláster alienígena venenoso",0,10.000000,0,1,0.100000,2.000000,90,False
+"crWeapZetanDrone_GammaGun","Arma gamma de dron de élite alienígena",1,0.000000,0,1,1.000000,3.000000,0,False
+"crWeapZetanDrone_Suicider","Detonador láser alienígena",5,0.000000,0,1,1.000000,3.000000,0,False
+"cr_alienprobe","El Invasor",9,10.000000,0,1,0.000000,1.000000,25,False
+"crWeapEyebot_Suicider","Láser de ojobot suicida",5,0.000000,0,1,3.000000,3.000000,0,False
+"crBaseballBat_Spiked","Bate de béisbol",10,10.000000,0,1,0.000000,3.000000,25,False
+"crPipeGun_semiauto","Tubo",13,10.000000,12,1,0.166700,4.000000,25,False
+"crHuntingRifle_Sniper","Rifle de caza",15,15.000000,5,1,0.150000,6.000000,40,False
+"crAlienBlaster_Cryo_Kappa","Bláster alienígena criogénico",0,10.000000,0,1,0.100000,2.000000,90,False
+"crWeapZetanDrone_GammaGun_Alpha","Arma gamma de dron de élite alienígena",1,0.000000,0,1,1.000000,3.000000,0,False
+"crAlienRifle_General-Zeta","Desintegrador alienígena",0,15.000000,0,1,0.300000,7.000000,250,False
+"crWeapZetanDrone_Omega","Láser de dron alienígena",0,0.000000,0,1,1.000000,3.000000,0,False
+"crPlasmaGrenade","Granada de plasma",0,3.000000,0,1,0.000000,0.500000,30,False
+"E08A_GulperSmacker","Crujetragadores",23,10.000000,0,1,0.000000,3.000000,35,False
+"zzzE09A_Launcher_Weapon","Ataque sónico",0,0.000000,0,1,10.000000,3.000000,0,False
+"crUltraciteAbominationThrowBloatflyWeapon","Ataque de lanzamiento de tochomosca",0,3.000000,0,1,5.000000,1.000000,0,False
+"E08B_Minigun_FoundationsVengeance","La venganza de Fundación",8,35.000000,500,1,0.000000,18.000000,150,False
+"E08B_SuperSledge_TheDebilitator","El Debilitador",40,15.000000,0,1,0.000000,20.000000,70,False
+"E08B_HuntingRifle_DoctorsOrders","Órdenes del médico",20,21.000000,5,1,0.150000,6.000000,40,False
+"E08B_CombatShotgun_CrowdControl","Control de masas",50,21.000000,8,1,0.500000,7.000000,125,False
+"E08B_DeathTambo_ToneDeath","Muerte con ritmo",10,10.000000,0,1,0.000000,0.500000,60,False
+"E08B_Blunderbuss_PiratePunch","Puñetazo pirata",7,17.000000,1,1,0.000000,3.000000,90,False
+"ToyFireworkLauncher_Yellow","Lanzador de Nuka (amarillo)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Pink","Lanzador de Nuka (rosa)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Blue","Lanzador de Nuka (azul)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Gold","Lanzador de Nuka (dorado)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Red","Lanzador de Nuka (rojo)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Silver","Lanzador de Nuka (plateado)",0,0.000000,999,1,0.100000,2.000000,10,False
+"ToyFireworkLauncher_Green","Lanzador de Nuka (verde)",0,0.000000,999,1,0.100000,2.000000,10,False
+"AutoAxe","Hacha automática",0,1.000000,0,1,1.000000,12.000000,125,False
+"crUnarmedTrogMelee","Troglodita desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"crTrogSpitAttack","Ataque de vómito de troglodita",0,0.000000,0,1,3.000000,3.000000,0,False
+"XPD_ObjMod_CarryAndThrow_Object_Template","Plantilla para cargar objeto",5,3.000000,0,1,0.000000,0.500000,50,False
+"XPD_Pitt01_ObjMod_CarryAndThrow_Object","Bote de refrigerante",5,3.000000,0,1,0.000000,0.500000,50,False
+"crTrogBite","Mordisco de troglodita",0,0.000000,0,1,0.000000,0.000000,0,False
+"crFanaticWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crFanaticBaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"crFanaticAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crFanaticTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crFanaticCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crFanatic10mm","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"crFanaticMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crFanaticKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crFanaticSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crFanaticShishkebab","Pincho moruno",13,0.000000,0,1,0.000000,3.000000,120,False
+"crFanaticPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crFanaticPickAxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"crFanatic10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"crFanaticHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crFanaticM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crFanaticMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crFanaticLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crFanaticMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crFanaticCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"crFanaticMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crFanaticPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crFanatic50CalMachineGun","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"crFanaticProtectronMeleeRight","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crFanaticProtectronMeleeLeft","",1,10.000000,0,1,0.000000,2.000000,0,False
+"crFanaticFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"crFanaticSledgehammer_CustomBleed_XPD_Pitt02_Harrower","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"AutoAxe_NONPLAYABLE","Hacha automática",0,1.000000,0,1,1.000000,12.000000,125,False
+"XPD_Pitt02_CarryAndThrow_Object_Troglocide","Troglocita",5,3.000000,0,1,0.000000,0.500000,50,False
+"crTrogAcidReflux","Reflujo ácido",1,0.000000,0,1,8.000000,25.000000,0,False
+"crFanaticAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crForemanAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crUnarmedUltraciteAbomination","Abominación de ultracita desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_E09C_CompoundBow","Arco de cupido",7,10.000000,1,1,0.500000,3.000000,45,False
+"DEL_crUnarmedUltraciteAbomination","Abominación desarmada",1,0.000000,0,1,0.000000,0.000000,0,False
+"DEL_E09A_MoleMiner_UltraciteRifle_OLD","",33,15.000000,20,1,0.300000,7.000000,130,False
+"zzzE09A_AutoGrenadeLauncher_NukaLauncher","Lanzador de Nuka",3,15.000000,12,1,0.500000,18.000000,225,False
+"E09C_SubmachineGun_LoveTap","Latido de amor",0,21.000000,50,1,0.150000,7.000000,100,False
+"E09B_SuperSledge_WhackerSmacker","Crujeanimales",40,15.000000,0,1,0.000000,20.000000,70,False
+"E09D_SingleActionRevolver_GunthersRevolver","El gran hierro de Gunther",48,18.000000,6,1,0.150000,4.000000,100,False
+"crUltraciteAbominationBelch","",1,0.000000,0,1,10.000000,3.000000,0,False
+"UltraciteLaserGun_E09A","Láser de ultracita",0,10.000000,30,1,0.200000,3.000000,150,False
+"E09C_CompoundBow_BurningLove","Amor ardiente",7,16.000000,1,1,0.500000,3.000000,45,False
+"E09A_BaseballBat_RatBat","Murciélago rata topo",16,15.000000,0,1,0.000000,3.000000,25,False
+"E09A_Broadsider_GrandFinale","Gran final",5,33.000000,1,1,0.500000,16.000000,140,False
+"E09D_LeverGun_WesternSpirit","Espíritu del Oeste",35,21.000000,7,1,0.500000,6.000000,135,False
+"DEL_SingleActionRevolver_Nuka","Revólver de acción simple de Nuka",48,10.000000,6,1,0.150000,4.000000,85,False
+"E09A_MoleMinerM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"SCORE_S11_AutoGrenadeLauncher_NukaLauncher","Lanzador de Nuka",3,37.000000,12,1,0.500000,18.000000,225,False
+"DLC04_PaddleBall_NWOT","Pádelbol ",1,6.000000,20,1,0.400000,2.000000,50,False
+"crDailyOps_ZetanInquisitorLaser","Láser del monstruo de Flatwoods",0,6.000000,0,1,1.500000,8.000000,0,False
+"DailyOps_crAlienRifle","Desintegrador alienígena",0,15.000000,0,1,0.500000,7.000000,250,False
+"crAlienBlaster_Poison_DailyOps","Bláster alienígena venenoso",0,10.000000,0,1,0.250000,2.000000,90,False
+"AlienBlaster_DailyOps","Bláster alienígena",0,10.000000,42,1,0.250000,2.000000,90,False
+"DailyOps_crAlienBlaster_Cryo","Bláster alienígena criogénico",0,10.000000,0,1,0.250000,2.000000,90,False
+"crAlienBlaster_DailyOps","Bláster alienígena",0,10.000000,0,1,0.250000,2.000000,90,False
+"DoubleBarrelShotgun_ColdShoulder","Ninguneador",67,21.000000,2,1,0.400000,6.000000,100,False
+"zzzcrWorkshopTurretMachineGun_Gamma","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,145,False
+"crWorkshopTurretMachineGun_Cryo","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,145,False
+"crWorkshopTurretMachineGun_Heavy_Cryo_Cryptid_Hunt","Torreta criogénica pesada",20,8.000000,0,1,0.000000,25.000000,0,False
+"crWorkshopTurretMachineGun_Fire","Ametralladora de torreta",10,8.000000,0,1,0.000000,25.000000,145,False
+"CrMolotovCocktail","Cóctel molotov",0,3.000000,0,1,0.000000,0.500000,20,False
+"DEL_XPD_OvergrownPollinator_PoisonSpit","Saliva venenosa de dron de los agrestes",1,0.000000,0,1,1.000000,25.000000,0,False
+"DEL_XPD_OvergrownPollinatorBlast","Explosión de dron de los agrestes",1,0.000000,0,1,8.000000,3.000000,0,False
+"DEL_XPD_OvergrownPollinator_Breath","Veneno de polinizador agreste",1,0.000000,0,1,8.000000,25.000000,0,False
+"DEL_XPD_OvergrownPollinatorBite","Mordisco de dron de los agrestes",1,0.000000,0,1,1.000000,0.000000,0,False
+"crJerseyDevilUnarmed","Diablo de Jersey desarmado",1,0.000000,0,1,0.000000,1.000000,0,False
+"DEL_crJerseyDevilTailSwipe","Coletazo de diablo de Jersey",1,0.000000,0,1,0.000000,3.000000,0,False
+"crUnarmedOgua","Ogua desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_DONOTUSE_Moon_JawboneBlade","Cuchilla de hueso",9,10.000000,0,1,0.000000,1.000000,35,False
+"zzz_Moon_PumpActionShotgun_Weapon_Tornado","Tornado de Tillberg",50,15.000000,8,1,0.500000,7.000000,50,False
+"zzz_Moon_NukaHomemadeGrenade","Granada de Nuka-Cola casera",0,3.000000,0,1,0.000000,0.500000,15,False
+"zzz_Moon_NukaAcidGrenade","Granada de ácido de Nuka-Cola",0,3.000000,0,1,0.000000,0.500000,15,False
+"zzz_Moon_Flamer_Weapon_BlueFlamer","Lanzallamas azul",0,15.000000,100,1,0.150000,15.000000,150,False
+"zzz_Moon_CultistPickaxe","Pico de sectario",23,10.000000,0,1,0.000000,2.500000,40,False
+"ZZZ_crXPD_OvergrownBoss_Grenade","Granada de jefe agreste",0,3.000000,0,1,0.000000,0.500000,15,False
+"crXPD_UnarmedOvergrownPollinator","Flotador desarmado",1,0.000000,0,1,1.000000,0.000000,0,False
+"crXPD_OvergrownElderAssaultRifle_SingleShot","Lanzador de espina agreste",30,15.000000,20,1,0.250000,8.000000,105,False
+"crXPD_UnarmedOvergrownThorn","Necrófago salvaje desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crXPD_OvergrownSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crXPD_OvergrownBoss_Heavy","Lanzador de esporas de los agrestes",0,15.000000,1,1,1.200000,20.000000,100,False
+"crUnarmedBlueDevil","Diablo azul desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"XPD_AC01_CarryAndThrow_Object","Materiales",5,3.000000,0,1,0.000000,0.500000,50,False
+"crJerseyDevilBoulder","Lanzamiento de piedra de diablo de Jersey",0,0.000000,0,1,20.000000,1.000000,0,False
+"crJerseyDevilSinisterGaze","Mirada siniestra del diablo de Jersey",0,0.000000,0,1,30.000000,1.000000,0,False
+"DEL_crLesserDevilChargeAttack","Ataque de carga de diablo menor",1,0.000000,0,1,0.000000,0.000000,0,False
+"DEl_crJerseyDevilChargeAttack_01","Ataque de carga del diablo de Jersey",1,0.000000,0,1,0.000000,0.000000,0,False
+"DEL_crLesserDevilTailSwipe","Coletazo de diablo menor",1,0.000000,0,1,0.000000,3.000000,0,False
+"CUT_NeedleSMG","Subfusil de agujas",7,10.000000,30,1,0.233300,3.000000,70,False
+"crMobsterMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crMobsterHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crMobsterWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crMobster50CalMachineGun","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"crMobsterPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crMobsterAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crMobsterSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crMobsterMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crMobsterPickAxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"crMobsterShishkebab","Pincho moruno",13,0.000000,0,1,0.000000,3.000000,120,False
+"crMobsterCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"crMobsterDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"crMobsterFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"crMobsterM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crMobster10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"crMobsterBaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"crMobsterTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crMobsterMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crMobsterCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crMobsterCombatKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crMobsterLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crMobsterSubmachineGun","Subfusil",0,15.000000,50,1,0.150000,7.000000,100,False
+"crMobsterPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crMobsterMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crMobsterSwitchblade","Navaja automática",8,0.000000,0,1,0.000000,1.000000,20,False
+"crMobster10mm","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"crMobsterAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crCivilianCompetitorBaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"crCivilianCompetitorWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crCivilianCompetitorHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crCivilianCompetitorCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crCivilianCompetitorPipeBoltAction","Tubo de cerrojo",34,10.000000,6,1,0.150000,3.000000,35,False
+"crCivilianCompetitorDrill","Taladro",0,6.000000,0,1,0.150000,2.000000,80,False
+"crCivilianCompetitorPipeRevolver","Revólver de tubo",24,10.000000,6,1,0.150000,3.000000,30,False
+"crCivilianCompetitorPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crCivilianCompetitorAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crCivilianCompetitorFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"crCivilianCompetitorCombatKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crCivilianCompetitorDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"crCivilianCompetitorCrossBow","Ballesta",200,15.000000,1,1,0.150000,6.000000,50,False
+"crCivilianCompetitorShovel","Pala",1,10.000000,0,1,0.000000,6.000000,40,False
+"crCivilianCompetitorMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crCivilianCompetitorPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crCivilianCompetitorBaseballGrenade","Granada de béisbol",0,3.000000,0,1,0.000000,1.000000,20,False
+"crCivilianCompetitorAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crCivilianCompetitorTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crCivilianCompetitorHandMadeRifle","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"crCivilianCompetitorGolfClub","Palo de golf",23,10.000000,0,1,0.000000,3.000000,25,False
+"crCivilianCompetitorSickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"crCivilianCompetitorSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crCivilianCompetitorMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crCivilianCompetitorDynamiteGrenade","Dinamita",0,3.000000,0,1,0.000000,0.500000,15,False
+"crCivilianCompetitorMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crCivilianCompetitorM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crCivilianCompetitorMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crCivilianCompetitorRollingPin","Rodillo de amasar",11,0.000000,0,1,0.000000,1.000000,10,False
+"crCivilianCompetitor10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"crCivilianCompetitorBowieKnife","Cuchillo Bowie",9,10.000000,0,1,0.000000,1.000000,35,False
+"crCivilianCompetitorPickAxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"crCivilianCompetitorHatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"crCivilianCompetitorPipeGun","Tubo",13,10.000000,12,1,0.166700,4.000000,25,False
+"crCivilianCompetitorLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crMunicipalAuditorBowieKnife","Cuchillo Bowie",9,10.000000,0,1,0.000000,1.000000,35,False
+"crMunicipalAuditorFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"crMunicipalAuditor10mm","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"crMunicipalAuditorBaton","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"crMunicipalAuditorAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crMunicipalAuditorDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"crFragGrenade","Granada de fragmentación",0,3.000000,0,1,0.000000,0.500000,15,False
+"crMunicipalAuditorPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crMunicipalAuditorM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crMunicipalAuditorHandMadeRifle","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"crMunicipalAuditor44",".44",48,10.000000,6,1,0.150000,4.000000,40,False
+"crMunicipalAuditorMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crMunicipalAuditorAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crMunicipalAuditor50CalMachineGun","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"crMunicipalAuditorCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"crMunicipalAuditorCombatKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crMunicipalAuditorPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crMunicipalAuditorHatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"crMunicipalAuditorMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crMunicipalAuditorRevolver","Revólver del Oeste",60,10.000000,6,1,0.150000,4.000000,120,False
+"crMunicipalAuditorHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crMunicipalAuditorWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crMunicipalAuditorSingleActionRevolver","Revólver de acción simple",48,10.000000,6,1,0.150000,4.000000,85,False
+"crMunicipalAuditorTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crMunicipalAuditorSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crMunicipalAuditorCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crMunicipalAuditorGatlingGun","Ametralladora Gatling",8,15.000000,250,1,1.150000,18.000000,175,False
+"crMunicipalAuditorMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crMunicipalAuditorMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crMunicipalAuditorLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crMunicipalAuditor10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"crShowmenMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crShowmen10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.230000,3.000000,70,False
+"crShowmenHatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"crShowmenTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crShowmenCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crShowmenDynamiteGrenade","Dinamita",0,3.000000,0,1,0.000000,0.500000,15,False
+"crShowmenAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crShowmenFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"crShowmenGolfClub","Palo de golf",23,10.000000,0,1,0.000000,3.000000,25,False
+"XPD_AC02_JullianCombatKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crShowmenSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crShowmenAutoGrenadeLauncher","Lanzagranadas automático",1,15.000000,9999,1,0.500000,18.000000,225,False
+"crShowmenPipeRevolver","Revólver de tubo",24,10.000000,6,1,0.150000,3.000000,30,False
+"crShowmenPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crShowmenPipeBoltAction","Tubo de cerrojo",34,10.000000,6,1,0.150000,3.000000,35,False
+"crShowmenMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crShowmenBowieKnife","Cuchillo Bowie",9,10.000000,0,1,0.000000,1.000000,35,False
+"crShowmenDrill","Taladro",0,6.000000,0,1,0.150000,2.000000,80,False
+"crShowmenWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crShowmenLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crShowmenBaseballGrenade","Granada de béisbol",0,3.000000,0,1,0.000000,1.000000,20,False
+"crShowmenDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"crShowmenMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crShowmenHandMadeRifle","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"crShowmenMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crShowmenM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crShowmenShovel","Pala",1,10.000000,0,1,0.000000,6.000000,40,False
+"crShowmenHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crShowmenBaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"crShowmenRollingPin","Rodillo de amasar",11,0.000000,0,1,0.000000,1.000000,10,False
+"crShowmenPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crShowmenPickAxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"crShowmenPipeGun","Tubo",13,10.000000,12,1,0.166700,4.000000,25,False
+"crShowmenSickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"JoeyBello_SuperSledge_BadaBoom","Pumba",40,15.000000,0,1,0.000000,20.000000,70,False
+"crXPD_OvergrownElderAssaultRifle_Auto","Lanzador de espinas agreste",30,15.000000,60,1,0.250000,8.000000,105,False
+"crTaxManAssaultRifle","Rifle de asalto de los agrestes",30,15.000000,20,1,0.250000,8.000000,105,False
+"XPD_AC02_Juchi_Flamer","Lanzallamas de Juchi",0,15.000000,100,1,0.150000,15.000000,150,False
+"XPD_AC03_CarryAndThrow_Object","Cubo de agua",0,6.000000,0,1,0.000000,0.500000,50,False
+"crSuperSledge","Supermaza",40,15.000000,0,1,0.000000,20.000000,70,False
+"DEL_crOvergrownBoneClub","Palo de hueso",11,0.000000,0,1,0.000000,3.000000,15,False
+"zzz_XPD_AC02_JullianMeathook","Gancho de carne",20,10.000000,0,1,0.000000,2.000000,20,False
+"XPD_AC01_CarryAndThrow_Object_ED","Materiales",5,3.000000,1000,1,0.000000,0.500000,50,False
+"XPD_AC02_CarryAndThrow_Object_Tato","Mutipapa",5,3.000000,0,1,0.000000,0.500000,50,False
+"DEL_XPD_AC02_JulianSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"XPD_AC02_JuchiWeapon","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"XPD_AC02_JullianRifle","Rifle de Julian",30,15.000000,0,1,0.250000,8.000000,105,False
+"crLesserDevilUnarmed","Diablo menor desarmado",1,0.000000,0,1,0.000000,1.000000,0,False
+"DEL_crJerseyDevilThrow","Lanzamiento de diablo de Jersey",1,0.000000,0,1,0.000000,3.000000,0,False
+"10mm_CircuitBreaker","Disyuntor",0,16.000000,8,1,0.230000,3.000000,40,False
+"crXPD_UnarmedOvergrownElder","Leñudo agreste desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"DEL_crOvergrownElderSporeGun_Automatic","Pistola de esporas de los agrestes",30,15.000000,20,1,0.250000,8.000000,105,False
+"AC_MQ02_Stage_ThrowingPie_Grenade","Tarta arrojadiza",0,3.000000,0,1,0.000000,0.500000,20,False
+"crLesserDevilCombatTaunt","Provocación en combate de diablo menor",1,0.000000,0,1,60.000000,1.000000,0,False
+"Cremator","Abrasador",0,32.000000,90,10,0.665000,15.000000,200,False
+"zzz_HeavyIncinerator","Lanzagranadas automático",0,15.000000,12,1,0.500000,18.000000,225,False
+"AC_MQ02_Stage_JugglingGrenade","Granada de malabares",0,3.000000,0,1,0.000000,0.500000,20,False
+"AC_MQ02_Stage_ThrowingKnife_Weapon","Cuchillo arrojadizo",25,3.000000,0,1,0.000000,0.050000,1,False
+"zzz_crXPD_OvergrownElderGrenade","Granada de fragmentación",0,3.000000,0,1,0.000000,0.500000,15,False
+"crXPD_OvergrownElder_Heavy","Lanzador de esporas de los agrestes",0,15.000000,1,1,1.200000,20.000000,100,False
+"crFanaticBoss_50CalMachineGun_DailyOps","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"crXPD_OvergrownBoss_Heavy_DailyOps","Lanzador de esporas de los agrestes",0,15.000000,1,1,1.200000,20.000000,100,False
+"zzz_Broadsider_FusionCannon","Cañón de fusión",5,15.000000,1,1,0.500000,16.000000,140,False
+"crJerseyDevilAoEFear","AdE de miedo del diablo de Jersey",1,0.000000,0,1,40.000000,1.000000,0,False
+"SCORE_S16_Mini_Robot01_DaringBinoculars","Prismáticos de Rip Audaz",0,6.000000,30,1,10.000000,1.000000,100,False
+"XPD_AC_Race_FireworkWeaponPeonyYellow","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPalmSilver","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPalmGold","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPeonyCrackle","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPeonyRed","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPeonyBlue","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPeonyGreen","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"XPD_AC_Race_FireworkWeaponPeonyPink","Mortero",33,15.000000,1,1,0.000000,25.000000,10,False
+"AC_MQ02_StarClown_Weapon_NONPLAYABLE","Machacador de payaso estrella",40,15.000000,0,1,0.000000,20.000000,70,False
+"XPD_AC_MuniTurret","Ametralladora de torreta",1,8.000000,0,1,0.000000,25.000000,0,False
+"crUnarmedStormBoss","Jefe de tormenta desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz10mmSMGOverheating","Subfusil de 10 mm sobrecalentado",7,10.000000,0,1,0.233300,3.000000,70,False
+"crStormBossLightningGun","Arma de rayos",0,15.000000,0,1,0.500000,0.000000,0,False
+"crStormBossLightningGunAuto","Arma de rayos automática",1,0.000000,6,1,50.000000,0.000000,0,False
+"meltdown","Carabina láser del R63",0,21.000000,150,1,0.233300,5.000000,70,False
+"zzz10mmSMG_ElectricTestingGun","Pistola eléctrica de prueba",0,10.000000,30,1,0.233300,3.000000,70,False
+"Stormcutter","Mandoble del R63",40,0.000000,0,1,0.000000,15.000000,100,False
+"crUnarmedRadTurkey","Mutapavo desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_HeadHunter_Scythe","Pico",23,10.000000,0,1,0.000000,1.500000,40,False
+"crStormbossArmCannon_PlasmaMine","Cañón de brazo de plasma",1,3.000000,9999,1,0.000100,2.000000,0,False
+"crRadTurkeySonicGobble","Graznido sónico de mutapavo",0,0.000000,0,1,15.000000,3.000000,0,False
+"crShovel","Pala",1,10.000000,0,1,0.000000,6.000000,40,False
+"crStormbossArmCannon_FragMine","Cañón de brazo de fragmentación",1,3.000000,9999,1,0.000100,2.000000,0,False
+"crStormbossArmCannon_CryoMine","Cañón de brazo criogénico",1,3.000000,9999,1,0.000100,2.000000,0,False
+"zzz_MissileLauncherLostNPC","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"zzz_GatlingPlasmaLost","Ametralladora de plasma",0,15.000000,500,1,0.150000,18.000000,250,False
+"crStormcutter_Lost","Protector de tormenta",40,0.000000,0,1,0.000000,15.000000,100,False
+"crBaton_Lost","Porra",0,0.000000,0,1,0.000000,2.000000,15,False
+"crGaussMinigun","Ametralladora Gauss",0,15.000000,500,1,0.000000,18.000000,150,False
+"crPulseGrenade","Granada electromagnética",0,3.000000,0,1,0.000000,0.500000,20,False
+"crUnarmedScorchBeastQueen","Bestia calcinada reina desarmada",0,0.000000,0,1,10.000000,0.000000,0,False
+"Test_ElectricRangedWeapon","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"zzzcrLostMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crDLC03_Storm_E01_UnarmedHermitCrab","Cangrejo ermitaño desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"cr_E01C_UnarmedFlatwoodsMonster","Monstruo de Flatwoods desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"cr_E01C_FlatwoodsMonsterLaser","Láser del monstruo de Flatwoods",0,6.000000,0,1,2.000000,8.000000,0,False
+"crE08B_SuperMutantBoss_AssaultRifle","Rifle de asalto",0,15.000000,8,1,0.150000,8.000000,105,False
+"crE01B_AssaultronLeftClaw","",1,-107374176.000000,0,1,0.000000,2.000000,0,False
+"crE01B_AssaultronRightClaw","",1,-107374176.000000,0,1,0.000000,2.000000,0,False
+"crRD01_Enc01_GuardianBot_RightAutoLaser","Láser automático derecho de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crRD01_Enc01_GuardianBot_LeftAutoLaser","Láser automático izquierdo de robot centinela espacial",0,0.000000,0,1,1.000000,3.000000,0,False
+"crRD01_Enc01_GuardianBot_LeftShoulderLauncher","",0,0.000000,0,1,3.000000,3.000000,0,False
+"crRD01_Enc01_GuardianBot_RightShoulderLauncher","",0,0.000000,0,1,3.000000,3.000000,0,False
+"RD01_Enc01_PlatformGun","Arma de plataforma",243,10.000000,1000,1,0.100000,2.000000,90,False
+"crRD01_Enc01_crTurretLaser","Láser de Asaltrón",0,8.000000,0,1,1.000000,8.000000,0,False
+"crRD01_Enc06_Scorchtongue_AcidSpit","",0,0.000000,0,1,3.000000,3.000000,0,False
+"crRD01_Enc06_Scorchtongue_AcidBreath","",0,0.000000,0,1,3.000000,3.000000,0,False
+"crRD01_Enc06_Scorchtongue_Screech","",0,0.000000,0,1,3.000000,3.000000,0,False
+"crRD01_Enc06_ScorchtongueUnarmed","Lenguabrasada desarmado",180,0.000000,0,1,0.000000,1.000000,0,False
+"crRD01_Enc06_ScorchtongueTailUnarmed","Cola de lenguabrasada desarmado",1,0.000000,0,1,0.000000,1.000000,0,False
+"crRD01_Enc04_Assassin_Weapon","",600,15.000000,5,1,0.150000,8.000000,200,False
+"crRD01_Enc04_Brute_Weapon","",0,1.000000,0,1,1.000000,12.000000,125,False
+"crRD01_Enc04_Grenadier_Weapon","",3,15.000000,12,1,0.500000,18.000000,225,False
+"crRD01_Stalker_MoleMinerGauntlet","Guantelete de acechante",400,0.000000,0,1,0.000000,6.000000,75,False
+"RD01_UltraciteTerrorSword","Espada de Terror de ultracita",16,10.000000,0,1,0.000000,5.000000,150,False
+"zzz_TeslaCannon_NukaLauncherTest","Cañón Tesla",0,15.000000,100,10,0.000000,20.000000,300,False
+"zzz_TeslaCannon_MissileLauncher","Cañón Tesla",0,15.000000,100,10,0.500000,20.000000,100,False
+"TeslaCannon","Cañón Tesla",0,29.000000,60,5,0.900000,13.000000,100,False
+"crE09B_GraftonOilBombSalvoWeapon","Salva de bombas petroleras de Grafton",2,0.000000,0,1,0.000000,2.000000,0,False
+"crE09B_GraftonOilBombWeapon","Bomba petrolera de Grafton",1,0.000000,0,1,15.000000,2.000000,0,False
+"crUnarmedE09B_Grafton","Grafton desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crSFS08_GraftonOilBombSalvoWeapon","Salva de bombas petroleras de Grafton",2,0.000000,0,1,0.000000,2.000000,0,False
+"crSFS09_GraftonOilBombSalvoWeapon","Salva de bombas petroleras de Grafton",2,0.000000,0,1,0.000000,2.000000,0,False
+"crSFS09_GraftonOilBombWeapon","Bomba petrolera de Grafton",1,0.000000,0,1,15.000000,2.000000,0,False
+"crUnarmedSFS09_Grafton","Grafton desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crSFS08_GraftonOilBombWeapon","Bomba petrolera de Grafton",1,0.000000,0,1,15.000000,2.000000,0,False
+"crUnarmedSFS08_Grafton","Grafton desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crMoleMinerGauntlet","Guantelete de minero topo",25,10.000000,0,1,0.000000,10.000000,75,False
+"crChineseOfficerSword","Espada de oficial chino",16,10.000000,0,1,0.000000,3.000000,50,False
+"crMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"crPowerFist","Servopuño",20,10.000000,0,1,0.000000,4.000000,100,False
+"crPlasmaGun","Plasma",24,15.000000,18,1,0.300000,3.000000,85,False
+"crHatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"crSingleActionRevolver","Revólver de acción simple",48,10.000000,6,1,0.150000,4.000000,85,False
+"crPipeSyringer","Inyector",1,15.000000,1,1,0.150000,4.000000,75,False
+"crAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"crHandMadeGun","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"crWalkingCane","Bastón",10,0.000000,0,1,0.000000,2.000000,10,False
+"crFireAxe","Hacha de incendios",11,10.000000,0,1,0.000000,3.000000,15,False
+"crSpear","Lanza",23,10.000000,0,1,0.000000,2.000000,40,False
+"crKnife","Cuchillo de combate",9,10.000000,0,1,0.000000,1.000000,25,False
+"crSickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"crPitchfork","Tridente",23,10.000000,0,1,0.000000,2.000000,15,False
+"crProtestSign09","Cartel de protesta: los hombres no son máquinas",10,0.000000,0,1,0.000000,3.000000,1,False
+"cr10mm","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"crRipper","Destripador",0,0.000000,0,1,0.000000,6.000000,130,False
+"crBoard","Tablón",14,0.000000,0,1,0.000000,3.000000,10,False
+"crProtestSign08","Cartel de protesta: rompe al robot",10,0.000000,0,1,0.000000,3.000000,1,False
+"crTireIron","Barreta",12,0.000000,0,1,0.000000,2.000000,25,False
+"crGammaGun","Arma gamma",0,10.000000,8,1,0.150000,3.000000,90,False
+"crBaseballBat","Bate de béisbol",0,10.000000,0,1,0.000000,3.000000,25,False
+"crProtestSign10","Cartel de protesta: nada de comunistas",10,0.000000,0,1,0.000000,3.000000,1,False
+"crProtestSign06","Cartel de protesta: trabajos o sangre",10,0.000000,0,1,0.000000,3.000000,1,False
+"crMeatCleaver","Cuchillo de carnicero",75,3.000000,0,1,0.000000,0.250000,1,False
+"crBlackPowder_Rifle","Rifle de pólvora negra",200,15.000000,1,1,0.500000,6.000000,110,False
+"crHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"crPipeBoltAction","Tubo de cerrojo",34,10.000000,6,1,0.150000,3.000000,35,False
+"crProtestSign07","Cartel de protesta: devolvednos los trabajos",10,0.000000,0,1,0.000000,3.000000,1,False
+"crRevolutionarySword","Espada revolucionaria",16,10.000000,0,1,0.000000,3.000000,50,False
+"crRevolver","Revólver del Oeste",60,10.000000,6,1,0.150000,4.000000,120,False
+"cr10mmSMG","Subfusil de 10 mm",7,10.000000,30,1,0.233300,3.000000,70,False
+"crGolfClub","Palo de golf",23,10.000000,0,1,0.000000,3.000000,25,False
+"crDeathclawGauntlet","Garra de sanguinario",25,0.000000,0,1,0.000000,10.000000,85,False
+"cr50CalMachineGun","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"crLightningGun","Tesla",0,15.000000,15,1,0.500000,8.000000,180,False
+"crRadiumRifle","Radio",27,15.000000,20,1,0.250000,7.000000,160,False
+"crDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"crMeatHook","Gancho de carne",20,10.000000,0,1,0.000000,2.000000,20,False
+"crProtestSign05","Cartel de protesta: la gente primero",10,0.000000,0,1,0.000000,3.000000,1,False
+"crCultistDagger","Daga sectaria",9,10.000000,0,1,0.000000,1.000000,40,False
+"crCompoundBow","Un arco compuesto",7,10.000000,1,1,0.500000,3.000000,45,False
+"crWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"crSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"crPickaxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"crPoolCue","Taco de billar",13,10.000000,0,1,0.000000,1.000000,10,False
+"crBonehammer","Martillo de hueso",23,15.000000,0,1,0.000000,12.000000,45,False
+"crProtestSign04","Cartel de protesta: quiero trabajar",10,0.000000,0,1,0.000000,3.000000,1,False
+"crMG42","Ametralladora ligera",0,15.000000,75,1,0.250000,8.000000,150,False
+"crCultistBlade","Cuchilla de sectario",11,10.000000,0,1,0.000000,3.000000,35,False
+"crLeadPipe","Tubo de plomo",11,10.000000,0,1,0.000000,3.000000,15,False
+"crCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"crEnclave_PlasmaGun","Plasma del Enclave",1,10.000000,18,1,0.300000,3.000000,115,False
+"crDeathTambo","Pandereta de la muerte",10,10.000000,0,1,0.000000,0.500000,60,False
+"crProtestSign03","Cartel de protesta: en contra de la automatización",10,0.000000,0,1,0.000000,3.000000,1,False
+"crLeverGun","Rifle de palanca",35,15.000000,5,1,0.500000,6.000000,135,False
+"crPipeRevolver","Revólver de tubo",24,10.000000,6,1,0.150000,3.000000,30,False
+"crBaton","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"crShishkebab","Pincho moruno",13,0.000000,0,1,0.000000,3.000000,120,False
+"crCattleprod","Pica para ganado",0,0.000000,0,1,0.000000,2.000000,15,False
+"crMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"crCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"crSubmachineGun","Subfusil",0,15.000000,50,1,0.150000,7.000000,100,False
+"crBlackpowder_Pistol","Pistola de pólvora negra",7,10.000000,1,1,0.500000,3.000000,60,False
+"crPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"crPipeGun","Tubo",13,10.000000,12,1,0.170000,4.000000,25,False
+"cr44",".44",48,10.000000,6,1,0.150000,4.000000,40,False
+"crPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"crGrognakAxe","Hacha de Grognak",25,15.000000,0,1,0.000000,10.000000,100,False
+"crMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"crKnuckles","Puño americano",10,10.000000,0,1,0.000000,0.500000,10,False
+"crRollingPin","Rodillo de amasar",11,0.000000,0,1,0.000000,1.000000,10,False
+"crMrHandyBuzzBlade","Hoja cortante de Sr. Mañoso",0,0.000000,0,1,0.000000,10.000000,50,False
+"crPoleHook","Gancho de pértiga",30,10.000000,0,1,0.000000,7.000000,45,False
+"crBowieKnife","Cuchillo Bowie",9,10.000000,0,1,0.000000,1.000000,35,False
+"crSwitchblade","Navaja automática",8,0.000000,0,1,0.000000,1.000000,20,False
+"crGatlingPlasma","Ametralladora de plasma",0,15.000000,500,1,0.150000,18.000000,250,False
+"crLaserGun","Láser",0,15.000000,30,1,0.250000,3.000000,60,False
+"crcrossbow","Ballesta",200,15.000000,1,1,0.150000,6.000000,50,False
+"crGatlingLaser","Ametralladora láser",0,15.000000,500,1,0.150000,18.000000,200,False
+"crGatlingGun","Ametralladora Gatling",8,15.000000,250,1,1.150000,18.000000,175,False
+"crProtestSign01","Cartel de protesta: papá necesita un trabajo",10,0.000000,0,1,0.000000,3.000000,1,False
+"crM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"crMeatTenderizer","Ablandador",40,15.000000,0,1,0.000000,20.000000,70,False
+"crProtestSign02","Cartel de protesta: trabajos",10,0.000000,0,1,0.000000,3.000000,1,False
+"crUnarmedSuperMutantBrawler","Supermutante desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedLostFeralSuicider","Perdido salvaje desarmado",5,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedTrog_Superior","Troglodita desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedTrog_Fledgling","Troglodita desarmado",0,0.000000,0,1,0.000000,0.000000,0,False
+"RD01_crCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"RD01_crAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"RD01_crMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"RD01_crDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"RD01_crMoleMinerGauntlet","Guantelete de minero topo",25,10.000000,0,1,0.000000,10.000000,75,False
+"RD01_crPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"SSE_WeedKiller","Herbicida",0,3.000000,0,1,0.000000,0.500000,20,False
+"crUnarmed_SSE_Beezlebub","Belcebú desarmado",1,0.000000,0,1,10.000000,0.000000,0,False
+"crBeezlebubBeeSwarmSpawn","Generador de enjambres de bestias de la miel",0,0.000000,3,1,20.000000,0.000000,0,False
+"crDoubleBarrelShotgun_ColdShoulder","Ninguneador",67,15.000000,2,1,0.275000,6.000000,100,False
+"crBlackPowder_Rifle_Dragon","El dragón",200,15.000000,1,1,0.500000,6.000000,200,False
+"crThirstZapper","Matased",13,5.000000,1,1,1.200000,2.000000,10,False
+"crGaussRifle","Rifle Gauss",5,15.000000,5,1,0.150000,8.000000,200,False
+"crCombatRifle_Fixer","El arreglador",33,15.000000,20,1,0.300000,5.000000,130,False
+"crCremator","crAbrasador",0,15.000000,90,10,0.665000,15.000000,200,False
+"crRailwayRifle","crRifle de clavos",100,15.000000,10,1,1.000000,9.000000,90,False
+"WarShrike","Verdugo bélico",7,10.000000,1,1,0.500000,5.000000,1000,False
+"Fishing_FishingRod","Caña de pesca",0,0.000000,0,1,0.000000,0.000000,120,False
+"crMegaslothSandAttack","",15,0.000000,0,1,5.000000,3.000000,0,False
+"crMegaslothSandStorm","Tormenta de arena de Ogua",500,0.000000,0,1,20.000000,3.000000,0,False
+"crFloaterFlamerGrenade","Granada de flotador lanzallamas",0,3.000000,0,1,0.000000,0.500000,35,False
+"crAssaultronHeadCharging","Cabeza de Asaltrón recuperada",0,10.000000,5,1,0.150000,8.000000,115,False
+"crFloaterGnasherGrenade","Granada de flotador masticador",0,3.000000,0,1,0.000000,0.500000,35,False
+"crNukaGrenade","Nuka granada",0,3.000000,0,1,0.000000,0.500000,35,False
+"crCryoGrenade","Granada criogénica",0,3.000000,0,1,0.000000,0.500000,25,False
+"crCryolator","Cryolator",0,15.000000,25,1,0.100000,10.000000,145,False
+"crBaseballGrenade","Granada de béisbol",0,3.000000,0,1,0.000000,1.000000,20,False
+"crPlasmaCaster","Lanzaplasma",0,15.000000,20,1,0.500000,18.000000,225,False
+"crD01C_BugGrenade","Granada de bichos",0,3.000000,0,1,0.000000,0.500000,25,False
+"crDLC04_FragGrenadeMIRV","MIRV de granadas de fragmentación",0,3.000000,0,1,0.000000,1.000000,50,False
+"crHalluciGenGrenade_Bounty","Granada de gas HalluciGen",1,3.000000,0,1,0.000000,1.000000,25,False
+"crMeltdown","Carabina láser del R63",0,10.000000,150,1,0.233300,5.000000,70,False
+"cr44_MedicalMalpractice","Negligencia médica",48,10.000000,6,1,0.150000,4.000000,40,False
+"crTomahawk","Tomahawk",100,3.000000,0,1,0.000000,0.700000,1,False
+"crGuitarSword","Espada guitarra",16,10.000000,0,1,0.000000,3.000000,55,False
+"crWarDrum","Tambor de guerra",40,15.000000,0,1,0.000000,20.000000,115,False
+"crUltracite_GatlingLaser","Ametralladora láser de ultracita",0,15.000000,500,1,0.150000,18.000000,300,False
+"crDynamiteBundleGrenade","Cartuchos de dinamita",0,3.000000,0,1,0.000000,0.500000,15,False
+"cr10mm_CircuitBreaker","Disyuntor",0,10.000000,8,1,0.230000,3.000000,40,False
+"Burn_crRadScorpionBurningSting","Aguijón ardiente",1,0.000000,0,1,0.000000,0.000000,0,False
+"crUnarmedRadHog","Mutacerdo desarmado",1,0.000000,0,1,10.000000,0.000000,0,False
+"zzz_Burn_SingleActionRevolver_Prop","Mordedura de serpiente",48,10.000000,6,1,0.150000,4.000000,85,False
+"Burn_crRadScorpionAbraxodyneSting","Aguijón de Abraxodyne",1,0.000000,0,1,0.000000,0.000000,0,False
+"crAutoGrenadeLauncher","Lanzagranadas automático",3,15.000000,12,1,0.500000,18.000000,225,False
+"crBroadsider","Cañonero",5,15.000000,1,1,0.500000,16.000000,140,False
+"crDLC03_HarpoonGun","Arma arpón",254,15.000000,3,1,1.250000,14.000000,120,False
+"Burn_crStingWingAbraxodyneSting","Aguijón ardiente",1,0.000000,0,1,0.000000,0.000000,0,False
+"ZZZ_crWarGlaive_Copy01","Guja de guerra",0,10.000000,0,1,0.000000,9.000000,40,False
+"crThrowing_Knife","Cuchillo arrojadizo",75,3.000000,0,1,0.000000,0.250000,1,False
+"crE09A_Broadsider_GrandFinale","Gran final",5,15.000000,1,1,0.500000,16.000000,140,False
+"P62_Grenade_Crackler","Granada chispeante",0,3.000000,0,1,0.000000,0.500000,20,False
+"P62_crTheDrifterAssaultronBlade","Tempestad",17,10.000000,0,1,0.000000,1.000000,70,False
+"P62_crTheDrifter10mmSMG","Separador",7,10.000000,40,1,0.233300,3.000000,70,False
+"P62_crTheDrifterM79","Caos y destrucción",3,15.000000,1,1,1.000000,6.000000,30,False
+"P62_crTheDrifterGrenade_Crackler","Granada chispeante",0,3.000000,0,1,0.000000,0.500000,20,False
+"Nitro","Dom Pedro",13,20.000000,4,1,0.700000,5.500000,25,False
+"PainTrainWeapon","",0,0.000000,0,1,0.000000,0.000000,0,False
+"zzzHealingSpearOriginalPerk","Lanza superestimulante",23,10.000000,0,1,0.000000,2.000000,40,False
+"SpearHealing","Lanza superestimulante",23,10.000000,0,1,0.000000,2.000000,40,False
+"crRadHogHowlAttack","Ataque de grito de mutacerdo",50,50.000000,0,1,30.000000,3.000000,0,False
+"zzz_NitroRifle","Rifle nitro",13,20.000000,4,1,0.700000,5.500000,25,False
+"HTO_crBloodEagle_Boss_GatlingLaser","Ametralladora láser",0,15.000000,250,1,0.150000,18.000000,250,False
+"HTO_crBloodEagle_Boss_GatlingPlasma","Ametralladora de plasma",0,15.000000,250,1,0.150000,18.000000,250,False
+"HTO_crBloodEagle_Boss_MiniGun","Ametralladora",0,15.000000,250,1,0.000000,18.000000,250,False
+"HTO_crBloodEagle_Boss_AutoGrenadeLauncher","Lanzagranadas automático",0,15.000000,15,1,0.500000,18.000000,250,False
+"HTO_crBloodEagle_Boss_50CalMachineGun","Ametralladora del calibre .50",0,15.000000,250,1,0.000000,18.000000,250,False
+"DEL_crDoubleBarrelShotgun","Escopeta de doble cañón",67,15.000000,2,1,0.275000,6.000000,100,False
+"DEL_crPumpActionShotgun","Escopeta de corredera",50,15.000000,8,1,0.500000,7.000000,50,False
+"DEL_cr10mm","10 mm",18,10.000000,12,1,0.233300,3.000000,40,False
+"DEL_crHuntingRifle","Rifle de caza",20,15.000000,5,1,0.150000,6.000000,40,False
+"DEL_crPowerFist","Servopuño",20,10.000000,0,1,0.000000,4.000000,100,False
+"DEL_crMachete","Machete",14,10.000000,0,1,0.000000,2.000000,25,False
+"DEL_crPipeWrench","Llave grifa",13,10.000000,0,1,0.000000,2.000000,30,False
+"DEL_crAssaultRifle","Rifle de asalto",30,15.000000,20,1,0.250000,8.000000,105,False
+"DEL_crFlamer","Lanzallamas",0,15.000000,100,1,0.150000,15.000000,150,False
+"DEL_crM79","Lanzagranadas M79",3,15.000000,1,1,1.000000,6.000000,30,False
+"DEL_crMissileLauncher","Lanzamisiles",0,15.000000,1,1,1.200000,20.000000,100,False
+"DEL_crPlasmaGun","[Plasma]",24,15.000000,30,1,0.300000,3.000000,85,False
+"DEL_crRevolver","Revólver del Oeste",60,10.000000,6,1,0.150000,4.000000,120,False
+"DEL_crCombatRifle","Rifle de combate",33,15.000000,20,1,0.300000,7.000000,130,False
+"DEL_crSuperSledge","Supermaza",40,15.000000,0,1,0.000000,20.000000,70,False
+"DEL_crLaserGun","Láser",0,15.000000,30,1,0.250000,3.000000,60,False
+"DEL_crSledgehammer","Almádena",23,15.000000,0,1,0.000000,12.000000,40,False
+"DEL_crSubmachineGun","- Subfusil",0,15.000000,50,1,0.150000,7.000000,100,False
+"DEL_crBaseballBat","Bate de béisbol",16,10.000000,0,1,0.000000,3.000000,25,False
+"DEL_crCombatShotgun","Escopeta de combate",50,15.000000,8,1,0.500000,7.000000,125,False
+"DEL_cr44",".44",48,10.000000,6,1,0.150000,4.000000,40,False
+"DEL_crMeatHook","Gancho de carne",20,10.000000,0,1,0.000000,2.000000,20,False
+"DEL_crFireAxe","Hacha de incendios",11,10.000000,0,1,0.000000,3.000000,15,False
+"HTO_crRobot_Liberator_LaserGun","Láser liberador",0,8.000000,3,1,1.000000,25.000000,0,False
+"DEL_crHandMadeGun","Rifle artesanal",32,15.000000,20,1,0.250000,8.000000,90,False
+"HTO_crPRCGhoul_Boss_GatlingPlasma","Ametralladora de plasma",0,15.000000,250,1,0.150000,18.000000,250,False
+"DEL_crChineseOfficerSword","Espada de oficial chino",16,10.000000,0,1,0.000000,3.000000,50,False
+"DEL_crBaton","Porra",11,0.000000,0,1,0.000000,2.000000,15,False
+"HTO_crPRCGhoul_Boss_MG42","Ametralladora ligera",0,15.000000,100,1,0.250000,10.000000,250,False
+"HTO_crPRCGhoul_Boss_AutoShotgun","Pimentero",0,15.000000,50,1,0.000000,18.000000,250,False
+"HTO_crPRCGhoul_Boss_GaussMiniGun","Ametralladora Gauss",0,15.000000,250,1,0.000000,18.000000,250,False
+"HTO_crPRCGhoul_Boss_GatlingGun","Ametralladora Gatling",0,15.000000,250,1,1.150000,18.000000,250,False
+"DEL_crMinigun","Ametralladora",8,15.000000,500,1,0.000000,18.000000,150,False
+"DEL_crPipeGun","Arma de tubo",13,10.000000,12,1,0.170000,4.000000,25,False
+"DEL_crPitchfork","Tridente",23,10.000000,0,1,0.000000,2.000000,15,False
+"crDynamiteGrenade","Dinamita",0,3.000000,0,1,0.000000,0.500000,15,False
+"DEL_crPipeRevolver","Revólver de tubo",24,10.000000,6,1,0.150000,3.000000,30,False
+"DEL_crSpear","Lanza",23,10.000000,0,1,0.000000,2.000000,40,False
+"DEL_crDeathTambo","Pandereta de la muerte",10,10.000000,0,1,0.000000,0.500000,60,False
+"HTO_crCultist_Boss_LightningGun","Rifle Tesla",0,15.000000,50,1,0.500000,10.000000,250,False
+"HTO_crCultist_Boss_GammaGun","Arma gamma",0,15.000000,25,1,0.150000,5.000000,250,False
+"HTO_crCultist_Boss_RailwayRifle","Rifle de clavos",0,15.000000,25,1,1.000000,10.000000,250,False
+"DEL_crCultistBlade","Cuchilla de sectario",11,10.000000,0,1,0.000000,3.000000,35,False
+"DEL_crPickaxe","Pico",23,10.000000,0,1,0.000000,2.500000,40,False
+"DEL_crWoodCuttingAxe","Hacha multiusos",23,10.000000,0,1,0.000000,4.000000,40,False
+"HTO_crCultist_Boss_TeslaCannon","Cañón Tesla",0,15.000000,50,5,0.750000,15.000000,250,False
+"DEL_crSickle","Hoz",11,0.000000,0,1,0.000000,3.000000,15,False
+"DEL_crHatchet","Hacha",11,0.000000,0,1,0.000000,3.000000,15,False
+"DEL_crGatlingGun","Ametralladora Gatling",8,15.000000,250,1,1.150000,18.000000,175,False
+"DEL_crCultistDagger","Daga sectaria",9,10.000000,0,1,0.000000,1.000000,40,False
+"DEL_crPoleHook","Gancho de pértiga",30,10.000000,0,1,0.000000,7.000000,45,False
+"HTO_crCultist_Boss_Cryolator","Cryolator",0,15.000000,50,1,0.100000,10.000000,250,False
+"DEL_crPipeBoltAction","Tubo de cerrojo",34,10.000000,6,1,0.150000,3.000000,35,False
+"HTO_crMoleMiner_Boss_GaussShotgun","Escopeta Gauss",0,15.000000,0,8,0.000000,8.000000,250,False
+"DEL_crMoleMiner_Boss_50CalMachineGun","Ametralladora del calibre .50",8,15.000000,250,1,0.000000,18.000000,175,False
+"HTO_crMoleMiner_Boss_RailwayRifle","Rifle de clavos",0,15.000000,25,1,1.000000,10.000000,250,False
+"HTO_crMoleMiner_Boss_MiniGun","Ametralladora",0,15.000000,250,1,0.000000,18.000000,250,False
+"HTO_crMoleMiner_Boss_AutoGrenadeLauncher","Lanzagranadas automático",0,15.000000,15,1,0.500000,18.000000,250,False
+"HTO_crMoleMiner_Boss_GaussRifle","Rifle Gauss",0,15.000000,50,1,0.100000,10.000000,250,False
+"crGauntlet","Guantelete",0,0.000000,0,1,0.000000,6.000000,130,False
+"HTO_crSuperMutant_Boss_Cremator","Abrasador",0,15.000000,100,10,0.665000,18.000000,250,False
+"HTO_crSuperMutant_Boss_GatlingLaser","Ametralladora láser",0,15.000000,250,1,0.150000,18.000000,250,False
+"HTO_crSuperMutant_Boss_50CalMachineGun","Ametralladora del calibre .50",0,15.000000,250,1,0.000000,18.000000,250,False
+"HTO_crSuperMutant_Boss_AutoGrenadeLauncher","Lanzagranadas automático",0,15.000000,15,1,0.500000,18.000000,250,False
+"HTO_crSuperMutant_Boss_Broadsider","Cañonero",0,15.000000,5,1,0.250000,18.000000,250,False
+"HTO_crScorched_Boss_GaussRifle","Rifle Gauss",0,15.000000,50,1,0.150000,10.000000,250,False
+"HTO_crScorched_Boss_LightningGun","Rifle Tesla",0,15.000000,50,1,0.500000,10.000000,250,False
+"HTO_crScorched_Boss_GaussPistol","Pistola Gauss",0,15.000000,50,1,0.150000,5.000000,250,False
+"HTO_crScorched_Boss_Meltdown","Carabina láser del R63",0,15.000000,50,1,0.250000,5.000000,250,False
+"crGrenadePumpkin","Granada de calabaza",0,3.000000,0,1,0.000000,0.500000,20,False
+"HTO_crScorched_Boss_GaussShotgun","Escopeta Gauss",0,15.000000,0,8,0.100000,8.000000,250,False
+"HTO_crRobot_Boss_LaserGun_ArmRight","Arma láser (brazo derecho)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_Laser_Head","Láser (cabeza)",0,15.000000,0,1,1.000000,10.000000,250,False
+"HTO_crRobot_Boss_GaussGun_ArmLeft","Ametralladora Gauss (brazo izquierdo)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_LaserGun_ArmLeft","Arma láser (brazo izquierdo)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Eyebot_Laser","Ojobot láser",0,0.000000,0,1,3.000000,3.000000,0,False
+"HTO_crRobot_Boss_PlasmaGun_ArmLeft","Arma de plasma (brazo izquierdo)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_TeslaGun_ArmRight","Arma Tesla (brazo derecho)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_PlasmaGun_ArmRight","Arma de plasma (brazo derecho)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_GatlingGun_ArmRight","Ametralladora Gatling (brazo derecho)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_GatlingGun_ArmLeft","Ametralladora Gatling (brazo izquierdo)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_GaussGun_ArmRight","Ametralladora Gauss (brazo derecho)",0,15.000000,0,1,1.000000,5.000000,250,False
+"HTO_crRobot_Boss_TeslaGun_ArmLeft","Arma Tesla (brazo izquierdo)",0,15.000000,0,1,1.000000,5.000000,250,False
+"crUnarmedRadHogAlpha","Mutacerdo desarmado",1,0.000000,0,1,10.000000,0.000000,0,False
+"HTO_crMeatHook","Gancho de carne",20,10.000000,0,1,0.000000,2.000000,20,False
+"HTO_crDeathclawGauntlet","Garra de sanguinario",25,0.000000,0,1,0.000000,10.000000,85,False
+"HTO_crBearArm","Brazo de oso",25,0.000000,0,1,0.000000,10.000000,75,False
+"HTO_crPowerFist","Servopuño",20,10.000000,0,1,0.000000,4.000000,100,False
+"crSpearHealing","Lanza superestimulante",23,10.000000,0,1,0.000000,2.000000,40,False
+"zzz_crUnarmedTest01","Emperador desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"crBigfootTree","Arma de bastón grande",125,15.000000,0,1,0.000000,3.000000,0,False
+"crBigfootTickToss","Ataque con lanzamiento de Bigfoot",1,3.000000,0,1,5.000000,1.000000,0,False
+"crUnarmedBigfoot","Bigfoot desarmado",1,0.000000,0,1,0.000000,0.000000,0,False
+"zzz_44_Lawbringer","Justiciero",48,17.000000,6,1,0.150000,4.000000,40,False
+"HogSplitter","Macheta",25,15.000000,0,1,0.000000,10.000000,50,False
+"DEL_HTO_crMoleMiner_Boss_Flamer","Lanzallamas de minero topo",100,24.000000,100,1,1.000000,9.000000,90,False
+"DEL_Minigun_Moleminer_Boss","Ametralladora de minero topo",100,24.000000,10,1,1.000000,9.000000,90,False
+"DEL_AutoGrenadeLauncher_Moleminer_Boss","Lanzagranadas automático de minero topo",100,24.000000,10,1,1.000000,9.000000,90,False
+"HTO_crScorched_Suicider_Bomb","Bomba",50,10.000000,0,1,0.000000,0.000000,0,False
+"HTO_crSuperMutant_Suicider_Bomb","Bomba",50,10.000000,0,1,0.000000,0.000000,0,False
