@@ -1,0 +1,78 @@
+[
+  {
+    "key": "en06_guardian",
+    "name": "EN06 Guardian",
+    "order": 1,
+    "enemyType": "robot",
+    "mechanicEs": "Sin melee posible (muerte instantánea de cerca). Rompe el escudo a distancia, golpea cuando esté vulnerable, refúgiate en las puertas cuando la sala se incendie.",
+    "mechanicEn": "No melee possible (instant death up close). Break the shield at range, hit it while vulnerable, take shelter at the doors when the room catches fire.",
+    "weaponTip": "ranged",
+    "legendaryPerks": [
+      "Electric Absorption",
+      "Legendary Luck",
+      "Legendary Strength"
+    ],
+    "legendaryPerksSourceEs": "Verificado (wiki): Electric Absorption y Squad Maneuvers mencionados explícitamente para este jefe.",
+    "legendaryPerksSourceEn": "Verified (wiki): Electric Absorption and Squad Maneuvers explicitly mentioned for this boss.",
+    "communityTipEs": "Guías comunitarias sugieren mod Troubleshooter's en armadura (-15% daño de robots por pieza) y priorizar Fuerza/Suerte, luego Resistencia/Inteligencia en perks normales.",
+    "communityTipEn": "Community guides suggest the Troubleshooter's armor mod (-15% robot damage per piece) and prioritizing Strength/Luck, then Endurance/Intelligence in normal perks."
+  },
+  {
+    "key": "drill_defense",
+    "name": "Fuel the Drill (Mole Miners)",
+    "order": 2,
+    "enemyType": "creature",
+    "mechanicEs": "Defiende el taladro de oleadas de Mole Miners mientras otros recolectan combustible. Cuidado con los Stalkers (invencibles, persiguen).",
+    "mechanicEn": "Defend the drill from waves of Mole Miners while others collect fuel. Watch out for Stalkers (invincible, chase you).",
+    "weaponTip": "heavy_gun",
+    "legendaryPerks": [],
+    "legendaryPerksSourceEs": "Sin recomendación específica verificada — encuentro de control de oleadas, no de daño a un jefe único.",
+    "legendaryPerksSourceEn": "No specific verified recommendation — this is a crowd-control encounter, not a single-boss damage check.",
+    "communityTipEs": "Perks de área (explosivos, armas pesadas) ayudan más que daño enfocado en un blanco. Un jugador dedicado a defender, el resto recolectando.",
+    "communityTipEn": "Area-damage perks (explosives, heavy guns) help more than single-target focus. One player dedicated to defense, the rest collecting fuel."
+  },
+  {
+    "key": "epsilon_squad",
+    "name": "Enclave Squad Epsilon",
+    "order": 3,
+    "enemyType": "human",
+    "mechanicEs": "3 enemigos humanos hostiles protegidos por generadores de escudo que reparan los eyebots — elimina eyebots primero.",
+    "mechanicEn": "3 hostile human enemies protected by shield generators that eyebots repair — kill the eyebots first.",
+    "weaponTip": "rifle",
+    "legendaryPerks": [],
+    "legendaryPerksSourceEs": "Sin recomendación específica verificada.",
+    "legendaryPerksSourceEn": "No specific verified recommendation.",
+    "communityTipEs": "Enemigos humanos estándar — tus perks anti-humano/VATS normales aplican bien aquí.",
+    "communityTipEn": "Standard human enemies — your normal anti-human/VATS perks apply well here."
+  },
+  {
+    "key": "ultragenetic_horde",
+    "name": "Ultragenetic Horde",
+    "order": 4,
+    "enemyType": "creature",
+    "mechanicEs": "Atrae a la horda de criaturas hacia los cristales de Ultracite, que las dañan al destruirse.",
+    "mechanicEn": "Lure the creature horde toward the Ultracite crystals, which damage them when destroyed.",
+    "weaponTip": "explosive",
+    "legendaryPerks": [],
+    "legendaryPerksSourceEs": "Sin recomendación específica verificada.",
+    "legendaryPerksSourceEn": "No specific verified recommendation.",
+    "communityTipEs": "Daño de área otra vez es clave — es una oleada de criaturas, no un jefe único.",
+    "communityTipEn": "Area damage is key again — it's a creature wave, not a single boss."
+  },
+  {
+    "key": "ultracite_terror",
+    "name": "Ultracite Terror",
+    "order": 5,
+    "enemyType": "creature-boss",
+    "mechanicEs": "Jefe final. Alto DPS sostenido necesario para evitar su ataque de aliento letal en la última fase.",
+    "mechanicEn": "Final boss. High sustained DPS needed to avoid its lethal breath attack in the last phase.",
+    "weaponTip": "rifle",
+    "legendaryPerks": [
+      "Funky Duds"
+    ],
+    "legendaryPerksSourceEs": "Verificado (wiki): Funky Duds descrito como 'increíblemente útil' para este jefe.",
+    "legendaryPerksSourceEn": "Verified (wiki): Funky Duds described as 'incredibly useful' for this boss.",
+    "communityTipEs": "Guías comunitarias sugieren armas Gauss de alto DPS sostenido (ej. con efecto Vampire's para sustain de vida).",
+    "communityTipEn": "Community guides suggest high-sustained-DPS Gauss weapons (e.g. with Vampire's effect for lifesteal sustain)."
+  }
+]

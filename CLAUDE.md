@@ -18,16 +18,24 @@ negro, VT323 + JetBrains Mono, scanlines CSS). Bilingüe ES/EN.
 La columna derecha (Perks Legendarias + grid de Perk Cards) es fija y se ve
 siempre sin importar la pestaña activa.
 
-## Archivos de este paquete
-- `index.html` — la app completa. Los datos están embebidos como constantes
-  JS dentro del `<script>` (`PERKS`, `WEAPONS`, `WIKI_WEAPONS`,
-  `PERK_CATEGORIES`, `LEGENDARY_PERKS`, `MUTATIONS`, `ARMOR_DATA`,
-  `RAID_CONTENT`, `GHOUL_ONLY_PERKS`, `LEGENDARY_WEAPON_EFFECTS`,
-  `LEGENDARY_ARMOR_EFFECTS`).
-- `data_*.json` / `data_mutations.js` — fuentes originales de esos datos, por
-  si hay que auditar o regenerar. **Si edito estos archivos, hay que volver a
-  inyectarlos manualmente en el `<script>` de `index.html`** (no hay build
-  step automático).
+## Archivos de este paquete (flujo de build desde julio 2026)
+- `index.html` — **ARTEFACTO GENERADO, NO EDITARLO A MANO.** Lo produce
+  `python3 build.py` a partir de la plantilla + los JSON. Cualquier edición
+  directa se pierde en el siguiente build.
+- `src/index.template.html` — el código real de la app (HTML/CSS/JS/STRINGS).
+  Aquí se edita todo lo que no sea datos. Las constantes de datos aparecen
+  como marcadores `/*__DATA:NOMBRE__*/`.
+- `data_*.json` — **única fuente de verdad de los datos** (`PERKS`,
+  `WEAPONS`, `WIKI_WEAPONS`, `PERK_CATEGORIES`, `LEGENDARY_PERKS`,
+  `MUTATIONS`, `ARMOR_DATA`, `RAID_CONTENT` en
+  `data_raid_gleaming_depths.json`, `LEGENDARY_WEAPON_EFFECTS`,
+  `LEGENDARY_ARMOR_EFFECTS`). El mapeo constante→archivo vive en el
+  `DATA_MANIFEST` de `build.py`. Ya NO existe la reinyección manual.
+- `build.py` — ensambla `index.html` y corre las validaciones (sintaxis JS +
+  IDs huérfanos) automáticamente; falla con error si algo está mal.
+- `tests/` — suite Playwright (`bash tests/run_all.sh`). Correrla después de
+  cualquier cambio; cubre las zonas protegidas y todos los features grandes.
+- `GHOUL_ONLY_PERKS` se deriva en runtime de `PERKS` (no es un archivo).
 
 ## Fuentes de datos y nivel de confianza
 - `data_perks.json` (243), `data_weapons_base.json` (151),
@@ -38,7 +46,7 @@ siempre sin importar la pestaña activa.
   misión/evento como Pepper Shaker con doble categoría, Elder's Mark, etc.):
   extraído del wiki por Claude — confiable pero marcado "WIKI" en la UI para
   diferenciarlo.
-- `data_mutations.js` (19): 7 tienen efecto numérico real conectado al motor
+- `data_mutations.json` (19): 7 tienen efecto numérico real conectado al motor
   (Marsupial, Herd Mentality, Egg Head, Eagle Eyes, Adrenal Reaction, Talons,
   Bird Bones); las otras 12 son texto informativo porque no hay curva
   numérica verificada (Scaly Skin, Grounded, Empath, etc. — están marcadas
@@ -121,20 +129,11 @@ y `STRINGS.en` en el HTML — esa es la fuente de verdad más actualizada)
 - Antes de agregar HTML/CSS/JS nuevo, revisar el patrón de las secciones
   existentes (`.panel`, `.perk-card`, tokens de color en `:root`,
   `tab-panel-group` para contenido por pestaña).
-- Después de cualquier cambio: validar sintaxis (`node --check`) Y validar
-  que cada `document.getElementById(...)` referenciado en el JS tenga su
-  elemento correspondiente en el HTML (hubo un bug real por esto — un ID
-  borrado del HTML pero no de la función que lo referenciaba tumbó toda la
-  app en silencio). Grep rápido:
-  ```
-  python3 -c "
-  import re
-  content = open('index.html').read()
-  ids = set(re.findall(r\"getElementById\('([^']+)'\)\", content))
-  missing = [i for i in ids if not re.search(f'id=\"{i}\"', content)]
-  print('MISSING:', missing)
-  "
-  ```
+- Después de cualquier cambio: correr `python3 build.py` (regenera
+  `index.html` Y valida automáticamente sintaxis JS + IDs huérfanos de
+  `getElementById` — hubo un bug real por un ID borrado del HTML que tumbó
+  toda la app en silencio) y después `bash tests/run_all.sh` (suite completa
+  de navegador). Ambos deben terminar sin error antes de commitear.
 
 ## Cómo seguir trabajando
 Dile a Claude Code: "Lee CLAUDE.md y luego [tarea]" — con esto no hace falta

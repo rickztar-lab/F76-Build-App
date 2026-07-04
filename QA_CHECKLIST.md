@@ -1,35 +1,20 @@
 # QA Checklist — Fallout 76 Build Planner
 
-Checklist manual/semi-automático para correr **después de cualquier cambio**
-a `index.html`, antes de dar por cerrado un ítem del roadmap. No reemplaza
-tests automatizados (no hay framework de testing en este proyecto — single
-file, sin build step), pero acota qué romper por accidente.
+Checklist para correr **después de cualquier cambio**, antes de dar por
+cerrado un ítem del roadmap. Recordatorio: `index.html` es generado — los
+cambios se hacen en `src/index.template.html` (código) o `data_*.json`
+(datos), nunca en el artefacto.
 
-## 1. Checks automáticos (correr siempre, tardan segundos)
+## 1. Checks automáticos (correr siempre)
 
-**Sintaxis del JS embebido:**
 ```bash
-python3 -c "
-import re
-content = open('index.html').read()
-m = re.search(r'<script>(.*)</script>', content, re.S)
-open('/tmp/extracted.js','w').write(m.group(1))
-"
-node --check /tmp/extracted.js
+python3 build.py        # regenera index.html + valida sintaxis JS e IDs huérfanos
+bash tests/run_all.sh   # suite completa de navegador (7 suites Playwright)
 ```
 
-**IDs huérfanos** (un `getElementById('x')` sin `id="x"` en el HTML tumbó la
-app entera en silencio una vez — ver CLAUDE.md):
-```bash
-python3 -c "
-import re
-content = open('index.html').read()
-ids = set(re.findall(r\"getElementById\('([^']+)'\)\", content))
-missing = [i for i in ids if not re.search(f'id=\"{i}\"', content)]
-print('MISSING:', missing)
-"
-```
-Ambos deben salir limpios (sin error / `MISSING: []`) antes de seguir.
+Ambos deben terminar sin error antes de commitear. `build.py` ya incluye los
+dos chequeos que antes eran manuales (sintaxis con `node --check` y el grep
+de `getElementById` huérfanos que una vez tumbó la app en silencio).
 
 ## 2. Matriz de regresión manual (clickear en navegador)
 
@@ -71,7 +56,7 @@ reproducir este cálculo a mano y comparar contra la función:
 Si algún cambio futuro produce un número distinto para este setup exacto sin
 que se haya modificado intencionalmente la fórmula (ej. el % de Class Freak,
 el bono por rango de legendarias, o el efecto de Marsupial en
-`data_mutations.js`), es una regresión.
+`data_mutations.json`), es una regresión.
 
 **Desde el comparador de builds**: `getEffectiveSpecial(src)` acepta un
 parámetro opcional `src` (`{special, perkRanks, legendaryPerks,
