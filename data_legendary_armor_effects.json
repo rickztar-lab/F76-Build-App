@@ -1,16 +1,66 @@
 {
-  "trust_note_es": "Lista de efectos legendarios de armadura/Power Armor en Fallout 76. Escrita desde el conocimiento entrenado de Claude — NO se pudo verificar en vivo contra la wiki en esta sesión (fallout.fandom.com, fextralife.com y fallout.wiki devolvieron 403 / bloqueo anti-bot), mismo bloqueo que impidió verificar data_legendary_weapon_effects.json. Los nombres y la mecánica general se consideran confiables, pero se omiten a propósito los porcentajes/números exactos que no se pudieron confirmar. Nivel de confianza: más bajo que 'WIKI' — tratar como orientativo, no como dato verificado.",
-  "trust_note_en": "List of armor/Power Armor legendary effects in Fallout 76. Written from Claude's trained knowledge — could NOT be verified live against the wiki this session (fallout.fandom.com, fextralife.com, and fallout.wiki all returned 403 / anti-bot blocks), same block that prevented verifying data_legendary_weapon_effects.json. Names and general mechanics are considered reliable, but exact percentages/numbers that couldn't be confirmed are intentionally omitted. Trust level: lower than 'WIKI' — treat as indicative, not verified data.",
+  "trust_note_es": "Efectos legendarios de armadura/Power Armor. La MECÁNICA fue VERIFICADA contra el grupo Object Effect (ENCH) del ESM (los efectos existen y se comportan como describimos). El número/porcentaje exacto de varios vive en Curve Tables externas (.ba2), así que se describe la mecánica sin inventar el número. Nivel de confianza: mecánica GAME FILES-confirmada; número exacto pendiente.",
+  "trust_note_en": "Armor/Power Armor legendary effects. The MECHANIC was VERIFIED against the ESM's Object Effect (ENCH) group (the effects exist and behave as described). The exact number/percentage of several lives in external Curve Tables (.ba2), so we describe the mechanic without inventing the number. Trust level: mechanic GAME-FILES-confirmed; exact number pending.",
   "effects": [
-    {"key":"sentinels","name":"Sentinel's","textEs":"Reduce el daño recibido mientras el portador está apuntando (ADS).","textEn":"Reduces damage taken while the wearer is aiming (ADS)."},
-    {"key":"bolstering","name":"Bolstering","textEs":"Probabilidad de reducir el daño de un golpe entrante.","textEn":"Chance to reduce the damage of an incoming hit."},
-    {"key":"cavaliers","name":"Cavalier's","textEs":"Aumenta la resistencia mientras el portador está bloqueando.","textEn":"Increases resistance while the wearer is blocking."},
-    {"key":"weightless","name":"Weightless","textEs":"La pieza no pesa nada.","textEn":"The piece weighs nothing."},
-    {"key":"overeaters","name":"Overeater's","textEs":"Resistencia extra mientras el portador no está con la vida al máximo.","textEn":"Bonus resistance while the wearer isn't at full health."},
-    {"key":"assassins","name":"Assassin's","textEs":"Resistencia extra contra enemigos humanos.","textEn":"Bonus resistance against human enemies."},
-    {"key":"chameleon","name":"Chameleon","textEs":"Invisibilidad temporal al quedarse quieto.","textEn":"Temporary invisibility while standing still."},
-    {"key":"troubleshooters","name":"Troubleshooter's","textEs":"Resistencia extra contra robots.","textEn":"Bonus resistance against robots."},
-    {"key":"zealots_armor","name":"Zealot's","textEs":"Resistencia extra contra enemigos Calcinados (Scorched).","textEn":"Bonus resistance against Scorched enemies."},
-    {"key":"vanguards","name":"Vanguard's","textEs":"La resistencia aumenta cuanto más baja está la vida del portador.","textEn":"Resistance increases the lower the wearer's current HP is."}
+    {
+      "key": "sentinels",
+      "name": "Sentinel's",
+      "textEs": "Reduce el daño recibido mientras el portador está apuntando (ADS).",
+      "textEn": "Reduces damage taken while the wearer is aiming (ADS)."
+    },
+    {
+      "key": "bolstering",
+      "name": "Bolstering",
+      "textEs": "Probabilidad de reducir el daño de un golpe entrante.",
+      "textEn": "Chance to reduce the damage of an incoming hit."
+    },
+    {
+      "key": "cavaliers",
+      "name": "Cavalier's",
+      "textEs": "Aumenta la resistencia mientras el portador está bloqueando.",
+      "textEn": "Increases resistance while the wearer is blocking."
+    },
+    {
+      "key": "weightless",
+      "name": "Weightless",
+      "textEs": "La pieza no pesa nada.",
+      "textEn": "The piece weighs nothing."
+    },
+    {
+      "key": "overeaters",
+      "name": "Overeater's",
+      "textEs": "Resistencia extra mientras el portador no está con la vida al máximo.",
+      "textEn": "Bonus resistance while the wearer isn't at full health."
+    },
+    {
+      "key": "assassins",
+      "name": "Assassin's",
+      "textEs": "Resistencia extra contra enemigos humanos.",
+      "textEn": "Bonus resistance against human enemies."
+    },
+    {
+      "key": "chameleon",
+      "name": "Chameleon",
+      "textEs": "Invisibilidad temporal al quedarse quieto.",
+      "textEn": "Temporary invisibility while standing still."
+    },
+    {
+      "key": "troubleshooters",
+      "name": "Troubleshooter's",
+      "textEs": "Resistencia extra contra robots.",
+      "textEn": "Bonus resistance against robots."
+    },
+    {
+      "key": "zealots_armor",
+      "name": "Zealot's",
+      "textEs": "Resistencia extra contra enemigos Calcinados (Scorched).",
+      "textEn": "Bonus resistance against Scorched enemies."
+    },
+    {
+      "key": "vanguards",
+      "name": "Vanguard's",
+      "textEs": "La resistencia aumenta cuanto más baja está la vida del portador.",
+      "textEn": "Resistance increases the lower the wearer's current HP is."
+    }
   ]
 }

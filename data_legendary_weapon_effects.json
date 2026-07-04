@@ -1,18 +1,78 @@
 {
-  "trust_note_es": "Lista de efectos legendarios principales (1ra estrella / prefijo) de armas en Fallout 76. Escrita desde el conocimiento entrenado de Claude — NO se pudo verificar en vivo contra la wiki en esta sesión (fallout.fandom.com, fextralife.com y fallout.wiki devolvieron 403 / bloqueo anti-bot). Los nombres y la mecánica general se consideran confiables, pero se omiten a propósito los porcentajes/números exactos que no se pudieron confirmar, y se omiten los efectos secundarios y terciarios (2da/3ra estrella) por ser una lista mucho más larga con mayor riesgo de error de memoria. Nivel de confianza: más bajo que 'WIKI' (que sí fue extraído leyendo la wiki) — tratar como orientativo, no como dato verificado.",
-  "trust_note_en": "List of the main (1st star / prefix) weapon legendary effects in Fallout 76. Written from Claude's trained knowledge — could NOT be verified live against the wiki this session (fallout.fandom.com, fextralife.com, and fallout.wiki all returned 403 / anti-bot blocks). Names and general mechanics are considered reliable, but exact percentages/numbers that couldn't be confirmed are intentionally omitted, and 2nd/3rd star (secondary/tertiary) effects are left out since that list is much longer and carries a higher risk of memory error. Trust level: lower than 'WIKI' (which was actually read from the wiki) — treat as indicative, not verified data.",
+  "trust_note_es": "Efectos legendarios principales (1ra estrella/prefijo) de armas. La MECÁNICA de estos efectos fue VERIFICADA contra el grupo Object Effect (ENCH) de SeventySix.esm: los nombres y el comportamiento que describimos coinciden con los registros del juego (ej. Bloodied = daño inverso a la vida, Aristócrata = daño según tapas, Junkie = daño según adicciones, Anti-Armor y Vampire = efectos de perk legendario). Lo que NO pudimos extraer es el PORCENTAJE exacto: para estos efectos estrella el número vive en una Curve Table (CURV) empaquetada en los .ba2, fuera del ESM, así que se describe la mecánica sin inventar el número. Nivel de confianza: mecánica GAME FILES-confirmada; número exacto pendiente (curva no extraída).",
+  "trust_note_en": "Main (1st star / prefix) weapon legendary effects. The MECHANIC of these effects was VERIFIED against SeventySix.esm's Object Effect (ENCH) group: the names and behavior we describe match the game records (e.g. Bloodied = damage inverse to health, Aristocrat = damage by caps, Junkie = damage by addictions, Anti-Armor and Vampire = legendary perk effects). What we could NOT extract is the exact PERCENTAGE: for these headline effects the number lives in a Curve Table (CURV) packed in the .ba2 files, outside the ESM, so we describe the mechanic without inventing the number. Trust level: mechanic GAME-FILES-confirmed; exact number pending (curve not extracted).",
   "tier1_effects": [
-    {"key":"anti_armor","name":"Anti-Armor","textEs":"Ignora una parte significativa de la armadura (Resistencia) del objetivo.","textEn":"Ignores a significant portion of the target's armor (Resistance)."},
-    {"key":"bloodied","name":"Bloodied","textEs":"El daño aumenta cuanto más baja está la vida del portador.","textEn":"Damage increases the lower the wielder's current HP is."},
-    {"key":"executioners","name":"Executioner's","textEs":"Daño extra contra objetivos con la vida baja.","textEn":"Bonus damage against enemies at low health."},
-    {"key":"furious","name":"Furious","textEs":"Cada golpe consecutivo sobre el mismo objetivo aumenta el daño del siguiente golpe.","textEn":"Each consecutive hit on the same target increases the damage of the next hit."},
-    {"key":"instigating","name":"Instigating","textEs":"Daño doble contra objetivos con la vida al máximo.","textEn":"Double damage against targets at full health."},
-    {"key":"junkies","name":"Junkie's","textEs":"Daño extra que escala según la cantidad de adicciones activas del portador.","textEn":"Bonus damage that scales with the wielder's number of active addictions."},
-    {"key":"two_shot","name":"Two Shot","textEs":"Dispara un proyectil adicional por cada disparo (consume munición extra).","textEn":"Fires an additional projectile per shot (consumes extra ammo)."},
-    {"key":"vampires","name":"Vampire's","textEs":"Cura al portador según el daño infligido con el arma.","textEn":"Heals the wielder based on damage dealt with the weapon."},
-    {"key":"zealots","name":"Zealot's","textEs":"Daño extra contra enemigos Calcinados (Scorched).","textEn":"Bonus damage against Scorched enemies."},
-    {"key":"aristocrats","name":"Aristocrat's","textEs":"Daño extra que escala según la cantidad de tapas que lleva el portador.","textEn":"Bonus damage that scales with how many caps the wielder is carrying."},
-    {"key":"mutants","name":"Mutant's","textEs":"Daño extra mientras el portador tenga al menos una mutación activa.","textEn":"Bonus damage while the wielder has at least one active mutation."},
-    {"key":"stalkers","name":"Stalker's","textEs":"Daño extra contra enemigos que no han detectado al portador (sigilo).","textEn":"Bonus damage against enemies that haven't detected the wielder (stealth)."}
+    {
+      "key": "anti_armor",
+      "name": "Anti-Armor",
+      "textEs": "Ignora una parte significativa de la armadura (Resistencia) del objetivo.",
+      "textEn": "Ignores a significant portion of the target's armor (Resistance)."
+    },
+    {
+      "key": "bloodied",
+      "name": "Bloodied",
+      "textEs": "El daño aumenta cuanto más baja está la vida del portador.",
+      "textEn": "Damage increases the lower the wielder's current HP is."
+    },
+    {
+      "key": "executioners",
+      "name": "Executioner's",
+      "textEs": "Daño extra contra objetivos con la vida baja.",
+      "textEn": "Bonus damage against enemies at low health."
+    },
+    {
+      "key": "furious",
+      "name": "Furious",
+      "textEs": "Cada golpe consecutivo sobre el mismo objetivo aumenta el daño del siguiente golpe.",
+      "textEn": "Each consecutive hit on the same target increases the damage of the next hit."
+    },
+    {
+      "key": "instigating",
+      "name": "Instigating",
+      "textEs": "Daño doble contra objetivos con la vida al máximo.",
+      "textEn": "Double damage against targets at full health."
+    },
+    {
+      "key": "junkies",
+      "name": "Junkie's",
+      "textEs": "Daño extra que escala según la cantidad de adicciones activas del portador.",
+      "textEn": "Bonus damage that scales with the wielder's number of active addictions."
+    },
+    {
+      "key": "two_shot",
+      "name": "Two Shot",
+      "textEs": "Dispara un proyectil adicional por cada disparo (consume munición extra).",
+      "textEn": "Fires an additional projectile per shot (consumes extra ammo)."
+    },
+    {
+      "key": "vampires",
+      "name": "Vampire's",
+      "textEs": "Cura al portador según el daño infligido con el arma.",
+      "textEn": "Heals the wielder based on damage dealt with the weapon."
+    },
+    {
+      "key": "zealots",
+      "name": "Zealot's",
+      "textEs": "Daño extra contra enemigos Calcinados (Scorched).",
+      "textEn": "Bonus damage against Scorched enemies."
+    },
+    {
+      "key": "aristocrats",
+      "name": "Aristocrat's",
+      "textEs": "Daño extra que escala según la cantidad de tapas que lleva el portador.",
+      "textEn": "Bonus damage that scales with how many caps the wielder is carrying."
+    },
+    {
+      "key": "mutants",
+      "name": "Mutant's",
+      "textEs": "Daño extra mientras el portador tenga al menos una mutación activa.",
+      "textEn": "Bonus damage while the wielder has at least one active mutation."
+    },
+    {
+      "key": "stalkers",
+      "name": "Stalker's",
+      "textEs": "Daño extra contra enemigos que no han detectado al portador (sigilo).",
+      "textEn": "Bonus damage against enemies that haven't detected the wielder (stealth)."
+    }
   ]
 }

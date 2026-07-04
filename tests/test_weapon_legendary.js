@@ -20,8 +20,9 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await page.selectOption('#weaponLegendarySelect', 'anti_armor');
     await page.waitForTimeout(200);
     const noteText = await page.$eval('#weaponLegendaryBox', el => el.textContent);
-    assert(noteText.toLowerCase().includes('no verificado') || noteText.includes('NOT verified'),
-      'la nota de confianza (no verificado) es visible');
+    // La nota ahora refleja: mecánica verificada contra el ESM, % exacto en curva.
+    assert(/curve table|curve|curva/i.test(noteText) && /mec|mech/i.test(noteText),
+      'la nota de confianza (mecánica verificada, número en curva) es visible');
 
     await clickTab(page, 'DATA');
     await page.fill('#buildNameInput', 'SmokeTestBuild');

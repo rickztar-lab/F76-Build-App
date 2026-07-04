@@ -1,0 +1,135 @@
+### DMGT | dtElectrical | Daño eléctrico
+\Record Header\Signature	DMGT
+\Record Header\Data Size	43
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtElectrical "Daño eléctrico" [DMGT:00060A80]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtElectrical
+\FULL - Name	Daño eléctrico
+\DNAM - Damage Type\Actor Value	ElectricResist "Resistencia a la electricidad" [AVIF:000002E6]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+
+### DMGT | dtEnergy | Daño por energía
+\Record Header\Signature	DMGT
+\Record Header\Data Size	49
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtEnergy "Daño por energía" [DMGT:00060A81]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtEnergy
+\FULL - Name	Daño por energía
+\DNAM - Damage Type\Actor Value	EnergyResist "Resistencia a la energía" [AVIF:000002EB]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+\DAMA	
+
+### DMGT | dtFire | Daño de fuego
+\Record Header\Signature	DMGT
+\Record Header\Data Size	47
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtFire "Daño de fuego" [DMGT:00060A82]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtFire
+\FULL - Name	Daño de fuego
+\DNAM - Damage Type\Actor Value	FireResist "Resistencia al fuego" [AVIF:000002E5]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+\DAMA	
+
+### DMGT | dtCryo | Daño por hielo
+\Record Header\Signature	DMGT
+\Record Header\Data Size	77
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtCryo "Daño por hielo" [DMGT:00060A83]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtCryo
+\FULL - Name	Daño por hielo
+\DNAM - Damage Type\Actor Value	FrostResist "Resistencia criogénica" [AVIF:000002E7]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+\DAMA	
+\DSEB	
+\DSES	
+\DSEA	
+
+### DMGT | dtPoison | Daño por veneno
+\Record Header\Signature	DMGT
+\Record Header\Data Size	49
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtPoison "Daño por veneno" [DMGT:00060A84]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtPoison
+\FULL - Name	Daño por veneno
+\DNAM - Damage Type\Actor Value	PoisonResist "Resistencia al veneno" [AVIF:000002E4]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+\DAMA	
+
+### DMGT | dtRadiationExposure | Daño por radiación
+\Record Header\Signature	DMGT
+\Record Header\Data Size	50
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtRadiationExposure "Daño por radiación" [DMGT:00060A85]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtRadiationExposure
+\FULL - Name	Daño por radiación
+\DNAM - Damage Type\Actor Value	RadResistExposure "Resistencia a la radiación" [AVIF:000002EA]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+
+### DMGT | dtRadiationIngestion | 
+\Record Header\Signature	DMGT
+\Record Header\Data Size	41
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtRadiationIngestion [DMGT:00060A86]
+\Record Header\Version Control Info 1	CF 1E 5F 00
+\Record Header\Form Version	129
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtRadiationIngestion
+\DNAM - Damage Type\Actor Value	RadResistIngestion "Ingesta de radiación" [AVIF:000002E9]
+\DNAM - Damage Type\Spell	RadiationHazardLight "Radiación leve" [SPEL:0009252C]
+
+### DMGT | dtPhysical | Daño físico
+\Record Header\Signature	DMGT
+\Record Header\Data Size	41
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtPhysical "Daño físico" [DMGT:00060A87]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtPhysical
+\FULL - Name	Daño físico
+\DNAM - Damage Type\Actor Value	DamageResist "Resistencia al daño" [AVIF:000002E3]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+
+### DMGT | dtPureDamage | Daño
+\Record Header\Signature	DMGT
+\Record Header\Data Size	43
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtPureDamage "Daño" [DMGT:005B524D]
+\Record Header\Version Control Info 1	C4 34 35 00
+\Record Header\Form Version	208
+\Record Header\Version Control Info 2	01 00
+\EDID - Editor ID	dtPureDamage
+\FULL - Name	Daño
+\DNAM - Damage Type\Actor Value	NULL - Null Reference [00000000]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+
+### DMGT | dtDestructible | 
+\Record Header\Signature	DMGT
+\Record Header\Data Size	35
+\Record Header\Record Flags	0000000000000000000000000000000000000000000000000000000000000000
+\Record Header\FormID	dtDestructible [DMGT:00683E42]
+\Record Header\Version Control Info 1	86 2D 35 00
+\Record Header\Form Version	197
+\Record Header\Version Control Info 2	00 00
+\EDID - Editor ID	dtDestructible
+\DNAM - Damage Type\Actor Value	NULL - Null Reference [00000000]
+\DNAM - Damage Type\Spell	NULL - Null Reference [00000000]
+

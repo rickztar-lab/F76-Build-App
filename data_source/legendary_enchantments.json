@@ -1,0 +1,2948 @@
+{
+  "_note": "Extracción cruda de los 175 efectos legendarios de jugador desde el grupo Object Effect (ENCH) del ESM. Muchos tienen magnitude=0 porque su valor real vive en una Curve Table (CURV, externa en BA2) o en un Perk — la magnitud plana solo existe para efectos simples (ej. Bleed 5/5s). Preservado para futura integración.",
+  "effects": [
+    {
+      "editor_id": "ench_LegendaryWeapon_DamagePoison",
+      "name": "Daño por veneno",
+      "effects": [
+        {
+          "base": "dtPoisonEffectChanceAlways \"Tipo de daño veneno\"",
+          "magnitude": 5.0,
+          "duration": 10,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddCommonPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AddCommonWeaponPerk \"Añadir extra Arma legendaria común\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Bleed",
+      "name": "Hemorragia",
+      "effects": [
+        {
+          "base": "DamageHealthContact \"Dañar salud\"",
+          "magnitude": 5.0,
+          "duration": 5,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddDamageNight",
+      "name": "Daño por la noche",
+      "effects": [
+        {
+          "base": "Legendary_DamageNightEffect \"Daño por la noche\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_MovementSpeedSights",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbFortifyActorSpeedMult \"Reforzar velocidad de actor múltiple\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddDamageInverseHealth",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DamageInverseHealth_Description \"Ensangrentado\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageInverseHealth"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageInverseHealth"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageConsecutiveHits_Sender",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnHitEffect_ConsecutiveHits_Sender \"ModLegendaryOnHitEffect_ConsecutiveHits\"",
+          "magnitude": 0.0,
+          "duration": 10,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageConsecutiveHits_Listener",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnHitEffect_ConsecutiveHits_Listener \"ModLegendaryOnHitEffect_ConsecutiveHits_Listener\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_OnCritRefillAP",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnCritHitEffect_RefillAP \"ModLegendaryOnCritHitEffect_RefillAP\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_LowHealthSlowTime",
+      "name": "",
+      "effects": [
+        {
+          "base": "DEPRECATED_ModLegendaryArmorLowHealthSlowTimeEffect \"ModLegendaryArmorLowHealthSlowTimeEffect\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Disarm",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DisarmEffect \"Desarmar a los atacantes cuerpo a cuerpo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Chameleon",
+      "name": "Camaleónica",
+      "effects": [
+        {
+          "base": "ChameleonEffectArmorMod \"[Camaleónico]\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "ChameleonArmorStealthIcon \"[Camaleónico]\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "ChameleonArmorAudioEffect \"Sonido camaleónico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_CritFrenzy",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_FrenzyEffect \"ModLegendaryFrenzyEffect\"",
+          "magnitude": 999.0,
+          "duration": 30,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistancesInverseHealth",
+      "name": "Reconstituyente",
+      "effects": [
+        {
+          "base": "AbResistancesInverseHealth_Description \"Reconstituyente\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesInverseHealth"
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesInverseHealth"
+        },
+        {
+          "base": "abFortifyDamageResist \"Reforzar resistencia al daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesInverseHealth"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_RadsCoreHealth",
+      "name": "",
+      "effects": [
+        {
+          "base": "LegendaryPowerArmor_RadsCoreHealthEffect \"Salud del núcleo radiactivo\"",
+          "magnitude": 0.5,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Stagger",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnHitEffect_Stagger \"ModLegendaryOnHitEffect_Stagger\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_OnHitEffect_Stagger \"ModLegendaryOnHitEffect_Stagger\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_OnHitEffect_Stagger \"ModLegendaryOnHitEffect_Stagger\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageResistSights",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbDamageResistSights_Description \"Infatigable\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_FinalBulletDealsIncreasedDamage",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_IncreaseDamageForFinalBulletEffect \"Añadir extra dlc03_perk_Legendary_Weapon_IncreaseDamageForFinalBullet\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_BlockElectrocutes",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnBlockElectricalEffect \"Bloquear con éxito electrocuta a los enemigos\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageResistReload",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbResistReload_Description \"Superresistente\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistFire \"Reforzar resistencia al fuego\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistPoison \"Reforzar resistencia al veneno\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistCryo \"Reforzar resistencia a la criogenización\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistRadiationExpose \"Reforzar resistencia a la radiación\"",
+          "magnitude": 500.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DmgSights",
+      "name": "Asesino a sueldo",
+      "effects": [
+        {
+          "base": "abPerkFortifyDmgAll \"Reforzar todo el daño\"",
+          "magnitude": 25.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbDmgSights_Description \"Asesino a sueldo\"",
+          "magnitude": 25.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_BlockBurns",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnBlockFireEffect \"Bloquear con éxito quema a los enemigos\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_AutoStimpak",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AutoStimpakEffect \"Usar estimulante cuando la salud sea baja\"",
+          "magnitude": 0.0,
+          "duration": 1,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_OnMeleeHitBurn",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnMeleeBurnAttacker \"Quemar a los atacantes cuerpo a cuerpo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_OnMeleeHitFreeze",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnMeleeFreezeAttacker \"Inmovilizar a los atacantes cuerpo a cuerpo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_CloakOnMelee",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnMeleeCloakEffect \"Ocultarse al recibir un impacto cuerpo a cuerpo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DLC03_ench_mod_Legendary_Armor_RadsIncreaseStrength",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_LowHealthIncreasesStats",
+      "name": "Armadura inflexible",
+      "effects": [
+        {
+          "base": "AbUnyielding_Description \"Inflexible\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyLuck \"Reforzar Suerte\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyAgility \"Reforzar Agilidad\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyIntelligence \"Reforzar Inteligencia\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyPerception \"Reforzar Percepción\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        },
+        {
+          "base": "AbPerkFortifyCharisma \"Reforzar Carisma\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_LowHealthIncreasesStats"
+        }
+      ]
+    },
+    {
+      "editor_id": "DLC04EnchPowerArmor_Nuka_Legendary",
+      "name": "Reforzar Agilidad",
+      "effects": [
+        {
+          "base": "AbFortifyAgility \"Reforzar Agilidad\"",
+          "magnitude": 0.5,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DLC04EnchPowerArmor_Quantum_Legendary",
+      "name": "PA Quantum",
+      "effects": [
+        {
+          "base": "AbFortifyActionPointRateHidden \"Reforzar regeneración de puntos de acción\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageUnarmored",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DamageUnarmoredEffect \"Daño inversamente proporcional a armadura\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageUnarmored"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Execute",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_ExecuteEffect \"Añadir extra LegendaryExecutePerk\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_AddCommonPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AddCommonArmorPerk \"Añadir extra Armadura legendaria común\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_AddResistNight",
+      "name": "Nocturno",
+      "effects": [
+        {
+          "base": "AbPerkFortifyPerception \"Reforzar Percepción\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyAgility \"Reforzar Agilidad\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Waterbreathing",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbWaterbreathing \"Respirar bajo el agua\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Medic",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_MedicEffect \"Curar\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Vampire",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_VampirePerkEffect \"Añadir extra Vampiro legendario\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistDisease",
+      "name": "Resistencia a enfermedades",
+      "effects": [
+        {
+          "base": "AbReduceDiseaseChanceEnvironment \"Resistencia a enfermedades del entorno\"",
+          "magnitude": 25.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DebuffDamage",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DebuffDamageEffect \"Añadir extra Atenuador de daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AntiArmor",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AntiArmorEffect \"Añadir extra Antiblindaje\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_AutoRevive",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AutoReviveEffect \"Resucita automáticamente cuando te incapaciten\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Knockback",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_KnockbackEffect \"Añadir extra Empujón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageWithMutation",
+      "name": "",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DmgWithMutation"
+        },
+        {
+          "base": "AbLegendary_DmgWithMutation_Description \"Mutante\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DmgWithMutation"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_HealthRegen",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbFortifyHealRateHideUI \"Reforzar velocidad de curación\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_HealthRegen"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistancesProportionalHealth",
+      "name": "Vanguardia",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalHealth"
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalHealth"
+        },
+        {
+          "base": "AbLegendaryArmor_ResistancesProportionalHealth_Description \"Vanguardia\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalHealth"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Sneak",
+      "name": "Sigilo",
+      "effects": [
+        {
+          "base": "Legendary_SneakEffect \"Mejorar sigilo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ReducedLimbDamage",
+      "name": "Daño a las extremidades reducido",
+      "effects": [
+        {
+          "base": "Legendary_ReducedLimbDamageEffect \"Daño a las extremidades reducido\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ReflectProjectiles",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_ReflectProjectileEffect \"Devolver proyectiles\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "CUT_ench_LegendaryWeapon_MeleeSpeed",
+      "name": "Daño por la noche",
+      "effects": [
+        {
+          "base": "abPerkFortifyDmgAll \"Reforzar todo el daño\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "abPerkFortifyDmgAll \"Reforzar todo el daño\"",
+          "magnitude": 75.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "abPerkFortifyDmgAll \"Reforzar todo el daño\"",
+          "magnitude": 100.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_BlockFrenzies",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_OnBlockFrenzyEffect \"Bloquear con éxito causa Frenesí a los enemigos\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Glutton",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_GluttonAddPerk \"Añadir extra Glotonería\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Armor_GluttonAddPerkGhoulDescription \"Descripción del extra Glotonería para necrófago\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_LastShot",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_LastShotAddPerk \"Añadir extra Último disparo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Weapon_LastShotRollAddPerk \"Añadir extra Tirada de Último disparo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Gourmand",
+      "name": "",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_Gourmand"
+        },
+        {
+          "base": "AbLegendary_Gourmand_Description \"Sibarita\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_Gourmand"
+        },
+        {
+          "base": "AbLegendary_Gourmand_Ghoul_Description \"Sibarita\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_Gourmand"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Durability",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_DurabilityAddPerk \"Añadir extra de durabilidad\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddDamageViaHealth",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DamageViaHealth_Description \"Mastodonte\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaHealth"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaHealth"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddDamageViaCaps",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_DamageViaCaps_Description \"Aristócrata\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_IncreaseHealing",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_IncreaseHealingEffect \"Añadir extra LegendaryIncreaseHealingPerk\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_RadsRegen",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbPerkFortifyRadsRate \"Reforzar tasa de radiactividad\"",
+          "magnitude": 0.25,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_RadsRegen"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Overeater",
+      "name": "Insaciable",
+      "effects": [
+        {
+          "base": "Legendary_Armor_OvereaterAddValue \"Añadir extra legendario Insaciable\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLegendary_Overeater_Description \"Insaciable\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Overeater"
+        },
+        {
+          "base": "AbLegendary_Overeater_Ghoul_Description \"Insaciable\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Overeater"
+        },
+        {
+          "base": "AbPerkFortifyHealth \"Reforzar salud\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Overeater"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Steady",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_Steady_FortifyMeleeDamage \"Daño cuerpo a cuerpo\"",
+          "magnitude": 25.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddDamageViaCarryWeight",
+      "name": "",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DMGCarryWeight"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_BurningAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_BurningAdddPerk \"Añadir extra legendario En llamas\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLegendary_Burning_Description \"En llamas\"",
+          "magnitude": 0.0,
+          "duration": 3,
+          "curve": "CT_Legendary_Armor_BurningDmg"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_FrozenAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_FrozenAdddPerk \"Añadir extra legendario Gélido\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLegendary_Frozen_Description \"Gélido\"",
+          "magnitude": 0.0,
+          "duration": 4,
+          "curve": "CT_Legendary_Armor_FrozenDmg"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ElectrifiedAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_ElectrifiedAdddPerk \"Añadir extra legendario Electrificado\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLegendary_Electrified_Description \"Electrificador\"",
+          "magnitude": 0.0,
+          "duration": 3,
+          "curve": "CT_Legendary_Armor_ElectrifiedDmg"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ToxicAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_ToxicAdddPerk \"Añadir extra legendario Tóxico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLegendary_Toxic_Description \"Tóxico\"",
+          "magnitude": 0.0,
+          "duration": 7,
+          "curve": "CT_Legendary_Armor_ToxicDmg"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistancesProportionalCaps",
+      "name": "Aristócrata",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalCaps"
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalCaps"
+        },
+        {
+          "base": "AbLegendaryArmor_ResistancesProportionalCaps_Description \"Aristócrata\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistancesProportionalCaps"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_AddAPViaKill",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_APViaKillEffect \"Inercia\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistancesProportionalCarryWeight_ER",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistanceCarryWeight"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ResistancesProportionalCarryWeight_DR",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_ResistanceCarryWeight"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_CloakOnHit",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_CloakOnHitEffect \"Fantasmal\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Durability",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_DurabilityAddPerk \"Añadir extra de durabilidad\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_Durability",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_DurabilityAddPerk \"Añadir extra de durabilidad\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_CloakOnHit",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_CloakOnMeleeEffect \"Añadir extra LegendaryCloakOnMeleePerk\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Collectors",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_CollectorsAdddPerk \"Añadir extra legendario Coleccionismo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_AddElementalPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_AddElementalArmorPerk \"Añadir extra legendario Armadura elemental\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistCryo \"Reforzar resistencia a la criogenización\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistFire \"Reforzar resistencia al fuego\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistPoison \"Reforzar resistencia al veneno\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Elusive_RegainAP",
+      "name": "Restaurar puntos de acción",
+      "effects": [
+        {
+          "base": "Legendary_SpookedAPEffect \"Añadir extra de PA legendario Espeluznante\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Elusive",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_FortifyJumpHeight \"Aumento de la altura de salto\"",
+          "magnitude": 0.55,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Armor_FortifySprintAPCost \"Coste de PA por esprint reducido\"",
+          "magnitude": 10.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_MaxAP",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbPerkFortifyActionPoints \"Reforzar puntos de acción\"",
+          "magnitude": 15.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_IncreaseAllyResists",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_IncreaseAllyResistsAreaEffect \"Área de aumento de las resistencias de aliados/Efecto de ocultación\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_IncreaseAPRegen_Allies",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_IncreaseAPRegenAreaEffect \"Área de Revitalización/Efecto de ocultación\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_IncreaseAPRegen_Self",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbFortifyActionPointRateHidden \"Reforzar regeneración de puntos de acción\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Daredevils",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_FortifySprintAPCost \"Coste de PA por esprint reducido\"",
+          "magnitude": 10.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Headhunters",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_HeadhuntersAdddPerk \"Añadir extra legendario Cazarrecompensas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_ReduceEnemyResists",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_ReduceEnemyResistsAreaEffect \"Área de Agotamiento/Efecto de ocultación\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Armor_WeightJunk",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_WeightJunkAddPerk \"Añadir extra legendario Reducción de peso (chatarra)\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Armor_WeightWeapons",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_WeightWeaponsAddPerk \"Añadir extra legendario Reducción de peso (armas)\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Armor_WeightFoodDrinkChems",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_WeightFoodDrinkChemsAddPerk \"Añadir extra legendario Reducción de peso (comida y bebida)\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Armor_WeightFoodDrinkChemsDUPLICATE000",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_WeightFoodDrinkChemsAddPerkDUPLICATE000 \"Añadir extra legendario Reducción de peso (comida y bebida)\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Armor_WeightWeaponsDUPLICATE000",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_WeightWeaponsAddPerkDUPLICATE000 \"Añadir extra legendario Reducción de peso (armas)\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_DamageAddiction",
+      "name": "",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageAddiction"
+        },
+        {
+          "base": "AbDamageAddiction_Description \"Adictivo\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageAddiction"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Weapon_DamageFirstBlood",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbLegendary_Weapon_DamageFirstBlood \"Provocador\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Weapon_AccuracyNotInCombat",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbLegendary_Weapon_AccuracyNotInCombat \"Acechante\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Weapon_DmgConsecutiveHits",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbLegendary_Weapon_DmgConsecutiveHits \"Furioso\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "enchMod_Legendary_AmmoCapacityx4",
+      "name": "Capacidad de munición",
+      "effects": [
+        {
+          "base": "Mod_Legendary_AmmoCapacityx4 \"Capacidad de munición\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_RadioactivePowered",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_RadioActivePoweredApplyGainAPPerkEffect \"Aplicar efecto de PA de curación de intoxicación de Inspiración radiactiva de servoarmadura legendaria\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RadioactivePoweredApplyRADDrainPerkEffect \"Aplicar efecto de curación de intoxicación de Inspiración radiactiva de servoarmadura legendaria\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_LimitBreak",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_LimitBreakAddPerkEffect \"Añadir efecto del extra Rompelímites de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryPowerArmor_StaggerProof",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_PowerArmor_AddStaggerProofPerkEffect \"Añadir extra de servoarmadura legendaria Estabilizadora\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Fracturers",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_FracturersAddPerkEffect \"Añadir efecto de Rompehuesos de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryArmor_AeroFlight",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_BattleLoaders",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_BattleLoadersAddPerkEffect \"Añadir efecto del extra Cargador a tope de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 5,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Bully",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_BullyAddPerkEffect \"Añadir efecto del extra Bravucón de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryPowerArmor_AutoRepair",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_Propelling",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_PropellingApplyMoveSpeedPerkEffect \"Aplicar efecto de velocidad de movimiento de Propulsión de servoarmadura legendaria\"",
+          "magnitude": 5.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_PropellingApplySprintSpeedPerkEffect \"Aplicar efecto de velocidad de esprint de propulsión de servoarmadura legendaria\"",
+          "magnitude": 5.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Runner",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_RunnerApplyFortifySprintAPCostPerkEffect \"Aplicar efecto de coste de PA por esprint reducido de Torpedo de armadura legendaria\"",
+          "magnitude": 20.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_Reflective",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_ReflectiveAddPerkEffect \"Añadir efecto del extra Armadura reflectante de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Tanky",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_TankyAddPerkEffect \"Añadir efecto del extra Pétreo de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Polished",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_PolishedPerkApplyEffect \"Aplicar efecto de pulido de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_Polished_DMG"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_ComboBreaker",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_ComboBreakerAddPerkEffect \"Añadir efecto de Rompecombos de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryWeapon_Stunning",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Electricians_Stun",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_ElectriciansApplyStunPerkEffect \"Aplicar efecto aturdidor de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 3,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Miasma",
+      "name": "Miasma",
+      "effects": [
+        {
+          "base": "Legendary_Armor_MiasmaAddPerkEffect \"Miasma\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryArmor_Moneybags",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryArmor_Polished",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Pyromaniac",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_PyromaniacAddPerkEffect \"Añadir efecto de Pirómano de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_ChooChoo",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_ChooChooAddPerkEffect \"Chu, chu\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": "PainTrainBleedBonus"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_Scanners",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_ScannersAddPerkEffect \"Añadir efecto del extra Escáner de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryWeapon_SuperResilient",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Vipers",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_VipersAddPerkEffect \"Añadir efecto de Víbora de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Sawbones",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_SawbonesApplyHealPerkEffect \"Aplicar efecto de curación de matasanos de armadura legendaria\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Ranger",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_RangerApplyFortifyRangedDMGPerkEffect \"Aplicar efecto de refuerzo de todo el daño cuerpo a cuerpo de Ranger de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Bruiser",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Armor_BruiserApplyFortifyMeleeDMGPerkEffect \"Aplicar efecto de daño cuerpo a cuerpo reforzado de Matón de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryWeapon_Duelists",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Electricians_Explosion",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_ElectriciansAddPerkEffect \"Añadir efecto de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Weapon_ElectriciansAddPerkEffect \"Añadir efecto de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Weapon_ElectriciansAddPerkEffect \"Añadir efecto de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Weapon_ElectriciansAddPerkEffect \"Añadir efecto de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_Weapon_ElectriciansAddPerkEffect \"Añadir efecto de Electricista de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryWeapon_Toppers",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_PinPointers",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_PinPointersAddPerkEffect \"Añadir efecto de Localizador de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Conductors",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_ConductorsAddPerkEffect \"Añadir efecto de los extras de Conductor de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Pounders",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_PoundersAddPerkEffect \"Añadir efecto de Machacador de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Encirclers",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_EncirclersAddPerkEffect \"Añadir efecto de Liberador de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Fencers",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Weapon_FencersAddPerkEffect \"Añadir efecto de Agresor de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_RejuvenatorsCloak",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyCloakPerkEffect \"Aplicar efecto de ocultación de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 100.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_AegisCloak",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_AegisApplyCloakEffect \"Aplicar efecto de ocultación de Égida de servoarmadura legendaria\"",
+          "magnitude": 100.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "DEL_WIP4_ench_LegendaryPowerArmor_Stalwarts",
+      "name": "",
+      "effects": []
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_StalwartsCloak",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_StalwartsApplyCloakPerkEffect \"Aplicar efecto de ocultación de Incondicional de servoarmadura legendaria\"",
+          "magnitude": 100.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_RejuvenatorsPlayerAP",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerAPPerkEffect \"Aplicar efecto de PA de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerAPPerkEffect \"Aplicar efecto de PA de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerAPPerkEffect \"Aplicar efecto de PA de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 3.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerAPPerkEffect \"Aplicar efecto de PA de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerAPPerkEffect \"Aplicar efecto de PA de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 5.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_RejuvenatorsPlayerHP",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerHPPerkEffect \"Aplicar efecto de salud de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerHPPerkEffect \"Aplicar efecto de salud de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 2.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerHPPerkEffect \"Aplicar efecto de salud de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 3.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerHPPerkEffect \"Aplicar efecto de salud de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 4.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_RejuvenatorsApplyPlayerHPPerkEffect \"Aplicar efecto de salud de jugador de Rejuvenecedor de servoarmadura legendaria\"",
+          "magnitude": 5.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_StalwartsPlayerDurability",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_StalwartsApplyPlayerDurabilityEffect \"Aplicar efecto de durabilidad de jugador de Incondicional de servoarmadura legendario\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryPowerArmor_AegisPlayerResists",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_PowerArmor_AegisApplyPlayerEREffect \"Aplicar efecto de resistencia a la energía al jugador de Égida de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_AegisApplyPlayerDREffect \"Aplicar efecto de resistencia al daño al jugador de Égida de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_AegisApplyPlayerPREffect \"Aplicar efecto de resistencia al veneno al jugador de Égida de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_AegisApplyPlayerFREffect \"Aplicar efecto de resistencia al fuego al jugador de Égida de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Legendary_PowerArmor_AegisApplyPlayerCREffect \"Aplicar efecto de resistencia al hielo al jugador de Égida de servoarmadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Anti-AristocratDamageVsCaps",
+      "name": "Antiaristócrata",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 3.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 1000.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 1000.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        },
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 1000.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Weapon_DamageViaCaps"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Adrenal",
+      "name": "Suprarrenal",
+      "effects": [
+        {
+          "base": "AbPerkFortifyResistDamage \"Reforzar resistencia al daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Adrenal"
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Adrenal"
+        },
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_IncreaseFeralAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "BOUNTY_Legendary_Weapon_FeralAddPerk \"Añadir extra legendario Salvaje\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_MaxActionPointBonus",
+      "name": "Brío",
+      "effects": [
+        {
+          "base": "BOUNTY_FortifyActionPointLegendaryEffect \"Reforzar PA máx.\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_MaxHealthBonus",
+      "name": "Saludable",
+      "effects": [
+        {
+          "base": "BOUNTY_FortifyHealthLegendaryEffect \"Reforzar salud máxima\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_Snipers",
+      "name": "Francotirador",
+      "effects": [
+        {
+          "base": "abPerkFortifyDmgFar \"Reforzar daño a distancia\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_AbSnipers_Description \"Francotirador\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_Lucid",
+      "name": "",
+      "effects": [
+        {
+          "base": "abFortifyDamageAll \"Reforzar todo el daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "BOUNTY_CT_Legendary_Weapon_Lucid"
+        },
+        {
+          "base": "BOUNTY_AbLegendary_Lucid_Description \"Lucidez\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "BOUNTY_CT_Legendary_Weapon_Lucid"
+        },
+        {
+          "base": "BOUNTY_AbLegendary_Lucid_HumanWeapon_Description \"Lucidez\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "BOUNTY_CT_Legendary_Weapon_Lucid"
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_PickpocketAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "BOUNTY_Legendary_Weapon_PickPocketAddPerk \"Añadir extra legendario Carterista\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_AbLegendary_Weapon_PickPocket_Description \"Carterista\"",
+          "magnitude": 50.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_LucidAddPerk",
+      "name": "",
+      "effects": [
+        {
+          "base": "BOUNTY_Legendary_Armor_LucidAddPerk \"Añadir extra legendario Lucidez\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_AbLegendary_LucidArmor_Description \"Lucidez\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Lucid_Desc"
+        },
+        {
+          "base": "BOUNTY_AbLegendary_Lucid_Human_Description \"Lucidez\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Lucid_Desc"
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_Barbarian",
+      "name": "Bárbaro",
+      "effects": [
+        {
+          "base": "AbPerkFortifyStrength \"Reforzar Fuerza\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryArmor_Rebounders",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Armor_ReboundersAddPerkEffect \"Añadir efecto de los extras de Rebotadora de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryArmor_Crusaders",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Armor_CrusadersAddPerkEffect \"Añadir efecto de los extras de armadura legendaria Cruzado\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryArmor_Metabolic",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Armor_MetabolicAddPerkEffect \"Añadir efecto de los extras de armadura legendaria Metabólica\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryWeapon_Brutalists",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Weapon_BrutalistsAddPerkEffect \"Añadir efecto de Cachas de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryWeapon_Satiated",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Weapon_SatiatedPerkAddEffect \"Añadir efecto de Saciado de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "P62_Legendary_Weapon_SatiatedDescriptionEffect \"Añadir efecto de Saciado de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "P62_Legendary_Weapon_SatiatedGhoulDescriptionEffect \"Añadir efecto de Saciado de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryWeapon_SightSeers",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Weapon_SightSeersPerkAddEffect \"Añadir efecto de Mirón de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryWeapon_Ruiners",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_Weapon_RuinersPerkAddEffect \"Añadir efecto de Día de suerte de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryPowerArmor_OverLoaders_Stun",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_PowerArmor_ApplyOverLoadersStunEffect \"Aplicar efecto aturdidor de servoarmadura legendaria Sobrecarga\"",
+          "magnitude": 0.0,
+          "duration": 3,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryPowerArmor_OverLoaders_EMP",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_PowerArmor_AddOverLoadersPerkEffect \"Añadir extra de servoarmadura legendaria Sobrecarga\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryPowerArmor_Voltaic_Stun",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_PowerArmor_ApplyVoltaicStunEffect \"Aplicar efecto aturdidor de servoarmadura legendaria Voltaica\"",
+          "magnitude": 0.0,
+          "duration": 3,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "P62_ench_LegendaryPowerArmor_Voltaic_EMP",
+      "name": "",
+      "effects": [
+        {
+          "base": "P62_Legendary_PowerArmor_AddVoltaicScriptEffect \"Añadir efecto de secuencia de servoarmadura legendaria Voltaica\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryWeapon_GlowingAddPerk",
+      "name": "Resplandeciente",
+      "effects": [
+        {
+          "base": "BOUNTY_Legendary_Weapon_GlowingAddPerk \"Añadir extra legendario Resplandeciente\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_AbLegendary_Glowing_Human_Description \"Resplandeciente\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_AbLegendary_GlowingWeapon_Description \"Resplandeciente\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_Elementalist",
+      "name": "Elementalista",
+      "effects": [
+        {
+          "base": "BOUNTY_AbLegendary_Elemental_Description \"Elemental\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbFortifyResistCryo \"Reforzar resistencia a la criogenización\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistPoison \"Reforzar resistencia al veneno\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistEnergy \"Reforzar resistencia a la energía\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistFire \"Reforzar resistencia al fuego\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyResistRadiationExpose \"Reforzar resistencia a la radiación\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_Savage",
+      "name": "Salvaje",
+      "effects": [
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.01,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.02,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.03,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.04,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.05,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.06,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.07,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.08,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.09,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.1,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_Fierce",
+      "name": "Feroz",
+      "effects": [
+        {
+          "base": "AbPerkFortifyLimbDamageResistance \"Refuerzo de resistencia al daño a las extremidades\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BURN_ench_LegendaryWeapon_HealingSpearAddPerk",
+      "name": "Añadir extra Lanza curativa: ataque potente",
+      "effects": [
+        {
+          "base": "Burn_HealingSpearEffect_ME \"Añadir efecto de lanza curativa\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Burn_HealingSpearEffect_ME_BlockHeal \"Añadir efecto de Lanza curativa: bloqueo curativo\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "Burn_HealingSpearEffect_ME_PowerAttack \"Añadir efecto de Lanza curativa: ataque potente\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_Rushing",
+      "name": "Acelerón",
+      "effects": [
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_Rushing_RestoreActionPointsEffect \"Restaurar puntos de acción de Acelerón\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "BOUNTY_ench_LegendaryArmor_PainKiller",
+      "name": "Analgésico",
+      "effects": [
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "BOUNTY_PainKiller_RestoreHealthEffect \"Restaurar salud de Analgésico\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "HTO_ench_LegendaryArmor_Hauler",
+      "name": "Costalero",
+      "effects": [
+        {
+          "base": "AbPerkFortifyCarryWeight \"Reforzar capacidad de carga\"",
+          "magnitude": 30.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "HTO_ench_LegendaryWeapon_Satiated",
+      "name": "[Saciado]",
+      "effects": [
+        {
+          "base": "HTO_Legendary_Weapon_SatiatedPerkAddEffect \"Añadir efecto de Saciado de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "HTO_Legendary_Weapon_SatiatedDescriptionHuman \"[Saciado]\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "HTO_Legendary_Weapon_SatiatedDescriptionGhoul \"[Saciado]\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "HTO_ench_LegendaryArmor_Raging",
+      "name": "[Rabioso]",
+      "effects": [
+        {
+          "base": "HTO_Legendary_Armor_RagingPerkAddEffect \"Añadir efecto de Rabioso de armadura legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "HTO_ench_LegendaryArmor_Vector",
+      "name": "Vector",
+      "effects": [
+        {
+          "base": "abPerkFortifyVATSAccuracy \"Reforzar precisión con el V.A.T.S.\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "HTO_ench_LegendaryWeapon_Tarnished",
+      "name": "Golpeado",
+      "effects": [
+        {
+          "base": "HTO_Legendary_Weapon_TarnishedPerkApplyEffect \"Aplicar efecto de Golpeado de arma legendaria\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "HTO_CT_Legendary_Weapon_Tarnished_DMG"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Aristocrat_ReflectDamage",
+      "name": "",
+      "effects": [
+        {
+          "base": "Legendary_Aristocrat_ReflectiveEffect \"Reflejar daño\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": "CT_Legendary_Armor_Aristocrat01"
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryArmor_Heavyweight",
+      "name": "",
+      "effects": [
+        {
+          "base": "AbLegendary_Armor_Heavyweight \"Peso pesado\"",
+          "magnitude": 0.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "RA_ench_LegendaryWeapon_ThrillSeeker",
+      "name": "Amante de la adrenalina",
+      "effects": [
+        {
+          "base": "abEnableKillStreak \"Racha de bajas\"",
+          "magnitude": 1.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.03,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.06,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.09,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.12,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.15,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.18,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.21,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.24,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.27,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyMeleeSpeedEffect \"Reforzar velocidad cuerpo a cuerpo\"",
+          "magnitude": 0.3,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.03,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.06,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.09,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.12,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.15,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.18,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.21,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.24,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.27,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbPerkFortifyReloadSpeedMult \"Reforzar velocidad de recarga múltiple\"",
+          "magnitude": 0.3,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_LegendaryWeapon_Locked",
+      "name": "Francotirador",
+      "effects": [
+        {
+          "base": "abPerkFortifyDmgFar \"Reforzar daño a distancia\"",
+          "magnitude": 40.0,
+          "duration": 0,
+          "curve": null
+        },
+        {
+          "base": "AbLocked_Description \"Cerrado\"",
+          "magnitude": 40.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    },
+    {
+      "editor_id": "ench_Legendary_Divers",
+      "name": "Buzo",
+      "effects": [
+        {
+          "base": "abRestoreHealth \"Restablecer salud\"",
+          "magnitude": 3.0,
+          "duration": 0,
+          "curve": null
+        }
+      ]
+    }
+  ]
+}

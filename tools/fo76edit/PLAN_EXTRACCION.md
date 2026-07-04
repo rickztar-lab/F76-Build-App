@@ -20,12 +20,12 @@ nombres de campo: camina todos los elementos). Salida: `group_export.txt`.
 
 ## Tandas por prioridad
 
-### Tanda 1 — Alto valor, bajo riesgo (empezar aquí)
+### Tanda 1 — HECHA ✅
 
-| Grupo (nombre en el árbol) | Signatura | Para qué | Muestra para probar | Tamaño |
-|---|---|---|---|---|
-| Object Effect | ENCH | Verificar efectos legendarios de arma/armadura (hoy "IA-no verificado") → subir a GAME FILES | FormID `001F4425` (enchModArmorPenetration) | Medio |
-| Damage Type | DMGT | Definiciones de tipos de daño (físico/energía/fuego/cryo/veneno) — base del sistema de daño y del daño elemental | FormID `00060A82` (dtFire) | Chico |
+| Grupo | Signatura | Resultado |
+|---|---|---|
+| Damage Type | DMGT | `data_damage_types.json` — 7 tipos jugables mapeados a su resistencia (físico→DamageResist, fuego→FireResist, etc.). Confirma el modelo de resistencias de la app. |
+| Object Effect | ENCH | 175 efectos legendarios de jugador extraídos (`data_source/legendary_enchantments.json`). Hallazgo: la mecánica de nuestros efectos estrella (Bloodied, Anti-Armor, Vampire, Aristócrata, Junkie) quedó CONFIRMADA contra el ESM, pero el % exacto vive en Curve Tables externas (.ba2). Notas de confianza subidas de "IA-no verificado" a "mecánica GAME FILES-confirmada, número en curva pendiente". Efectos simples (ej. Bleed 5/5s) sí tienen magnitud plana verificada (48 de 175). |
 
 ### Tanda 2 — Alto valor, complejidad media
 
@@ -52,6 +52,9 @@ Tanda 3 y está marcada como fase propia en el roadmap.
 
 - **Curve Table (CURV)**: los datos reales no están en el ESM, apuntan a un
   JSON externo empaquetado en los `.ba2` (haría falta un extractor de BA2).
+  CONFIRMADO en Tanda 1: los % exactos de los efectos legendarios estrella
+  (Bloodied/Aristócrata/Junkie) y de varios daños elementales viven aquí. Si
+  algún día se extrae un BA2, se podrían completar esos números.
 - **Perk (PERK)**: los efectos numéricos viven en Spell/Magic Effect
   encadenados; mucha indirección para poco retorno vs. lo que ya tenemos.
 - **Weapon/Object Modification**: ya extraídos (armas + plantillas de mods).

@@ -1,0 +1,48 @@
+{
+  "trust_note_es": "Tipos de daño y su estadística de resistencia asociada, extraídos de SeventySix.esm (GAME FILES). Cada tipo de daño se compara contra su resistencia correspondiente (ej. Fuego → FireResist). Base del sistema de daño elemental y de la futura feature de daño-vs-enemigo.",
+  "trust_note_en": "Damage types and their associated resistance stat, extracted from SeventySix.esm (GAME FILES). Each damage type checks against its matching resistance (e.g. Fire → FireResist). Foundation for the elemental damage system and the future damage-vs-enemy feature.",
+  "types": [
+    {
+      "key": "dtPhysical",
+      "labelEs": "Físico",
+      "labelEn": "Physical",
+      "resist_stat": "DamageResist"
+    },
+    {
+      "key": "dtEnergy",
+      "labelEs": "Energía",
+      "labelEn": "Energy",
+      "resist_stat": "EnergyResist"
+    },
+    {
+      "key": "dtFire",
+      "labelEs": "Fuego",
+      "labelEn": "Fire",
+      "resist_stat": "FireResist"
+    },
+    {
+      "key": "dtCryo",
+      "labelEs": "Cryo",
+      "labelEn": "Cryo",
+      "resist_stat": "FrostResist"
+    },
+    {
+      "key": "dtPoison",
+      "labelEs": "Veneno",
+      "labelEn": "Poison",
+      "resist_stat": "PoisonResist"
+    },
+    {
+      "key": "dtElectrical",
+      "labelEs": "Eléctrico",
+      "labelEn": "Electrical",
+      "resist_stat": "ElectricResist"
+    },
+    {
+      "key": "dtRadiationExposure",
+      "labelEs": "Radiación",
+      "labelEn": "Radiation",
+      "resist_stat": "RadResistExposure"
+    }
+  ]
+}

@@ -60,15 +60,24 @@ siempre sin importar la pestaña activa.
   recomendación de perk legendaria **verificada textualmente en la wiki**
   (EN06 Guardian, Ultracite Terror); el resto son tips comunitarios marcados
   como tal, no verificados.
+- `data_weapon_damage.json` (90 armas): daño base + cadencia + tiers de
+  receptor, extraído del ESM con FO76Edit — **nivel GAME FILES, el más alto**.
+  Cruzado por editor_id. Las de daño-base-0 (energía/explosivo) van en
+  `base_not_representative` con mensaje honesto, no como "0". Alimenta el
+  panel de daño/DPS del arma seleccionada.
+- `data_damage_types.json` (7 tipos jugables): mapea cada tipo de daño a su
+  resistencia (físico→DamageResist, fuego→FireResist, etc.), extraído del
+  grupo Damage Type (DMGT) del ESM — GAME FILES. Confirma el modelo de
+  resistencias. Aún NO se inyecta en la app (base para futuras features de
+  daño elemental / daño-vs-enemigo); vive como dato listo para usar.
 - `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
-  **nivel de confianza más bajo que "WIKI"** — escrito desde el conocimiento
-  entrenado de Claude, no se pudo verificar en vivo porque
-  fallout.fandom.com, fextralife.com y fallout.wiki devolvieron 403 (bloqueo
-  anti-bot) en la sesión donde se creó. Nombres/mecánica general confiables,
-  sin números/porcentajes inventados a propósito, y sin efectos de 2da/3ra
-  estrella (lista mucho más larga, mayor riesgo de error). Marcado como tal
-  en la UI (`weaponLegendaryNote`). Si en el futuro se logra acceso a la
-  wiki, re-verificar y subir de nivel de confianza.
+  **mecánica VERIFICADA contra el ESM** (grupo Object Effect / ENCH): el
+  comportamiento coincide con los registros reales del juego. Lo que NO se
+  pudo extraer es el % exacto — para los efectos estrella vive en una Curve
+  Table (CURV) externa en los `.ba2`. Antes era "IA-no verificado"; ahora es
+  "mecánica GAME FILES-confirmada, número exacto pendiente (curva)". La
+  extracción cruda completa de los 175 efectos legendarios está preservada en
+  `data_source/legendary_enchantments.json`.
 - `data_legendary_armor_effects.json` (10): mismo nivel de confianza y mismo
   bloqueo de wiki que el archivo de arriba. Se usa para el efecto legendario
   opcional de cada una de las 5 piezas nombradas de Power Armor (Casco,
