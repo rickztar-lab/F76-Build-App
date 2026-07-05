@@ -1,0 +1,142 @@
+{
+  "trust_note_es": "Glosario de Actor Value Information (AVIF) del ESM — GAME FILES. El grupo completo tiene 3203 registros, la enorme mayoría son variables internas del motor (contadores de misión, flags de perks, temporizadores) sin relevancia para la app. Se extrajeron solo los 18 que sí importan: los 7 S.P.E.C.I.A.L. (con su descripción real del juego y rango 1-100 confirmado a nivel de Actor Value — el tope de 15 que se usa para gastar puntos al crear personaje es una regla de interfaz/gameplay, NO un límite del AVIF; esto confirma que el diseño de getEffectiveSpecial() de la app, que deja los stats derivados sin techo, es correcto), las 7 resistencias de daño usadas en data_damage_types.json, y Salud/Puntos de Acción/Capacidad de Carga. Las resistencias y estos 3 derivados no tienen descripción ni min/max reales en el AVIF (los campos vienen literalmente vacíos o como \"Min\"/\"Default\"): son Actor Values sin techo fijo, coherente con cómo ya las trata la app.",
+  "trust_note_en": "Actor Value Information (AVIF) glossary from the ESM — GAME FILES. The full group has 3203 records, the vast majority are internal engine variables (quest counters, perk flags, timers) with no relevance to this app. Only the 18 that matter were extracted: the 7 S.P.E.C.I.A.L. stats (with their real in-game description and a confirmed 1-100 range at the Actor Value level — the 15-point cap used for spending points at character creation is a UI/gameplay rule, NOT an AVIF limit; this confirms the app's getEffectiveSpecial() design, which leaves derived stats uncapped, is correct), the 7 damage resistances used in data_damage_types.json, and Health/Action Points/Carry Weight. The resistances and those 3 derived stats have no real description or min/max in the AVIF (the fields come back literally empty or as \"Min\"/\"Default\"): they're Actor Values with no fixed ceiling, consistent with how the app already treats them.",
+  "special": [
+    {
+      "key": "strength",
+      "name": "Strength",
+      "abbrev_es": "FUE",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Fuerza es una medida de tu poder físico bruto. Afecta a tu capacidad de carga y al daño de todos los ataques cuerpo a cuerpo.",
+      "desc_en_note": "Strength is a measure of your raw physical power. It affects your carry weight and the damage of all melee attacks. (Claude's translation of the ES game text, not verified official EN string.)"
+    },
+    {
+      "key": "perception",
+      "name": "Perception",
+      "abbrev_es": "PER",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Percepción afecta a tu conocimiento de la posición de los enemigos cercanos, tu capacidad para detectar movimientos sigilosos y la precisión con armas en V.A.T.S. Además, con 5 de PER es posible apuntar a las extremidades del enemigo y con 10 conoces las resistencias del objetivo al usar el V.A.T.S.",
+      "desc_en_note": "Perception affects your awareness of nearby enemies' positions, your ability to detect stealthy movement, and weapon accuracy in V.A.T.S. Also, with 5 PER you can target enemy limbs, and with 10 you know the target's resistances when using V.A.T.S. (Claude's translation, not verified official EN string.)"
+    },
+    {
+      "key": "endurance",
+      "name": "Endurance",
+      "abbrev_es": "RES",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Resistencia es una medida de tu aptitud física global. Afecta a tu salud total, al consumo de puntos de acción por esprintar y a tu resistencia a las enfermedades.",
+      "desc_en_note": "Endurance is a measure of your overall physical fitness. It affects your total health, Action Point cost while sprinting, and your disease resistance. (Claude's translation, not verified official EN string.)"
+    },
+    {
+      "key": "charisma",
+      "name": "Charisma",
+      "abbrev_es": "CAR",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "El Carisma es la capacidad para liderar y ayudar a otros. Permite compartir extras con más puntos y  afecta a las recompensas de las misiones grupales y a los precios al negociar.",
+      "desc_en_note": "Charisma is your ability to lead and help others. It lets you share more perk points and affects group quest rewards and trading prices. (Claude's translation, not verified official EN string.)"
+    },
+    {
+      "key": "intelligence",
+      "name": "Intelligence",
+      "abbrev_es": "INT",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Inteligencia mide la agudeza mental general y afecta a la capacidad de hackear, a la condición y la durabilidad de los objetos fabricados, y a lo que se obtiene al desguazar un objeto.",
+      "desc_en_note": "Intelligence measures your overall mental acuity and affects your hacking ability, the condition/durability of crafted items, and what you get from scrapping an item. (Claude's translation, not verified official EN string.)"
+    },
+    {
+      "key": "agility",
+      "name": "Agility",
+      "abbrev_es": "AGI",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Agilidad es una medida de tu sutileza y tus reflejos. Afecta a tus puntos de acción en V.A.T.S. y a tu capacidad para moverte furtivamente.",
+      "desc_en_note": "Agility is a measure of your finesse and reflexes. It affects your Action Points in V.A.T.S. and your ability to move stealthily. (Claude's translation, not verified official EN string.)"
+    },
+    {
+      "key": "luck",
+      "name": "Luck",
+      "abbrev_es": "SUE",
+      "min": 1.0,
+      "max": 100.0,
+      "desc_es": "La Suerte es una medida de tu buena fortuna y afecta a la velocidad de recarga de los impactos críticos, además de a la condición y durabilidad de los objetos que saquees.",
+      "desc_en_note": "Luck is a measure of your good fortune and affects the recharge speed of critical hits, as well as the condition/durability of items you loot. (Claude's translation, not verified official EN string.)"
+    }
+  ],
+  "damage_resistances": [
+    {
+      "key": "DamageResist",
+      "name_es": "Resistencia al daño",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "EnergyResist",
+      "name_es": "Resistencia a la energía",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "FireResist",
+      "name_es": "Resistencia al fuego",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "FrostResist",
+      "name_es": "Resistencia criogénica",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "PoisonResist",
+      "name_es": "Resistencia al veneno",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "ElectricResist",
+      "name_es": "Resistencia a la electricidad",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "RadResistExposure",
+      "name_es": "Resistencia a la radiación",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    },
+    {
+      "key": "RadResistIngestion",
+      "name_es": "Ingesta de radiación",
+      "has_fixed_max": false,
+      "note": "Sin DESC/ANAM/min-max reales en el AVIF (campos \"Min\"/\"Default\" literales, sin límite fijo) — confirma que es un Actor Value derivado sin techo, consistente con cómo la app ya trata las resistencias."
+    }
+  ],
+  "derived_stats": [
+    {
+      "key": "Health",
+      "name_es": "Salud",
+      "abbrev_es": "PS",
+      "has_fixed_max": false,
+      "note": "Sin DESC ni min/max fijo en el AVIF — valor derivado, no una constante plana."
+    },
+    {
+      "key": "ActionPoints",
+      "name_es": "Puntos de acción",
+      "abbrev_es": "PA",
+      "has_fixed_max": false,
+      "note": "Sin DESC ni min/max fijo en el AVIF — valor derivado, no una constante plana."
+    },
+    {
+      "key": "CarryWeight",
+      "name_es": "Capacidad de carga",
+      "abbrev_es": "Capacidad de carga",
+      "has_fixed_max": false,
+      "note": "Sin DESC ni min/max fijo en el AVIF — valor derivado, no una constante plana."
+    }
+  ]
+}

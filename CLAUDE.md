@@ -87,6 +87,19 @@ siempre sin importar la pestaña activa.
   registros) preservado en `data_source/ingestible_dump.txt`. Aún NO se
   inyecta en la app; vive como dato listo para usar (mismo estado que
   `data_damage_types.json`).
+- `data_avif_glossary.json`: glosario de Actor Value Information (AVIF) del
+  ESM — GAME FILES. El grupo completo tiene 3203 registros, casi todos
+  variables internas del motor sin relevancia; se extrajeron solo los 18
+  que importan: los 7 S.P.E.C.I.A.L. (con su descripción real del juego en
+  español + traducción de Claude marcada como no-oficial, y rango 1-100
+  confirmado a nivel de Actor Value), las 7 resistencias de daño de
+  `data_damage_types.json`, y Salud/Puntos de Acción/Capacidad de Carga.
+  Hallazgo clave: el AVIF confirma que el SPECIAL es 1-100 a nivel de Actor
+  Value (el tope de 15 al crear personaje es una regla de UI/gameplay, no
+  del AVIF) y que las resistencias no tienen techo fijo — ambos hechos
+  validan el diseño ya existente de `getEffectiveSpecial()` y del cálculo
+  de resistencias. Dump completo (3203 registros) preservado en
+  `data_source/avif_dump.txt`. Aún NO se inyecta en la app.
 - `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
   **mecánica VERIFICADA contra el ESM** (grupo Object Effect / ENCH): el
   comportamiento coincide con los registros reales del juego. Lo que NO se
