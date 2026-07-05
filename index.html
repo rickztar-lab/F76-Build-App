@@ -193,12 +193,44 @@ body::after{
   padding:16px 20px 20px;
   min-width:0;
 }
-@media (max-width:860px){
+@media (max-width:760px){
   .app-shell{grid-template-columns:1fr;}
-  .app-sidebar{border-right:none;border-bottom:1px solid var(--line);}
-  .app-sidebar-nav{flex-direction:row;flex-wrap:wrap;}
-  .sidebar-nav-item{width:auto;flex:1 1 auto;justify-content:center;}
-  .app-main{padding:14px 12px 16px;}
+  .app-sidebar{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    border-right:none;
+    border-bottom:1px solid var(--line);
+    gap:10px;
+  }
+  .app-sidebar-brand{border-bottom:none;padding:10px 12px;}
+  .app-sidebar-foot{
+    margin-top:0;padding:10px 12px;border-top:none;
+    display:flex;align-items:center;
+  }
+  .app-sidebar-foot .sub{display:none;}
+  .app-sidebar-nav{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:40;
+    flex-direction:row;
+    gap:0;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    background:var(--bg-sidebar);
+    border-top:1px solid var(--line);
+    box-shadow:0 -8px 20px rgba(0,0,0,0.4);
+  }
+  .sidebar-nav-item{
+    width:auto;flex:1 1 0;
+    flex-direction:column;
+    gap:3px;
+    padding:6px 2px;
+    font-size:10px;
+    min-height:44px;
+    justify-content:center;
+  }
+  .sidebar-nav-item .nav-label{font-size:9px;letter-spacing:0.5px;}
+  .app-main{padding:14px 12px calc(70px + env(safe-area-inset-bottom, 0px));}
 }
 .pipboy-tabs{
   display:flex;
@@ -362,7 +394,6 @@ header.top .sub{
   margin-bottom:4px;
 }
 @media (max-width:1100px){.special-columns{grid-template-columns:repeat(4,1fr);}}
-@media (max-width:640px){.special-columns{grid-template-columns:repeat(2,1fr);}}
 .sc-col{
   background:var(--bg-panel);
   padding:10px 8px;
@@ -372,6 +403,17 @@ header.top .sub{
   min-width:0;
 }
 .sc-head{display:flex;align-items:center;gap:7px;}
+.sc-chevron{display:none;}
+.sc-body{display:flex;flex-direction:column;gap:8px;}
+@media (max-width:760px){
+  .special-columns{grid-template-columns:1fr;gap:8px;background:transparent;border-radius:0;}
+  .sc-col{border:1px solid var(--line);border-radius:9px;}
+  .sc-head{cursor:pointer;}
+  .sc-chevron{display:inline-block;color:var(--text-dim-2);font-size:13px;}
+  .sc-body{display:none;}
+  .sc-col.col-open .sc-body{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+  .sc-col.col-open .sc-chevron{color:var(--green);}
+}
 .sc-badge{
   width:28px;height:28px;border-radius:7px;flex-shrink:0;
   background:var(--bg-sidebar);border:1px solid var(--line-2);
@@ -759,6 +801,11 @@ header.top .sub{
   padding:6px 8px;border-radius:7px;font-family:var(--font-mono);font-size:12px;
 }
 .gear-slot-body{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-soft);}
+@media (max-width:480px){
+  .gear-slot-head{flex-wrap:wrap;}
+  .gear-slot-head select{max-width:100%;flex-basis:100%;}
+  .mods-box .mb-grid{grid-template-columns:1fr;}
+}
 .custom-badge{
   font-size:8px;color:var(--amber);border:1px solid var(--amber-dim);
   padding:0 4px;border-radius:5px;margin-left:4px;
@@ -2379,27 +2426,37 @@ function renderSpecialPanel(){
             </div>`).join('')}</div>`;
     }
 
+    const colOpen = !!(state.specialColOpen && state.specialColOpen[s.key]);
     const col = document.createElement('div');
-    col.className = "sc-col";
+    col.className = "sc-col" + (colOpen ? " col-open" : "");
     col.innerHTML = `
-      <div class="sc-head">
+      <div class="sc-head" data-col-toggle="${s.key}">
         <div class="sc-badge${cards.length>0?' has-cards':''}">${s.letter}</div>
         <div class="sc-head-info">
           <div class="sc-name">${t.special[s.key]}</div>
           <div class="sc-value">${state.special[s.key]}</div>
         </div>
+        <span class="sc-chevron">${colOpen ? '▴' : '▾'}</span>
       </div>
-      <div class="stepper">
-        <button data-sp="${s.key}" data-d="-1">-</button>
-        <input type="text" readonly value="${state.special[s.key]}">
-        <button data-sp="${s.key}" data-d="1">+</button>
+      <div class="sc-body">
+        <div class="stepper">
+          <button data-sp="${s.key}" data-d="-1">-</button>
+          <input type="text" readonly value="${state.special[s.key]}">
+          <button data-sp="${s.key}" data-d="1">+</button>
+        </div>
+        <div class="sc-note${over?' over':''}">${spent}/${capped} pts ${over ? t.over : ''}${deltaBadge}</div>
+        <div class="sc-cards">${cardsHtml}</div>
+        <button class="sc-add-slot" data-add-toggle="${s.key}">${addOpen ? '−' : '+'}</button>
+        ${addListHtml}
       </div>
-      <div class="sc-note${over?' over':''}">${spent}/${capped} pts ${over ? t.over : ''}${deltaBadge}</div>
-      <div class="sc-cards">${cardsHtml}</div>
-      <button class="sc-add-slot" data-add-toggle="${s.key}">${addOpen ? '−' : '+'}</button>
-      ${addListHtml}
     `;
 
+    const colHead = col.querySelector('[data-col-toggle]');
+    colHead.addEventListener('click', ()=>{
+      state.specialColOpen = state.specialColOpen || {};
+      state.specialColOpen[s.key] = !state.specialColOpen[s.key];
+      renderAll();
+    });
     col.querySelectorAll('button[data-sp]').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         const key = btn.dataset.sp;
