@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>OVERSEER'S TERMINAL — Fallout 76 Build Planner</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#04120a">
@@ -2090,10 +2090,10 @@ function loadCustomWeapons(){
   }catch(e){}
   // seed with a verified example so the feature is discoverable
   const seed = [{name:"Elder's Mark", catKey:"pistol", energy:false, note:"SMG (Once in a Blue Moon)"}];
-  localStorage.setItem(CUSTOM_WEAPONS_KEY, JSON.stringify(seed));
+  try{ localStorage.setItem(CUSTOM_WEAPONS_KEY, JSON.stringify(seed)); }catch(e){}
   return seed;
 }
-function saveCustomWeapons(list){ localStorage.setItem(CUSTOM_WEAPONS_KEY, JSON.stringify(list)); }
+function saveCustomWeapons(list){ try{ localStorage.setItem(CUSTOM_WEAPONS_KEY, JSON.stringify(list)); }catch(e){} }
 function addCustomWeapon(name, catKey, energy){
   const list = loadCustomWeapons();
   list.push({name, catKey, energy});
@@ -3681,7 +3681,7 @@ const STORAGE_KEY = "fo76_builds_v1";
 function loadBuilds(){
   try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }catch(e){ return []; }
 }
-function saveBuilds(builds){ localStorage.setItem(STORAGE_KEY, JSON.stringify(builds)); }
+function saveBuilds(builds){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(builds)); }catch(e){} }
 function renderBuildsList(){
   const t = T();
   const builds = loadBuilds();
@@ -3861,7 +3861,7 @@ const ARMOR_SETS_STORAGE_KEY = "fo76_armor_sets_v1";
 function loadArmorSets(){
   try{ return JSON.parse(localStorage.getItem(ARMOR_SETS_STORAGE_KEY)) || []; }catch(e){ return []; }
 }
-function saveArmorSets(sets){ localStorage.setItem(ARMOR_SETS_STORAGE_KEY, JSON.stringify(sets)); }
+function saveArmorSets(sets){ try{ localStorage.setItem(ARMOR_SETS_STORAGE_KEY, JSON.stringify(sets)); }catch(e){} }
 
 function renderArmorSetsList(){
   const t = T();
