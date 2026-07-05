@@ -6,7 +6,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMADURA');
     await page.click('#usePowerArmorToggle');
     await page.waitForTimeout(200);
 
@@ -45,7 +45,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await (await page.$('button[data-act="load"]')).click();
     await page.waitForTimeout(300);
 
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMADURA');
     assert(await page.$eval('input[data-pa-piece="helmet"]', el => el.checked), 'casco persiste instalado');
     assert(await page.$eval('input[data-pa-piece="torso"]', el => el.checked), 'torso persiste instalado');
     assert(!(await page.$eval('input[data-pa-piece="rightArm"]', el => el.checked)), 'brazo derecho persiste NO instalado');

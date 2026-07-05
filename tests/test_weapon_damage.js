@@ -6,7 +6,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
 
     // --- Verificación matemática directa de la fórmula ---
     const math = await page.evaluate(() => {
@@ -46,7 +46,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await clickTab(page, 'DATA');
     await (await page.$('button[data-act="load"]')).click();
     await page.waitForTimeout(300);
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
     assert((await page.$eval('#weaponReceiverSelect', el => el.value)) === 'tier2',
       'el receptor Tier 2 persiste tras guardar/recargar/cargar');
 

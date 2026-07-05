@@ -5,7 +5,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
 
     assert(!!(await page.$('#weaponLoadoutBox')), 'el panel de loadout existe');
 
@@ -41,7 +41,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await (await page.$('button[data-act="load"]')).click();
     await page.waitForTimeout(300);
 
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
     const html = await page.$eval('#weaponLoadoutBox', el => el.innerHTML);
     assert(html.includes('Fat Man'), 'slot 0 (Fat Man) persiste tras recargar/cargar');
     assert(html.includes('10mm Pistol'), 'slot 1 (10mm Pistol) persiste tras recargar/cargar');

@@ -8,7 +8,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
 
     const before = await page.$eval('#rulesEngineBox', el => el.textContent);
     assert(before.trim().length > 0, 'sin arma: muestra nota de "elige un arma primero"');

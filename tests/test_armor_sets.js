@@ -5,7 +5,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMADURA');
 
     await page.selectOption('select[data-armor-slot="chest"]', 'arctic_marine');
     await page.waitForTimeout(150);

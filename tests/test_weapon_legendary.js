@@ -5,7 +5,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
 
 (async () => {
   await withPage(async (page) => {
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
 
     await page.fill('#weaponSearchInput', '10mm Pistol');
     await page.waitForTimeout(200);
@@ -37,7 +37,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await loadBtn.click();
     await page.waitForTimeout(300);
 
-    await clickTab(page, 'INV');
+    await clickTab(page, 'ARMAS');
     const restored = await page.$eval('#weaponLegendarySelect', el => el.value);
     assert(restored === 'anti_armor', 'el efecto legendario persiste tras guardar/recargar/cargar');
   });

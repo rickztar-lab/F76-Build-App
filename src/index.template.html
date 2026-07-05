@@ -1227,9 +1227,12 @@ footer{
       </div>
       <nav class="app-sidebar-nav" id="mainTabsNav">
         <button class="sidebar-nav-item" data-tab="stat"><span class="nav-dot"></span><span class="nav-label">STAT</span></button>
-        <button class="sidebar-nav-item" data-tab="inv"><span class="nav-dot"></span><span class="nav-label">INV</span></button>
-        <button class="sidebar-nav-item" data-tab="data"><span class="nav-dot"></span><span class="nav-label">DATA</span></button>
+        <button class="sidebar-nav-item" data-tab="mutations"><span class="nav-dot"></span><span class="nav-label">MUTACIONES</span></button>
+        <button class="sidebar-nav-item" data-tab="weapon"><span class="nav-dot"></span><span class="nav-label">ARMAS</span></button>
+        <button class="sidebar-nav-item" data-tab="armor"><span class="nav-dot"></span><span class="nav-label">ARMADURA</span></button>
+        <button class="sidebar-nav-item" data-tab="perkcards"><span class="nav-dot"></span><span class="nav-label">PERK CARDS</span></button>
         <button class="sidebar-nav-item" data-tab="perks"><span class="nav-dot"></span><span class="nav-label">PERKS</span></button>
+        <button class="sidebar-nav-item" data-tab="data"><span class="nav-dot"></span><span class="nav-label">DATA</span></button>
         <button class="sidebar-nav-item" data-tab="raid"><span class="nav-dot"></span><span class="nav-label">RAID</span></button>
       </nav>
       <div class="app-sidebar-foot">
@@ -1245,7 +1248,6 @@ footer{
       <div class="status-line" id="txt-status"></div>
 
       <div class="grid-layout">
-        <div>
           <div class="tab-panel-group" data-tabgroup="stat">
       <div class="panel">
         <h2 id="txt-h-charstate">ESTADO DEL PERSONAJE</h2>
@@ -1278,17 +1280,28 @@ footer{
       </div>
 
       <div class="panel">
-        <h2 id="txt-h-mutations">MUTACIONES</h2>
-        <div id="mutationsBox"></div>
-      </div>
-
-      <div class="panel">
         <h2 id="txt-h-liveeffects">EFECTOS ACTIVOS</h2>
         <div id="liveEffectsBox"></div>
       </div>
+
+      <div class="panel">
+        <h2 id="txt-h-legendary">PERKS LEGENDARIAS</h2>
+        <div class="save-row" style="margin-bottom:10px;">
+          <span id="txt-charlevel" style="font-size:11px;color:var(--text-dim);align-self:center;">Nivel:</span>
+          <input type="number" id="charLevelInput" value="50" min="1" max="1000" style="width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:7px;font-family:var(--font-mono);">
+        </div>
+        <div id="legendarySlots"></div>
+      </div>
       </div>
 
-      <div class="tab-panel-group" data-tabgroup="inv">
+      <div class="tab-panel-group" data-tabgroup="mutations">
+      <div class="panel">
+        <h2 id="txt-h-mutations">MUTACIONES</h2>
+        <div id="mutationsBox"></div>
+      </div>
+      </div>
+
+      <div class="tab-panel-group" data-tabgroup="weapon">
       <div class="panel">
         <h2 id="txt-h-weapon">FILTRO DE ARMA</h2>
         <div class="weapon-search-wrap">
@@ -1305,6 +1318,20 @@ footer{
         </label>
       </div>
 
+      <div class="panel">
+        <h2 id="txt-h-loadout">LOADOUT DE ARMAS (HASTA 5)</h2>
+        <p class="summary-empty" id="txt-loadout-note"></p>
+        <div id="weaponLoadoutBox"></div>
+      </div>
+
+      <div class="panel">
+        <h2 id="txt-h-rulesengine">MOTOR DE REGLAS: BUILD AUTOMÁTICA</h2>
+        <p class="summary-empty" id="txt-rulesengine-note"></p>
+        <div id="rulesEngineBox"></div>
+      </div>
+      </div>
+
+      <div class="tab-panel-group" data-tabgroup="armor">
       <div class="panel">
         <h2 id="txt-h-armor">ARMADURA</h2>
         <label class="toggle-row">
@@ -1325,17 +1352,29 @@ footer{
         <p class="empty-note" id="armorSetsEmptyNote"></p>
         <div id="armorSetsCompareBox"></div>
       </div>
-
-      <div class="panel">
-        <h2 id="txt-h-loadout">LOADOUT DE ARMAS (HASTA 5)</h2>
-        <p class="summary-empty" id="txt-loadout-note"></p>
-        <div id="weaponLoadoutBox"></div>
       </div>
 
+      <div class="tab-panel-group" data-tabgroup="perkcards">
       <div class="panel">
-        <h2 id="txt-h-rulesengine">MOTOR DE REGLAS: BUILD AUTOMÁTICA</h2>
-        <p class="summary-empty" id="txt-rulesengine-note"></p>
-        <div id="rulesEngineBox"></div>
+        <h2 id="txt-h-perks">PERK CARDS <span class="tag" id="perkCountTag">243</span></h2>
+        <div class="toolbar">
+          <input type="text" id="searchInput">
+        </div>
+        <div class="tabs" id="tabsRow"></div>
+        <div class="perk-count" id="perkCountLine"></div>
+        <div class="perk-grid" id="perkGrid"></div>
+      </div>
+      </div>
+
+      <div class="tab-panel-group" data-tabgroup="perks">
+      <div class="panel">
+        <h2 id="txt-h-equipped">CARTAS EQUIPADAS</h2>
+        <div id="equippedSummaryBox"></div>
+      </div>
+      <div class="panel">
+        <h2 id="txt-h-perkcoins">PERK COINS</h2>
+        <p class="summary-empty" id="txt-perkcoins-note"></p>
+        <div id="perkCoinsBox"></div>
       </div>
       </div>
 
@@ -1368,18 +1407,6 @@ footer{
       </div>
       </div>
 
-      <div class="tab-panel-group" data-tabgroup="perks">
-      <div class="panel">
-        <h2 id="txt-h-equipped">CARTAS EQUIPADAS</h2>
-        <div id="equippedSummaryBox"></div>
-      </div>
-      <div class="panel">
-        <h2 id="txt-h-perkcoins">PERK COINS</h2>
-        <p class="summary-empty" id="txt-perkcoins-note"></p>
-        <div id="perkCoinsBox"></div>
-      </div>
-      </div>
-
       <div class="tab-panel-group" data-tabgroup="raid">
       <div class="panel">
         <h2 id="txt-h-raid">GLEAMING DEPTHS</h2>
@@ -1387,30 +1414,7 @@ footer{
         <div id="raidEncountersBox"></div>
       </div>
       </div>
-    </div>
-
-    <div>
-      <div class="panel">
-        <h2 id="txt-h-legendary">PERKS LEGENDARIAS</h2>
-        <div class="save-row" style="margin-bottom:10px;">
-          <span id="txt-charlevel" style="font-size:11px;color:var(--text-dim);align-self:center;">Nivel:</span>
-          <input type="number" id="charLevelInput" value="50" min="1" max="1000" style="width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:7px;font-family:var(--font-mono);">
-        </div>
-        <div id="legendarySlots"></div>
       </div>
-
-      <div class="panel">
-        <h2 id="txt-h-perks">PERK CARDS <span class="tag" id="perkCountTag">243</span></h2>
-        <div class="toolbar">
-          <input type="text" id="searchInput">
-        </div>
-        <div class="tabs" id="tabsRow"></div>
-        <div class="perk-count" id="perkCountLine"></div>
-        <div class="perk-grid" id="perkGrid"></div>
-      </div>
-    </div>
-      </div>
-    </div>
   </div>
 
   <footer id="txt-footer"></footer>
@@ -1456,6 +1460,10 @@ const STRINGS = {
     defUnmodeledNote: "Sin fuente de datos verificada para Resistencia a Veneno, Resistencia a Fuego o Evasion Chance en ningún set — no modelado aún, mostrar un número aquí sería inventado.",
     defPaCryoNote: "El marco de Power Armor no tiene Cryo/Veneno/Fuego/Evasion desglosados por pieza todavía — no modelado.",
     tabPerks: "PERKS",
+    tabMutations: "MUTACIONES",
+    tabWeapon: "ARMAS",
+    tabArmor: "ARMADURA",
+    tabPerkCards: "PERK CARDS",
     hEquipped: "CARTAS EQUIPADAS",
     eqNoneNormal: "Sin perk cards normales equipadas.",
     eqNoneLegendary: "Sin perks legendarias equipadas.",
@@ -1641,6 +1649,10 @@ const STRINGS = {
     defUnmodeledNote: "No verified data source for Poison Resistance, Fire Resistance, or Evasion Chance on any set — not modeled yet, showing a number here would just be made up.",
     defPaCryoNote: "The Power Armor frame doesn't have Cryo/Poison/Fire/Evasion broken down per piece yet — not modeled.",
     tabPerks: "PERKS",
+    tabMutations: "MUTATIONS",
+    tabWeapon: "WEAPONS",
+    tabArmor: "ARMOR",
+    tabPerkCards: "PERK CARDS",
     hEquipped: "EQUIPPED CARDS",
     eqNoneNormal: "No normal perk cards equipped.",
     eqNoneLegendary: "No legendary perks equipped.",
@@ -3619,9 +3631,13 @@ function renderCharStatePanel(){
 
 function renderMainTabs(){
   const t = T();
+  const tabLabels = {
+    stat: t.tabStat, mutations: t.tabMutations, weapon: t.tabWeapon, armor: t.tabArmor,
+    perkcards: t.tabPerkCards, perks: t.tabPerks, data: t.tabData, raid: t.tabRaid
+  };
   document.querySelectorAll('.sidebar-nav-item').forEach(btn=>{
     const tabKey = btn.dataset.tab;
-    const label = tabKey === 'stat' ? t.tabStat : tabKey === 'inv' ? t.tabInv : tabKey === 'data' ? t.tabData : tabKey === 'perks' ? t.tabPerks : t.tabRaid;
+    const label = tabLabels[tabKey] || tabKey;
     const labelEl = btn.querySelector('.nav-label');
     if(labelEl) labelEl.textContent = label; else btn.textContent = label;
     btn.classList.toggle('active', state.activeMainTab === tabKey);
