@@ -25,8 +25,10 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     await r1[0].click();
     await page.waitForTimeout(200);
 
-    const mod0 = await page.$('input[data-mod="scope"][data-slot="0"]');
-    await mod0.click();
+    // The checkbox itself is visually hidden (chip pattern styles the label,
+    // not the native input) — click the label, like a real user would.
+    const mod0Label = await page.$('label.mod-chip:has(input[data-mod="scope"][data-slot="0"])');
+    await mod0Label.click();
     await (await page.$('select[data-slot-leg="0"]')).selectOption('bloodied');
     await page.waitForTimeout(200);
 
