@@ -389,6 +389,20 @@ body::after{
 }
 .derived-item .lbl{font-size:10px;color:var(--text-dim);letter-spacing:0.5px;}
 .derived-item .num{font-family:var(--font-display);font-size:24px;color:var(--amber);}
+.ov-buildbar{background:linear-gradient(180deg,rgba(90,224,122,0.05),transparent);}
+.ov-bb-meters{display:flex;gap:24px;margin-bottom:14px;flex-wrap:wrap;}
+.ov-meter{display:flex;align-items:center;gap:11px;min-width:260px;flex:1;}
+.ov-meter-l{font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--text-dim);}
+.ov-meter-track{flex:1;height:8px;border-radius:5px;border:1px solid var(--line-2);overflow:hidden;}
+.ov-meter-fill{height:100%;background:linear-gradient(90deg,var(--green-dim),var(--green));width:12%;transition:width .2s;}
+.ov-meter-v{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--green);}
+.ov-meter-v b{color:var(--green);}
+.ov-bb-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.ov-tile{background:var(--bg-card);border:1px solid var(--line);border-radius:9px;padding:10px 13px;display:flex;flex-direction:column;gap:2px;}
+.ov-tile-l{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;color:var(--text-dim-2);}
+.ov-tile-n{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.1;color:var(--text);}
+.ov-tile-n.amber{color:var(--amber);}
+@media(max-width:860px){.ov-bb-tiles{grid-template-columns:1fr 1fr;}}
 .toolbar{
   display:flex;
   gap:8px;
@@ -1249,14 +1263,21 @@ footer{
 
       <div class="grid-layout">
           <div class="tab-panel-group" data-tabgroup="stat">
-      <div class="panel">
-        <h2 id="txt-h-charstate">ESTADO DEL PERSONAJE</h2>
-        <div id="charStateBox"></div>
-      </div>
-
-      <div class="panel">
-        <h2 id="txt-h-summary">RESUMEN</h2>
-        <div id="statSummaryBox"></div>
+      <div class="panel ov-buildbar">
+        <div class="ov-bb-meters">
+          <div class="ov-meter">
+            <span class="ov-meter-l">SPECIAL</span>
+            <div class="ov-meter-track"><div class="ov-meter-fill" id="specialMeterFill"></div></div>
+            <span class="ov-meter-v"><b id="specialMeterUsed">7</b>/<span id="specialMeterMax">56</span></span>
+          </div>
+        </div>
+        <div class="ov-bb-tiles">
+          <div class="ov-tile"><span class="ov-tile-l" id="txt-hp">HIT POINTS</span><span class="ov-tile-n amber" id="statHP">--</span></div>
+          <div class="ov-tile"><span class="ov-tile-l" id="txt-ap">ACTION POINTS</span><span class="ov-tile-n amber" id="statAP">--</span></div>
+          <div class="ov-tile"><span class="ov-tile-l" id="txt-cw">CARRY WEIGHT</span><span class="ov-tile-n amber" id="statCW">--</span></div>
+          <div class="ov-tile"><span class="ov-tile-l" id="txt-dr">DMG RESIST</span><span class="ov-tile-n" id="statDR">0</span></div>
+          <div class="ov-tile"><span class="ov-tile-l" id="txt-xp">BONUS XP</span><span class="ov-tile-n" id="statXP">--</span></div>
+        </div>
       </div>
 
       <div class="panel">
@@ -1270,13 +1291,8 @@ footer{
       </div>
 
       <div class="panel">
-        <h2 id="txt-h-derived">STATS DERIVADOS</h2>
-        <div class="derived-grid">
-          <div class="derived-item"><div class="lbl" id="txt-hp">HIT POINTS</div><div class="num" id="statHP">--</div></div>
-          <div class="derived-item"><div class="lbl" id="txt-ap">ACTION POINTS</div><div class="num" id="statAP">--</div></div>
-          <div class="derived-item"><div class="lbl" id="txt-cw">CARRY WEIGHT</div><div class="num" id="statCW">--</div></div>
-          <div class="derived-item"><div class="lbl" id="txt-xp">BONUS XP</div><div class="num" id="statXP">--</div></div>
-        </div>
+        <h2 id="txt-h-charstate">ESTADO DEL PERSONAJE</h2>
+        <div id="charStateBox"></div>
       </div>
 
       <div class="panel">
@@ -1291,6 +1307,11 @@ footer{
           <input type="number" id="charLevelInput" value="50" min="1" max="1000" style="width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:7px;font-family:var(--font-mono);">
         </div>
         <div id="legendarySlots"></div>
+      </div>
+
+      <div class="panel">
+        <h2 id="txt-h-summary">RESISTENCIAS</h2>
+        <div id="statSummaryBox"></div>
       </div>
       </div>
 
@@ -1436,7 +1457,7 @@ const STRINGS = {
     phase: "FASE 1: S.P.E.C.I.A.L. + PERK CARDS + FILTRO DE ARMA",
     status: "DATOS: 243 PERK CARDS Y 151 ARMAS DE ARCHIVOS DEL JUEGO + 45 ARMAS EXTRA DEL WIKI (armas pesadas/escopetas/únicas) · NOMBRES Y DESCRIPCIONES DE CARTAS EN INGLÉS (texto oficial del juego)",
     hSpecial: "S.P.E.C.I.A.L.",
-    hSummary: "RESUMEN",
+    hSummary: "RESISTENCIAS",
     hCharState: "ESTADO DEL PERSONAJE",
     csHuman: "Humano", csGhoul: "Ghoul",
     csHpPercent: "HP actual", csWellFed: "Bien Alimentado", csWellHydrated: "Bien Hidratado",
@@ -1488,6 +1509,7 @@ const STRINGS = {
     scNoMoreCards: "Sin más cartas disponibles para este atributo.",
     hDerived: "STATS DERIVADOS",
     hp: "PUNTOS DE VIDA", ap: "PUNTOS DE ACCIÓN", cw: "CAPACIDAD DE CARGA", xp: "BONO DE XP",
+    dmgResist: "RESIST. DAÑO",
     hWeapon: "FILTRO DE ARMA",
     hArmor: "ARMADURA",
     armorPlaceholder: "Pendiente — Fase 4 del roadmap.",
@@ -1625,7 +1647,7 @@ const STRINGS = {
     phase: "PHASE 1: S.P.E.C.I.A.L. + PERK CARDS + WEAPON FILTER",
     status: "DATA: 243 PERK CARDS AND 151 WEAPONS FROM GAME FILES + 45 EXTRA WEAPONS FROM WIKI (heavy guns/shotguns/uniques) · CARD NAMES/DESCRIPTIONS IN ENGLISH (official game text)",
     hSpecial: "S.P.E.C.I.A.L.",
-    hSummary: "SUMMARY",
+    hSummary: "RESISTANCES",
     hCharState: "CHARACTER STATE",
     csHuman: "Human", csGhoul: "Ghoul",
     csHpPercent: "Current HP", csWellFed: "Well Fed", csWellHydrated: "Well Hydrated",
@@ -1678,6 +1700,7 @@ const STRINGS = {
     scNoMoreCards: "No more cards available for this attribute.",
     hDerived: "DERIVED STATS",
     hp: "HIT POINTS", ap: "ACTION POINTS", cw: "CARRY WEIGHT", xp: "BONUS XP",
+    dmgResist: "DMG RESIST",
     hWeapon: "WEAPON FILTER",
     hArmor: "ARMOR",
     armorPlaceholder: "Pending — Roadmap Phase 4.",
@@ -2166,10 +2189,10 @@ function renderStaticText(){
   document.getElementById('txt-total').textContent = t.total;
   document.getElementById('txt-alloc').textContent = t.alloc;
   document.getElementById('txt-free').textContent = t.free;
-  document.getElementById('txt-h-derived').textContent = t.hDerived;
   document.getElementById('txt-hp').textContent = t.hp;
   document.getElementById('txt-ap').textContent = t.ap;
   document.getElementById('txt-cw').textContent = t.cw;
+  document.getElementById('txt-dr').textContent = t.dmgResist;
   document.getElementById('txt-xp').textContent = t.xp;
   document.getElementById('txt-h-weapon').textContent = t.hWeapon;
   document.getElementById('weaponSearchInput').placeholder = t.weaponPlaceholder;
@@ -2381,6 +2404,15 @@ function renderSpecialPanel(){
   remEl.className = "val" + (remaining < 0 ? " over":"");
   document.getElementById('poolTag').textContent = state.pool + " " + t.pts;
   document.getElementById('txt-h-special').innerHTML = t.hSpecial + ' <span class="tag" id="poolTag">' + state.pool + ' ' + t.pts + '</span>';
+
+  // Feed the build bar's SPECIAL meter (same allocated/pool numbers, no new
+  // calculation).
+  const meterFill = document.getElementById('specialMeterFill');
+  const meterUsed = document.getElementById('specialMeterUsed');
+  const meterMax  = document.getElementById('specialMeterMax');
+  if(meterFill){ meterFill.style.width = Math.min(100, (allocated/state.pool)*100) + '%'; }
+  if(meterUsed){ meterUsed.textContent = allocated; }
+  if(meterMax){ meterMax.textContent = state.pool; }
 
   renderDerived();
 }
@@ -3227,43 +3259,12 @@ document.getElementById('charLevelInput').addEventListener('change', (e)=>{
 function renderStatSummary(){
   const t = T();
   document.getElementById('txt-h-summary').textContent = t.hSummary;
-  const eff = getEffectiveSpecial();
   const box = document.getElementById('statSummaryBox');
 
-  // Pip-Boy style SPECIAL list: icon + name + big value (matches the
-  // in-game STATUS > SPECIAL screen). Reuses the same SVG icons already
-  // defined for the perk cards, no new art.
-  let specialHtml = '<div class="pb-special-list">';
-  for(const s of SPECIAL_LIST){
-    const base = state.special[s.key];
-    const capped = eff[s.key].capped;
-    const diff = capped !== base;
-    specialHtml += `
-      <div class="pb-special-row">
-        <div class="pb-special-icon"><svg><use href="#ic-${s.key}"></use></svg></div>
-        <div class="pb-special-name">${t.special[s.key]}</div>
-        <div class="pb-special-val">${base}${diff ? `<span class="pb-eff">→ ${capped}</span>` : ''}</div>
-      </div>`;
-  }
-  specialHtml += '</div>';
-
-  // Status bar: HP / LEVEL / AP, styled like the in-game bottom bar.
-  // Reads straight from the DOM that renderDerived() already filled in
-  // (renderSpecialPanel -> renderDerived runs earlier in renderAll), so the
-  // HP/AP formula still lives in exactly one place.
-  const hpVal = document.getElementById('statHP').textContent;
-  const apVal = document.getElementById('statAP').textContent;
-  const statusBarHtml = `
-    <div class="pb-statusbar">
-      <span>HP ${hpVal}/${hpVal}</span>
-      <span>${t.summaryLevel} ${state.charLevel}</span>
-      <span>AP ${apVal}/${apVal}</span>
-    </div>
-  `;
-
   // Resistances (DEF): real numbers from the shared computeArmorResistances()
-  // (same source of truth the ARMOR tab uses — see renderArmorPanel), instead
-  // of the hardcoded zeros this used to show before armor was wired up here.
+  // (same source of truth the ARMOR tab uses — see renderArmorPanel). The
+  // SPECIAL list, status bar and derived-stat duplication that used to live
+  // here were removed: those now live in the build bar + the 7-column grid.
   const armorRes = computeArmorResistances();
   const defStatsHtml = armorRes.usingPA ? `
     <div class="pb-def-row">
@@ -3281,56 +3282,17 @@ function renderStatSummary(){
     </div>
     <div class="summary-empty">${t.defCryoNote}</div>
   `;
-  const defHtml = `
-    <div class="summary-sub">${t.summaryDef}</div>
+  box.innerHTML = `
     ${defStatsHtml}
     <div class="summary-empty">${t.defNote}</div>
     <div class="summary-sub">${t.defUnmodeledTitle}</div>
     <div class="summary-empty">${t.defUnmodeledNote}</div>
   `;
 
-  // Carry Weight / Bonus XP (kept, not part of the Pip-Boy SPECIAL screen
-  // itself but still useful at a glance)
-  const derivedHtml = `
-    <div class="summary-derived-grid">
-      <div class="summary-stat"><div class="ss-lbl">${t.cw}</div><div class="ss-val">${document.getElementById('statCW').textContent}</div></div>
-      <div class="summary-stat"><div class="ss-lbl">${t.xp}</div><div class="ss-val">${document.getElementById('statXP').textContent}</div></div>
-    </div>
-  `;
-
-  // Active mutations summary
-  let mutHtml = `<div class="summary-sub">${t.summaryMutationsActive}</div>`;
-  if(state.activeMutations.length === 0){
-    mutHtml += `<div class="summary-empty">${t.summaryNoneActive}</div>`;
-  } else {
-    mutHtml += '<div class="summary-list">';
-    for(const key of state.activeMutations){
-      const mut = MUTATIONS.find(m=>m.key===key);
-      if(!mut) continue;
-      const reducedTag = eff._extra.classFreakRank > 0 ? `<span class="sl-tag">(${t.summaryReducedTag} ${Math.round(eff._extra.reduction*100)}%)</span>` : '';
-      mutHtml += `<div class="sl-item">▲▼ ${mut.name}${reducedTag}</div>`;
-    }
-    mutHtml += '</div>';
-  }
-
-  // Equipped legendary perks summary
-  let legHtml = `<div class="summary-sub">${t.summaryLegendaryEquipped}</div>`;
-  const equipped = state.legendaryPerks.filter(Boolean);
-  if(equipped.length === 0){
-    legHtml += `<div class="summary-empty">${t.summaryNoneEquipped}</div>`;
-  } else {
-    legHtml += '<div class="summary-list">';
-    for(const lp of equipped){
-      legHtml += `<div class="sl-item">${lp.name} — ${t.rank} ${lp.rank}/4</div>`;
-    }
-    legHtml += '</div>';
-  }
-
-  // Legendary slot count (level itself now lives in the status bar above)
-  const slotsUnlocked = LEGENDARY_SLOT_LEVELS.filter(lvl => state.charLevel >= lvl).length;
-  const levelHtml = `<div class="summary-sub">${t.summarySlots(slotsUnlocked, LEGENDARY_SLOT_LEVELS.length)}</div>`;
-
-  box.innerHTML = specialHtml + statusBarHtml + defHtml + derivedHtml + levelHtml + mutHtml + legHtml;
+  // Feed the build bar's DMG RESIST tile (physical DR: flat DR/ER under PA,
+  // else the summed armor DR). Same source, one place.
+  const drTile = document.getElementById('statDR');
+  if(drTile){ drTile.textContent = armorRes.usingPA ? armorRes.flatDrEr : armorRes.dr; }
 }
 
 function renderEquippedSummary(){
@@ -3615,10 +3577,17 @@ function renderCharStatePanel(){
       renderAll();
     });
   });
-  document.getElementById('csHpSlider').addEventListener('input', (e)=>{
-    state.charState.hpPercent = parseInt(e.target.value);
-    renderAll();
+  const hpSlider = document.getElementById('csHpSlider');
+  // While dragging: only state + label + derived stats (do NOT rebuild the
+  // panel, which would recreate the slider mid-drag and reset the thumb).
+  hpSlider.addEventListener('input', (e)=>{
+    state.charState.hpPercent = parseInt(e.target.value, 10);
+    const lbl = hpSlider.closest('.cs-slider-row').querySelector('.cs-val');
+    if(lbl) lbl.textContent = state.charState.hpPercent + '%';
+    if(typeof renderDerived === 'function') renderDerived();
   });
+  // On release: full render once (persistence, resistances, etc.).
+  hpSlider.addEventListener('change', ()=>{ renderAll(); });
   document.getElementById('csAddictionsInput').addEventListener('change', (e)=>{
     state.charState.addictions = Math.max(0, parseInt(e.target.value) || 0);
     renderAll();
