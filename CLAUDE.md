@@ -100,6 +100,15 @@ siempre sin importar la pestaña activa.
   validan el diseño ya existente de `getEffectiveSpecial()` y del cálculo
   de resistencias. Dump completo (3203 registros) preservado en
   `data_source/avif_dump.txt`. Aún NO se inyecta en la app.
+- `data_leveling_curve.json`: curva de nivel/SPECIAL/cartas — nivel WIKI (no
+  viene del ESM, es regla de juego estable cruzada en fallout.wiki y
+  fallout.fandom.com). Confirma: 7 SPECIAL al empezar (1 c/u), +1 punto
+  libre por nivel del 2 al 50 (49 puntos → 56 total), tope base de 15 por
+  stat (coincide con `getEffectiveSpecial()`), 1 carta a elección por nivel
+  + Perk Packs de 4 cartas en niveles 4/6/8/10 y cada 5 niveles después,
+  fórmula de Perk Coins al escrapear (2×rango, ya modelada). Preparado para
+  la futura funcionalidad de "orden óptimo de gasto por nivel" (estilo
+  nukesdragons.com); aún NO se inyecta en la app.
 - `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
   **mecánica VERIFICADA contra el ESM** (grupo Object Effect / ENCH): el
   comportamiento coincide con los registros reales del juego. Lo que NO se

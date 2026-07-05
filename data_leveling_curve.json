@@ -1,0 +1,38 @@
+{
+  "trust_note_es": "Curva de nivel/SPECIAL/cartas de Fallout 76. Nivel de confianza WIKI (no viene del ESM: es una regla de juego estable, documentada igual en fallout.wiki y fallout.fandom.com, sin cambios reportados en años — bajo riesgo de estar desactualizada, pero no es GAME FILES). Se guarda lista para usar en la futura funcionalidad de 'orden óptimo de gasto de puntos por nivel' (estilo nukesdragons.com), que se retoma después del rediseño visual del proyecto.",
+  "trust_note_en": "Fallout 76 level/SPECIAL/perk-card curve. WIKI trust tier (not from the ESM: it's a stable game rule, documented the same way on fallout.wiki and fallout.fandom.com, with no reported changes in years — low risk of being outdated, but not GAME FILES tier). Saved ready to use for the future 'optimal level-by-level point spending order' feature (nukesdragons.com style), to be picked up after the project's visual redesign.",
+  "special_points": {
+    "starting_total": 7,
+    "starting_note_es": "1 punto en cada uno de los 7 SPECIAL al empezar.",
+    "starting_note_en": "1 point in each of the 7 SPECIAL stats at the start.",
+    "per_level_gain": 1,
+    "gain_from_level": 2,
+    "gain_until_level": 50,
+    "total_points_gained_2_to_50": 49,
+    "total_at_level_50": 56,
+    "max_per_stat_base": 15,
+    "note_es": "Después del nivel 50 no se ganan más puntos SPECIAL automáticos por subir de nivel. El tope de 15 por stat es la base; solo se supera con Legendary SPECIAL Perks (sistema de nivel 50+, ranura nueva en niveles 50/75/100/150/200/300) o bonos temporales (mutación, bobblehead). Esto coincide con cómo ya trata la app el límite de 15 para gasto de cartas en getEffectiveSpecial().",
+    "note_en": "After level 50 no more automatic SPECIAL points are gained from leveling up. The 15-per-stat cap is the base; it's only exceeded via Legendary SPECIAL Perks (level 50+ system, new slot at levels 50/75/100/150/200/300) or temporary bonuses (mutation, bobblehead). This matches how the app already treats the 15 cap for card-spending in getEffectiveSpecial()."
+  },
+  "perk_cards": {
+    "free_card_choice_per_level_from": 2,
+    "perk_pack_levels": [4, 6, 8, 10],
+    "perk_pack_levels_note_es": "Después del nivel 10, un Perk Pack más cada 5 niveles (15, 20, 25, ...).",
+    "perk_pack_levels_note_en": "After level 10, one more Perk Pack every 5 levels (15, 20, 25, ...).",
+    "perk_pack_card_count": 4,
+    "note_es": "El Perk Pack da cartas random al inventario; el jugador decide después cuáles equipar, sujeto a los puntos SPECIAL libres en ese atributo. Subir el rango de una carta se hace combinando 2 copias idénticas del rango anterior (no consume puntos SPECIAL extra más allá del costo de equipar la carta, ya modelado en data_perks.json).",
+    "note_en": "The Perk Pack gives random cards to inventory; the player decides afterward which ones to equip, subject to free SPECIAL points in that attribute. Ranking up a card is done by combining 2 identical copies of the previous rank (doesn't consume extra SPECIAL points beyond the card's equip cost, already modeled in data_perks.json)."
+  },
+  "perk_coins": {
+    "scrap_formula": "2 monedas por rango de la carta escrapeada (rango 1 = 2, rango 3 = 6, etc.)",
+    "note_es": "Moneda separada del sistema de puntos SPECIAL; se usa para comprar Perk Packs al Purveyor Murmrgh. Ya modelada en la Calculadora de costo en Perk Coins de la app — no requiere cambios.",
+    "note_en": "A currency separate from the SPECIAL point system; used to buy Perk Packs from the Purveyor Murmrgh. Already modeled in the app's Perk Coin cost calculator — no changes needed."
+  },
+  "sources": [
+    "https://fallout.wiki/wiki/Fallout_76_SPECIAL",
+    "https://fallout.fandom.com/wiki/Fallout_76_SPECIAL",
+    "https://fallout.fandom.com/wiki/Fallout_76_perks",
+    "https://fallout.wiki/wiki/Perk_Card_Pack",
+    "https://fallout.fandom.com/wiki/Perk_coin"
+  ]
+}
