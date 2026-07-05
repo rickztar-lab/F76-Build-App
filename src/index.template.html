@@ -9,22 +9,31 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg: #060907;
-  --bg-panel: #0b120d;
-  --bg-card: #0e1710;
-  --line: #1f3626;
-  --green: #4fd868;
-  --green-dim: #2c7a3d;
-  --green-glow: rgba(79,216,104,0.35);
-  --amber: #ffb000;
+  --bg: #05080a;
+  --bg-panel: #080d0a;
+  --bg-sidebar: #0a1109;
+  --bg-card: #0c1310;
+  --bg-card-equipped: #0e1710;
+  --line: #1a2c21;
+  --line-soft: #14231a;
+  --line-2: #21362a;
+  --green: #5ae07a;
+  --green-dim: #2f8f48;
+  --green-glow: rgba(90,224,122,0.35);
+  --amber: #ffc043;
   --amber-dim: #8a6100;
-  --red: #ff4d4d;
-  --text: #d8f5df;
-  --text-dim: #7fa889;
-  --font-display: 'VT323', monospace;
+  --amber-bg: #140f04;
+  --red: #ff6a6a;
+  --red-border: #5a2222;
+  --text: #e4f6e9;
+  --text-dim: #8fae98;
+  --text-dim-2: #5f7d69;
+  --text-dim-3: #3f5748;
+  --font-display: 'Chakra Petch', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 *{box-sizing:border-box;}
@@ -46,22 +55,22 @@ body::before{
     to bottom,
     rgba(0,0,0,0) 0px,
     rgba(0,0,0,0) 2px,
-    rgba(0,0,0,0.16) 3px
+    rgba(0,0,0,0.05) 3px
   );
   z-index:50;
-  opacity:0.65;
+  opacity:0.5;
   animation: scanline-flicker 6s infinite steps(2);
 }
 @keyframes scanline-flicker{
-  0%,100%{opacity:0.65;}
-  50%{opacity:0.5;}
+  0%,100%{opacity:0.5;}
+  50%{opacity:0.38;}
 }
 body::after{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  background:radial-gradient(ellipse at center, rgba(79,216,104,0.06) 0%, rgba(0,0,0,0.5) 100%);
+  background:radial-gradient(ellipse at center, rgba(90,224,122,0.05) 0%, rgba(0,0,0,0.5) 100%);
   z-index:49;
 }
 .pipboy-frame{
@@ -85,7 +94,7 @@ body::after{
   justify-content:space-between;
   border:1px solid var(--line);
   background:linear-gradient(180deg, rgba(79,216,104,0.06), transparent);
-  border-radius:4px;
+  border-radius:9px;
   padding:14px 18px;
   margin-bottom:10px;
   flex-wrap:wrap;
@@ -117,7 +126,7 @@ body::after{
   letter-spacing:3px;
   padding:9px 0 7px;
   cursor:pointer;
-  border-radius:6px 6px 0 0;
+  border-radius:9px 9px 0 0;
   transition:background .15s, color .15s;
 }
 .pipboy-tab-btn:hover{color:var(--green);}
@@ -139,7 +148,7 @@ body::after{
 header.top{
   border:1px solid var(--line);
   background:linear-gradient(180deg, rgba(79,216,104,0.06), transparent);
-  border-radius:4px;
+  border-radius:9px;
   padding:14px 18px;
   margin-bottom:16px;
   display:flex;
@@ -169,7 +178,7 @@ header.top .sub{
 .lang-toggle{
   display:flex;
   border:1px solid var(--green-dim);
-  border-radius:4px;
+  border-radius:9px;
   overflow:hidden;
 }
 .lang-toggle button{
@@ -206,7 +215,7 @@ header.top .sub{
 .panel{
   border:1px solid var(--line);
   background:var(--bg-panel);
-  border-radius:4px;
+  border-radius:9px;
   padding:16px;
   margin-bottom:16px;
 }
@@ -226,7 +235,7 @@ header.top .sub{
   color:var(--text-dim);
   border:1px solid var(--line);
   padding:2px 6px;
-  border-radius:3px;
+  border-radius:7px;
   letter-spacing:0.5px;
 }
 .special-row{
@@ -268,7 +277,7 @@ header.top .sub{
   color:var(--green);
   cursor:pointer;
   font-family:var(--font-mono);
-  border-radius:3px;
+  border-radius:7px;
   line-height:1;
 }
 .stepper button:hover{background:var(--green-dim);color:#000;}
@@ -294,7 +303,7 @@ header.top .sub{
 .points-summary .val.over{color:var(--red);}
 .points-summary input.pool{
   width:44px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);
-  font-family:var(--font-mono);text-align:center;border-radius:3px;
+  font-family:var(--font-mono);text-align:center;border-radius:7px;
 }
 .derived-grid{
   display:grid;
@@ -305,7 +314,7 @@ header.top .sub{
 .derived-item{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:3px;
+  border-radius:7px;
   padding:8px 10px;
 }
 .derived-item .lbl{font-size:10px;color:var(--text-dim);letter-spacing:0.5px;}
@@ -323,7 +332,7 @@ header.top .sub{
   border:1px solid var(--line);
   color:var(--text);
   padding:8px 10px;
-  border-radius:3px;
+  border-radius:7px;
   font-family:var(--font-mono);
   font-size:13px;
 }
@@ -341,7 +350,7 @@ header.top .sub{
   font-family:var(--font-mono);
   font-size:11px;
   letter-spacing:0.5px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
 }
 .tab-btn.active{
@@ -362,7 +371,7 @@ header.top .sub{
 .perk-card{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:5px;
+  border-radius:8px;
   padding:10px 12px;
   position:relative;
   transition:border-color .15s, opacity .15s;
@@ -412,7 +421,7 @@ header.top .sub{
   color:var(--bg);
   background:var(--amber);
   padding:1px 5px;
-  border-radius:2px;
+  border-radius:5px;
   letter-spacing:0.5px;
 }
 .perk-card .pc-special{
@@ -442,7 +451,7 @@ header.top .sub{
 .pip{
   width:12px;height:12px;
   border:1px solid var(--green-dim);
-  border-radius:2px;
+  border-radius:5px;
   cursor:pointer;
 }
 .pip.on{background:var(--green);border-color:var(--green);}
@@ -461,7 +470,7 @@ header.top .sub{
   background:#04120a;
   border:1px solid var(--green);
   box-shadow:0 0 14px rgba(0,0,0,0.6);
-  border-radius:4px;
+  border-radius:9px;
   padding:10px;
   font-size:10px;
   color:var(--text);
@@ -474,7 +483,7 @@ header.top .sub{
   border:1px solid var(--line);
   color:var(--text-dim);
   padding:1px 5px;
-  border-radius:2px;
+  border-radius:5px;
   font-size:9px;
 }
 .tooltip-box .tt-cat.weapon{color:var(--amber);border-color:var(--amber-dim);}
@@ -485,7 +494,7 @@ header.top .sub{
   left:0;right:0;
   background:#04120a;
   border:1px solid var(--green-dim);
-  border-radius:4px;
+  border-radius:9px;
   max-height:220px;
   overflow-y:auto;
   z-index:70;
@@ -505,7 +514,7 @@ header.top .sub{
   padding:8px 10px;
   background:var(--bg-card);
   border:1px solid var(--amber-dim);
-  border-radius:3px;
+  border-radius:7px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -518,7 +527,7 @@ header.top .sub{
   color:var(--red);
   font-size:10px;
   padding:3px 7px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
 }
 .toggle-row{
@@ -535,14 +544,14 @@ header.top .sub{
   padding:10px;
   background:var(--bg-card);
   border:1px solid var(--amber-dim);
-  border-radius:4px;
+  border-radius:9px;
   font-size:11px;
 }
 .no-match-box .nm-title{color:var(--amber);margin-bottom:6px;}
 .no-match-box .nm-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
 .no-match-box select{
   background:var(--bg);border:1px solid var(--line);color:var(--text);
-  font-family:var(--font-mono);font-size:11px;padding:5px 6px;border-radius:3px;
+  font-family:var(--font-mono);font-size:11px;padding:5px 6px;border-radius:7px;
 }
 .no-match-box label.energy-check{display:flex;align-items:center;gap:5px;color:var(--text-dim);}
 .mods-box{
@@ -550,7 +559,7 @@ header.top .sub{
   padding:8px 10px;
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:4px;
+  border-radius:9px;
 }
 .mods-box .mb-title{font-size:10px;color:var(--text-dim);letter-spacing:0.5px;margin-bottom:6px;}
 .mods-box .mb-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
@@ -561,25 +570,25 @@ header.top .sub{
 .mods-box .mb-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:6px;}
 .weapon-dmg-box{
   margin-top:10px;padding:8px 10px;background:var(--bg-card);
-  border:1px solid var(--green-dim);border-radius:4px;
+  border:1px solid var(--green-dim);border-radius:9px;
 }
 .weapon-dmg-box .wdmg-title{font-size:10px;color:var(--text-dim);letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
-.weapon-dmg-box .wdmg-badge{font-size:8px;color:var(--green);border:1px solid var(--green-dim);padding:0 4px;border-radius:2px;letter-spacing:0.5px;}
+.weapon-dmg-box .wdmg-badge{font-size:8px;color:var(--green);border:1px solid var(--green-dim);padding:0 4px;border-radius:5px;letter-spacing:0.5px;}
 .weapon-dmg-box .wdmg-row{font-size:13px;color:var(--text);margin-bottom:4px;}
 .weapon-dmg-box .wdmg-row b{color:var(--amber);font-size:15px;}
 .weapon-dmg-box .wdmg-sub{font-size:10px;color:var(--text-dim);}
 .weapon-dmg-box .wdmg-receiver{display:block;font-size:11px;color:var(--text);margin-top:8px;}
-.weapon-dmg-box .wdmg-receiver select{margin-top:3px;width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:5px;border-radius:3px;font-family:var(--font-mono);}
+.weapon-dmg-box .wdmg-receiver select{margin-top:3px;width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:5px;border-radius:7px;font-family:var(--font-mono);}
 .weapon-dmg-box .wdmg-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:6px;line-height:1.4;}
 .weapon-dmg-box .wdmg-none{font-size:10px;color:var(--text-dim);font-style:italic;}
 .custom-badge{
   font-size:8px;color:var(--amber);border:1px solid var(--amber-dim);
-  padding:0 4px;border-radius:2px;margin-left:4px;
+  padding:0 4px;border-radius:5px;margin-left:4px;
 }
 .leg-slot{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:4px;
+  border-radius:9px;
   padding:8px 10px;
   margin-bottom:8px;
 }
@@ -598,7 +607,7 @@ header.top .sub{
   border:1px solid var(--line);
   color:var(--text);
   padding:6px;
-  border-radius:3px;
+  border-radius:7px;
   font-family:var(--font-mono);
   font-size:11px;
   margin-bottom:6px;
@@ -613,7 +622,7 @@ header.top .sub{
 .leg-slot .ls-pip{
   width:16px;height:16px;
   border:1px solid var(--amber-dim);
-  border-radius:2px;
+  border-radius:5px;
   cursor:pointer;
   font-size:9px;
   color:var(--amber-dim);
@@ -623,7 +632,7 @@ header.top .sub{
 .mut-card{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:4px;
+  border-radius:9px;
   padding:8px 10px;
   margin-bottom:8px;
 }
@@ -651,7 +660,7 @@ header.top .sub{
 .summary-stat{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:4px;
+  border-radius:9px;
   padding:7px 9px;
 }
 .summary-stat .ss-lbl{font-size:9px;color:var(--text-dim);letter-spacing:0.5px;}
@@ -674,7 +683,7 @@ header.top .sub{
   display:flex;
   flex-direction:column;
   border:1px solid var(--green-dim);
-  border-radius:3px;
+  border-radius:7px;
   overflow:hidden;
   margin-bottom:12px;
 }
@@ -720,7 +729,7 @@ header.top .sub{
   justify-content:space-between;
   background:#04120a;
   border:1px solid var(--green-dim);
-  border-radius:3px;
+  border-radius:7px;
   padding:8px 14px;
   margin-bottom:12px;
   font-family:var(--font-display);
@@ -738,7 +747,7 @@ header.top .sub{
 .pb-def-stat{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:4px;
+  border-radius:9px;
   padding:7px 9px;
   text-align:center;
 }
@@ -771,7 +780,7 @@ header.top .sub{
   gap:8px;
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:3px;
+  border-radius:7px;
   padding:6px 8px;
 }
 .eq-card-item .eq-name{flex:1;font-size:12px;color:var(--text);}
@@ -783,7 +792,7 @@ header.top .sub{
   font-family:var(--font-mono);
   font-size:10px;
   width:20px;height:20px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
   line-height:1;
 }
@@ -802,7 +811,7 @@ header.top .sub{
   border:1px solid var(--line);
   color:var(--text);
   padding:6px;
-  border-radius:3px;
+  border-radius:7px;
   font-family:var(--font-mono);
   font-size:11px;
 }
@@ -820,15 +829,15 @@ header.top .sub{
   grid-template-columns:repeat(auto-fit,minmax(64px,1fr));
   gap:8px;
 }
-.armor-tag-verified{color:var(--green);font-size:8px;border:1px solid var(--green-dim);padding:0 4px;border-radius:2px;margin-left:4px;}
-.armor-tag-qual{color:var(--text-dim);font-size:8px;border:1px solid var(--line);padding:0 4px;border-radius:2px;margin-left:4px;}
+.armor-tag-verified{color:var(--green);font-size:8px;border:1px solid var(--green-dim);padding:0 4px;border-radius:5px;margin-left:4px;}
+.armor-tag-qual{color:var(--text-dim);font-size:8px;border:1px solid var(--line);padding:0 4px;border-radius:5px;margin-left:4px;}
 .build-compare-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
 .build-compare-grid .mods-box{flex:1 1 260px;}
 .pa-frame-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:6px;}
 .raid-card{
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:5px;
+  border-radius:8px;
   padding:10px 12px;
   margin-bottom:10px;
 }
@@ -855,7 +864,7 @@ header.top .sub{
   color:var(--amber);
   border:1px solid var(--amber-dim);
   padding:1px 5px;
-  border-radius:2px;
+  border-radius:5px;
 }
 .raid-card .rc-mechanic{
   font-size:11px;
@@ -886,7 +895,7 @@ header.top .sub{
   border:1px solid var(--amber-dim);
   color:var(--amber);
   padding:2px 6px;
-  border-radius:2px;
+  border-radius:5px;
 }
 .raid-card .rc-apply-btn{
   background:transparent;
@@ -895,7 +904,7 @@ header.top .sub{
   font-family:var(--font-mono);
   font-size:10px;
   padding:5px 10px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
 }
 .raid-card .rc-apply-btn:hover{background:var(--green-dim);color:#000;}
@@ -913,7 +922,7 @@ header.top .sub{
   font-family:var(--font-mono);
   font-size:11px;
   padding:8px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
   text-align:left;
 }
@@ -930,11 +939,11 @@ header.top .sub{
 .cs-number-row .cs-label{font-size:10px;color:var(--text-dim);}
 .cs-number-row input[type=number]{
   width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);
-  padding:6px;border-radius:3px;font-family:var(--font-mono);
+  padding:6px;border-radius:7px;font-family:var(--font-mono);
 }
 .ghoul-badge{
   font-size:8px;color:var(--bg);background:#7fd858;
-  padding:1px 5px;border-radius:2px;margin-left:4px;letter-spacing:0.5px;
+  padding:1px 5px;border-radius:5px;margin-left:4px;letter-spacing:0.5px;
 }
 .perk-card.ghoul-locked{opacity:0.4;}
 .mod-req-badge{
@@ -943,7 +952,7 @@ header.top .sub{
   margin-left:4px;
   font-size:9px;
   padding:1px 5px;
-  border-radius:2px;
+  border-radius:5px;
   letter-spacing:0.3px;
   border:1px solid var(--text-dim);
   color:var(--text-dim);
@@ -961,7 +970,7 @@ header.top .sub{
   align-items:center;
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:3px;
+  border-radius:7px;
   padding:7px 10px;
   font-size:12px;
 }
@@ -974,7 +983,7 @@ header.top .sub{
   font-family:var(--font-mono);
   font-size:10px;
   padding:4px 8px;
-  border-radius:3px;
+  border-radius:7px;
   cursor:pointer;
   letter-spacing:0.5px;
 }
@@ -992,7 +1001,7 @@ header.top .sub{
   border:1px solid var(--line);
   color:var(--text);
   padding:7px 10px;
-  border-radius:3px;
+  border-radius:7px;
   font-family:var(--font-mono);
   font-size:12px;
 }
@@ -1032,14 +1041,14 @@ header.top .sub{
   height:6px;
   background:var(--bg-card);
   border:1px solid var(--line);
-  border-radius:3px;
+  border-radius:7px;
   margin:0 6px;
 }
 .lp-fill{
   position:absolute;
   top:-1px; left:-1px; bottom:-1px;
   background:var(--green-dim);
-  border-radius:3px 0 0 3px;
+  border-radius:7px 0 0 7px;
 }
 .lp-cursor{
   position:absolute;
@@ -1287,7 +1296,7 @@ footer{
         <h2 id="txt-h-legendary">PERKS LEGENDARIAS</h2>
         <div class="save-row" style="margin-bottom:10px;">
           <span id="txt-charlevel" style="font-size:11px;color:var(--text-dim);align-self:center;">Nivel:</span>
-          <input type="number" id="charLevelInput" value="50" min="1" max="1000" style="width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:3px;font-family:var(--font-mono);">
+          <input type="number" id="charLevelInput" value="50" min="1" max="1000" style="width:70px;background:var(--bg-card);border:1px solid var(--line);color:var(--amber);padding:6px;border-radius:7px;font-family:var(--font-mono);">
         </div>
         <div id="legendarySlots"></div>
       </div>
