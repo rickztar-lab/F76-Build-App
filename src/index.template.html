@@ -232,7 +232,7 @@ body::after{
 .wrap{
   position:relative;
   z-index:1;
-  max-width:1180px;
+  max-width:1440px;
   margin:0 auto;
   padding:18px 16px 60px;
 }
@@ -297,11 +297,8 @@ header.top .sub{
 }
 .grid-layout{
   display:grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 1fr;
   gap:16px;
-}
-@media (max-width:860px){
-  .grid-layout{grid-template-columns:1fr;}
 }
 .panel{
   border:1px solid var(--line);
@@ -355,6 +352,51 @@ header.top .sub{
   font-size:10px;
   margin-top:1px;
 }
+.special-columns{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:1px;
+  background:var(--line-soft);
+  border-radius:9px;
+  overflow:hidden;
+  margin-bottom:4px;
+}
+@media (max-width:1100px){.special-columns{grid-template-columns:repeat(4,1fr);}}
+@media (max-width:640px){.special-columns{grid-template-columns:repeat(2,1fr);}}
+.sc-col{
+  background:var(--bg-panel);
+  padding:10px 8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+}
+.sc-head{display:flex;align-items:center;gap:7px;}
+.sc-badge{
+  width:28px;height:28px;border-radius:7px;flex-shrink:0;
+  background:var(--bg-sidebar);border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--text-dim);
+}
+.sc-badge.has-cards{border-color:var(--green-dim);color:var(--green);}
+.sc-head-info{flex:1;min-width:0;}
+.sc-name{font-size:9px;letter-spacing:1px;color:var(--text-dim-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sc-value{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--text);line-height:1;}
+.sc-note{font-size:9px;color:var(--text-dim-2);}
+.sc-note.over{color:var(--red);}
+.sc-cards{display:flex;flex-direction:column;gap:6px;}
+.sc-card{border:1px solid var(--green-dim);border-radius:7px;padding:6px 7px;background:var(--bg-card-equipped);}
+.sc-card .sc-card-name{font-weight:700;font-size:11px;color:var(--text);line-height:1.25;}
+.sc-card .pips{margin-top:5px;}
+.sc-add-slot{border:1px dashed var(--line-2);border-radius:7px;padding:7px;text-align:center;color:var(--text-dim-3);font-size:13px;cursor:pointer;background:transparent;width:100%;font-family:var(--font-mono);}
+.sc-add-slot:hover{border-color:var(--green-dim);color:var(--green);}
+.sc-add-list{border:1px solid var(--line);border-radius:7px;background:var(--bg-card);max-height:220px;overflow-y:auto;}
+.sc-add-item{display:flex;flex-direction:column;gap:1px;padding:6px 8px;border-bottom:1px solid var(--line-soft);cursor:pointer;}
+.sc-add-item:last-child{border-bottom:none;}
+.sc-add-item:hover{background:var(--bg-sidebar);}
+.sc-add-item .aname{color:var(--text);font-weight:700;font-size:10px;}
+.sc-add-item .adesc{color:var(--text-dim-2);font-size:9px;margin-top:1px;}
+.sc-add-empty{padding:8px;font-size:10px;color:var(--text-dim-3);font-style:italic;}
 .stepper{
   display:flex;
   align-items:center;
@@ -1474,6 +1516,7 @@ const STRINGS = {
     weaponTipLabels: {rifle:"Rifle", pistol:"Pistola", heavy_gun:"Arma pesada", explosive:"Explosivos", melee:"Cuerpo a cuerpo", energy:"Energía"},
     enemyTypeLabels: {robot:"ROBOT", creature:"CRIATURA", human:"HUMANO", "creature-boss":"JEFE"},
     total: "Total:", alloc: "Asignado:", free: "Libre:", pts: "PTS", over: "⚠ EXCEDIDO",
+    scNoMoreCards: "Sin más cartas disponibles para este atributo.",
     hDerived: "STATS DERIVADOS",
     hp: "PUNTOS DE VIDA", ap: "PUNTOS DE ACCIÓN", cw: "CAPACIDAD DE CARGA", xp: "BONO DE XP",
     hWeapon: "FILTRO DE ARMA",
@@ -1659,6 +1702,7 @@ const STRINGS = {
     weaponTipLabels: {rifle:"Rifle", pistol:"Pistol", heavy_gun:"Heavy gun", explosive:"Explosives", melee:"Melee", energy:"Energy"},
     enemyTypeLabels: {robot:"ROBOT", creature:"CREATURE", human:"HUMAN", "creature-boss":"BOSS"},
     total: "Total:", alloc: "Allocated:", free: "Free:", pts: "PTS", over: "⚠ OVER BUDGET",
+    scNoMoreCards: "No more cards available for this attribute.",
     hDerived: "DERIVED STATS",
     hp: "HIT POINTS", ap: "ACTION POINTS", cw: "CARRY WEIGHT", xp: "BONUS XP",
     hWeapon: "WEAPON FILTER",
@@ -2242,7 +2286,18 @@ function renderSpecialPanel(){
   const eff = getEffectiveSpecial();
   const container = document.getElementById('specialRows');
   container.innerHTML = "";
+  container.className = "special-columns";
   let allocated = 0;
+
+  // Group equipped normal perk cards by SPECIAL (reads state.perkRanks,
+  // same source of truth renderEquippedSummary/renderGrid already use).
+  const groups = {};
+  for(const key of SPECIAL_LIST.map(s=>s.key)) groups[key] = [];
+  for(const p of PERKS){
+    const rank = state.perkRanks[p.name] || 0;
+    if(rank > 0) groups[p.special].push(p);
+  }
+
   for(const s of SPECIAL_LIST){
     allocated += state.special[s.key];
     const capped = eff[s.key].capped;
@@ -2252,19 +2307,89 @@ function renderSpecialPanel(){
     const deltaBadge = delta !== 0
       ? `<span style="color:${delta>0?'var(--green)':'var(--red)'};"> (${delta>0?'+':''}${delta} ${state.lang==='es'?'efectivo':'effective'})</span>`
       : '';
-    const row = document.createElement('div');
-    row.className = "special-row";
-    row.innerHTML = `
-      <div class="letter">${s.letter}</div>
-      <div class="name">${t.special[s.key]}<small>${spent}/${capped} pts ${over ? t.over : ''}${deltaBadge}</small></div>
+    const cards = groups[s.key];
+
+    let cardsHtml = '';
+    for(const p of cards){
+      const equipped = state.perkRanks[p.name] || 0;
+      let pipsHtml = "";
+      for(let i=1;i<=p.ranks.length;i++){
+        pipsHtml += `<div class="pip ${i<=equipped?'on':''}" data-perk="${p.name}" data-rank="${i}"></div>`;
+      }
+      cardsHtml += `<div class="sc-card"><div class="sc-card-name">${p.name}</div><div class="pips">${pipsHtml}</div></div>`;
+    }
+
+    const addOpen = !!(state.specialAddOpen && state.specialAddOpen[s.key]);
+    let addListHtml = '';
+    if(addOpen){
+      const equippedNames = new Set(cards.map(p=>p.name));
+      const available = PERKS.filter(p => p.special === s.key && !equippedNames.has(p.name)
+        && !(GHOUL_ONLY_PERKS.includes(p.name) && !state.charState.isGhoul));
+      addListHtml = available.length === 0
+        ? `<div class="sc-add-list"><div class="sc-add-empty">${t.scNoMoreCards}</div></div>`
+        : `<div class="sc-add-list">${available.map(p=>`
+            <div class="sc-add-item" data-add-perk="${p.name}">
+              <span class="aname">${p.name}</span>
+              <span class="adesc">${t.minLevel} ${p.min_level}</span>
+            </div>`).join('')}</div>`;
+    }
+
+    const col = document.createElement('div');
+    col.className = "sc-col";
+    col.innerHTML = `
+      <div class="sc-head">
+        <div class="sc-badge${cards.length>0?' has-cards':''}">${s.letter}</div>
+        <div class="sc-head-info">
+          <div class="sc-name">${t.special[s.key]}</div>
+          <div class="sc-value">${state.special[s.key]}</div>
+        </div>
+      </div>
       <div class="stepper">
         <button data-sp="${s.key}" data-d="-1">-</button>
         <input type="text" readonly value="${state.special[s.key]}">
         <button data-sp="${s.key}" data-d="1">+</button>
       </div>
+      <div class="sc-note${over?' over':''}">${spent}/${capped} pts ${over ? t.over : ''}${deltaBadge}</div>
+      <div class="sc-cards">${cardsHtml}</div>
+      <button class="sc-add-slot" data-add-toggle="${s.key}">${addOpen ? '−' : '+'}</button>
+      ${addListHtml}
     `;
-    if(over){ row.querySelector('small').style.color = 'var(--red)'; }
-    container.appendChild(row);
+
+    col.querySelectorAll('button[data-sp]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const key = btn.dataset.sp;
+        const d = parseInt(btn.dataset.d);
+        let v = state.special[key] + d;
+        if(v < 1) v = 1;
+        if(v > 15) v = 15;
+        state.special[key] = v;
+        renderAll();
+      });
+    });
+    col.querySelectorAll('.pip').forEach(pip=>{
+      pip.addEventListener('click', ()=>{
+        const rank = parseInt(pip.dataset.rank);
+        const name = pip.dataset.perk;
+        const current = state.perkRanks[name] || 0;
+        state.perkRanks[name] = (current === rank) ? rank - 1 : rank;
+        if(state.perkRanks[name] <= 0) delete state.perkRanks[name];
+        renderAll();
+      });
+    });
+    const addToggleBtn = col.querySelector('[data-add-toggle]');
+    addToggleBtn.addEventListener('click', ()=>{
+      state.specialAddOpen = state.specialAddOpen || {};
+      state.specialAddOpen[s.key] = !state.specialAddOpen[s.key];
+      renderAll();
+    });
+    col.querySelectorAll('[data-add-perk]').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        state.perkRanks[item.dataset.addPerk] = 1;
+        renderAll();
+      });
+    });
+
+    container.appendChild(col);
   }
   document.getElementById('allocatedVal').textContent = allocated;
   const remaining = state.pool - allocated;
@@ -2273,18 +2398,6 @@ function renderSpecialPanel(){
   remEl.className = "val" + (remaining < 0 ? " over":"");
   document.getElementById('poolTag').textContent = state.pool + " " + t.pts;
   document.getElementById('txt-h-special').innerHTML = t.hSpecial + ' <span class="tag" id="poolTag">' + state.pool + ' ' + t.pts + '</span>';
-
-  container.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const key = btn.dataset.sp;
-      const d = parseInt(btn.dataset.d);
-      let v = state.special[key] + d;
-      if(v < 1) v = 1;
-      if(v > 15) v = 15;
-      state.special[key] = v;
-      renderAll();
-    });
-  });
 
   renderDerived();
 }
