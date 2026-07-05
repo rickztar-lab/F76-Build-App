@@ -29,10 +29,10 @@ nombres de campo: camina todos los elementos). Salida: `group_export.txt`.
 
 ### Tanda 2 — Alto valor, complejidad media
 
-| Grupo | Signatura | Para qué | Muestra | Tamaño |
-|---|---|---|---|---|
-| Ingestible | ALCH | Comida/chems/consumibles y sus buffs — la "economía de consumibles" de las builds serias | buscar "Nuka" o "Stimpak" | Grande (filtrar) |
-| Actor Value Information | AVIF | Definiciones de stats (DamageResist, EnergyResist, etc.) — glosario para interpretar resistencias | buscar "DamageResist" | Medio |
+| Grupo | Signatura | Resultado |
+|---|---|---|
+| Ingestible | ALCH | HECHA ✅ — `data_ingestibles.json`: 28 chems clave (Stimpak, RadAway, Rad-X, Med-X, Psycho/Psychobuff/Psychotats, Buffout/Bufftats, Mentats + 3 variantes, Overdrive, Calmex, Fury, X-Cell, Day Tripper, Addictol, Blood Pack ×3, Herbal Medicine, Antibiotics) con magnitud/duración/adicción reales del ESM (flag "No Auto-Calc" confirma que el número es literal, no recalculado). Dump completo de 982 registros ALCH preservado en `data_source/ingestible_dump.txt`. Se filtraron: comida trivial (444 registros, sin buff real), efectos de hambre/sed de Modo Supervivencia (no modelado), y el efecto de sangre condicionado a Blood Sucker (mutación no cubierta). Hallazgo sobre Herbivore/Carnivore: NO hay condición (CTDA) por-ítem en la comida — el 2x es un multiplicador global por keyword de ingrediente (Vegetable/Meat), documentado en `mutation_interaction_note_es/en` del JSON. Listo para usar, aún NO inyectado en la app (mismo estado que `data_damage_types.json`). |
+| Actor Value Information | AVIF | Pendiente — definiciones de stats (DamageResist, EnergyResist, etc.), glosario para interpretar resistencias. Buscar "DamageResist". Tamaño medio. |
 
 ### Tanda 3 — La feature "daño vs enemigo" (fase compleja)
 

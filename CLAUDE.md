@@ -70,6 +70,23 @@ siempre sin importar la pestaña activa.
   grupo Damage Type (DMGT) del ESM — GAME FILES. Confirma el modelo de
   resistencias. Aún NO se inyecta en la app (base para futuras features de
   daño elemental / daño-vs-enemigo); vive como dato listo para usar.
+- `data_ingestibles.json` (28 chems clave: Stimpak, RadAway, Rad-X, Med-X,
+  Psycho/Psychobuff/Psychotats, Buffout/Bufftats, Mentats + 3 variantes,
+  Overdrive, Calmex, Fury, X-Cell, Day Tripper, Addictol, Blood Pack ×3,
+  Herbal Medicine, Antibiotics): extraído del grupo Ingestible (ALCH) del
+  ESM — GAME FILES. Magnitud/duración/probabilidad de adicción son valores
+  literales del registro (flag "No Auto-Calc"). Se excluyeron a propósito:
+  comida trivial sin buff (444 de 982 registros), efectos de hambre/sed de
+  Modo Supervivencia (no modelado), y el efecto de sangre condicionado a la
+  mutación Blood Sucker (no modelado). El bono de Barter de Grape Mentats
+  queda en 0 con nota explícita porque su magnitud vive en el Magic Effect
+  base, no extraído. Hallazgo importante: el 2x de Herbivore/Carnivore sobre
+  comida vegetal/carne NO es una condición por-ítem en el ESM — es un
+  multiplicador global por keyword de ingrediente; documentado en el propio
+  JSON (`mutation_interaction_note_es/en`). Dump crudo completo (982
+  registros) preservado en `data_source/ingestible_dump.txt`. Aún NO se
+  inyecta en la app; vive como dato listo para usar (mismo estado que
+  `data_damage_types.json`).
 - `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
   **mecánica VERIFICADA contra el ESM** (grupo Object Effect / ENCH): el
   comportamiento coincide con los registros reales del juego. Lo que NO se

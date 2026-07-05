@@ -1,0 +1,728 @@
+{
+  "trust_note_es": "28 chems/consumibles clave de Fallout 76, extraídos del grupo Ingestible (ALCH) del ESM con FO76Edit — nivel GAME FILES. Magnitud y duración son los valores LITERALES guardados en cada registro (el ítem tiene el flag \"No Auto-Calc\" activo, así que el motor no recalcula el número). No se muestran los efectos de hambre/sed de Modo Supervivencia (SURV_AddHunger/AddThirst, GHL_SURV_Chem_Effect) porque la app no modela ese modo de juego, ni el efecto de radiación/hidratación de las unidades de sangre condicionado a la mutación Chupasangre (Blood Sucker) por el mismo motivo. El bono de Mentats de uva a precios de comercio (Barter) no trae magnitud en este registro — la hereda del Magic Effect base, que no se extrajo en esta tanda; se deja en 0 con nota explícita en vez de inventar el número. Los nombres de item siguen la convención del proyecto (inglés, texto oficial del juego).",
+  "trust_note_en": "28 key chems/consumables from Fallout 76, extracted from the ESM's Ingestible (ALCH) group with FO76Edit — GAME FILES tier. Magnitude and duration are the LITERAL values stored in each record (the item has the \"No Auto-Calc\" flag set, so the engine doesn't recompute the number). Survival Mode hunger/thirst side effects (SURV_AddHunger/AddThirst, GHL_SURV_Chem_Effect) are omitted because the app doesn't model that game mode, and so is the blood-pack radiation/hydration effect gated behind the Blood Sucker mutation for the same reason. Grape Mentats' Barter (trade prices) bonus has no magnitude in this record — it's inherited from the base Magic Effect, which wasn't extracted in this batch; left at 0 with an explicit note instead of inventing the number. Item names follow the project's convention (English, official game text).",
+  "mutation_interaction_note_es": "La mutación Herbivore duplica el beneficio de comida vegetal y la mutación Carnivore duplica el de carne (ver data_mutations.json) — esto NO está codificado por-ítem en los registros ALCH de comida: es un multiplicador global aplicado en runtime según el keyword del ingrediente (IngredientTypeVegetable / IngredientTypeMeat), no una condición (CTDA) individual por comida. No se encontró ningún chem de esta lista con una condición de mutación; los únicos HasPerk encontrados en el grupo Ingestible fueron sobre las unidades de sangre y la perk Blood Sucker, no sobre Herbivore/Carnivore.",
+  "mutation_interaction_note_en": "The Herbivore mutation doubles the benefit of vegetable food and Carnivore doubles meat food's benefit (see data_mutations.json) — this is NOT encoded per-item in food ALCH records: it's a global runtime multiplier keyed off the ingredient's keyword (IngredientTypeVegetable / IngredientTypeMeat), not an individual per-food condition (CTDA). No chem in this list carries a mutation condition; the only HasPerk conditions found in the Ingestible group were on the blood packs and the Blood Sucker perk, not on Herbivore/Carnivore.",
+  "chems": [
+    {
+      "key": "stimpak",
+      "name": "Stimpak",
+      "editor_id": "Stimpak",
+      "weight": 0.75,
+      "caps_value": 30,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 2.0,
+          "duration_s": 20.0
+        },
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 10.0,
+          "duration_s": 2.0
+        }
+      ]
+    },
+    {
+      "key": "super_stimpak",
+      "name": "Super Stimpak",
+      "editor_id": "SuperStimpak",
+      "weight": 1.5,
+      "caps_value": 60,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 4.0,
+          "duration_s": 20.0
+        },
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 20.0,
+          "duration_s": 2.0
+        }
+      ]
+    },
+    {
+      "key": "diluted_stimpak",
+      "name": "Diluted Stimpak",
+      "editor_id": "StimpakDiluted",
+      "weight": 0.38,
+      "caps_value": 11,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 1.0,
+          "duration_s": 20.0
+        },
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 5.0,
+          "duration_s": 2.0
+        }
+      ]
+    },
+    {
+      "key": "radaway",
+      "name": "RadAway",
+      "editor_id": "RadAway",
+      "weight": 0.25,
+      "caps_value": 25,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Reduce resistencia a enfermedades (efecto secundario)",
+          "label_en": "Reduces disease resistance (side effect)",
+          "magnitude": 50.0,
+          "duration_s": 900.0
+        },
+        {
+          "label_es": "Elimina radiación",
+          "label_en": "Removes Radiation",
+          "magnitude": 60.0,
+          "duration_s": 5.0
+        }
+      ]
+    },
+    {
+      "key": "diluted_radaway",
+      "name": "Diluted RadAway",
+      "editor_id": "RadAwayDiluted",
+      "weight": 0.25,
+      "caps_value": 15,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Reduce resistencia a enfermedades (efecto secundario)",
+          "label_en": "Reduces disease resistance (side effect)",
+          "magnitude": 50.0,
+          "duration_s": 420.0
+        },
+        {
+          "label_es": "Elimina radiación",
+          "label_en": "Removes Radiation",
+          "magnitude": 30.0,
+          "duration_s": 5.0
+        }
+      ]
+    },
+    {
+      "key": "rad_x",
+      "name": "Rad-X",
+      "editor_id": "RadX",
+      "weight": 0.25,
+      "caps_value": 25,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Resistencia a exposición a radiación",
+          "label_en": "Radiation exposure resistance",
+          "magnitude": 300.0,
+          "duration_s": 600.0
+        },
+        {
+          "label_es": "Resistencia a la ingesta de radiación",
+          "label_en": "Radiation ingestion resistance",
+          "magnitude": 75.0,
+          "duration_s": 600.0
+        }
+      ]
+    },
+    {
+      "key": "diluted_rad_x",
+      "name": "Diluted Rad-X",
+      "editor_id": "RadXDiluted",
+      "weight": 0.25,
+      "caps_value": 15,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Resistencia a exposición a radiación",
+          "label_en": "Radiation exposure resistance",
+          "magnitude": 125.0,
+          "duration_s": 600.0
+        },
+        {
+          "label_es": "Resistencia a la ingesta de radiación",
+          "label_en": "Radiation ingestion resistance",
+          "magnitude": 37.5,
+          "duration_s": 600.0
+        }
+      ]
+    },
+    {
+      "key": "med_x",
+      "name": "Med-X",
+      "editor_id": "MedX",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Resistencia al daño",
+          "label_en": "Damage Resistance",
+          "magnitude": 125.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "psycho",
+      "name": "Psycho",
+      "editor_id": "Psycho",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Daño adicional",
+          "label_en": "Extra damage",
+          "magnitude": 15.0,
+          "duration_s": 180.0
+        },
+        {
+          "label_es": "Resistencia al daño",
+          "label_en": "Damage Resistance",
+          "magnitude": 100.0,
+          "duration_s": 180.0
+        }
+      ]
+    },
+    {
+      "key": "psychobuff",
+      "name": "Psychobuff",
+      "editor_id": "Psychobuff",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Strength",
+          "magnitude": 3.0,
+          "duration_s": 180.0
+        },
+        {
+          "stat": "Endurance",
+          "magnitude": 3.0,
+          "duration_s": 180.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Daño adicional",
+          "label_en": "Extra damage",
+          "magnitude": 25.0,
+          "duration_s": 180.0
+        },
+        {
+          "label_es": "Refuerza la salud",
+          "label_en": "Fortify Health",
+          "magnitude": 65.0,
+          "duration_s": 180.0
+        }
+      ]
+    },
+    {
+      "key": "psychotats",
+      "name": "Psychotats",
+      "editor_id": "Psychotats",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Perception",
+          "magnitude": 3.0,
+          "duration_s": 180.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Daño adicional",
+          "label_en": "Extra damage",
+          "magnitude": 25.0,
+          "duration_s": 180.0
+        },
+        {
+          "label_es": "Resistencia al daño",
+          "label_en": "Damage Resistance",
+          "magnitude": 75.0,
+          "duration_s": 180.0
+        }
+      ]
+    },
+    {
+      "key": "buffout",
+      "name": "Buffout",
+      "editor_id": "Buffout",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Strength",
+          "magnitude": 2.0,
+          "duration_s": 300.0
+        },
+        {
+          "stat": "Endurance",
+          "magnitude": 2.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Refuerza la salud",
+          "label_en": "Fortify Health",
+          "magnitude": 25.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "bufftats",
+      "name": "Bufftats",
+      "editor_id": "Bufftats",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Strength",
+          "magnitude": 3.0,
+          "duration_s": 300.0
+        },
+        {
+          "stat": "Endurance",
+          "magnitude": 3.0,
+          "duration_s": 300.0
+        },
+        {
+          "stat": "Perception",
+          "magnitude": 3.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Refuerza la salud",
+          "label_en": "Fortify Health",
+          "magnitude": 40.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "mentats",
+      "name": "Mentats",
+      "editor_id": "Mentats",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Intelligence",
+          "magnitude": 2.0,
+          "duration_s": 300.0
+        },
+        {
+          "stat": "Perception",
+          "magnitude": 2.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": []
+    },
+    {
+      "key": "berry_mentats",
+      "name": "Berry Mentats",
+      "editor_id": "BerryMentats",
+      "weight": 0.25,
+      "caps_value": 35,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Intelligence",
+          "magnitude": 5.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Detectar vida (silueta de criaturas/NPC)",
+          "label_en": "Detect life (creature/NPC outlines)",
+          "magnitude": 1.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "orange_mentats",
+      "name": "Orange Mentats",
+      "editor_id": "OrangeMentats",
+      "weight": 0.25,
+      "caps_value": 35,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Perception",
+          "magnitude": 5.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Precisión de V.A.T.S.",
+          "label_en": "V.A.T.S. accuracy",
+          "magnitude": 10.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "grape_mentats",
+      "name": "Grape Mentats",
+      "editor_id": "GrapeMentats",
+      "weight": 0.25,
+      "caps_value": 35,
+      "addiction_chance": 0.1,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Charisma",
+          "magnitude": 5.0,
+          "duration_s": 600.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Precios de comercio (magnitud no presente en este registro, hereda del Magic Effect base)",
+          "label_en": "Barter prices (magnitude not in this record, inherited from base Magic Effect)",
+          "magnitude": 0.0,
+          "duration_s": 600.0
+        }
+      ]
+    },
+    {
+      "key": "overdrive",
+      "name": "Overdrive",
+      "editor_id": "Overdrive",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Daño crítico",
+          "label_en": "Critical damage",
+          "magnitude": 30.0,
+          "duration_s": 180.0
+        },
+        {
+          "label_es": "Daño adicional",
+          "label_en": "Extra damage",
+          "magnitude": 15.0,
+          "duration_s": 180.0
+        }
+      ]
+    },
+    {
+      "key": "calmex",
+      "name": "Calmex",
+      "editor_id": "Calmex",
+      "weight": 0.25,
+      "caps_value": 80,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Perception",
+          "magnitude": 3.0,
+          "duration_s": 300.0
+        },
+        {
+          "stat": "Agility",
+          "magnitude": 3.0,
+          "duration_s": 300.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Multiplicador de ataque sigiloso",
+          "label_en": "Sneak attack multiplier",
+          "magnitude": 15.0,
+          "duration_s": 300.0
+        }
+      ]
+    },
+    {
+      "key": "fury",
+      "name": "Fury",
+      "editor_id": "Fury",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Perception",
+          "magnitude": -5.0,
+          "duration_s": 180.0
+        }
+      ],
+      "other_effects": [
+        {
+          "label_es": "Resistencia al daño",
+          "label_en": "Damage Resistance",
+          "magnitude": 25.0,
+          "duration_s": 180.0
+        },
+        {
+          "label_es": "Daño cuerpo a cuerpo",
+          "label_en": "Melee damage",
+          "magnitude": 30.0,
+          "duration_s": 180.0
+        }
+      ]
+    },
+    {
+      "key": "x_cell",
+      "name": "X-Cell",
+      "editor_id": "XCell",
+      "weight": 0.25,
+      "caps_value": 35,
+      "addiction_chance": 0.35,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Strength",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Perception",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Endurance",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Charisma",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Intelligence",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Agility",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        },
+        {
+          "stat": "Luck",
+          "magnitude": 2.0,
+          "duration_s": 120.0
+        }
+      ],
+      "other_effects": []
+    },
+    {
+      "key": "day_tripper",
+      "name": "Day Tripper",
+      "editor_id": "DayTripper",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.15,
+      "cures_all_addictions": false,
+      "special_effects": [
+        {
+          "stat": "Luck",
+          "magnitude": 3.0,
+          "duration_s": 600.0
+        },
+        {
+          "stat": "Charisma",
+          "magnitude": 3.0,
+          "duration_s": 600.0
+        },
+        {
+          "stat": "Strength",
+          "magnitude": -2.0,
+          "duration_s": 600.0
+        }
+      ],
+      "other_effects": []
+    },
+    {
+      "key": "addictol",
+      "name": "Addictol",
+      "editor_id": "Addictol",
+      "weight": 0.25,
+      "caps_value": 60,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": true,
+      "special_effects": [],
+      "other_effects": []
+    },
+    {
+      "key": "blood_pack",
+      "name": "Blood Pack",
+      "editor_id": "Bloodpack",
+      "weight": 0.25,
+      "caps_value": 20,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 5.0,
+          "duration_s": 10.0
+        }
+      ]
+    },
+    {
+      "key": "irradiated_blood_pack",
+      "name": "Irradiated Blood Pack",
+      "editor_id": "BloodpackIrradiated",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 8.0,
+          "duration_s": 5.0
+        },
+        {
+          "label_es": "Resistencia a exposición a radiación",
+          "label_en": "Radiation exposure resistance",
+          "magnitude": 75.0,
+          "duration_s": 600.0
+        },
+        {
+          "label_es": "Resistencia a la ingesta de radiación",
+          "label_en": "Radiation ingestion resistance",
+          "magnitude": 75.0,
+          "duration_s": 600.0
+        }
+      ]
+    },
+    {
+      "key": "glowing_blood_pack",
+      "name": "Glowing Blood Pack",
+      "editor_id": "BloodpackGlowing",
+      "weight": 0.25,
+      "caps_value": 30,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Restablece salud",
+          "label_en": "Restores Health",
+          "magnitude": 8.0,
+          "duration_s": 5.0
+        },
+        {
+          "label_es": "Resistencia a exposición a radiación",
+          "label_en": "Radiation exposure resistance",
+          "magnitude": 75.0,
+          "duration_s": 600.0
+        },
+        {
+          "label_es": "Resistencia a la ingesta de radiación",
+          "label_en": "Radiation ingestion resistance",
+          "magnitude": 75.0,
+          "duration_s": 600.0
+        }
+      ]
+    },
+    {
+      "key": "herbal_medicine",
+      "name": "Herbal Medicine",
+      "editor_id": "SURV_DiseaseCure_HerbalMedicine",
+      "weight": 0.25,
+      "caps_value": 20,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Cura enfermedades",
+          "label_en": "Cures diseases",
+          "magnitude": 100.0,
+          "duration_s": 0.0
+        }
+      ]
+    },
+    {
+      "key": "antibiotics",
+      "name": "Antibiotics",
+      "editor_id": "SURV_DiseaseCure_Antibiotics",
+      "weight": 0.25,
+      "caps_value": 40,
+      "addiction_chance": 0.0,
+      "cures_all_addictions": false,
+      "special_effects": [],
+      "other_effects": [
+        {
+          "label_es": "Cura enfermedades",
+          "label_en": "Cures diseases",
+          "magnitude": 100.0,
+          "duration_s": 0.0
+        },
+        {
+          "label_es": "Resistencia a enfermedades",
+          "label_en": "Disease resistance",
+          "magnitude": 50.0,
+          "duration_s": 5400.0
+        }
+      ]
+    }
+  ]
+}
