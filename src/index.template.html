@@ -714,6 +714,51 @@ header.top .sub{
 .weapon-dmg-box .wdmg-receiver select{margin-top:3px;width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:5px;border-radius:7px;font-family:var(--font-mono);}
 .weapon-dmg-box .wdmg-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:6px;line-height:1.4;}
 .weapon-dmg-box .wdmg-none{font-size:10px;color:var(--text-dim);font-style:italic;}
+.star-slot-card{
+  margin-top:8px;
+  border:1px dashed var(--line-2);
+  border-radius:9px;
+  padding:9px 11px;
+  background:var(--bg);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.star-slot-card.filled{
+  border:1px solid var(--amber-dim);
+  background:var(--amber-bg);
+}
+.star-slot-badge{
+  font-family:var(--font-display);font-weight:700;font-size:12px;color:var(--amber-dim);
+  flex-shrink:0;margin-top:2px;
+}
+.star-slot-card.filled .star-slot-badge{color:var(--amber);}
+.star-slot-body{flex:1;min-width:0;}
+.star-slot-select{
+  width:100%;background:var(--bg-card);border:1px solid var(--line-2);color:var(--text);
+  padding:6px 8px;border-radius:7px;font-family:var(--font-mono);font-size:12px;
+}
+.star-slot-desc{font-size:10px;color:var(--text-dim);margin-top:5px;line-height:1.4;}
+.gear-slot{
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--bg-card);
+  padding:10px 12px;
+  margin-bottom:8px;
+}
+.gear-slot:last-child{margin-bottom:0;}
+.gear-slot.installed{border-color:var(--green-dim);}
+.gear-slot-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.gear-slot-head label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text);font-weight:600;cursor:pointer;}
+.gear-slot-head input[type="checkbox"]{accent-color:var(--green);}
+.gear-slot-head select{
+  flex:1;max-width:220px;
+  background:var(--bg);border:1px solid var(--line-2);color:var(--text);
+  padding:6px 8px;border-radius:7px;font-family:var(--font-mono);font-size:12px;
+}
+.gear-slot-body{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-soft);}
 .custom-badge{
   font-size:8px;color:var(--amber);border:1px solid var(--amber-dim);
   padding:0 4px;border-radius:5px;margin-left:4px;
@@ -2650,11 +2695,16 @@ function renderWeaponLegendaryBox(){
   box.innerHTML = `
     <div class="mods-box">
       <div class="mb-title">${t.hWeaponLegendary}</div>
-      <select id="weaponLegendarySelect">
-        <option value="">${t.weaponLegendaryNone}</option>
-        ${optsHtml}
-      </select>
-      ${current ? `<div class="mb-note">${descText}</div>` : ''}
+      <div class="star-slot-card${current?' filled':''}">
+        <span class="star-slot-badge">1★</span>
+        <div class="star-slot-body">
+          <select id="weaponLegendarySelect" class="star-slot-select">
+            <option value="">${t.weaponLegendaryNone}</option>
+            ${optsHtml}
+          </select>
+          ${current ? `<div class="star-slot-desc">${descText}</div>` : ''}
+        </div>
+      </div>
       <div class="mb-note">${t.weaponLegendaryNote}</div>
     </div>
   `;
@@ -3015,13 +3065,24 @@ function renderArmorPanel(){
       const slot = state.paPieceSlots[p.key];
       const label = state.lang==='es' ? p.es : p.en;
       const installed = !!slot;
+      const legFilled = installed && slot.legendaryEffect;
       return `
-        <div class="armor-slot-row">
-          <label><input type="checkbox" data-pa-piece="${p.key}" ${installed?'checked':''}> ${label}</label>
-          ${installed ? `<select data-pa-leg="${p.key}">
-            <option value="">${t.weaponLegendaryNone}</option>
-            ${legOptsHtml(slot.legendaryEffect)}
-          </select>` : ''}
+        <div class="gear-slot${installed?' installed':''}">
+          <div class="gear-slot-head">
+            <label><input type="checkbox" data-pa-piece="${p.key}" ${installed?'checked':''}> ${label}</label>
+          </div>
+          ${installed ? `
+          <div class="gear-slot-body">
+            <div class="star-slot-card${legFilled?' filled':''}">
+              <span class="star-slot-badge">★</span>
+              <div class="star-slot-body">
+                <select data-pa-leg="${p.key}" class="star-slot-select">
+                  <option value="">${t.weaponLegendaryNone}</option>
+                  ${legOptsHtml(slot.legendaryEffect)}
+                </select>
+              </div>
+            </div>
+          </div>` : ''}
         </div>`;
     }).join('');
     slotsBox.innerHTML = `
@@ -3065,20 +3126,18 @@ function renderArmorPanel(){
     const optsHtml = options.map(o =>
       `<option value="${o.key}" ${current===o.key?'selected':''}>${o.name}${o.verified?' ✓':''}</option>`
     ).join('');
+    const chosen = current ? options.find(o=>o.key===current) : null;
     html += `
-      <div class="armor-slot-row">
-        <span class="as-label">${slotLabels[slot]}</span>
-        <select data-armor-slot="${slot}">
-          <option value="">${t.armorNone}</option>
-          ${optsHtml}
-        </select>
+      <div class="gear-slot${current?' installed':''}">
+        <div class="gear-slot-head">
+          <span class="as-label">${slotLabels[slot]}</span>
+          <select data-armor-slot="${slot}">
+            <option value="">${t.armorNone}</option>
+            ${optsHtml}
+          </select>
+        </div>
+        ${(chosen && !chosen.verified) ? `<div class="gear-slot-body armor-piece-note">${t.armorQualNote}</div>` : ''}
       </div>`;
-    if(current){
-      const chosen = options.find(o=>o.key===current);
-      if(chosen && !chosen.verified){
-        html += `<div class="armor-piece-note">${t.armorQualNote}</div>`;
-      }
-    }
   }
   slotsBox.innerHTML = html;
   slotsBox.querySelectorAll('select').forEach(sel=>{
