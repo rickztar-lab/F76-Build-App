@@ -34,6 +34,27 @@ nombres de campo: camina todos los elementos). Salida: `group_export.txt`.
 | Ingestible | ALCH | `data_ingestibles.json`: 28 chems clave (Stimpak, RadAway, Rad-X, Med-X, Psycho/Psychobuff/Psychotats, Buffout/Bufftats, Mentats + 3 variantes, Overdrive, Calmex, Fury, X-Cell, Day Tripper, Addictol, Blood Pack ×3, Herbal Medicine, Antibiotics) con magnitud/duración/adicción reales del ESM (flag "No Auto-Calc" confirma que el número es literal, no recalculado). Dump completo de 982 registros ALCH preservado en `data_source/ingestible_dump.txt`. Se filtraron: comida trivial (444 registros, sin buff real), efectos de hambre/sed de Modo Supervivencia (no modelado), y el efecto de sangre condicionado a Blood Sucker (mutación no cubierta). Hallazgo sobre Herbivore/Carnivore: NO hay condición (CTDA) por-ítem en la comida — el 2x es un multiplicador global por keyword de ingrediente (Vegetable/Meat), documentado en `mutation_interaction_note_es/en` del JSON. Listo para usar, aún NO inyectado en la app (mismo estado que `data_damage_types.json`). |
 | Actor Value Information | AVIF | `data_avif_glossary.json`: el grupo completo trae 3203 registros (casi todos variables internas del motor, sin relevancia); se extrajeron los 18 que importan — los 7 S.P.E.C.I.A.L. con su descripción real del juego y rango 1-100 a nivel de Actor Value, las 7 resistencias de daño de `data_damage_types.json`, y Salud/Puntos de Acción/Capacidad de Carga. Hallazgo clave: el AVIF confirma que el rango de un SPECIAL es 1-100 (el tope de 15 al crear personaje es una regla de UI/gameplay, no del Actor Value) y que las resistencias no tienen techo fijo — ambos hechos validan el diseño ya existente de `getEffectiveSpecial()` y del cálculo de resistencias. Dump completo (3203 registros) preservado en `data_source/avif_dump.txt`. |
 
+### Tanda 4 — Mapeo estrella→efecto de los mods legendarios (para las 4★ de arma)
+
+**Por qué:** ya tenemos los 75 efectos legendarios de arma extraídos del grupo
+Object Effect (ENCH) en `data_source/legendary_enchantments.json`, PERO el ENCH
+no dice a qué estrella (1★/2★/3★/4★) va cada efecto — eso lo define el **Object
+Modification (OMOD)** legendario que referencia al ENCH y ocupa una ranura de
+estrella concreta. Falta solo ese mapeo tier→efecto para armar la UI de 4 slots.
+
+| Grupo | Signatura | Para qué | Muestra | Tamaño |
+|---|---|---|---|---|
+| Object Modification | OMOD | Los mods legendarios de arma, que referencian un ENCH y llevan la ranura de estrella (1/2/3/4) | buscar "mod_Legendary" o "Legendary_Mod" | Medio (filtrar por "Legendary") |
+
+**Flujo:** en FO76Edit, expandir el grupo Object Modification, filtrar por
+`Legendary` en el nombre, seleccionar esos registros → Apply Script →
+`ExportGroup`. Renombrar `group_export.txt` a `legendary_omod.txt` y pasarlo.
+Con eso mapeo cada `ench_LegendaryWeapon_*` a su estrella (probablemente por un
+keyword de ranura, un property "Slot Index", o el editor_id del OMOD numerado
+por tier) y extiendo `data_legendary_weapon_effects.json` a las 4 estrellas —
+mismo nivel de confianza GAME FILES que el resto. La UI de 4 slots
+distinguibles se hace cuando llegue este dato (Fase 3 del roadmap interno).
+
 ### Tanda 3 — La feature "daño vs enemigo" (fase compleja)
 
 | Grupo | Signatura | Para qué | Muestra | Tamaño |

@@ -1698,7 +1698,8 @@ const STRINGS = {
       ["pending","Apilar perks/mutaciones/legendarias sobre el daño base del ESM (siguiente capa del DPS)"],
       ["pending","Efectos legendarios verificados desde el ESM (Object Effect/ENCH) — subir de 'IA-no verificado' a GAME FILES"],
       ["pending","Daño vs enemigo: elegir un enemigo de una lista con buscador y calcular el daño efectivo contra su resistencia. Requiere extraer resistencias/vida de enemigos del ESM (Race/Actor) y modelar su escalado por nivel — fase propia, compleja"],
-      ["pending","Orden óptimo de gasto de puntos por nivel (estilo nukesdragons.com): dado un build objetivo, sugerir en qué nivel conviene subir cada SPECIAL y equipar cada carta. Curva de SPECIAL/cartas por nivel ya validada contra la wiki (data_leveling_curve.json); falta el algoritmo y la UI — se retoma después del rediseño visual"]
+      ["done","Orden óptimo de gasto de puntos por nivel (estilo nukesdragons.com): toma tu build como objetivo y arma el cronograma nivel-a-nivel (qué SPECIAL subir, qué carta equipar) respetando min_level y presupuesto. Curva 7→56 validada contra la wiki. Greedy, no solver óptimo — marcado como tal en la UI."],
+      ["done","Panel de Chems: 28 consumibles del ESM (nivel GAME FILES) con magnitud/duración/adicción reales, agrupados en buffs de SPECIAL vs curación/utilidad. Referencia — no alimenta stats todavía (misma honestidad)."]
     ],
     hLevelProgress: "PROGRESO DE NIVEL (HITOS)",
     levelProgressNote: "Vista de hitos verificados — no es una curva de XP. No existe una tabla de XP por nivel verificada en los datos de esta app, así que solo mostramos hitos conocidos: desbloqueo de slots de perks legendarias y de cartas exclusivas de Ghoul.",
@@ -1908,7 +1909,8 @@ const STRINGS = {
       ["pending","Stack perks/mutations/legendaries on top of the ESM base damage (next DPS layer)"],
       ["pending","Verified legendary effects from the ESM (Object Effect/ENCH) — upgrade from 'AI-unverified' to GAME FILES"],
       ["pending","Damage vs enemy: pick an enemy from a searchable list and compute effective damage against its resistance. Needs extracting enemy resistances/health from the ESM (Race/Actor) and modeling their level scaling — its own complex phase"],
-      ["pending","Optimal per-level point spending order (nukesdragons.com style): given a target build, suggest which level to raise each SPECIAL and equip each card. The SPECIAL/card leveling curve is already validated against the wiki (data_leveling_curve.json); the algorithm and UI are still pending — picked up after the visual redesign"]
+      ["done","Optimal per-level point spending order (nukesdragons.com style): takes your build as the target and builds the level-by-level schedule (which SPECIAL to raise, which card to equip) respecting min_level and the point budget. 7→56 curve validated against the wiki. Greedy, not a proven-optimal solver — labeled as such in the UI."],
+      ["done","Chems panel: 28 ESM consumables (GAME FILES tier) with real magnitude/duration/addiction, grouped into SPECIAL buffs vs healing/utility. Reference — doesn't feed stats yet (same honesty)."]
     ],
     hLevelProgress: "LEVEL PROGRESS (MILESTONES)",
     levelProgressNote: "Verified-milestone view — not an XP curve. There is no verified per-level XP table in this app's data, so this only shows known milestones: legendary perk slot unlocks and Ghoul-only card unlocks.",
