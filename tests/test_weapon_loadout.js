@@ -29,7 +29,7 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     // not the native input) — click the label, like a real user would.
     const mod0Label = await page.$('label.mod-chip:has(input[data-mod="scope"][data-slot="0"])');
     await mod0Label.click();
-    await (await page.$('select[data-slot-leg="0"]')).selectOption('bloodied');
+    await (await page.$('select[data-slot-leg="0:0"]')).selectOption('bloodied');
     await page.waitForTimeout(200);
 
     await clickTab(page, 'DATA');
@@ -49,8 +49,8 @@ const { assert, withPage, finish, clickTab } = require('./helpers');
     assert(html.includes('10mm Pistol'), 'slot 1 (10mm Pistol) persiste tras recargar/cargar');
     assert(await page.$eval('input[data-mod="scope"][data-slot="0"]', el => el.checked),
       'el mod (mira) del slot 0 persiste');
-    assert((await page.$eval('select[data-slot-leg="0"]', el => el.value)) === 'bloodied',
-      'el legendario (Bloodied) del slot 0 persiste');
+    assert((await page.$eval('select[data-slot-leg="0:0"]', el => el.value)) === 'bloodied',
+      'el legendario (Bloodied, 1★) del slot 0 persiste');
 
     await page.click('[data-remove-slot="0"]');
     await page.waitForTimeout(200);

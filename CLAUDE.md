@@ -109,14 +109,36 @@ siempre sin importar la pestaña activa.
   fórmula de Perk Coins al escrapear (2×rango, ya modelada). Preparado para
   la futura funcionalidad de "orden óptimo de gasto por nivel" (estilo
   nukesdragons.com); aún NO se inyecta en la app.
-- `data_legendary_weapon_effects.json` (12, solo 1ra estrella/prefijo):
-  **mecánica VERIFICADA contra el ESM** (grupo Object Effect / ENCH): el
-  comportamiento coincide con los registros reales del juego. Lo que NO se
-  pudo extraer es el % exacto — para los efectos estrella vive en una Curve
-  Table (CURV) externa en los `.ba2`. Antes era "IA-no verificado"; ahora es
-  "mecánica GAME FILES-confirmada, número exacto pendiente (curva)". La
-  extracción cruda completa de los 175 efectos legendarios está preservada en
-  `data_source/legendary_enchantments.json`.
+- `data_legendary_weapon_effects.json` (117 efectos, las 4 estrellas —
+  `tier1_effects`/`tier2_effects`/`tier3_effects`/`tier4_effects`, 33/17/24/43
+  respectivamente): extraído del grupo **Object Modification (OMOD)** del ESM
+  filtrando por editor_id (`tools/fo76edit/ExportLegendaryWeaponMods.pas`,
+  Tanda 4). La estrella de cada efecto es GAME FILES-confirmada (Attach Point
+  `ap_LegendaryN` + editor_id). Cuando el propio OMOD trae el número en texto
+  humano (`DESC`, ej. "25 de daño durante 5 segundos") el efecto queda
+  `verifiedNumber:true` con la magnitud real — esto resolvió varios números
+  que en la Tanda 1 estaban "pendientes de curva" (ej. Vampire's 1★ = 2% de
+  salud en 2s). Para el resto se cruzó el enlace `Enchantments`→ENCH contra
+  el dump crudo de la Tanda 1 (`data_source/legendary_enchantments.json`):
+  si esa magnitud no depende de una Curve Table externa se expone como
+  "valor crudo del ESM" (`verifiedNumber:false`, unidad interna no
+  confirmada). El resto queda como mecánica confirmada, número pendiente
+  (Curve Table `.ba2` sin extraer) — mismo criterio de siempre, sin inventar
+  el dato. Los 12 efectos ya conocidos (Anti-Armor, Bloodied, etc.) conservan
+  su nombre en inglés ya validado; el resto usa un nombre en inglés traducido
+  por Claude del texto real en español del ESM, sin cruce contra wiki esta
+  sesión (`name`) — el texto real del juego vive en `textEs` cuando no hay
+  descripción separada. Se excluyeron ~40 registros del export (plantillas,
+  pruebas/WIP, colecciones de mod de arma única de misión, variantes
+  `_LEGACY` superadas, 1 "Objeto no válido") y se fusionaron ~10 pares
+  melee/distancia que son el mismo efecto. Dump crudo completo (164
+  registros) preservado en `data_source/legendary_weapon_mods_dump.txt`; el
+  de los 175 ENCH de la Tanda 1 sigue en
+  `data_source/legendary_enchantments.json`. Ya inyectado en la app: 4 slots
+  de estrella distinguibles en `renderWeaponLegendaryBox()` (arma rápida) y
+  `renderWeaponLoadout()` (hasta 5 armas), con persistencia en builds
+  guardadas (`weaponLegendaryEffects`, array de 4, migrado automáticamente
+  desde el campo singular viejo).
 - `data_legendary_armor_effects.json` (10): mismo nivel de confianza y mismo
   bloqueo de wiki que el archivo de arriba. Se usa para el efecto legendario
   opcional de cada una de las 5 piezas nombradas de Power Armor (Casco,

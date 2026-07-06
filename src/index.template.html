@@ -699,6 +699,9 @@ body::after{
   padding:9px 10px;border-radius:7px;font-family:var(--font-mono);font-size:13px;
 }
 .star-slot-desc{font-size:10px;color:var(--text-dim);margin-top:5px;line-height:1.4;}
+.star-slot-verified,.star-slot-pending{display:inline-block;font-size:8px;padding:0 4px;border-radius:5px;letter-spacing:0.3px;white-space:nowrap;margin-left:4px;}
+.star-slot-verified{color:var(--green);border:1px solid var(--green-dim);}
+.star-slot-pending{color:var(--text-dim);border:1px solid var(--line-2);}
 .legendary-single-note{font-size:10px;color:var(--text-dim-2);font-style:italic;margin-top:8px;line-height:1.4;}
 .gear-slot{
   border:1px solid var(--line);
@@ -1597,10 +1600,12 @@ const STRINGS = {
     paFrameTitle: "MARCO DE POWER ARMOR",
     paFrameNote: "Verificado: marco vacío = 60 DR/ER planos. Cada pieza suma 7% reducción de daño y 15% reducción de radiación (no incluye la resistencia propia de cada modelo, aún sin desglosar por pieza).",
     armorQualNote: "Este set no tiene números verificados todavía — solo comparación cualitativa contra otros sets.",
-    hWeaponLegendary: "EFECTO LEGENDARIO (1ra estrella)",
+    hWeaponLegendary: "EFECTOS LEGENDARIOS (4 estrellas)",
     weaponLegendaryNone: "— Ninguno —",
-    weaponLegendaryNote: "Solo el efecto principal (prefijo). La MECÁNICA está verificada contra los archivos del juego (Object Effect/ENCH del ESM): el comportamiento coincide con los registros reales. El PORCENTAJE exacto no se muestra porque vive en una Curve Table externa (.ba2) que aún no extrajimos — se describe la mecánica sin inventar el número. Efectos de 2da/3ra estrella no modelados.",
-    legendarySingleNote: "Único efecto legendario con dato verificado (1★). 2★/3★ no se muestran por falta de fuente confiable.",
+    weaponLegendaryNote: "Las 4 estrellas extraídas del grupo Object Modification (OMOD) del ESM (117 efectos GAME FILES, Tanda 4). Cuando el mod trae el número real en su descripción in-game (ej. \"25 de daño durante 5 segundos\") se marca VERIFICADO. Cuando no, la mecánica está confirmada por el efecto/atributo vinculado pero el número exacto vive en una Curve Table externa (.ba2) sin extraer — se marca PENDIENTE, sin inventar el dato.",
+    legendaryVerifiedBadge: "✓ número verificado",
+    legendaryPendingBadge: "número pendiente (curva)",
+    paLegendaryNote: "Solo el efecto principal (prefijo). La MECÁNICA está verificada contra los archivos del juego (Object Effect/ENCH del ESM): el comportamiento coincide con los registros reales. El PORCENTAJE exacto no se muestra porque vive en una Curve Table externa (.ba2) que aún no extrajimos — se describe la mecánica sin inventar el número.",
     weaponDamageTitle: "DAÑO",
     weaponDamagePerShot: "Por disparo",
     weaponDamageDps: "DPS",
@@ -1808,10 +1813,12 @@ const STRINGS = {
     paFrameTitle: "POWER ARMOR FRAME",
     paFrameNote: "Verified: empty frame = 60 flat DR/ER. Each piece adds 7% damage reduction and 15% radiation reduction (doesn't include each model's own resistance, not broken down per piece yet).",
     armorQualNote: "This set doesn't have verified numbers yet — only a qualitative comparison against other sets.",
-    hWeaponLegendary: "LEGENDARY EFFECT (1st star)",
+    hWeaponLegendary: "LEGENDARY EFFECTS (4 stars)",
     weaponLegendaryNone: "— None —",
-    weaponLegendaryNote: "Main effect (prefix) only. The MECHANIC is verified against the game files (ESM Object Effect / ENCH): the behavior matches the real records. The exact PERCENTAGE isn't shown because it lives in an external Curve Table (.ba2) we haven't extracted yet — the mechanic is described without inventing the number. 2nd/3rd star effects not modeled.",
-    legendarySingleNote: "Only legendary effect with verified data (1★). 2★/3★ aren't shown — no reliable source.",
+    weaponLegendaryNote: "All 4 stars extracted from the ESM's Object Modification (OMOD) group (117 GAME-FILES effects, Tanda 4). When the mod's in-game description carries the real number (e.g. \"25 damage over 5 seconds\") it's marked VERIFIED. Otherwise the mechanic is confirmed via the linked effect/attribute but the exact number lives in an external, not-yet-extracted Curve Table (.ba2) — marked PENDING, without inventing the figure.",
+    legendaryVerifiedBadge: "✓ verified number",
+    legendaryPendingBadge: "number pending (curve)",
+    paLegendaryNote: "Main effect (prefix) only. The MECHANIC is verified against the game files (ESM Object Effect / ENCH): the behavior matches the real records. The exact PERCENTAGE isn't shown because it lives in an external Curve Table (.ba2) we haven't extracted yet — the mechanic is described without inventing the number.",
     weaponDamageTitle: "DAMAGE",
     weaponDamagePerShot: "Per shot",
     weaponDamageDps: "DPS",
@@ -2060,8 +2067,25 @@ const BUILD_SCHEMA_VERSION = 1;
 // asume siempre la forma actual. Antes esto vivía disperso como `|| default`
 // en cada sitio de carga; centralizarlo evita que un campo nuevo se olvide
 // en alguno de ellos (ver auditoría, hallazgo H5).
+// Normaliza el campo de efectos legendarios de arma a un array fijo de 4
+// posiciones (una por estrella). Acepta el array nuevo tal cual, o migra el
+// campo singular viejo (pre-Tanda 4, solo 1★) a `[valorViejo, null, null, null]`.
+function normalizeLegendaryStars(starsArr, legacySingle){
+  const out = [null, null, null, null];
+  if(Array.isArray(starsArr)){
+    for(let i=0; i<4; i++) out[i] = starsArr[i] || null;
+  } else if(legacySingle){
+    out[0] = legacySingle;
+  }
+  return out;
+}
+
 function migrateBuild(b){
   b = b || {};
+  const loadout = b.weaponLoadout ? JSON.parse(JSON.stringify(b.weaponLoadout)) : [null,null,null,null,null];
+  loadout.forEach(slot=>{
+    if(slot) slot.legendaryEffects = normalizeLegendaryStars(slot.legendaryEffects, slot.legendaryEffect);
+  });
   return {
     schemaVersion: BUILD_SCHEMA_VERSION,
     name: b.name || "Build",
@@ -2070,9 +2094,9 @@ function migrateBuild(b){
     perkRanks: {...(b.perkRanks || {})},
     selectedWeapon: b.selectedWeapon || null,
     weaponMods: {...(b.weaponMods || {})},
-    weaponLegendaryEffect: b.weaponLegendaryEffect || null,
+    weaponLegendaryEffects: normalizeLegendaryStars(b.weaponLegendaryEffects, b.weaponLegendaryEffect),
     weaponReceiverTier: b.weaponReceiverTier || null,
-    weaponLoadout: b.weaponLoadout ? JSON.parse(JSON.stringify(b.weaponLoadout)) : [null,null,null,null,null],
+    weaponLoadout: loadout,
     charLevel: b.charLevel || 50,
     legendaryPerks: b.legendaryPerks ? JSON.parse(JSON.stringify(b.legendaryPerks)) : [null,null,null,null,null,null],
     activeMutations: b.activeMutations ? [...b.activeMutations] : [],
@@ -2120,7 +2144,7 @@ let state = {
   search: "",
   selectedWeapon: null,
   weaponMods: {},
-  weaponLegendaryEffect: null,
+  weaponLegendaryEffects: [null, null, null, null],
   weaponReceiverTier: null,
   weaponLoadout: [null,null,null,null,null],
   onlyCompatible: true,
@@ -2728,7 +2752,7 @@ function renderWeaponSearch(){
         const w = pool.find(x=>x.name===el.dataset.name);
         state.selectedWeapon = w;
         state.weaponMods = {};
-        state.weaponLegendaryEffect = null;
+        state.weaponLegendaryEffects = [null, null, null, null];
         state.weaponReceiverTier = null;
         input.value = "";
         results.classList.remove('show');
@@ -2768,7 +2792,7 @@ function renderNoMatchForm(typedName){
     addCustomWeapon(typedName, catKey, energy);
     state.selectedWeapon = {name:typedName, catKey, energy, custom:true};
     state.weaponMods = {};
-    state.weaponLegendaryEffect = null;
+    state.weaponLegendaryEffects = [null, null, null, null];
         state.weaponReceiverTier = null;
     document.getElementById('weaponSearchInput').value = "";
     document.getElementById('weaponResults').classList.remove('show');
@@ -2800,7 +2824,7 @@ function renderSelectedWeaponBox(){
   `;
   document.getElementById('clearWeaponBtn').addEventListener('click', ()=>{
     state.selectedWeapon = null;
-    state.weaponLegendaryEffect = null;
+    state.weaponLegendaryEffects = [null, null, null, null];
         state.weaponReceiverTier = null;
     renderAll();
   });
@@ -2897,38 +2921,67 @@ function renderModsBox(){
   });
 }
 
-// Legendary weapon effect picker (1st star / prefix only — see
+// Pools por estrella (1-4), en ese orden — ver LEGENDARY_WEAPON_EFFECTS'
+// trust note (Tanda 4, 117 efectos GAME FILES).
+const LEGENDARY_WEAPON_TIER_POOLS = [
+  LEGENDARY_WEAPON_EFFECTS.tier1_effects,
+  LEGENDARY_WEAPON_EFFECTS.tier2_effects,
+  LEGENDARY_WEAPON_EFFECTS.tier3_effects,
+  LEGENDARY_WEAPON_EFFECTS.tier4_effects
+];
+
+// Arma un <div class="star-slot-card"> para una estrella dada de un efecto
+// legendario de arma. `selectedKey` es el key actualmente elegido para esa
+// estrella (o null); `onSelectAttr` es el atributo data-* que el listener de
+// afuera usa para identificar qué <select> cambió.
+function legendaryStarSlotHtml(starIdx, selectedKey, selectAttrName, selectAttrValue){
+  const t = T();
+  const pool = LEGENDARY_WEAPON_TIER_POOLS[starIdx];
+  const current = pool.find(e => e.key === selectedKey);
+  const optsHtml = pool.map(e =>
+    `<option value="${e.key}" ${selectedKey===e.key?'selected':''}>${e.name}</option>`
+  ).join('');
+  const descText = current ? (state.lang==='es' ? current.textEs : current.textEn) : '';
+  const badge = current
+    ? `<span class="${current.verifiedNumber?'star-slot-verified':'star-slot-pending'}">${current.verifiedNumber?t.legendaryVerifiedBadge:t.legendaryPendingBadge}</span>`
+    : '';
+  return `
+    <div class="star-slot-card${current?' filled':''}">
+      <span class="star-slot-badge">${starIdx+1}★</span>
+      <div class="star-slot-body">
+        <select ${selectAttrName}="${selectAttrValue}" class="star-slot-select">
+          <option value="">${t.weaponLegendaryNone}</option>
+          ${optsHtml}
+        </select>
+        ${current ? `<div class="star-slot-desc">${descText} ${badge}</div>` : ''}
+      </div>
+    </div>`;
+}
+
+// Legendary weapon effect picker — 4 estrellas (Tanda 4, ver
 // LEGENDARY_WEAPON_EFFECTS' trust note above). Pure display + state, doesn't
 // feed any damage calculation yet since that needs Phase "DPS calculado".
 function renderWeaponLegendaryBox(){
   const t = T();
   const box = document.getElementById('weaponLegendaryBox');
   if(!state.selectedWeapon){ box.innerHTML = ""; return; }
-  const optsHtml = LEGENDARY_WEAPON_EFFECTS.map(e =>
-    `<option value="${e.key}" ${state.weaponLegendaryEffect===e.key?'selected':''}>${e.name}</option>`
+  if(!Array.isArray(state.weaponLegendaryEffects)) state.weaponLegendaryEffects = [null,null,null,null];
+  const slotsHtml = [0,1,2,3].map(i =>
+    legendaryStarSlotHtml(i, state.weaponLegendaryEffects[i], 'data-star', i)
   ).join('');
-  const current = LEGENDARY_WEAPON_EFFECTS.find(e => e.key === state.weaponLegendaryEffect);
-  const descText = current ? (state.lang==='es' ? current.textEs : current.textEn) : '';
   box.innerHTML = `
     <div class="mods-box">
       <div class="mb-title">${t.hWeaponLegendary}</div>
-      <div class="legendary-single-note">${t.legendarySingleNote}</div>
-      <div class="star-slot-card${current?' filled':''}">
-        <span class="star-slot-badge">1★</span>
-        <div class="star-slot-body">
-          <select id="weaponLegendarySelect" class="star-slot-select">
-            <option value="">${t.weaponLegendaryNone}</option>
-            ${optsHtml}
-          </select>
-          ${current ? `<div class="star-slot-desc">${descText}</div>` : ''}
-        </div>
-      </div>
+      ${slotsHtml}
       <div class="mb-note">${t.weaponLegendaryNote}</div>
     </div>
   `;
-  document.getElementById('weaponLegendarySelect').addEventListener('change', (e)=>{
-    state.weaponLegendaryEffect = e.target.value || null;
-    renderWeaponLegendaryBox();
+  box.querySelectorAll('select[data-star]').forEach(sel=>{
+    sel.addEventListener('change', ()=>{
+      const i = parseInt(sel.dataset.star);
+      state.weaponLegendaryEffects[i] = sel.value || null;
+      renderWeaponLegendaryBox();
+    });
   });
 }
 
@@ -2971,8 +3024,9 @@ function renderWeaponLoadout(){
       const label = state.lang==='es' ? m.es : m.en;
       return `<label class="mod-chip${active}"><input type="checkbox" data-slot="${idx}" data-mod="${m.key}" ${checked}><span class="dot"></span>${label}</label>`;
     }).join("");
-    const legOptsHtml = LEGENDARY_WEAPON_EFFECTS.map(e =>
-      `<option value="${e.key}" ${slot.legendaryEffect===e.key?'selected':''}>${e.name}</option>`
+    if(!Array.isArray(slot.legendaryEffects)) slot.legendaryEffects = [null,null,null,null];
+    const legSlotsHtml = [0,1,2,3].map(i =>
+      legendaryStarSlotHtml(i, slot.legendaryEffects[i], 'data-slot-leg', `${idx}:${i}`)
     ).join('');
     return `
       <div class="gear-slot installed loadout-card">
@@ -2982,10 +3036,7 @@ function renderWeaponLoadout(){
         </div>
         <div class="mods-box">
           <div class="mb-grid">${modsHtml}</div>
-          <select data-slot-leg="${idx}" style="margin-top:8px;">
-            <option value="">${t.weaponLegendaryNone}</option>
-            ${legOptsHtml}
-          </select>
+          ${legSlotsHtml}
         </div>
       </div>`;
   }).join("");
@@ -3002,7 +3053,7 @@ function renderWeaponLoadout(){
       resultsBox.querySelectorAll('.weapon-result-item').forEach(el=>{
         el.addEventListener('click', ()=>{
           const w = pool.find(x=>x.name===el.dataset.name);
-          state.weaponLoadout[idx] = { weapon: w, mods: {}, legendaryEffect: null };
+          state.weaponLoadout[idx] = { weapon: w, mods: {}, legendaryEffects: [null,null,null,null] };
           renderWeaponLoadout();
         });
       });
@@ -3027,8 +3078,8 @@ function renderWeaponLoadout(){
 
   box.querySelectorAll('select[data-slot-leg]').forEach(sel=>{
     sel.addEventListener('change', ()=>{
-      const idx = parseInt(sel.dataset.slotLeg);
-      state.weaponLoadout[idx].legendaryEffect = sel.value || null;
+      const [idx, starIdx] = sel.dataset.slotLeg.split(':').map(Number);
+      state.weaponLoadout[idx].legendaryEffects[starIdx] = sel.value || null;
       renderWeaponLoadout();
     });
   });
@@ -3311,7 +3362,7 @@ function renderArmorPanel(){
       <div class="summary-sub">${t.paFrameTitle}</div>
       ${piecesHtml}
       <div class="pa-frame-note">${t.paFrameNote}</div>
-      <div class="pa-frame-note">${t.weaponLegendaryNote}</div>
+      <div class="pa-frame-note">${t.paLegendaryNote}</div>
     `;
     slotsBox.querySelectorAll('input[data-pa-piece]').forEach(cb=>{
       cb.addEventListener('change', ()=>{
@@ -4018,7 +4069,7 @@ function renderBuildsList(){
         state.perkRanks = b.perkRanks;
         state.selectedWeapon = b.selectedWeapon;
         state.weaponMods = b.weaponMods;
-        state.weaponLegendaryEffect = b.weaponLegendaryEffect;
+        state.weaponLegendaryEffects = b.weaponLegendaryEffects;
         state.weaponReceiverTier = b.weaponReceiverTier;
         state.weaponLoadout = b.weaponLoadout;
         state.charLevel = b.charLevel;
@@ -4056,7 +4107,7 @@ document.getElementById('saveBuildBtn').addEventListener('click', ()=>{
     perkRanks: {...state.perkRanks},
     selectedWeapon: state.selectedWeapon,
     weaponMods: {...state.weaponMods},
-    weaponLegendaryEffect: state.weaponLegendaryEffect,
+    weaponLegendaryEffects: JSON.parse(JSON.stringify(state.weaponLegendaryEffects || [null,null,null,null])),
     weaponReceiverTier: state.weaponReceiverTier,
     weaponLoadout: JSON.parse(JSON.stringify(state.weaponLoadout || [null,null,null,null,null])),
     charLevel: state.charLevel,

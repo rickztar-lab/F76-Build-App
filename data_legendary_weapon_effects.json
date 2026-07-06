@@ -1,78 +1,1058 @@
 {
-  "trust_note_es": "Efectos legendarios principales (1ra estrella/prefijo) de armas. La MECÁNICA de estos efectos fue VERIFICADA contra el grupo Object Effect (ENCH) de SeventySix.esm: los nombres y el comportamiento que describimos coinciden con los registros del juego (ej. Bloodied = daño inverso a la vida, Aristócrata = daño según tapas, Junkie = daño según adicciones, Anti-Armor y Vampire = efectos de perk legendario). Lo que NO pudimos extraer es el PORCENTAJE exacto: para estos efectos estrella el número vive en una Curve Table (CURV) empaquetada en los .ba2, fuera del ESM, así que se describe la mecánica sin inventar el número. Nivel de confianza: mecánica GAME FILES-confirmada; número exacto pendiente (curva no extraída).",
-  "trust_note_en": "Main (1st star / prefix) weapon legendary effects. The MECHANIC of these effects was VERIFIED against SeventySix.esm's Object Effect (ENCH) group: the names and behavior we describe match the game records (e.g. Bloodied = damage inverse to health, Aristocrat = damage by caps, Junkie = damage by addictions, Anti-Armor and Vampire = legendary perk effects). What we could NOT extract is the exact PERCENTAGE: for these headline effects the number lives in a Curve Table (CURV) packed in the .ba2 files, outside the ESM, so we describe the mechanic without inventing the number. Trust level: mechanic GAME-FILES-confirmed; exact number pending (curve not extracted).",
+  "trust_note_es": "Efectos legendarios de arma para las 4 estrellas, extraídos del grupo Object Modification (OMOD) de SeventySix.esm filtrando por los mods cuyo editor_id contiene \"Legendary_Weapon\" (script tools/fo76edit/ExportLegendaryWeaponMods.pas). El nombre real (FULL) y la estrella (1-4, del Attach Point ap_LegendaryN y/o del propio editor_id) son GAME FILES verificados para los 117 efectos. El campo DESC del OMOD trae, para muchos efectos, el número exacto en texto humano (ej. \"25 de daño durante 5 segundos\") — estos quedan con verifiedNumber=true y textEs/textEn con el número real. Para los que no traen DESC, se cruzó el enlace Enchantments->ENCH contra el dump crudo de la Tanda 1 (data_source/legendary_enchantments.json): si esa magnitud no depende de una Curve Table externa, se expone como \"valor crudo del ESM\" (verifiedNumber=false porque la unidad interna no está confirmada). El resto (bono claramente confirmado por el ENCH/atributo vinculado pero sin magnitud plana ni DESC) queda como mecánica confirmada, número pendiente (probable Curve Table no extraída). Los 12 efectos ya conocidos (Anti-Armor, Bloodied, etc.) se mantienen con su nombre en inglés ya validado; el resto usa nombre en inglés traducido por Claude del texto en español real del ESM (name), sin cruce contra wiki esta sesión — el name en español real del juego queda en el campo textEs cuando no hay descripción separada. Se excluyeron ~40 registros del export original por ser plantillas (_PARENT_, TEMPLATE_), pruebas (TEST_, WIP, DEL_), colecciones de mods de arma única de misión (modcol_), variantes _LEGACY superadas, o un registro marcado explícitamente \"Objeto no válido\"; también se fusionaron ~10 pares melee/distancia que son el mismo efecto con nombre idéntico.",
+  "trust_note_en": "Weapon legendary effects for all 4 stars, extracted from the Object Modification (OMOD) group of SeventySix.esm, filtering for mods whose editor_id contains \"Legendary_Weapon\" (script tools/fo76edit/ExportLegendaryWeaponMods.pas). The real name (FULL) and star tier (1-4, from the Attach Point ap_LegendaryN and/or the editor_id itself) are GAME-FILES verified for all 117 effects. The OMOD's DESC field carries, for many effects, the exact number in human-readable text (e.g. \"25 damage over 5 seconds\") — these are flagged verifiedNumber=true with the real number in textEs/textEn. For effects without a DESC, the Enchantments->ENCH link was cross-checked against the raw Tanda 1 dump (data_source/legendary_enchantments.json): if that magnitude doesn't depend on an external Curve Table it's exposed as a \"raw ESM value\" (verifiedNumber=false since the internal unit isn't confirmed). Everything else (mechanic clearly confirmed by the linked ENCH/attribute but no plain magnitude or DESC) is marked as confirmed mechanic, number pending (likely an unextracted Curve Table). The 12 previously-known effects (Anti-Armor, Bloodied, etc.) keep their already-validated English names; the rest use an English name Claude translated from the real Spanish ESM text (name), not wiki-cross-checked this session — the real in-game Spanish text lives in textEs when there's no separate description. About 40 records from the raw export were excluded as templates (_PARENT_, TEMPLATE_), test/WIP/deleted records, quest-unique-weapon mod collections (modcol_), superseded _LEGACY variants, or one record explicitly marked \"invalid object\"; about 10 melee/ranged pairs sharing the identical effect were also merged into one entry.",
   "tier1_effects": [
+    {
+      "key": "adrenal",
+      "name": "Adrenaline",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Adrenal",
+      "enchId": "enchModAdrenal"
+    },
     {
       "key": "anti_armor",
       "name": "Anti-Armor",
       "textEs": "Ignora una parte significativa de la armadura (Resistencia) del objetivo.",
-      "textEn": "Ignores a significant portion of the target's armor (Resistance)."
-    },
-    {
-      "key": "bloodied",
-      "name": "Bloodied",
-      "textEs": "El daño aumenta cuanto más baja está la vida del portador.",
-      "textEn": "Damage increases the lower the wielder's current HP is."
-    },
-    {
-      "key": "executioners",
-      "name": "Executioner's",
-      "textEs": "Daño extra contra objetivos con la vida baja.",
-      "textEn": "Bonus damage against enemies at low health."
-    },
-    {
-      "key": "furious",
-      "name": "Furious",
-      "textEs": "Cada golpe consecutivo sobre el mismo objetivo aumenta el daño del siguiente golpe.",
-      "textEn": "Each consecutive hit on the same target increases the damage of the next hit."
-    },
-    {
-      "key": "instigating",
-      "name": "Instigating",
-      "textEs": "Daño doble contra objetivos con la vida al máximo.",
-      "textEn": "Double damage against targets at full health."
-    },
-    {
-      "key": "junkies",
-      "name": "Junkie's",
-      "textEs": "Daño extra que escala según la cantidad de adicciones activas del portador.",
-      "textEn": "Bonus damage that scales with the wielder's number of active addictions."
-    },
-    {
-      "key": "two_shot",
-      "name": "Two Shot",
-      "textEs": "Dispara un proyectil adicional por cada disparo (consume munición extra).",
-      "textEn": "Fires an additional projectile per shot (consumes extra ammo)."
-    },
-    {
-      "key": "vampires",
-      "name": "Vampire's",
-      "textEs": "Cura al portador según el daño infligido con el arma.",
-      "textEn": "Heals the wielder based on damage dealt with the weapon."
-    },
-    {
-      "key": "zealots",
-      "name": "Zealot's",
-      "textEs": "Daño extra contra enemigos Calcinados (Scorched).",
-      "textEn": "Bonus damage against Scorched enemies."
+      "textEn": "Ignores a significant portion of the target's armor (Resistance).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_AntiArmor",
+      "enchId": "enchModArmorPenetration"
     },
     {
       "key": "aristocrats",
       "name": "Aristocrat's",
       "textEs": "Daño extra que escala según la cantidad de tapas que lleva el portador.",
-      "textEn": "Bonus damage that scales with how many caps the wielder is carrying."
+      "textEn": "Bonus damage that scales with how many caps the wielder is carrying.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DamageViaCaps",
+      "enchId": "ench_LegendaryWeapon_AddDamageViaCaps"
+    },
+    {
+      "key": "dmgvsplayers",
+      "name": "Assassin's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DmgVsPlayers"
+    },
+    {
+      "key": "damageunarmored",
+      "name": "Berserker",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DamageUnarmored",
+      "enchId": "ench_LegendaryWeapon_DamageUnarmored"
+    },
+    {
+      "key": "bloodied",
+      "name": "Bloodied",
+      "textEs": "El daño aumenta cuanto más baja está la vida del portador.",
+      "textEn": "Damage increases the lower the wielder's current HP is.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DamageInverseHealth",
+      "enchId": "ench_LegendaryWeapon_AddDamageInverseHealth"
+    },
+    {
+      "key": "guns_ammocapacity2x",
+      "name": "Double Capacity",
+      "textEs": "Doble capacidad de munición.",
+      "textEn": "Double ammo capacity.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon1_Guns_AmmoCapacity2x"
+    },
+    {
+      "key": "executioners",
+      "name": "Executioner's",
+      "textEs": "Daño extra contra objetivos con la vida baja.",
+      "textEn": "Bonus damage against enemies at low health.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_Execute",
+      "enchId": "ench_LegendaryWeapon_Execute"
+    },
+    {
+      "key": "explosivebullets",
+      "name": "Explosive",
+      "textEs": "Las balas explotan con el impacto, causando 15 puntos de daño de zona.",
+      "textEn": "Bullets explode on impact, dealing 15 points of area damage.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon_ExplosiveBullets"
+    },
+    {
+      "key": "dmgvsbugs",
+      "name": "Exterminator's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DmgVsBugs"
+    },
+    {
+      "key": "melee_feral",
+      "name": "Feral's",
+      "textEs": "Valor crudo del ESM (BOUNTY_Legendary_Weapon_FeralAddPerk): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (BOUNTY_Legendary_Weapon_FeralAddPerk): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Melee_Feral",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_IncreaseFeralAddPerk"
+    },
+    {
+      "key": "furious",
+      "name": "Furious",
+      "textEs": "Cada golpe consecutivo sobre el mismo objetivo aumenta el daño del siguiente golpe.",
+      "textEn": "Each consecutive hit on the same target increases the damage of the next hit.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DmgConsecutiveHits",
+      "enchId": "ench_Legendary_Weapon_DmgConsecutiveHits"
+    },
+    {
+      "key": "damagevsghouls",
+      "name": "Ghoul Hunter's",
+      "textEs": "Inflige un 50% más de daño a los necrófagos.",
+      "textEn": "Deals 50% more damage to ghouls.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon_DamageVsGhouls",
+      "enchId": "ench_LegendaryWeapon_AddCommonPerk",
+      "altEditorIds": [
+        "mod_Legendary_Weapon1_DmgVsGhouls"
+      ]
+    },
+    {
+      "key": "gourmand",
+      "name": "Gourmand's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Gourmand",
+      "enchId": "ench_LegendaryWeapon_Gourmand"
+    },
+    {
+      "key": "medic",
+      "name": "Healing",
+      "textEs": "Valor crudo del ESM (Legendary_MedicEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_MedicEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Medic",
+      "enchId": "ench_LegendaryWeapon_Medic"
+    },
+    {
+      "key": "damageviacarryweight",
+      "name": "Heavyweight's",
+      "textEs": "El daño va aumentando a medida que lo hace la capacidad de carga.",
+      "textEn": "Damage increases as your carry weight increases.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon1_DamageViaCarryWeight"
+    },
+    {
+      "key": "dmgvsanimals",
+      "name": "Hunter's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DmgVsAnimals"
+    },
+    {
+      "key": "instigating",
+      "name": "Instigating",
+      "textEs": "Daño doble contra objetivos con la vida al máximo.",
+      "textEn": "Double damage against targets at full health.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DamageFirstBlood",
+      "enchId": "ench_Legendary_Weapon_DamageFirstBlood"
+    },
+    {
+      "key": "junkies",
+      "name": "Junkie's",
+      "textEs": "Daño extra que escala según la cantidad de adicciones activas del portador.",
+      "textEn": "Bonus damage that scales with the wielder's number of active addictions.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DamageAddiction",
+      "enchId": "ench_LegendaryWeapon_DamageAddiction"
+    },
+    {
+      "key": "knockback",
+      "name": "Knockback",
+      "textEs": "Obtienes una probabilidad de empujar al objetivo.",
+      "textEn": "Gain a chance to knock back the target.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon1_Knockback",
+      "enchId": "ench_LegendaryWeapon_Knockback"
+    },
+    {
+      "key": "lucid",
+      "name": "Lucid",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Lucid",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_Lucid"
+    },
+    {
+      "key": "damageviahealth",
+      "name": "Mastodon's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DamageViaHealth",
+      "enchId": "ench_LegendaryWeapon_AddDamageViaHealth"
+    },
+    {
+      "key": "dmgvssupermutants",
+      "name": "Mutant Hunter's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DmgVsSupermutants"
     },
     {
       "key": "mutants",
       "name": "Mutant's",
       "textEs": "Daño extra mientras el portador tenga al menos una mutación activa.",
-      "textEn": "Bonus damage while the wielder has at least one active mutation."
+      "textEn": "Bonus damage while the wielder has at least one active mutation.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DmgWithMutation",
+      "enchId": "ench_LegendaryWeapon_DamageWithMutation"
+    },
+    {
+      "key": "damagenight",
+      "name": "Nocturnal",
+      "textEs": "Valor crudo del ESM (Legendary_DamageNightEffect): 50.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_DamageNightEffect): 50.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DamageNight",
+      "enchId": "ench_LegendaryWeapon_AddDamageNight"
+    },
+    {
+      "key": "guns_ammocapacity4x",
+      "name": "Quad",
+      "textEs": "Valor crudo del ESM (Mod_Legendary_AmmoCapacityx4): 20.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Mod_Legendary_AmmoCapacityx4): 20.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Guns_AmmoCapacity4x",
+      "enchId": "enchMod_Legendary_AmmoCapacityx4",
+      "altEditorIds": [
+        "zzz_mod_Legendary_Weapon1_Guns_AmmoCapacity4x_coldshoulder"
+      ]
+    },
+    {
+      "key": "dmgvsrobots",
+      "name": "Robot Hunter's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_DmgVsRobots"
+    },
+    {
+      "key": "guns_sniper",
+      "name": "Sniper's",
+      "textEs": "Valor crudo del ESM (abPerkFortifyDmgFar): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (abPerkFortifyDmgFar): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon1_Guns_Sniper",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_Snipers"
     },
     {
       "key": "stalkers",
       "name": "Stalker's",
       "textEs": "Daño extra contra enemigos que no han detectado al portador (sigilo).",
-      "textEn": "Bonus damage against enemies that haven't detected the wielder (stealth)."
+      "textEn": "Bonus damage against enemies that haven't detected the wielder (stealth).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_Guns_AccuracyNotInCombat"
+    },
+    {
+      "key": "debuffdamage",
+      "name": "Suppressor's",
+      "textEs": "El daño que inflige el objetivo al que atacas se reduce un 25% durante 5 segundos.",
+      "textEn": "Reduces the damage dealt by the target you attack by 25% for 5 seconds.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DebuffDamage",
+      "enchId": "ench_LegendaryWeapon_DebuffDamage"
+    },
+    {
+      "key": "two_shot",
+      "name": "Two Shot",
+      "textEs": "Dispara un proyectil adicional por cada disparo (consume munición extra).",
+      "textEn": "Fires an additional projectile per shot (consumes extra ammo).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_Guns_TwoShot"
+    },
+    {
+      "key": "vampires",
+      "name": "Vampire's",
+      "textEs": "Regenera un 2% de salud durante 2 segundos al golpear a un objetivo.",
+      "textEn": "Regenerates 2% health over 2 seconds when you hit a target.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_Vampire",
+      "enchId": "ench_LegendaryWeapon_Vampire"
+    },
+    {
+      "key": "zealots",
+      "name": "Zealot's",
+      "textEs": "Daño extra contra enemigos Calcinados (Scorched).",
+      "textEn": "Bonus damage against Scorched enemies.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon1_DmgVsScorched"
+    }
+  ],
+  "tier2_effects": [
+    {
+      "key": "guns_bashing",
+      "name": "Bashing",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_Bashing"
+    },
+    {
+      "key": "dmglimbs",
+      "name": "Crippling",
+      "textEs": "Valor crudo del ESM (Legendary_AddCommonWeaponPerk): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_AddCommonWeaponPerk): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_DmgLimbs",
+      "enchId": "ench_LegendaryWeapon_AddCommonPerk"
+    },
+    {
+      "key": "bounty_mod_legendary_weapon2_insane",
+      "name": "Deranged",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon2_Insane"
+    },
+    {
+      "key": "guns_vatsaccuracy",
+      "name": "Enhanced V.A.T.S.",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_VATSAccuracy"
+    },
+    {
+      "key": "guns_explosivebullets",
+      "name": "Explosive",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_ExplosiveBullets"
+    },
+    {
+      "key": "guns_dmgsights",
+      "name": "Hitman's",
+      "textEs": "Valor crudo del ESM (abPerkFortifyDmgAll): 25.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (abPerkFortifyDmgAll): 25.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_DmgSights",
+      "enchId": "ench_LegendaryWeapon_DmgSights"
+    },
+    {
+      "key": "apviakill",
+      "name": "Inertia",
+      "textEs": "Valor crudo del ESM (Legendary_APViaKillEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_APViaKillEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_APViaKill",
+      "enchId": "ench_LegendaryWeapon_AddAPViaKill"
+    },
+    {
+      "key": "radiationdamage",
+      "name": "Irradiated",
+      "textEs": "Convierte el daño en radiación y añade un 10%.",
+      "textEn": "Converts damage to radiation damage and adds 10%.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon2_RadiationDamage"
+    },
+    {
+      "key": "guns_lastshot",
+      "name": "Last Shot",
+      "textEs": "Valor crudo del ESM (Legendary_Weapon_LastShotAddPerk): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_Weapon_LastShotAddPerk): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_LastShot",
+      "enchId": "ench_LegendaryWeapon_LastShot"
+    },
+    {
+      "key": "melee_pickpocket",
+      "name": "Pickpocket's",
+      "textEs": "Valor crudo del ESM (BOUNTY_Legendary_Weapon_PickPocketAddPerk): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (BOUNTY_Legendary_Weapon_PickPocketAddPerk): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Melee_PickPocket",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_PickpocketAddPerk"
+    },
+    {
+      "key": "bounty_mod_legendary_weapon2_melee_pulsating",
+      "name": "Pulsating",
+      "textEs": "Bloquear un ataque cuerpo a cuerpo provoca una explosión",
+      "textEn": "Blocking a melee attack causes an explosion.",
+      "verifiedNumber": true,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon2_Melee_Pulsating"
+    },
+    {
+      "key": "guns_rof",
+      "name": "Rapid",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Guns_RoF",
+      "altEditorIds": [
+        "mod_Legendary_Weapon2_Melee_SwingSpeed"
+      ]
+    },
+    {
+      "key": "bounty_mod_legendary_weapon2_guns_rebate",
+      "name": "Rebate",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon2_Guns_Rebate"
+    },
+    {
+      "key": "melee_blockreflects",
+      "name": "Retaliation",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Melee_BlockReflects"
+    },
+    {
+      "key": "melee_damagepowerattack",
+      "name": "Slugger's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Melee_DamagePowerAttack"
+    },
+    {
+      "key": "melee_steady",
+      "name": "Steady",
+      "textEs": "Valor crudo del ESM (Legendary_Weapon_Steady_FortifyMeleeDamage): 25.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_Weapon_Steady_FortifyMeleeDamage): 25.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_Melee_Steady",
+      "enchId": "ench_LegendaryWeapon_Steady"
+    },
+    {
+      "key": "dmgcrits",
+      "name": "Vital",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon2_DmgCrits"
+    }
+  ],
+  "tier3_effects": [
+    {
+      "key": "statagility",
+      "name": "Agility",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatAgility"
+    },
+    {
+      "key": "melee_barbarian",
+      "name": "Barbarian's",
+      "textEs": "+ FUE por baja en una racha de bajas (10 como máximo).",
+      "textEn": "+Strength per kill in a killstreak (up to 10).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon3_Melee_Barbarian",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_Barbarian"
+    },
+    {
+      "key": "melee_lessdamageblock",
+      "name": "Blocker's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Melee_LessDamageBlock"
+    },
+    {
+      "key": "statcharisma",
+      "name": "Charisma",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatCharisma"
+    },
+    {
+      "key": "melee_defenders",
+      "name": "Defender's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Melee_Defenders"
+    },
+    {
+      "key": "statendurance",
+      "name": "Endurance",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatEndurance"
+    },
+    {
+      "key": "guns_cloakonhit",
+      "name": "Ghostly",
+      "textEs": "Valor crudo del ESM (Legendary_CloakOnHitEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_CloakOnHitEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Guns_CloakOnHit",
+      "enchId": "ench_LegendaryWeapon_CloakOnHit"
+    },
+    {
+      "key": "glowing",
+      "name": "Glowing",
+      "textEs": "Valor crudo del ESM (BOUNTY_Legendary_Weapon_GlowingAddPerk): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (BOUNTY_Legendary_Weapon_GlowingAddPerk): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Glowing",
+      "enchId": "BOUNTY_ench_LegendaryWeapon_GlowingAddPerk"
+    },
+    {
+      "key": "healingspear",
+      "name": "Healing Spear",
+      "textEs": "Valor crudo del ESM (Burn_HealingSpearEffect_ME): 1.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Burn_HealingSpearEffect_ME): 1.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "zzz_mod_Legendary_Weapon3_HealingSpear",
+      "enchId": "BURN_ench_LegendaryWeapon_HealingSpearAddPerk"
+    },
+    {
+      "key": "bounty_mod_legendary_weapon3_healthy",
+      "name": "Healthy",
+      "textEs": "El daño aumenta hasta un 50% cuanta menos radiación sufras.",
+      "textEn": "Damage increases up to 50% the less radiation you have.",
+      "verifiedNumber": true,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon3_Healthy"
+    },
+    {
+      "key": "statintelligence",
+      "name": "Intelligence",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatIntelligence"
+    },
+    {
+      "key": "weight",
+      "name": "Lightweight",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Weight"
+    },
+    {
+      "key": "statluck",
+      "name": "Luck",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatLuck"
+    },
+    {
+      "key": "critspeed",
+      "name": "Lucky Break",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_CritSpeed"
+    },
+    {
+      "key": "bounty_mod_legendary_weapon3_madscientist",
+      "name": "Mad Scientist's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon3_MadScientist"
+    },
+    {
+      "key": "guns_movespeedsights",
+      "name": "Nimble",
+      "textEs": "Valor crudo del ESM (AbFortifyActorSpeedMult): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (AbFortifyActorSpeedMult): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Guns_MoveSpeedSights",
+      "enchId": "ench_LegendaryWeapon_MovementSpeedSights"
+    },
+    {
+      "key": "vatscostap",
+      "name": "Optimized V.A.T.S.",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_VATSCostAP"
+    },
+    {
+      "key": "statperception",
+      "name": "Perception",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatPerception"
+    },
+    {
+      "key": "rugged",
+      "name": "Rugged",
+      "textEs": "Tarda un 50% más en romperse.",
+      "textEn": "Takes 50% longer to break.",
+      "verifiedNumber": true,
+      "editorId": "zzzmod_Legendary_Weapon3_Rugged",
+      "enchId": "ench_LegendaryWeapon_Durability",
+      "altEditorIds": [
+        "mod_Legendary_Weapon3_Durability"
+      ]
+    },
+    {
+      "key": "bounty_mod_legendary_weapon3_selfrepair",
+      "name": "Self-Repairing",
+      "textEs": "+50 de durabilidad",
+      "textEn": "+50 durability.",
+      "verifiedNumber": true,
+      "editorId": "zzz_BOUNTY_mod_Legendary_Weapon3_SelfRepair"
+    },
+    {
+      "key": "statstrength",
+      "name": "Strength",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_StatStrength"
+    },
+    {
+      "key": "guns_reloadspeed",
+      "name": "Swift Reload",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Guns_ReloadSpeed",
+      "altEditorIds": [
+        "zzz_mod_Legendary_Weapon3_Guns_ReloadSpeed_CircuitBreaker"
+      ]
+    },
+    {
+      "key": "guns_resistreload",
+      "name": "Tenacious",
+      "textEs": "Valor crudo del ESM (AbResistReload_Description): 500.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (AbResistReload_Description): 500.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon3_Guns_ResistReload",
+      "enchId": "ench_LegendaryWeapon_DamageResistReload"
+    },
+    {
+      "key": "ironsightsincreasedamageresist",
+      "name": "Tireless",
+      "textEs": "+50 de resistencia al daño al apuntar.",
+      "textEn": "+50 damage resistance while aiming down sights.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon_IronSightsIncreaseDamageResist",
+      "enchId": "ench_LegendaryWeapon_DamageResistSights",
+      "altEditorIds": [
+        "mod_Legendary_Weapon3_Guns_ResistSights"
+      ]
+    }
+  ],
+  "tier4_effects": [
+    {
+      "key": "melee4_increaseattackspeedonkill",
+      "name": "Acceleration",
+      "textEs": "+10% de velocidad de ataque durante 30 segundos tras matar a un enemigo.",
+      "textEn": "+10% attack speed for 30 seconds after killing an enemy.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Melee4_IncreaseAttackSpeedOnKill",
+      "enchId": "ZZZ_ench_LegendaryWeapon_IncreaseAttackSpeedOnKill"
+    },
+    {
+      "key": "melee_fencers",
+      "name": "Aggressor's",
+      "textEs": "+12,5% de daño cuerpo a cuerpo y un +12,5% adicional para cada compañero de equipo cercano (hasta un +50% cuando está todo el equipo).",
+      "textEn": "+12.5% melee damage, plus an additional +12.5% per nearby teammate (up to +50% with a full team).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Melee_Fencers",
+      "enchId": "ench_LegendaryWeapon_Fencers"
+    },
+    {
+      "key": "bleed",
+      "name": "Bleeding",
+      "textEs": "Los objetivos se desangran y reciben 25 de daño durante 5 segundos.",
+      "textEn": "Targets bleed and take 25 damage over 5 seconds.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Bleed",
+      "enchId": "ench_LegendaryWeapon_Bleed"
+    },
+    {
+      "key": "melee4_bloodhealer",
+      "name": "Blood Healer's",
+      "textEs": "Matar a un enemigo cura 75 de salud a tus compañeros de equipo durante 5 segundos.",
+      "textEn": "Killing an enemy heals your teammates 75 health over 5 seconds.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Melee4_BloodHealer",
+      "enchId": "ZZZ_ench_LegendaryArmor_BloodHealer",
+      "altEditorIds": [
+        "ZZZ_mod_Legendary_Weapon_Ranged4_BloodHealer"
+      ]
+    },
+    {
+      "key": "fracturers",
+      "name": "Bone Breaker's",
+      "textEs": "Las extremidades incapacitadas explotan e infligen hasta un 50 de daño por explosión a los enemigos cercanos.",
+      "textEn": "Crippled limbs explode, dealing up to 50 explosive damage to nearby enemies.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Fracturers",
+      "enchId": "ench_LegendaryWeapon_Fracturers"
+    },
+    {
+      "key": "ranged4_headhunters",
+      "name": "Bounty Hunter's",
+      "textEs": "Sin coste de munición durante 10 segundos tras matar con un disparo en la cabeza.",
+      "textEn": "No ammo cost for 10 seconds after killing with a headshot.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon_Ranged4_HeadHunters",
+      "enchId": "ench_LegendaryArmor_Headhunters"
+    },
+    {
+      "key": "ranged4_bruisers",
+      "name": "Bruiser's",
+      "textEs": "+15% daño y +25 de resistencia al daño tras golpear a un enemigo.",
+      "textEn": "+15% damage and +25 damage resistance after hitting an enemy.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Ranged4_Bruisers",
+      "enchId": "ZZZ_ench_LegendaryWeapon_Bruisers"
+    },
+    {
+      "key": "melee_brutalists",
+      "name": "Brutalist's",
+      "textEs": "Cada baja otorga +1 de Fuerza durante 5 minutos (+10 como máximo).",
+      "textEn": "Each kill grants +1 Strength for 5 minutes (up to +10).",
+      "verifiedNumber": true,
+      "editorId": "P62_mod_Legendary_Weapon4_Melee_Brutalists",
+      "enchId": "P62_ench_LegendaryWeapon_Brutalists"
+    },
+    {
+      "key": "bully",
+      "name": "Bully's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Bully"
+    },
+    {
+      "key": "melee_blockelectrocutes",
+      "name": "Charge (Electrified Block)",
+      "textEs": "10% de probabilidad de causar 40 de daño eléctrico al bloquear con éxito.",
+      "textEn": "10% chance to deal 40 electrical damage on a successful block.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Melee_BlockElectrocutes",
+      "enchId": "ench_LegendaryWeapon_BlockElectrocutes"
+    },
+    {
+      "key": "melee_charged",
+      "name": "Charge (Power Attack)",
+      "textEs": "Los ataques ligeros aumentan la carga que se libera con un ataque pesado (3 cargas como máximo).",
+      "textEn": "Light attacks build up a charge that's released with a power attack (up to 3 charges).",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Melee_Charged"
+    },
+    {
+      "key": "melee4_cheerleader",
+      "name": "Cheerleader's",
+      "textEs": "Matar a un enemigo hace que tus compañeros de equipo recuperen 75 puntos de acción durante 5 segundos.",
+      "textEn": "Killing an enemy restores 75 Action Points to your teammates over 5 seconds.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Melee4_CheerLeader",
+      "enchId": "ZZZ_ench_LegendaryArmor_CheerLeader",
+      "altEditorIds": [
+        "ZZZ_mod_Legendary_Weapon_Ranged4_CheerLeader"
+      ]
+    },
+    {
+      "key": "melee_combobreaker",
+      "name": "Combo Breaker's",
+      "textEs": "Valor crudo del ESM (Legendary_Weapon_ComboBreakerAddPerkEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_Weapon_ComboBreakerAddPerkEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Melee_ComboBreaker",
+      "enchId": "ench_LegendaryWeapon_ComboBreaker"
+    },
+    {
+      "key": "conductors",
+      "name": "Conductor's",
+      "textEs": "Los impactos críticos restauran 10 de salud y de puntos de acción al instante, y 100 más durante 5 segundos al jugador y al equipo en un radio de 100 metros.",
+      "textEn": "Critical hits instantly restore 10 health and Action Points, plus 100 more over 5 seconds, to you and teammates within 100 meters.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Conductors",
+      "enchId": "ench_LegendaryWeapon_Conductors"
+    },
+    {
+      "key": "melee4_criticalhealers",
+      "name": "Critical Healer's",
+      "textEs": "Los impactos críticos te curan 250 de salud durante 5 segundos.",
+      "textEn": "Critical hits heal you 250 health over 5 seconds.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Melee4_CriticalHealers",
+      "enchId": "ZZZ_ench_LegendaryWeapon_CriticalHealers",
+      "altEditorIds": [
+        "ZZZ_mod_Legendary_Weapon_Ranged4_CriticalHealers"
+      ]
+    },
+    {
+      "key": "guns_electricians",
+      "name": "Electrician's",
+      "textEs": "Al recargar, emite una onda expansiva que aturde a los enemigos cercanos durante 3 segundos.",
+      "textEn": "Reloading emits a shockwave that stuns nearby enemies for 3 seconds.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Guns_Electricians",
+      "enchId": "ench_LegendaryWeapon_Electricians_Explosion"
+    },
+    {
+      "key": "melee_blockburns",
+      "name": "Flaming Block",
+      "textEs": "25% de probabilidad de causar 50 de daño por fuego al bloquear con éxito.",
+      "textEn": "25% chance to deal 50 fire damage on a successful block.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Melee_BlockBurns",
+      "enchId": "ench_LegendaryWeapon_BlockBurns"
+    },
+    {
+      "key": "guns_critfreeze",
+      "name": "Freezing",
+      "textEs": "Los impactos críticos congelan a los objetivos.",
+      "textEn": "Critical hits freeze targets.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Guns_CritFreeze",
+      "enchId": "zzz_ench_LegendaryWeapon_CritFreeze"
+    },
+    {
+      "key": "melee_blockfrenzies",
+      "name": "Frenzy Block",
+      "textEs": "10% de probabilidad de causar Frenesí a tu oponente al bloquear con éxito.",
+      "textEn": "10% chance to cause Frenzy in your opponent on a successful block.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Melee_BlockFrenzies",
+      "enchId": "ench_LegendaryWeapon_BlockFrenzies"
+    },
+    {
+      "key": "melee_blockfreeze",
+      "name": "Frozen Block",
+      "textEs": "25% de probabilidad de congelar a tu oponente al bloquear con éxito.",
+      "textEn": "25% chance to freeze your opponent on a successful block.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Melee_BlockFreeze",
+      "enchId": "zzz_ench_LegendaryWeapon_BlockFreezes"
+    },
+    {
+      "key": "melee4_heavyhitters",
+      "name": "Heavy Hitter's",
+      "textEs": "Los ataques potentes tienen una probabilidad del 50% de provocar una explosión.",
+      "textEn": "Power attacks have a 50% chance to cause an explosion.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Melee4_HeavyHitters",
+      "enchId": "ZZZ_ench_LegendaryWeapon_HeavyHitter"
+    },
+    {
+      "key": "melee_icemens",
+      "name": "Icy",
+      "textEs": "+20% de daño por hielo",
+      "textEn": "+20% cold/ice damage.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Melee_Icemens"
+    },
+    {
+      "key": "incendiarybullets",
+      "name": "Incendiary",
+      "textEs": "Incendia al objetivo y causa 15 puntos de daño.",
+      "textEn": "Ignites the target and deals 15 points of damage.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon_IncendiaryBullets",
+      "enchId": "dtFireEnchFlameChanceAlways"
+    },
+    {
+      "key": "melee_blockirradiates",
+      "name": "Irradiating",
+      "textEs": "50% de probabilidad de causar 50 de daño por radiación al bloquear con éxito.",
+      "textEn": "50% chance to deal 50 radiation damage on a successful block.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Melee_BlockIrradiates",
+      "enchId": "zzzench_LegendaryWeapon_BlockIrradiates"
+    },
+    {
+      "key": "cripple",
+      "name": "Kneecapper's",
+      "textEs": "Probabilidad de incapacitar una extremidad.",
+      "textEn": "Chance to cripple a limb.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Cripple",
+      "enchId": "zzz_ench_LegendaryWeapon_Cripple"
+    },
+    {
+      "key": "encirclers",
+      "name": "Liberator's",
+      "textEs": "+10% de daño por cada enemigo a tu alrededor, hasta un máximo de +50%.",
+      "textEn": "+10% damage per enemy around you, up to a maximum of +50%.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Encirclers",
+      "enchId": "ench_LegendaryWeapon_Encirclers"
+    },
+    {
+      "key": "guns_locked",
+      "name": "Locked",
+      "textEs": "Valor crudo del ESM (abPerkFortifyDmgFar): 40.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (abPerkFortifyDmgFar): 40.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Guns_Locked",
+      "enchId": "ench_LegendaryWeapon_Locked"
+    },
+    {
+      "key": "guns_ruiners",
+      "name": "Lucky Day",
+      "textEs": "Las armas de un solo disparo tienen un 5% de probabilidad de infligir 500 de daño adicional por cada 5 puntos de Suerte.",
+      "textEn": "Single-shot weapons have a 5% chance to deal 500 additional damage per 5 points of Luck.",
+      "verifiedNumber": true,
+      "editorId": "P62_mod_Legendary_Weapon4_Guns_Ruiners",
+      "enchId": "P62_ench_LegendaryWeapon_Ruiners"
+    },
+    {
+      "key": "guns_pinpointers",
+      "name": "Pinpointer's",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Guns_PinPointers"
+    },
+    {
+      "key": "poison",
+      "name": "Poisoner's",
+      "textEs": "Valor crudo del ESM (dtPoisonEffectChanceAlways): 5.0 durante 10s. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (dtPoisonEffectChanceAlways): 5.0 over 10s. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "zzz_mod_Legendary_Weapon4_Poison",
+      "enchId": "ench_LegendaryWeapon_DamagePoison"
+    },
+    {
+      "key": "polished",
+      "name": "Polished",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Polished",
+      "enchId": "ench_LegendaryWeapon_Polished"
+    },
+    {
+      "key": "melee_pounders",
+      "name": "Pounder's",
+      "textEs": "Valor crudo del ESM (Legendary_Weapon_PoundersAddPerkEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (Legendary_Weapon_PoundersAddPerkEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "mod_Legendary_Weapon4_Melee_Pounders",
+      "enchId": "ench_LegendaryWeapon_Pounders"
+    },
+    {
+      "key": "pyromaniac",
+      "name": "Pyromaniac's",
+      "textEs": "Inflige un 50% de daño adicional cuando un enemigo está en llamas.",
+      "textEn": "Deals 50% additional damage when a target is on fire.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Pyromaniac",
+      "enchId": "ench_LegendaryWeapon_Pyromaniac"
+    },
+    {
+      "key": "guns_critfrenzy",
+      "name": "Rage",
+      "textEs": "Los impactos críticos hacen que el objetivo entre en Frenesí.",
+      "textEn": "Critical hits cause the target to enter Frenzy.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Guns_CritFrenzy",
+      "enchId": "ench_LegendaryWeapon_CritFrenzy"
+    },
+    {
+      "key": "satiated",
+      "name": "Satiated",
+      "textEs": "Valor crudo del ESM (P62_Legendary_Weapon_SatiatedPerkAddEffect): 0.0. Unidad interna no confirmada (no viene en texto humano DESC).",
+      "textEn": "Raw ESM value (P62_Legendary_Weapon_SatiatedPerkAddEffect): 0.0. Internal unit not confirmed (no human-readable DESC text).",
+      "verifiedNumber": false,
+      "editorId": "P62_mod_Legendary_Weapon4_Satiated",
+      "enchId": "P62_ench_LegendaryWeapon_Satiated",
+      "altEditorIds": [
+        "HTO_mod_Legendary_Weapon4_Satiated"
+      ]
+    },
+    {
+      "key": "ranged4_scavengers",
+      "name": "Scavenger's",
+      "textEs": "60% de probabilidad de encontrar componentes extra cuando buscas en contenedores y cadáveres.",
+      "textEn": "60% chance to find extra components when searching containers and corpses.",
+      "verifiedNumber": true,
+      "editorId": "ZZZ_mod_Legendary_Weapon_Ranged4_Scavengers",
+      "enchId": "ZZZ_ench_LegendaryWeapon_Scavengers",
+      "altEditorIds": [
+        "ZZZ_mod_Legendary_Weapon_Melee4_Scavengers"
+      ]
+    },
+    {
+      "key": "guns_sightseers",
+      "name": "Sightseer's",
+      "textEs": "50% más de alcance y daño al apuntar con la mira.",
+      "textEn": "50% more range and damage while aiming down sights.",
+      "verifiedNumber": true,
+      "editorId": "P62_mod_Legendary_Weapon4_Guns_SightSeers",
+      "enchId": "P62_ench_LegendaryWeapon_SightSeers"
+    },
+    {
+      "key": "guns_stabilizers",
+      "name": "Stabilized",
+      "textEs": "Mejora el cono de fuego, el retroceso y la estabilidad de las armas un 40%.",
+      "textEn": "Improves weapon spread, recoil, and stability by 40%.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Guns_Stabilizers"
+    },
+    {
+      "key": "stagger",
+      "name": "Staggering",
+      "textEs": "Probabilidad de desequilibrar al impactar.",
+      "textEn": "Chance to stagger on hit.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon4_Stagger",
+      "enchId": "ench_LegendaryWeapon_Stagger"
+    },
+    {
+      "key": "tarnished",
+      "name": "Tarnished",
+      "textEs": "Mecánica confirmada por el efecto/atributo vinculado en el ESM; número exacto no disponible (posible Curve Table externa no extraída).",
+      "textEn": "Mechanic confirmed via the linked ESM effect/attribute; exact number not available (likely an external Curve Table not yet extracted).",
+      "verifiedNumber": false,
+      "editorId": "HTO_mod_Legendary_Weapon4_Tarnished",
+      "enchId": "HTO_ench_LegendaryWeapon_Tarnished"
+    },
+    {
+      "key": "thrillseeker",
+      "name": "Thrill Seeker's",
+      "textEs": "Aumento de la velocidad de recarga y el ataque cuerpo a cuerpo según la racha de bajas",
+      "textEn": "Increases reload speed and melee attack speed based on killstreak.",
+      "verifiedNumber": true,
+      "editorId": "RA_mod_Legendary_Weapon4_ThrillSeeker",
+      "enchId": "RA_ench_LegendaryWeapon_ThrillSeeker"
+    },
+    {
+      "key": "vipers",
+      "name": "Viper's",
+      "textEs": "Inflige un 50% de daño adicional cuando un enemigo es envenenado.",
+      "textEn": "Deals 50% additional damage when a target is poisoned.",
+      "verifiedNumber": true,
+      "editorId": "mod_Legendary_Weapon4_Vipers",
+      "enchId": "ench_LegendaryWeapon_Vipers"
+    },
+    {
+      "key": "melee4_warmongers",
+      "name": "Warmonger's",
+      "textEs": "+150% de daño en el próximo golpe asestado en los 15 segundos después de conseguir un asesinato.",
+      "textEn": "+150% damage on the next hit landed within 15 seconds of getting a kill.",
+      "verifiedNumber": true,
+      "editorId": "zzz_mod_Legendary_Weapon_Melee4_Warmongers",
+      "enchId": "ZZZ_ench_LegendaryWeapon_Warmongers",
+      "altEditorIds": [
+        "zzz_mod_Legendary_Weapon_Ranged4_Warmongers"
+      ]
     }
   ]
 }

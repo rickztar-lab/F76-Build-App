@@ -38,7 +38,7 @@ DATA_MANIFEST = [
     ('MUTATIONS', 'data_mutations.json', None),
     ('ARMOR_DATA', 'data_armor.json', None),
     ('RAID_CONTENT', 'data_raid_gleaming_depths.json', None),
-    ('LEGENDARY_WEAPON_EFFECTS', 'data_legendary_weapon_effects.json', 'tier1_effects'),
+    ('LEGENDARY_WEAPON_EFFECTS', 'data_legendary_weapon_effects.json', None),
     ('LEGENDARY_ARMOR_EFFECTS', 'data_legendary_armor_effects.json', 'effects'),
     ('WEAPON_DAMAGE_DATA', 'data_weapon_damage.json', None),
     ('INGESTIBLES', 'data_ingestibles.json', None),
