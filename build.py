@@ -41,6 +41,8 @@ DATA_MANIFEST = [
     ('LEGENDARY_WEAPON_EFFECTS', 'data_legendary_weapon_effects.json', 'tier1_effects'),
     ('LEGENDARY_ARMOR_EFFECTS', 'data_legendary_armor_effects.json', 'effects'),
     ('WEAPON_DAMAGE_DATA', 'data_weapon_damage.json', None),
+    ('INGESTIBLES', 'data_ingestibles.json', None),
+    ('LEVELING_CURVE', 'data_leveling_curve.json', None),
 ]
 
 

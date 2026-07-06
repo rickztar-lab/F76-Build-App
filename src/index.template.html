@@ -818,6 +818,17 @@ body::after{
 .mut-card .mc-neg{color:var(--red);}
 .mut-card .mc-neg.reduced{color:var(--amber);}
 .mut-note{font-size:9px;color:var(--text-dim);font-style:italic;margin-top:4px;}
+.chem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:8px;}
+.chem-card{background:var(--bg-card);border:1px solid var(--line);border-radius:9px;padding:10px 12px;}
+.chem-head{display:flex;flex-direction:column;gap:2px;margin-bottom:8px;}
+.chem-name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text);letter-spacing:0.5px;}
+.chem-meta{font-size:9px;color:var(--text-dim-2);letter-spacing:0.5px;}
+.chem-cure{color:var(--green);}
+.chem-special{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+.chem-sp-chip{font-size:10px;color:var(--amber);border:1px solid var(--amber-dim);background:var(--amber-bg);border-radius:5px;padding:2px 7px;}
+.chem-others{display:flex;flex-direction:column;gap:3px;}
+.chem-oe{font-size:11px;color:var(--text-dim);}
+.chem-oe b{color:var(--text);font-family:var(--font-display);}
 .summary-stat{
   background:var(--bg-card);
   border:1px solid var(--line);
@@ -1166,6 +1177,20 @@ body::after{
   margin-bottom:12px;
   line-height:1.5;
 }
+.lvp-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px;}
+.lvp-table{width:100%;border-collapse:collapse;font-size:12px;}
+.lvp-table th{
+  text-align:left;padding:8px 12px;font-family:var(--font-display);font-weight:600;
+  font-size:11px;letter-spacing:1px;color:var(--text-dim-2);
+  border-bottom:1px solid var(--line);background:var(--bg-sidebar);position:sticky;top:0;
+}
+.lvp-table td{padding:7px 12px;border-bottom:1px solid var(--line-soft);color:var(--text);}
+.lvp-table tr:last-child td{border-bottom:none;}
+.lvp-lvl{font-family:var(--font-display);font-weight:700;color:var(--amber);width:52px;}
+.lvp-raise{color:var(--green);font-size:11px;}
+.lvp-card{font-weight:700;}
+.lvp-rank{font-size:10px;color:var(--amber);}
+.lvp-dash{color:var(--text-dim-3);}
 .lp-current{
   font-size:12px;
   color:var(--amber);
@@ -1277,6 +1302,7 @@ footer{
       <nav class="app-sidebar-nav" id="mainTabsNav">
         <button class="sidebar-nav-item" data-tab="stat"><span class="nav-dot"></span><span class="nav-label">STAT</span></button>
         <button class="sidebar-nav-item" data-tab="mutations"><span class="nav-dot"></span><span class="nav-label">MUTACIONES</span></button>
+        <button class="sidebar-nav-item" data-tab="chems"><span class="nav-dot"></span><span class="nav-label">CHEMS</span></button>
         <button class="sidebar-nav-item" data-tab="weapon"><span class="nav-dot"></span><span class="nav-label">ARMAS</span></button>
         <button class="sidebar-nav-item" data-tab="armor"><span class="nav-dot"></span><span class="nav-label">ARMADURA</span></button>
         <button class="sidebar-nav-item" data-tab="perkcards"><span class="nav-dot"></span><span class="nav-label">PERK CARDS</span></button>
@@ -1354,6 +1380,14 @@ footer{
       <div class="panel">
         <h2 id="txt-h-mutations">MUTACIONES</h2>
         <div id="mutationsBox"></div>
+      </div>
+      </div>
+
+      <div class="tab-panel-group" data-tabgroup="chems">
+      <div class="panel">
+        <h2 id="txt-h-chems">CHEMS</h2>
+        <p class="summary-empty" id="txt-chems-note"></p>
+        <div id="chemsBox"></div>
       </div>
       </div>
 
@@ -1458,6 +1492,12 @@ footer{
       </div>
 
       <div class="panel">
+        <h2 id="txt-h-levelplan">PLANIFICADOR DE ORDEN POR NIVEL</h2>
+        <p class="levelprogress-note" id="txt-levelplan-note"></p>
+        <div id="levelPlanBox"></div>
+      </div>
+
+      <div class="panel">
         <h2 id="txt-h-roadmap">ROADMAP</h2>
         <div class="roadmap" id="roadmapBox"></div>
       </div>
@@ -1517,6 +1557,7 @@ const STRINGS = {
     defPaCryoNote: "El marco de Power Armor no tiene Cryo/Veneno/Fuego/Evasion desglosados por pieza todavía — no modelado.",
     tabPerks: "PERKS",
     tabMutations: "MUTACIONES",
+    tabChems: "CHEMS",
     tabWeapon: "ARMAS",
     tabArmor: "ARMADURA",
     tabPerkCards: "PERK CARDS",
@@ -1609,6 +1650,14 @@ const STRINGS = {
     hBuilds: "BUILDS GUARDADAS",
     hLegendary: "PERKS LEGENDARIAS",
     hMutations: "MUTACIONES",
+    hChems: "CHEMS",
+    chemsNote: "28 chems/consumibles clave con magnitud, duración y probabilidad de adicción REALES extraídas del ESM (nivel GAME FILES). Es una referencia — todavía NO se conectan a tus stats derivados (no fingimos que modifican el build). Los buffs de SPECIAL se muestran aparte de otros efectos.",
+    chemsGroupSpecial: "BUFFS DE S.P.E.C.I.A.L.",
+    chemsGroupOther: "CURACIÓN / UTILIDAD",
+    chemWeight: "Peso", chemCaps: "Chapas", chemAddiction: "Adicción",
+    chemNoAddiction: "Sin adicción",
+    chemCuresAddiction: "Cura todas las adicciones",
+    chemDurationInstant: "instantáneo",
     hLiveEffects: "EFECTOS ACTIVOS",
     leNormalTitle: "Perk cards equipadas",
     positiveEffects: "Efectos Positivos",
@@ -1658,6 +1707,15 @@ const STRINGS = {
     levelProgressGhoulLabel: "Desbloqueos exclusivos de Ghoul",
     levelProgressReached: (lvl)=> `Alcanzado (nivel ${lvl})`,
     levelProgressGhoulTooltip: (lvl,n)=> `Nivel ${lvl}: ${n} carta${n===1?'':'s'} exclusiva${n===1?'':'s'} de Ghoul`,
+    hLevelPlan: "PLANIFICADOR DE ORDEN POR NIVEL",
+    levelPlanNote: "Toma TU build actual como objetivo y sugiere, nivel a nivel, qué S.P.E.C.I.A.L. subir y qué carta equipar para llegar ahí — respetando el nivel mínimo de cada carta y que los puntos alcancen. Curva 7→56 validada contra la wiki. Es un orden razonable (greedy), no un solver de óptimo probado. Cada carta se muestra en su rango objetivo (subir de rango en el juego consume selecciones extra, no desglosadas acá).",
+    levelPlanEmpty: "Armá tu build primero (subí SPECIAL y equipá cartas en STAT / PERK CARDS) y acá aparece el orden sugerido para llegar a él nivel por nivel.",
+    levelPlanColLevel: "Nivel",
+    levelPlanColSpecial: "S.P.E.C.I.A.L.",
+    levelPlanColCard: "Carta a equipar",
+    levelPlanRaise: (stat,to)=> `+1 ${stat} → ${to}`,
+    levelPlanReachedAt: (lvl)=> `Build completo en nivel ${lvl}.`,
+    levelPlanInfeasible: "Ojo: algunas cartas equipadas cuestan más puntos de los que su atributo tiene en el objetivo — revisá el presupuesto en STAT.",
     hPerks: "PERK CARDS",
     searchPlaceholder: "Buscar carta o efecto...",
     tabAll: "TODAS",
@@ -1708,6 +1766,7 @@ const STRINGS = {
     defPaCryoNote: "The Power Armor frame doesn't have Cryo/Poison/Fire/Evasion broken down per piece yet — not modeled.",
     tabPerks: "PERKS",
     tabMutations: "MUTATIONS",
+    tabChems: "CHEMS",
     tabWeapon: "WEAPONS",
     tabArmor: "ARMOR",
     tabPerkCards: "PERK CARDS",
@@ -1801,6 +1860,14 @@ const STRINGS = {
     hBuilds: "SAVED BUILDS",
     hLegendary: "LEGENDARY PERKS",
     hMutations: "MUTATIONS",
+    hChems: "CHEMS",
+    chemsNote: "28 key chems/consumables with REAL magnitude, duration and addiction chance extracted from the ESM (GAME FILES tier). This is a reference — they do NOT feed your derived stats yet (we don't pretend they modify the build). SPECIAL buffs are shown separately from other effects.",
+    chemsGroupSpecial: "S.P.E.C.I.A.L. BUFFS",
+    chemsGroupOther: "HEALING / UTILITY",
+    chemWeight: "Weight", chemCaps: "Caps", chemAddiction: "Addiction",
+    chemNoAddiction: "No addiction",
+    chemCuresAddiction: "Cures all addictions",
+    chemDurationInstant: "instant",
     hLiveEffects: "ACTIVE EFFECTS",
     leNormalTitle: "Equipped perk cards",
     positiveEffects: "Positive Effects",
@@ -1850,6 +1917,15 @@ const STRINGS = {
     levelProgressGhoulLabel: "Ghoul-only unlocks",
     levelProgressReached: (lvl)=> `Reached (level ${lvl})`,
     levelProgressGhoulTooltip: (lvl,n)=> `Level ${lvl}: ${n} Ghoul-only card${n===1?'':'s'}`,
+    hLevelPlan: "PER-LEVEL ORDER PLANNER",
+    levelPlanNote: "Takes YOUR current build as the target and suggests, level by level, which S.P.E.C.I.A.L. to raise and which card to equip to get there — respecting each card's min level and that the points add up. 7→56 curve validated against the wiki. It's a reasonable (greedy) order, not a proven-optimal solver. Each card is shown at its target rank (ranking up in-game costs extra selections, not broken out here).",
+    levelPlanEmpty: "Build your loadout first (raise SPECIAL and equip cards in STAT / PERK CARDS) and the suggested per-level order to reach it will show up here.",
+    levelPlanColLevel: "Level",
+    levelPlanColSpecial: "S.P.E.C.I.A.L.",
+    levelPlanColCard: "Card to equip",
+    levelPlanRaise: (stat,to)=> `+1 ${stat} → ${to}`,
+    levelPlanReachedAt: (lvl)=> `Build complete at level ${lvl}.`,
+    levelPlanInfeasible: "Heads up: some equipped cards cost more points than their attribute has in the target — check the budget in STAT.",
     hPerks: "PERK CARDS",
     searchPlaceholder: "Search card or effect...",
     tabAll: "ALL",
@@ -1902,6 +1978,16 @@ const GHOUL_ONLY_PERKS = PERKS.filter(p => p.min_level > 50).map(p => p.name);
 // plantillas genéricas de receptor. Solo 105 de 196 armas tienen daño
 // verificado; el resto se marca como "sin dato del juego todavía".
 /*__DATA:WEAPON_DAMAGE_DATA__*/
+
+// Consumibles (chems) extraídos del grupo Ingestible (ALCH) del ESM — nivel
+// GAME FILES. 28 chems clave con magnitud/duración/adicción literales del
+// registro. Se muestran como referencia; NO alimentan getEffectiveSpecial()
+// (no se finge que modifican el build todavía, misma honestidad que el resto).
+/*__DATA:INGESTIBLES__*/
+
+// Curva de nivel/SPECIAL/cartas — nivel WIKI (regla de juego estable cruzada
+// en fallout.wiki + fandom). Alimenta el planificador de orden óptimo por nivel.
+/*__DATA:LEVELING_CURVE__*/
 
 // Calcula el daño de un arma con el receptor de daño elegido aplicado.
 // Fórmula verificada del motor: final = base × (1 + Σ DamageBonusMult).
@@ -2311,6 +2397,126 @@ function renderLevelProgressChart(){
         ${ghoulMarks}
       </div>
     </div>
+  `;
+}
+
+// Planificador de orden por nivel: toma el build actual (state.special +
+// state.perkRanks) como objetivo y simula la progresión 1→50 (curva validada:
+// +1 punto SPECIAL por nivel, 1 carta a elección por nivel), sugiriendo en qué
+// nivel subir cada punto y equipar cada carta. Greedy (no solver óptimo), solo
+// lectura — NO toca getEffectiveSpecial ni el estado. Prioriza subir el
+// atributo que destraba la carta pendiente de menor min_level; si ninguna
+// espera puntos, rellena el atributo más lejos de su objetivo.
+function computeLevelPlan(){
+  const SP = LEVELING_CURVE.special_points;
+  const pointsUntil = SP.gain_until_level;              // 50
+  const target = {};
+  SPECIAL_LIST.forEach(s => target[s.key] = state.special[s.key]);
+  const cur = {};
+  SPECIAL_LIST.forEach(s => cur[s.key] = SP.starting_total ? 1 : 1); // 1 c/u al empezar
+
+  // Cartas objetivo (rango equipado) con su costo de puntos en ese rango.
+  const pending = [];
+  for(const p of PERKS){
+    const rank = state.perkRanks[p.name] || 0;
+    if(rank > 0){
+      const rk = p.ranks.find(r => r.rank === rank) || p.ranks[p.ranks.length-1];
+      pending.push({name: p.name, special: p.special, cost: rk.cost, min_level: p.min_level, rank, maxRank: p.ranks.length});
+    }
+  }
+  pending.sort((a,b) => a.min_level - b.min_level || a.cost - b.cost);
+
+  // Feasibilidad: en cada atributo, la suma de costos de sus cartas no puede
+  // exceder el objetivo de ese atributo.
+  const perAttrCost = {};
+  SPECIAL_LIST.forEach(s => perAttrCost[s.key] = 0);
+  pending.forEach(c => perAttrCost[c.special] += c.cost);
+  const infeasible = SPECIAL_LIST.some(s => perAttrCost[s.key] > target[s.key]);
+
+  const notYet = pending.slice();
+  const equippedCost = {};
+  SPECIAL_LIST.forEach(s => equippedCost[s.key] = 0);
+  const targetsReached = () => SPECIAL_LIST.every(s => cur[s.key] >= target[s.key]);
+
+  function pickStat(){
+    const cands = SPECIAL_LIST.map(s=>s.key).filter(k => cur[k] < target[k]);
+    if(cands.length === 0) return null;
+    // Atributo que destraba la carta pendiente de menor min_level y que aún no
+    // tiene puntos suficientes.
+    const gating = notYet
+      .filter(c => cands.includes(c.special) && cur[c.special] < equippedCost[c.special] + c.cost)
+      .sort((a,b) => a.min_level - b.min_level)[0];
+    if(gating) return gating.special;
+    // Si nada espera puntos, el más lejos de su objetivo.
+    cands.sort((a,b) => (target[b]-cur[b]) - (target[a]-cur[a]));
+    return cands[0];
+  }
+
+  const plan = [];
+  let level = 1;
+  const MAX_LEVEL = 300; // margen para cartas Ghoul (min_level > 50)
+  while((!targetsReached() || notYet.length > 0) && level < MAX_LEVEL){
+    level++;
+    const entry = {level, raiseStat: null, raiseTo: null, card: null};
+
+    if(level <= pointsUntil && !targetsReached()){
+      const pick = pickStat();
+      if(pick){ cur[pick]++; entry.raiseStat = pick; entry.raiseTo = cur[pick]; }
+    }
+    // Una carta a elección por nivel: la primera pendiente cuyo min_level ya se
+    // alcanzó y cuyo atributo tiene los puntos.
+    for(let i=0;i<notYet.length;i++){
+      const c = notYet[i];
+      if(level >= c.min_level && equippedCost[c.special] + c.cost <= cur[c.special]){
+        equippedCost[c.special] += c.cost;
+        entry.card = c;
+        notYet.splice(i,1);
+        break;
+      }
+    }
+    if(entry.raiseStat || entry.card) plan.push(entry);
+  }
+
+  return { plan, infeasible, doneLevel: plan.length ? plan[plan.length-1].level : 1,
+           hasContent: pending.length > 0 || SPECIAL_LIST.some(s=>target[s.key] > 1),
+           stranded: notYet };
+}
+
+function renderLevelPlanner(){
+  const t = T();
+  document.getElementById('txt-h-levelplan').textContent = t.hLevelPlan;
+  document.getElementById('txt-levelplan-note').textContent = t.levelPlanNote;
+  const box = document.getElementById('levelPlanBox');
+
+  const res = computeLevelPlan();
+  if(!res.hasContent){
+    box.innerHTML = `<div class="summary-empty">${t.levelPlanEmpty}</div>`;
+    return;
+  }
+
+  const rows = res.plan.map(e => {
+    const spCell = e.raiseStat
+      ? `<span class="lvp-raise">${t.levelPlanRaise(t.special[e.raiseStat], e.raiseTo)}</span>`
+      : '<span class="lvp-dash">—</span>';
+    const cardCell = e.card
+      ? `<span class="lvp-card">${esc(e.card.name)}${e.card.maxRank>1?` <span class="lvp-rank">R${e.card.rank}</span>`:''}</span>`
+      : '<span class="lvp-dash">—</span>';
+    return `<tr><td class="lvp-lvl">${e.level}</td><td>${spCell}</td><td>${cardCell}</td></tr>`;
+  }).join('');
+
+  box.innerHTML = `
+    ${res.infeasible ? `<div class="mut-note" style="color:var(--red)">${t.levelPlanInfeasible}</div>` : ''}
+    <div class="lvp-scroll">
+      <table class="lvp-table">
+        <thead><tr>
+          <th>${t.levelPlanColLevel}</th>
+          <th>${t.levelPlanColSpecial}</th>
+          <th>${t.levelPlanColCard}</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div class="mut-note">${t.levelPlanReachedAt(res.doneLevel)}</div>
   `;
 }
 
@@ -3221,6 +3427,71 @@ function renderMutationsPanel(){
   });
 }
 
+// Chems reference panel: lists the 28 ESM-extracted consumables with their
+// literal magnitude/duration/addiction. Pure display — reads only from the
+// baked INGESTIBLES constant, touches no build state (no getEffectiveSpecial,
+// no save/load). Grouped self-descriptively by "has SPECIAL buffs" vs not,
+// a split derived from the data itself (no invented categories).
+function fmtChemDuration(sec){
+  const t = T();
+  if(!sec || sec <= 0) return t.chemDurationInstant;
+  if(sec < 60) return Math.round(sec) + 's';
+  return Math.round(sec/60) + ' min';
+}
+function renderChemsPanel(){
+  const t = T();
+  document.getElementById('txt-h-chems').textContent = t.hChems;
+  document.getElementById('txt-chems-note').textContent = t.chemsNote;
+  const box = document.getElementById('chemsBox');
+
+  const withSpecial = INGESTIBLES.chems.filter(c => c.special_effects.length > 0);
+  const withoutSpecial = INGESTIBLES.chems.filter(c => c.special_effects.length === 0);
+
+  function chemCard(c){
+    const meta = [];
+    meta.push(`${t.chemWeight} ${c.weight}`);
+    meta.push(`${c.caps_value} ${t.chemCaps}`);
+    if(c.cures_all_addictions){
+      meta.push(`<span class="chem-cure">${t.chemCuresAddiction}</span>`);
+    } else if(c.addiction_chance > 0){
+      meta.push(`${t.chemAddiction} ${Math.round(c.addiction_chance*100)}%`);
+    } else {
+      meta.push(t.chemNoAddiction);
+    }
+    let specialHtml = '';
+    if(c.special_effects.length){
+      specialHtml = '<div class="chem-special">' + c.special_effects.map(se=>{
+        const sign = se.magnitude >= 0 ? '+' : '';
+        return `<span class="chem-sp-chip">${sign}${se.magnitude} ${t.special[se.stat]||se.stat} · ${fmtChemDuration(se.duration_s)}</span>`;
+      }).join('') + '</div>';
+    }
+    let otherHtml = '';
+    if(c.other_effects.length){
+      otherHtml = '<div class="chem-others">' + c.other_effects.map(oe=>{
+        const label = state.lang==='es' ? oe.label_es : oe.label_en;
+        const magPart = oe.magnitude ? `<b>${oe.magnitude}</b> · ` : '';
+        return `<div class="chem-oe">${esc(label)}: ${magPart}${fmtChemDuration(oe.duration_s)}</div>`;
+      }).join('') + '</div>';
+    }
+    return `
+      <div class="chem-card">
+        <div class="chem-head">
+          <span class="chem-name">${esc(c.name)}</span>
+          <span class="chem-meta">${meta.join(' · ')}</span>
+        </div>
+        ${specialHtml}
+        ${otherHtml}
+      </div>`;
+  }
+
+  box.innerHTML = `
+    <div class="summary-sub">${t.chemsGroupSpecial} (${withSpecial.length})</div>
+    <div class="chem-grid">${withSpecial.map(chemCard).join('')}</div>
+    <div class="summary-sub">${t.chemsGroupOther} (${withoutSpecial.length})</div>
+    <div class="chem-grid">${withoutSpecial.map(chemCard).join('')}</div>
+  `;
+}
+
 function renderLegendaryPanel(){
   const t = T();
   document.getElementById('txt-h-legendary').textContent = t.hLegendary;
@@ -3645,7 +3916,7 @@ function renderCharStatePanel(){
 function renderMainTabs(){
   const t = T();
   const tabLabels = {
-    stat: t.tabStat, mutations: t.tabMutations, weapon: t.tabWeapon, armor: t.tabArmor,
+    stat: t.tabStat, mutations: t.tabMutations, chems: t.tabChems, weapon: t.tabWeapon, armor: t.tabArmor,
     perkcards: t.tabPerkCards, perks: t.tabPerks, data: t.tabData, raid: t.tabRaid
   };
   document.querySelectorAll('.sidebar-nav-item').forEach(btn=>{
@@ -3674,6 +3945,7 @@ function renderAll(){
   renderTabs();
   renderSelectedWeaponBox();
   renderMutationsPanel();
+  renderChemsPanel();
   renderLegendaryPanel();
   renderArmorPanel();
   renderWeaponLoadout();
@@ -3682,6 +3954,7 @@ function renderAll(){
   renderBuildsList();
   renderArmorSetsList();
   renderLevelProgressChart();
+  renderLevelPlanner();
   renderStatSummary();
   renderEquippedSummary();
   renderPerkCoinsCalculator();
