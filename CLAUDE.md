@@ -6,33 +6,57 @@ Todo corre en el navegador (vanilla JS, sin build step, sin backend).
 Persistencia con `localStorage`. Estética terminal Pip-Boy (verde/ámbar sobre
 negro, VT323 + JetBrains Mono, scanlines CSS). Bilingüe ES/EN.
 
-## Navegación (estilo Pip-Boy real, pestañas superiores)
-- **STAT**: Estado del personaje (Humano/Ghoul, HP%, etc.) → Resumen de solo
-  lectura → S.P.E.C.I.A.L. editable → Stats Derivados → Mutaciones
-- **INV**: Filtro de arma (incluye armas personalizadas) → Armadura/Power Armor
-- **DATA**: Builds guardadas → Roadmap
-- **PERKS**: Resumen de cartas equipadas (normales + legendarias), con botón
-  para desequipar cada una
-- **RAID**: Recomendador de build para Gleaming Depths (5 encuentros)
-
-La columna derecha (Perks Legendarias + grid de Perk Cards) es fija y se ve
-siempre sin importar la pestaña activa.
+## Navegación (sidebar Pip-Boy, 9 secciones — rediseño julio 2026)
+Nada queda fijo/siempre-visible: cada sección de la sidebar (`data-tab` /
+`data-tabgroup`) muestra solo su propio contenido. Orden real de la nav:
+- **STAT**: SPECIAL grid (7 columnas) → Estado del personaje → Efectos
+  activos → picker de Perks Legendarias (elegir/rankear las 6) →
+  Resistencias → planificador de orden por nivel
+- **MUTACIONES**: panel propio (antes vivía dentro de STAT)
+- **CHEMS**: referencia de los 28 consumibles extraídos del ESM (solo lectura)
+- **ARMAS**: búsqueda/filtro de arma (incluye personalizadas), mods, 4
+  estrellas legendarias, loadout de hasta 5 armas, daño/DPS, motor de reglas
+- **ARMADURA**: armadura normal + Power Armor (marco + piezas + legendario
+  por pieza), sets guardables/comparables
+- **PERK CARDS**: el grid completo de las 243 cartas normales (antes era la
+  columna fija de la derecha)
+- **PERKS**: resumen de cartas equipadas (normales + legendarias) con botón
+  para desequipar cada una, + calculadora de Perk Coins
+- **DATA**: builds guardadas, comparador, progreso de nivel, roadmap
+- **RAID**: recomendador de build para Gleaming Depths (5 encuentros)
 
 ## Archivos de este paquete (flujo de build desde julio 2026)
 - `index.html` — **ARTEFACTO GENERADO, NO EDITARLO A MANO.** Lo produce
   `python3 build.py` a partir de la plantilla + los JSON. Cualquier edición
   directa se pierde en el siguiente build.
-- `src/index.template.html` — el código real de la app (HTML/CSS/JS/STRINGS).
-  Aquí se edita todo lo que no sea datos. Las constantes de datos aparecen
-  como marcadores `/*__DATA:NOMBRE__*/`.
+- `src/index.template.html` — el "shell": `<head>`, todo el CSS (`<style>`,
+  ~1250 líneas, no partido — el orden de las reglas importa para la cascada
+  y partirlo es más riesgo que beneficio) y el HTML del `<body>`. El
+  `<script>` real NO vive acá: solo queda el marcador `/*__JS_MODULES__*/`.
+- `src/js/NN-nombre.js` — el JS de la app, partido en 10 módulos por
+  archivo/función en vez de un solo bloque de ~2800 líneas (así tocar una
+  sola pantalla no obliga a leer/cargar el resto). Se concatenan en el
+  orden exacto de `JS_MANIFEST` (`build.py`) — es un solo `<script>` de
+  siempre, no ES modules, así que el orden importa y todo cae en el mismo
+  scope global. Mapa rápido: `01-constants-strings` (marcadores DATA +
+  `STRINGS` es/en), `02-state-engine` (`state`, `migrateBuild`,
+  `getEffectiveSpecial` — **protegido, ver abajo**), `03-stat-panel`,
+  `04-weapons`, `05-rules-perks`, `06-armor`, `07-mutations-chems-legendary`,
+  `08-stat-summary-panels`, `09-raid-charstate-nav`,
+  `10-builds-and-bootstrap` (guardar/cargar + arranque de la app). Las
+  constantes de datos siguen apareciendo como marcadores
+  `/*__DATA:NOMBRE__*/` dentro de `01-constants-strings.js`.
 - `data_*.json` — **única fuente de verdad de los datos** (`PERKS`,
   `WEAPONS`, `WIKI_WEAPONS`, `PERK_CATEGORIES`, `LEGENDARY_PERKS`,
   `MUTATIONS`, `ARMOR_DATA`, `RAID_CONTENT` en
   `data_raid_gleaming_depths.json`, `LEGENDARY_WEAPON_EFFECTS`,
   `LEGENDARY_ARMOR_EFFECTS`). El mapeo constante→archivo vive en el
   `DATA_MANIFEST` de `build.py`. Ya NO existe la reinyección manual.
-- `build.py` — ensambla `index.html` y corre las validaciones (sintaxis JS +
-  IDs huérfanos) automáticamente; falla con error si algo está mal.
+- `build.py` — ensambla `index.html` (JS de `src/js/` + datos de
+  `data_*.json` inyectados en ese JS ya ensamblado, en ese orden) y corre
+  las validaciones (sintaxis JS + IDs huérfanos) automáticamente; falla con
+  error si algo está mal o si hay un archivo en `src/js/` sin entrada en
+  `JS_MANIFEST`.
 - `tests/` — suite Playwright (`bash tests/run_all.sh`). Correrla después de
   cualquier cambio; cubre las zonas protegidas y todos los features grandes.
 - `GHOUL_ONLY_PERKS` se deriva en runtime de `PERKS` (no es un archivo).

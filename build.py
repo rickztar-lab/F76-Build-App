@@ -24,7 +24,27 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 TEMPLATE = ROOT / 'src' / 'index.template.html'
+JS_DIR = ROOT / 'src' / 'js'
 OUTPUT = ROOT / 'index.html'
+
+# Orden de ensamblado del <script> único. El JS de la app vivía como un solo
+# bloque de ~2800 líneas dentro del template; se partió en estos módulos por
+# límite de función/tema para que tocar una sola pantalla no obligue a leer
+# el archivo entero. El ORDEN standard IMPORTA (son <script> concatenado, no
+# ES modules: nada de import/export, todo cae en el mismo scope global tal
+# como estaba antes) — no reordenar sin revisar dependencias entre archivos.
+JS_MANIFEST = [
+    '01-constants-strings.js',      # DATA markers, STRINGS es/en, consts chicas
+    '02-state-engine.js',           # state, migrateBuild, getEffectiveSpecial (protegido, ver CLAUDE.md)
+    '03-stat-panel.js',             # STAT: resumen, SPECIAL grid, nivel, planificador
+    '04-weapons.js',                # búsqueda de arma, mods, legendarios, loadout
+    '05-rules-perks.js',            # motor de reglas + grid de perk cards
+    '06-armor.js',                  # armadura + Power Armor + resistencias
+    '07-mutations-chems-legendary.js',  # mutaciones, chems, legendarias equipadas
+    '08-stat-summary-panels.js',    # resumen STAT, perk coins, efectos activos
+    '09-raid-charstate-nav.js',     # RAID, estado de personaje, nav principal
+    '10-builds-and-bootstrap.js',   # guardar/cargar builds y sets, comparador, arranque
+]
 
 # (nombre de constante JS, archivo fuente, subclave opcional dentro del JSON)
 # La subclave permite que archivos como data_legendary_weapon_effects.json
@@ -58,11 +78,30 @@ def js_safe_json(value) -> str:
 
 
 def build() -> str:
+    js_chunks = []
+    for filename in JS_MANIFEST:
+        path = JS_DIR / filename
+        if not path.exists():
+            sys.exit(f'ERROR: falta el módulo JS {path} listado en JS_MANIFEST')
+        js_chunks.append(path.read_text(encoding='utf-8'))
+    js_on_disk = {p.name for p in JS_DIR.glob('*.js')}
+    unlisted = js_on_disk - set(JS_MANIFEST)
+    if unlisted:
+        sys.exit(f'ERROR: archivos en {JS_DIR} sin entrada en JS_MANIFEST: {sorted(unlisted)}')
+
     html = TEMPLATE.read_text(encoding='utf-8')
+    js_marker = '/*__JS_MODULES__*/\n'
+    if js_marker not in html:
+        sys.exit(f'ERROR: falta el marcador {js_marker!r} en {TEMPLATE}')
+    # Cada módulo ya termina en salto de línea (se cortaron con slicing exacto
+    # de líneas), así que concatenar sin separador reproduce el <script>
+    # original byte a byte.
+    html = html.replace(js_marker, ''.join(js_chunks))
+
     for const_name, filename, subkey in DATA_MANIFEST:
         marker = f'/*__DATA:{const_name}__*/'
         if marker not in html:
-            sys.exit(f'ERROR: falta el marcador {marker} en {TEMPLATE}')
+            sys.exit(f'ERROR: falta el marcador {marker} en {TEMPLATE} (o en un módulo de {JS_DIR})')
         data = json.loads((ROOT / filename).read_text(encoding='utf-8'))
         if subkey:
             data = data[subkey]
